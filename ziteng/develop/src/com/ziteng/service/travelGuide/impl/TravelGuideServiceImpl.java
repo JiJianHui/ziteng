@@ -181,7 +181,11 @@ public class TravelGuideServiceImpl implements ITravelGuideService {
 					prices.put(p.getCarDegreeId().toString(), tg.getKms()*p.getPricePerKm()*ratio.getRatio()+"");
 				}
 			}else if(PRICE_WAY_ID[2]==tg.getPriceWayId()){
+				
 				for(TravelGuide2CarDegreePrice p:travelGuide2CarDegreePrices){
+					//System.out.println("degreeId:"+p.getCarDegreeId());
+					//System.out.println("p.getOriginalPrice():"+p.getOriginalPrice());
+					//System.out.println("ratio.getRatio():"+ratio.getRatio());
 					prices.put(p.getCarDegreeId().toString(),p.getOriginalPrice()*ratio.getRatio()+"");
 				}
 			}else if(PRICE_WAY_ID[3]==tg.getPriceWayId()){

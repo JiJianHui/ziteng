@@ -1,12 +1,19 @@
 package com.ziteng.web.controller.user;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Enumeration;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -34,7 +41,16 @@ public class UserController {
 	/*******************************************
 	 * 普通用户管理 *
 	 *******************************************/
-
+	
+	
+	/*在用SpringMVC整合mybatis的时候，在controller中调用service进行保存数据的操作，遇到了
+	 Failed to convert from type java.lang.String to type java.util.Date for value………这个错误 */
+	@InitBinder 
+    public void initBinder(WebDataBinder binder) {   
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");   
+        dateFormat.setLenient(true);   
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));   
+    } 
 	/**
 	 * loginOut。
 	 * 
@@ -94,7 +110,8 @@ public class UserController {
 	public String checkLogin(HttpSession session) {
 		Result result = new Result();
 		User user = (User) session.getAttribute(Constants.USER_INFO);
-		//if (user.getType() != Constants.COMMON_USER) return result.setErrorMsg("请用普通用户登录").toJsonString();
+		//System.out.println("user:"+user);
+		if (user.getType() != Constants.COMMON_USER) return result.setErrorMsg("请用普通用户登录").toJsonString();
 		result.setSuccess(user != null);
 		result.setMsg(user != null ? "已登录" : "未登录");
 		result.putObject("user", user);
@@ -249,8 +266,6 @@ public class UserController {
 			query.setIdCard(name);
 		} else { // 4. 说明是用户登陆
 			query.setUserName(name);
-			System.out.println("UserController.java, name == " + name);
-			
 		}
 
 		// 普通用户
@@ -326,10 +341,13 @@ public class UserController {
 	@RequestMapping("/user/updateUserInfo.do")
 	@ResponseBody
 	public String updateUserInfo(HttpSession session, User user) {
+		/*
 		Result result = new Result();
-		
+		//System.out.println("start");
 		User oldUser = (User) session.getAttribute(Constants.USER_INFO);
+		
 		if (oldUser == null) {
+			System.out.println("oldUser is null");
 			result.setSuccess(false);
 			result.setMsg("用户未登录");
 			return result.toJsonString();
@@ -339,8 +357,38 @@ public class UserController {
 		result.setSuccess(flag);
 		result.setMsg(flag ? "更新用户成功" : "更新用户失败");
 		if (flag) {
-			session.setAttribute(Constants.USER_INFO, user);
+			session.setAttribute(Constants.USER_INFO, user);//这句话应不应该加注释的问题 
 		}
+		//System.out.println("flag:"+flag);
+		return result.toJsonString();
+		*/
+		
+		
+		Result result = new Result();
+		//System.out.println("start");
+		User oldUser = (User) session.getAttribute(Constants.USER_INFO);
+		
+		if (oldUser == null) {
+			System.out.println("oldUser is null");
+			result.setSuccess(false);
+			result.setMsg("用户未登录");
+			return result.toJsonString();
+		}
+		//user.setId(oldUser.getId());
+		oldUser.setSex(user.getSex());
+		oldUser.setPhoneNumber(user.getPhoneNumber());
+		oldUser.setEmail(user.getEmail());
+		oldUser.setIdCard(user.getIdCard());
+		oldUser.setBirth(user.getBirth());
+		oldUser.setAddress(user.getAddress());
+		
+		boolean flag = userService.updateUser(oldUser);
+		result.setSuccess(flag);
+		result.setMsg(flag ? "更新用户成功" : "更新用户失败");
+		if (flag) {
+			session.setAttribute(Constants.USER_INFO, oldUser);//这句话应不应该加注释的问题 
+		}
+		//System.out.println("flag:"+flag);
 		return result.toJsonString();
 	}
 

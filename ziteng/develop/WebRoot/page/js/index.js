@@ -31,9 +31,11 @@ function loadTravelGuide(){
 	
 	var url = "/ziteng/travelGuide/getAllTravelGuides.do";
 	var param = {"searchAreaId":searchAreaId};
+	$("#travelGuideId").empty();
 	$.post(url,param,function(data){
 		var json = eval('(' + data +')');
 		if(json.success){
+			
 			var guides = json.datas.travelGuides;
 			for(var i=0;i<guides.length;i++){
 				var option = '<option value="'+guides[i].id+'">'+guides[i].name+'</option>';

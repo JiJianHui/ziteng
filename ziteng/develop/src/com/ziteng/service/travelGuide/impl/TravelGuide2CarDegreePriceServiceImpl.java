@@ -64,6 +64,7 @@ public class TravelGuide2CarDegreePriceServiceImpl implements ITravelGuide2CarDe
 			Integer travelGuideId) {
 		List<CarDegree> carDegrees = carDegreeDao.selectAll();
 		carDegrees = carDegrees==null?new ArrayList<CarDegree>(0):carDegrees;
+		//System.out.println("service_travelGuideId:"+travelGuideId);
 		List<TravelGuide2CarDegreePrice> travelGuide2CarDegreePrices = travelGuide2CarDegreePriceDao.selectByTravelGuideId(travelGuideId);
 		travelGuide2CarDegreePrices=travelGuide2CarDegreePrices ==null?new ArrayList<TravelGuide2CarDegreePrice>(0) : travelGuide2CarDegreePrices;
 		

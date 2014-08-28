@@ -61,18 +61,15 @@ public class ActivityServiceImpl implements IActivityService {
 				new ArrayList<Activity>(0) 
 				: activities;
 		boolean flag = false;
-		
 		for(Activity at:activities){
 			flag =  update(at) | flag ;
 		}
-		
 		if(flag){
 			activities = activityDao.selectEntityList(query);
 			activities = activities == null ? 
 					new ArrayList<Activity>(0) 
 					: activities;
 		}
-		
 		return activities;
 	}
 
@@ -86,7 +83,7 @@ public class ActivityServiceImpl implements IActivityService {
 		Date date = new Date();
 		Date startDate = activity.getStartTime();
 		Date endDate = activity.getEndTime();
-
+		
 		if(date.after(endDate) && activity.getStatus()!=Activity.S_END){
 			activity.setStatus(Activity.S_END);
 			activityDao.update(activity);
@@ -98,7 +95,6 @@ public class ActivityServiceImpl implements IActivityService {
 			activityDao.update(activity);
 			return true;
 		}
-		
 		return false;
 	}
 	

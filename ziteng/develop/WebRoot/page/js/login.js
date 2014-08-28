@@ -31,9 +31,21 @@ $(document).ready(function() {
 			$('#div_login').fadeOut(100);
 		}
 	});
-	
+	/*
 	$("#rtcr_login").click(function() {
 		var loginDis	 = $("#div_login").css('display');
+		alert("loginDis:"+loginDis);
+		if(loginDis == 'block') {
+			$("#div_login").fadeOut(100);
+		} else {
+			$("#div_login").css('left',$(this).offset().left-100+'px');
+			$("#div_login").css('top',$(this).offset().top+30+'px');
+			$("#div_login").fadeIn(100);
+		}
+	});*/
+	$("#bn_login").click(function() {
+		var loginDis	 = $("#div_login").css('display');
+		//alert("loginDis:"+loginDis);
 		if(loginDis == 'block') {
 			$("#div_login").fadeOut(100);
 		} else {
@@ -100,7 +112,8 @@ $(document).ready(function() {
 				function(data) {
 					var json = eval('('+data+')');
 					if (json.success) {
-						window.location.reload();
+						//window.location.reload();
+						window.location.href="/ziteng/page/home.html";
 					}
 				}
 			);
