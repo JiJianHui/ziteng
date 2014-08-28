@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=9" />
+
+<link rel="stylesheet" type="text/css" href="public/css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="public/css/home.css">
+<link rel="stylesheet" type="text/css" href="css/global.css" />
+<link rel="stylesheet" type="text/css" href="public/css/MyReocar.css">
+
+<script language="javascript" type="text/javascript" src="public/javascript/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="public/javascript/jquery.easing.1.3.js"></script>
+<script language="javascript" type="text/javascript" src="public/javascript/bootstrap/bootstrap.js"></script>
+<script src="js/public.js"></script>
+<script src="js/login.js"></script>
+</head>
+
+<body>
+<!--头部-->
+	<div class="header">
+	<div class="reo_header">
+	    <div class="top">
+	    <div class="c" id="statusBar"> <!-- 用于登录栏 -->
+	    </div>
+	  </div>
+	  <div id="div_login" style="display:none" class="div_login">
+	  	<ul class="blue_line">
+		</ul>
+		<form id="headLogin" onsubmit="return false">
+			<ul class="unstyled" style="margin-top: 15px; margin-top: 20px;">
+				<li style="line-height: 35px;">账号：<input id="login_account" type="text"
+					name="head_account" data-check-sta='Y' data-check-type='isname'
+					msgVal='手机/邮箱/用户名' style="width: 65%; color: #CCC" value="手机/邮箱/用户名" />
+				</li>
+				<li style="line-height: 35px;">密码：<input type="password"
+					msgVal='密码' id="headpassword" name="head_password"
+					style="width: 65%; margin-top: 0px; color: #000;" />
+				</li>
+			</ul>
+			<ul class="inline"
+				style="height: 30px; line-height: 30px; margin-top: 3px;">
+				<li id="head-login-errormsg"
+					style="width: 150px; text-align: left; margin-left: 0px; padding-left: 0px;"
+					class="text-error"></li>
+				<li style="width: 60px; text-align: right;"><a target="_blank"
+					href="getpassword.html">忘记密码</a></li>
+			</ul>
+			<ul style="margin-top: 5px;">
+				<li><input type="submit" value="立即登录"
+					style="width: 200px; height: 30px; margin: 0 0 0 40px;"
+					id="head_login" class="btn btn-primary" /></li>
+			</ul>
+		</form>
+	  </div>
+	</div>
+	
+	<div id="nav_header">
+	  <ul>
+	    <li class="titlewz">
+	        <ol olnum="0">
+	        		<img src="public/images/headLogo.png" style="margin-right:3px; margin-bottom:2px;" />
+	        		<a style="color:#FC3;" href="index.html">包车路线攻略</a>
+	        	</ol>
+			<ol olnum="1"><a href="gonglue.html">包车</a></ol>
+			<ol olnum="2"><a href="activity.html">活动</a></ol>
+			<ol olnum="3"><a href="reservation.html">住宿预定</a></ol>
+			<ol olnum="4"><a href="carsharing.html">拼车留言</a></ol>
+			<ol olnum="5"><a href="aboutus.html">关于紫藤车队</a></ol>
+			<ol olnum="6"><a href="bbs.html">BBS</a></ol>
+		</li>
+	  </ul>
+	  <ul>
+	    <span id="blueline" class="testline" style="margin-left:17px"></span>
+	  </ul>
+	</div>
+	
+	<div id="page_loading" style="display:none;background:#000;display:block;position:absolute;top:0;left:0;z-index:10000;opacity:0.1;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=10);"></div>
+	<img src="public/images/loading.gif?1" style="display:none;width:32px; height:32px; z-index:11000; position:absolute;border:0;" id="page_loadimg" />
+</div>
+<!--头部end --> 
+<!-- 中间部分start-->
+<div class="container" style="margin-top: 20px;">
+    <!-- 右边start-->
+       <h2> 租车入门须知 </h2>
+      <div style="border-top:1px solid #b2b2b2;margin-top:10px;height:1px;"> </div>
+      <div id="neirong" style="margin-top:10px;padding-left:20px;color: #666666;"><p style="padding-bottom: 0px; text-transform: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 0px; -webkit-text-stroke-width: 0px"><b class="te_help_main_r_b01" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; color: rgb(5,124,195); font-size: 12px; padding-top: 0px">1、租车手续</b></p>
+<div class="my" style="padding-bottom: 5px; text-transform: none; list-style-type: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 5px; -webkit-text-stroke-width: 0px">
+<p style="padding-bottom: 0px; text-indent: 2em; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; font-size: 12px; padding-top: 0px">在紫藤租用车辆，只需凭本人两证一卡，即身份证、驾驶证、有足够额度的信用卡（2000元以上）即可办理，手续简便快捷。<a href="/help_centers/9" style="padding-bottom: 0px; margin: 0px 0px 0px 10px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; color: rgb(5,124,195); font-size: 12px; cursor: pointer; text-decoration: none; padding-top: 0px">了解更多</a></p>
+</div>
+<p style="padding-bottom: 0px; text-transform: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 0px; -webkit-text-stroke-width: 0px"><b class="te_help_main_r_b01" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; color: rgb(5,124,195); font-size: 12px; padding-top: 0px">2、关于收费</b></p>
+<div class="my" style="padding-bottom: 5px; text-transform: none; list-style-type: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 5px; -webkit-text-stroke-width: 0px">
+<p style="padding-bottom: 0px; text-indent: 2em; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; font-size: 12px; padding-top: 0px">行业内的&ldquo;0租金！（好便宜！）但还要加保险费、手续费&hellip;&hellip;&rdquo;的收费模式让您困扰么？</p>
+<p style="padding-bottom: 0px; text-indent: 2em; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; font-size: 12px; padding-top: 0px">在紫藤，最透明的一口价承诺，绝无隐形消费，给您最清楚、最清爽的价格。<a href="/help_centers/3" style="padding-bottom: 0px; margin: 0px 0px 0px 10px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; color: rgb(5,124,195); font-size: 12px; cursor: pointer; text-decoration: none; padding-top: 0px">了解更多</a></p>
+</div>
+<p style="padding-bottom: 0px; text-transform: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 0px; -webkit-text-stroke-width: 0px"><b class="te_help_main_r_b01" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; color: rgb(5,124,195); font-size: 12px; padding-top: 0px">3、紫藤有些什么车型？</b></p>
+<div class="my" style="padding-bottom: 5px; text-transform: none; list-style-type: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 5px; -webkit-text-stroke-width: 0px">
+<p style="padding-bottom: 0px; text-indent: 2em; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; font-size: 12px; padding-top: 0px">为了给您提供更经济的价格，紫藤精选车型，目前提供适合商务用途的别克GL8（7座自动挡商务车），以及家庭、商务均适用的别克凯越和省油的尼桑阳光（5座自动常见问题-服务规则-第3题挡小轿车）。</p>
+</div>
+<p style="padding-bottom: 0px; text-transform: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 0px; -webkit-text-stroke-width: 0px"><b class="te_help_main_r_b01" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; color: rgb(5,124,195); font-size: 12px; padding-top: 0px">4、如何注册会员？</b></p>
+<div class="my" style="padding-bottom: 5px; text-transform: none; list-style-type: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 5px; -webkit-text-stroke-width: 0px">
+<p style="padding-bottom: 0px; text-indent: 2em; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; font-size: 12px; padding-top: 0px">您可以通过官网、客服热线400-777-0888<span style="text-indent: 2em; ">、门店或其他销售合作渠道进行注册，需提供以下资料：姓名、有效身份证件类型及号码、手机号码、电子邮箱等</span>&nbsp;<a href="/help_centers/3#005" style="text-indent: 2em; padding-bottom: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 10px; padding-left: 0px; padding-right: 0px; color: rgb(5, 124, 195); cursor: pointer; text-decoration: none; padding-top: 0px; ">了解更多证件类型</a></p>
+</div>
+<p style="padding-bottom: 0px; text-transform: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 0px; -webkit-text-stroke-width: 0px"><b class="te_help_main_r_b01" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; color: rgb(5,124,195); font-size: 12px; padding-top: 0px">5、如何预订并保留车辆？</b></p>
+<div class="my" style="padding-bottom: 5px; text-transform: none; list-style-type: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 5px; -webkit-text-stroke-width: 0px">
+<p style="padding-bottom: 0px; text-indent: 2em; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; font-size: 12px; padding-top: 0px">您可以通过紫藤官网、紫藤官方微信、客服热线400-777-0888、门店进行预订。</p>
+<p style="padding-bottom: 0px; text-indent: 2em; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; font-size: 12px; padding-top: 0px">紫藤为已支付的订单保留车辆。</p>
+<p style="padding-bottom: 0px; text-indent: 2em; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; font-size: 12px; padding-top: 0px">未支付的订单，如遇车态紧张，有其他客户预订并提前预付时，您的订单将被取消；为保证您的用车，建议您提前预付</p>
+</div>
+<p style="padding-bottom: 0px; text-transform: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 0px; -webkit-text-stroke-width: 0px"><b class="te_help_main_r_b01" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; color: rgb(5,124,195); font-size: 12px; padding-top: 0px">6、事故/保险的处理</b></p>
+<div class="my" style="padding-bottom: 5px; text-transform: none; list-style-type: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 5px; -webkit-text-stroke-width: 0px">
+<p style="padding-bottom: 0px; text-indent: 2em; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; font-size: 12px; padding-top: 0px">&mdash;&mdash;如在用车期间不慎发生事故，请您先保证人身安全，然后立即致电紫藤客服热线400-777-0888，根据事故的程度和指引报110（涉及人伤）、报警122、报保险（记得一定要报保险哦）。<a href="/help_centers/11#001" style="padding-bottom: 0px; margin: 0px 0px 0px 10px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; color: rgb(5,124,195); font-size: 12px; cursor: pointer; text-decoration: none; padding-top: 0px">了解更多</a></p>
+<p style="padding-bottom: 0px; text-indent: 2em; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; font-size: 12px; padding-top: 0px">&mdash;&mdash;车辆在保险公司查勘定损后进行维修；您需要先行垫付费用，并收集、提交完整的索赔所需资料。保险公司理赔后，余额将退回给您（扣除您须承担的费用后）。<a href="/help_centers/11#002" style="padding-bottom: 0px; margin: 0px 0px 0px 10px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; color: rgb(5,124,195); font-size: 12px; cursor: pointer; text-decoration: none; padding-top: 0px">了解更多</a></p>
+</div>
+<p style="padding-bottom: 0px; text-transform: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 0px; -webkit-text-stroke-width: 0px"><b class="te_help_main_r_b01" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; color: rgb(5,124,195); font-size: 12px; padding-top: 0px">7、违章怎么办？</b></p>
+<div class="my" style="padding-bottom: 5px; text-transform: none; list-style-type: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 5px; -webkit-text-stroke-width: 0px">
+<p style="padding-bottom: 0px; text-indent: 2em; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; font-size: 12px; padding-top: 0px">根据国家相关法规要求，您需要自行办理违章。</p>
+<p style="padding-bottom: 0px; text-indent: 2em; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; font-size: 12px; padding-top: 0px">如您租用车辆期间发生违章，紫藤将收取30元/订单的服务费（在还车前全部完成办理的可减免），并请您在还车后15天内完成办理。逾期将收取100元/天的延时费。（违章信息及是否完成办理，以交管局的官方网站公布为准）</p>
+</div>
+<br /></div>    </div>
+    <!-- 右边end--> 
+<!-- 中间部分end--> 
+<!-- footer start-->
+	<div class="footer">
+		<div class="nav_footer">
+	  		<div>
+	    		<ul class="inline">
+	      		<li><a  href="/ziteng/page/home.html">首　　页</a></li>
+	      		<li><a  href="#">服务网点</a></li>
+	      		<li><a  href="#">帮助中心</a></li>
+	      		<li><a  href="#">关于我们</a></li>
+	        </ul>
+	  		</div>
+		</div>
+		<div class="container">
+	  		<div>
+	    		<ul class="unstyled">
+	      		<li>本网站所有权归紫藤（青岛）租车有限公司所有</li>
+	    		</ul>
+	    		<ul class="unstyled">
+	      		<li>Copyright @2014 www.zitengtravel.com All Rights Reserved</li>
+	    		</ul>
+	  		</div>
+		</div>
+	</div>
+	
+	<!-- footer end -->
+
+</body>
+</html>

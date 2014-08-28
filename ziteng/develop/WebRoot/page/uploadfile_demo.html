@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="public/javascript/jquery.js"></script> 
+        <script type="text/javascript" src="js/ajaxfileupload.js"></script>
+    </head>
+<script>
+function uploadFile(){
+	var fileName = $("#fileToUpload").val();
+	
+	if(fileName == null || fileName == undefined || fileName=="")
+	{
+		alert("请选择上传文件");
+		return false;
+	}
+	
+	if(!/\.(gif|jpg|jpeg|png|GIF|JPG|PNG)$/.test(fileName))
+    {
+      alert("图片类型必须是.gif,jpeg,jpg,png中的一种")
+      return false;
+    }
+	
+	 $.ajaxFileUpload({
+	        url:'/ziteng/v/tools/uploadImage.do',//处理图片脚本
+	        type: 'post',
+	        secureuri :false,
+	        fileElementId :'fileToUpload',	//注意-1：file控件id，改控件的name必须为file
+	        dataType : 'json',
+	        data:{'type':'activity'}, 		//注意-2：type的取值为 activity | guide | hotel | user 
+	        success : function (datas, status){
+	            var json = datas;			//注意-3： datas本身就是json对象。
+	            if(json.success){
+	            	var uploadFilePath = json.datas.filePath;
+	            	alert(uploadFilePath);
+	            }
+	            alert(json.msg);
+	        },
+	        error: function(datas, status, e){
+	            alert(e);
+	        }
+	}); 
+	 return false;
+}
+</script>
+    <body>
+        <input id="fileToUpload" type="file" size="20" name="file" class="input">
+        <button id="buttonUpload" onclick="uploadFile();">上传</button>
+    </body>
+</html>

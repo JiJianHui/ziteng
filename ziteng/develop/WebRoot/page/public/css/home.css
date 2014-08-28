@@ -1,0 +1,390 @@
+/* CSS Document */
+
+ body {
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	font-family:'Microsoft YaHei', 'tahoma', 'Simsun', 'Arial Unicode MS', 'Mingliu', 'Arial', 'Helvetica';
+	color: #666;
+	margin-left: 11px;
+	padding-top: 30px;
+	padding-bottom: 40px;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+	margin:0;
+	padding:0;
+}
+hr {
+	height:1px;
+	border-color:#B2B2B2;
+	background-color:#B2B2B2
+}
+.container-narrow {
+	margin: 0 auto;
+	max-width: 700px;
+}
+.container-narrow > hr {
+	margin: 30px 0;
+}
+.jumbotron {
+	margin: 60px 0;
+	text-align: center;
+}
+.jumbotron h1 {
+	font-size: 72px;
+	line-height: 1;
+}
+.jumbotron .btn {
+	font-size: 21px;
+	padding: 14px 24px;
+}
+.marketing {
+	margin: 60px 0;
+}
+.marketing p + h4 {
+	margin-top: 28px;
+}
+.masthead-top {
+	padding-top: 50px;
+}
+.foot friendshipdiv {
+	text-align: left;
+}
+.foot {
+	text-align: center;
+}
+.xiangqing {
+	border:2px solid #CCC;
+	width:140px;
+	height:35px;
+	line-height:35px;
+	color:#0064C8;
+	font-size:23px;
+	background-color:#FFF;
+	filter:alpha(Opacity=95);
+	-moz-opacity:0.95;
+	opacity: 0.95;
+	z-index:20;
+	position: absolute;
+	top:82%;
+	right:8%;
+}
+.gonggao {
+	float: left;
+}
+.gonggao ul ll {
+	width: 210px;
+	line-height:23px;
+}
+#testnav {
+	height: 105px;
+	width: 100%;
+}
+.testmenu {
+	height:100px;
+	width: 60%;
+	padding-top: 0px;
+	float: left;
+}
+.testbox {
+	height:96px;
+}
+.testbox div {
+	float: left;
+	width: 110px;
+	height: 30px;
+	text-align: center;
+	padding-top: 58px;
+}
+.testbox a {
+	color: #000;
+	text-decoration: none;
+	font: 700 16px/1 "微软雅黑";
+}
+.testbox a:hover {
+	color: #FC0;
+	text-decoration: underline;
+}
+.headH {
+	height:4px;
+	background-color:#FC0;
+	width:100%;
+	margin-top:105px;
+	margin-top:-9px;
+}
+.m {
+	color: #FC0;
+}
+.n {
+	color: #000;
+}
+.testline-box {
+	width: 100%;
+}
+.testline {
+	display: block;
+	height: 4px;
+	width: 110px;
+	background: #03C;
+	background-image:url(../../public/images/heng.png);
+	background-repeat: repeat-x;
+}
+.testmenu1 {
+	text-align:left;
+	height:96px;
+	width: 40%;
+	padding-top: 0px;
+	margin: auto;
+	float: left;
+}
+.testmenuimg {
+	width: 100%;
+	margin: auto;
+}
+.testline-box1 {
+	width: 100%;
+	background: #FC0;
+}
+.testline1 {
+	display: block;
+	height: 4px;
+	width: 80px;
+	background: #FC0;
+}
+<!--
+选择城市车型--! > .xuanche {
+ width: 200px;
+ height: 200px;
+ border: 1px solid red;
+ margin-top: 10px;
+ margin-left: 10px;
+ position: fixed;
+ _position: absolute;
+ _bottom: auto;
+ _top: expression(eval(document.documentElement.scrollTop));
+}
+.xuancheDiv {
+	position:absolute;
+	margin-left: 0px;
+	z-index: 20;
+	margin-top: -1020px;
+	margin-top: -1020px!important;
+	margin-top: -1020px\9\0;
+	filter:alpha(Opacity=99);
+	-moz-opacity:0.99;
+	opacity: 0.99;
+	z-index:20;
+}
+.zuchetitle {
+	width:200px;
+	height:40px;
+	background-color:#00C;
+	color:#FFF;
+	margin:10px !important;
+	text-align:center;
+	line-height:40px;
+	font-weight:bold;
+	font-size:23px;
+	background-color:#000;
+	filter:alpha(Opacity=100);
+	-moz-opacity:1;
+	opacity: 1;
+	z-index:20;
+}
+.chengshi {
+	width:200px;
+	height:63px;
+	background-color:#FFF;
+	margin:10px;
+ *margin-right:0px;
+ _top: expression(eval(document.documentElement.scrollTop));
+	filter:alpha(Opacity=80);
+	-moz-opacity:0.8;
+	opacity: 0.8;
+	z-index:100;
+}
+.chengshi p {
+	margin-left:10px;
+}
+.chengshi p span {
+	margin-left:36px;
+}
+.chengshi p span a {
+	color:#0C4BA2;
+}
+.xuancehtable {
+	margin:30px;
+}
+.xuancehtable tr td {
+	border:0;
+}
+.boxshow {
+	float:left;
+	display: none;
+	background-color: #FFF;
+	width:680px;
+	height:280px;
+	border: 1px solid #FFF;
+	font-size: 12px;
+	color: #000;
+	z-index: 1;
+	filter:alpha(Opacity=80);
+	-moz-opacity:0.8;
+	opacity: 0.8;
+	z-index:20;
+	margin-left:220px;
+	margin-top:60px;
+ *margin-left:0px;
+}
+.reo_header * {
+	border: medium none;
+	font-family:"微软雅黑";
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, "微软雅黑";
+	font-size: 13px;
+	list-style: none outside none;
+	margin: 0;
+	padding: 0;
+}
+.reo_header .top {
+	height: 28px;
+	line-height: 28px;
+}
+.reo_header ul {
+	list-style: decimal inside none;
+	margin: 0 auto;
+	padding: 0;
+}
+.reo_header ul li {
+	list-style: none outside none;
+}
+.reo_header .top .c, .reo_header .nav {
+	font-size: 13px;
+	margin: 0 auto 0 auto;
+	width: 960px;
+}
+.reo_header .top .c .l {
+	color: #666666;
+	display: inline-block;
+	float: left;
+	padding-left: 0px;
+}
+.reo_header .top .c .r {
+	display: inline-block;
+	float: right;
+}
+.reo_header .top .c .r ul li {
+	border-right: 1px solid #CCCCCC;
+	float: left;
+}
+.reo_header .top .c .r ul li a {
+	display: block;
+}
+.rtcr_Q a {
+	padding-right: 25px;
+}
+.rtcr_cent a, .rtct_fb a, .rtcr_my a, .rtcr_mm a, .rtcr_wh a, .rtcr_phone a {
+	color: #666666;
+	cursor: pointer;
+	padding-left: 35px;
+	padding-right: 15px;
+	text-decoration: none;
+}
+.rtcr_login a {
+	color: #333;
+	cursor: pointer;
+	padding-left: 35px;
+	padding-right: 15px;
+	text-decoration: none;
+}
+.rtcr_login {
+	height:28px;
+	line-height:28px;
+	background: url("../../public/images/dengru.png") no-repeat scroll 13px 3px #A8A8A8;
+
+}
+.ic-user{
+	background-image: url("../../public/images/bootstrap/glyphicons-halflings.png");
+	background-position: -168px 0px;
+	background-repeat: no-repeat;
+	vertical-align: text-left;
+	width:14px;
+	height:14px;
+}
+.rtcr_cent {
+	height:28px;
+	line-height:28px;
+	background: url("../../public/images/zhuce1.png") no-repeat scroll 13px 4px;
+}
+.rtct_fb {
+	height:28px;
+	line-height:28px;
+	background: url("../../public/images/rtcr_fb.png") no-repeat scroll 15px 10px transparent;
+}
+.rtcr_my {
+	height:28px;
+	line-height:28px;
+	background: url("../../public/images/te_i_od.png") no-repeat scroll 15px 7px transparent;
+}
+.rtcr_wh {
+	height:28px;
+	line-height:28px;
+	background: url("../../public/images/wh.png") no-repeat scroll 15px 7px transparent;
+}
+.rtcr_phone {
+	height:28px;
+	line-height:28px;
+	background: url("../../public/images/phone.png") no-repeat scroll 15px 6px transparent;
+}
+.rtcr_mm {
+	height:28px;
+	line-height:28px;
+	background: url("../../public/images/te_i_h.png") no-repeat scroll 15px 10px transparent;
+}
+.reo_header .div_login {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 1px solid #CECAC8;
+	height: 200px;
+	position:absolute;
+	text-align: center;
+	width: 290px;
+	z-index: 1100;
+	border-radius: 5px;
+	filter:alpha(Opacity=97);
+	-moz-opacity:0.97;
+	opacity: 0.97;
+}
+.reo_header .div_login .blue_line {
+	background: none repeat scroll 0 0 #FC0;
+	height: 5px;
+	overflow: hidden;
+	width: 290px;
+}
+.reo_header .div_login .c {
+	clear: both;
+	height: 150px;
+	margin-top: 25px;
+	overflow: hidden;
+	padding: 0;
+	text-align: center;
+	width: 290px;
+}
+.activeblues {
+	color:#FFF;
+	padding:3px;
+	background-color:#00F;
+}
+.navasd li:hover {
+	background-color:#FC0;
+}
+.tooltip-inner {
+	width:310px;
+	max-width:310px;
+}
+.m {
+	background:url("../../public/images/headLogo.png") no-repeat 1% 80%;
+}
+.m a {
+	color:#FC3;
+}
+.n {
+}

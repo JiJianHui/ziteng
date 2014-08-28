@@ -1,0 +1,126 @@
+#carousel {
+	MARGIN: 0px auto 10px; WIDTH: 672px; HEIGHT: 102px; OVERFLOW: hidden
+}
+#carousel_btn_lastgroup {
+	TEXT-INDENT: -999px; MARGIN: 14px 14px 14px 15px; WIDTH: 27px; DISPLAY: inline; FLOAT: left; HEIGHT: 74px; OVERFLOW: hidden
+}
+#carousel_btn_nextgroup {
+	TEXT-INDENT: -999px; MARGIN: 14px 14px 14px 15px; WIDTH: 27px; DISPLAY: inline; FLOAT: left; HEIGHT: 74px; OVERFLOW: hidden
+}
+#carousel_btn_lastgroup A:link {
+	WIDTH: 27px; DISPLAY: block; BACKGROUND: url(../image/button.gif) no-repeat 0px 0px; HEIGHT: 74px; OVERFLOW: hidden
+}
+#carousel_btn_lastgroup A:visited {
+	WIDTH: 27px; DISPLAY: block; BACKGROUND: url(../image/button.gif) no-repeat 0px 0px; HEIGHT: 74px; OVERFLOW: hidden
+}
+#carousel_btn_lastgroup A:hover {
+	WIDTH: 27px; DISPLAY: block; BACKGROUND: url(../image/button.gif) no-repeat 0px 0px; HEIGHT: 74px; OVERFLOW: hidden
+}
+#carousel_btn_lastgroup A.dis:link {
+	BACKGROUND-POSITION: 0px -148px
+}
+#carousel_btn_lastgroup A.dis:visited {
+	BACKGROUND-POSITION: 0px -148px
+}
+#carousel_btn_lastgroup A.dis:hover {
+	BACKGROUND-POSITION: 0px -148px
+}
+#carousel_btn_nextgroup {
+	MARGIN: 14px 15px 14px 14px; FLOAT: right
+}
+#carousel_btn_nextgroup A:link {
+	WIDTH: 27px; DISPLAY: block; BACKGROUND: url(../image/button.gif) no-repeat 0px -74px; HEIGHT: 74px; OVERFLOW: hidden
+}
+#carousel_btn_nextgroup A:visited {
+	WIDTH: 27px; DISPLAY: block; BACKGROUND: url(../image/button.gif) no-repeat 0px -74px; HEIGHT: 74px; OVERFLOW: hidden
+}
+#carousel_btn_nextgroup A:hover {
+	WIDTH: 27px; DISPLAY: block; BACKGROUND: url(../image/button.gif) no-repeat 0px -74px; HEIGHT: 74px; OVERFLOW: hidden
+}
+#carousel_btn_nextgroup A.dis:link {
+	BACKGROUND-POSITION: 0px -222px
+}
+#carousel_btn_nextgroup A.dis:visited {
+	BACKGROUND-POSITION: 0px -222px
+}
+#carousel_btn_nextgroup A.dis:hover {
+	BACKGROUND-POSITION: 0px -222px
+}
+#carousel_container {
+	Z-INDEX: 2; POSITION: relative; WIDTH: 560px; FLOAT: left; HEIGHT: 102px; OVERFLOW: auto
+}
+#carousel_container UL {
+	Z-INDEX: 1; POSITION: absolute; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 560px; PADDING-RIGHT: 0px; HEIGHT: 102px; OVERFLOW: hidden; TOP: 0px; PADDING-TOP: 0px; LEFT: 0px
+}
+#carousel_container LI {
+	WIDTH: 112px; DISPLAY: inline; FLOAT: left; HEIGHT: 102px
+}
+#carousel_container LI A:link IMG {
+	BORDER-BOTTOM: #999 1px solid; BORDER-LEFT: #999 1px solid; PADDING-BOTTOM: 10px; MARGIN: 0px 5px; PADDING-LEFT: 10px; WIDTH: 80px; PADDING-RIGHT: 10px; DISPLAY: inline; FLOAT: left; HEIGHT: 80px; BORDER-TOP: #999 1px solid; BORDER-RIGHT: #999 1px solid; PADDING-TOP: 10px
+}
+#carousel_container LI A:visited IMG {
+	BORDER-BOTTOM: #999 1px solid; BORDER-LEFT: #999 1px solid; PADDING-BOTTOM: 10px; MARGIN: 0px 5px; PADDING-LEFT: 10px; WIDTH: 80px; PADDING-RIGHT: 10px; DISPLAY: inline; FLOAT: left; HEIGHT: 80px; BORDER-TOP: #999 1px solid; BORDER-RIGHT: #999 1px solid; PADDING-TOP: 10px
+}
+#carousel_container LI A:hover IMG {
+	BORDER-BOTTOM: #999 1px solid; BORDER-LEFT: #999 1px solid; PADDING-BOTTOM: 10px; MARGIN: 0px 5px; PADDING-LEFT: 10px; WIDTH: 80px; PADDING-RIGHT: 10px; DISPLAY: inline; FLOAT: left; HEIGHT: 80px; BORDER-TOP: #999 1px solid; BORDER-RIGHT: #999 1px solid; PADDING-TOP: 10px
+}
+#carousel_container LI A.current:link IMG {
+	BORDER-BOTTOM: #369 1px solid; FILTER: alpha(opacity=50); BORDER-LEFT: #369 1px solid; BORDER-TOP: #369 1px solid; BORDER-RIGHT: #369 1px solid; -moz-opacity: .5; opacity: .5
+}
+#carousel_container LI A.current:visited IMG {
+	BORDER-BOTTOM: #369 1px solid; FILTER: alpha(opacity=50); BORDER-LEFT: #369 1px solid; BORDER-TOP: #369 1px solid; BORDER-RIGHT: #369 1px solid; -moz-opacity: .5; opacity: .5
+}
+#carousel_container LI A.current:hover IMG {
+	BORDER-BOTTOM: #369 1px solid; FILTER: alpha(opacity=50); BORDER-LEFT: #369 1px solid; BORDER-TOP: #369 1px solid; BORDER-RIGHT: #369 1px solid; -moz-opacity: .5; opacity: .5
+}
+#carousel_photo_container {
+	Z-INDEX: 1; POSITION: relative; TEXT-ALIGN: center; MARGIN: 20px auto 0px; WIDTH: 700px; HEIGHT: 390px; CLEAR: both; OVERFLOW: hidden
+}
+#script P#carousel_photo_intro {
+	TEXT-ALIGN: center; LINE-HEIGHT: 150%; MARGIN: 0px auto 20px; WIDTH: 600px; DISPLAY: none; FONT-SIZE: 12px; OVERFLOW: hidden
+}
+#carousel_photo_shardow {
+	Z-INDEX: 4; POSITION: absolute; FILTER: alpha(opacity=50); BACKGROUND-COLOR: #000; WIDTH: 100%; HEIGHT: 100%; TOP: 0px; LEFT: 0px; -moz-opacity: .5; opacity: .5
+}
+IMG#carousel_photo_loading {
+	Z-INDEX: 5; POSITION: absolute; MARGIN: -50px 0px 0px -50px; WIDTH: 100px; HEIGHT: 100px; TOP: 50%; LEFT: 50%
+}
+#HotelImages A.previous:link {
+	Z-INDEX: 3; POSITION: absolute; FILTER: alpha(opacity=0); BACKGROUND-COLOR: #fff; TEXT-INDENT: -999px; WIDTH: 50%; HEIGHT: 100%; OVERFLOW: hidden; TOP: 0px; CURSOR: pointer; TEXT-DECORATION: none; LEFT: 0px; -moz-opacity: .0; opacity: .0
+}
+A.previous:visited {
+	Z-INDEX: 3; POSITION: absolute; FILTER: alpha(opacity=0); BACKGROUND-COLOR: #fff; TEXT-INDENT: -999px; WIDTH: 50%; HEIGHT: 100%; OVERFLOW: hidden; TOP: 0px; CURSOR: pointer; TEXT-DECORATION: none; LEFT: 0px; -moz-opacity: .0; opacity: .0
+}
+A.previous:hover {
+	Z-INDEX: 3; POSITION: absolute; FILTER: alpha(opacity=0); BACKGROUND-COLOR: #fff; TEXT-INDENT: -999px; WIDTH: 50%; HEIGHT: 100%; OVERFLOW: hidden; TOP: 0px; CURSOR: pointer; TEXT-DECORATION: none; LEFT: 0px; -moz-opacity: .0; opacity: .0
+}
+#HotelImages A.previous:hover {
+	FILTER: alpha(opacity=80); BACKGROUND: url(../image/last-photo.png) no-repeat 0px 50%; -moz-opacity: .8; opacity: .8
+}
+#HotelImages A.next:link {
+	Z-INDEX: 3; POSITION: absolute; FILTER: alpha(opacity=0); BACKGROUND-COLOR: #fff; TEXT-INDENT: -999px; WIDTH: 50%; HEIGHT: 100%; OVERFLOW: hidden; TOP: 0px; CURSOR: pointer; RIGHT: 0px; TEXT-DECORATION: none; -moz-opacity: .0; opacity: .0
+}
+A.next:visited {
+	Z-INDEX: 3; POSITION: absolute; FILTER: alpha(opacity=0); BACKGROUND-COLOR: #fff; TEXT-INDENT: -999px; WIDTH: 50%; HEIGHT: 100%; OVERFLOW: hidden; TOP: 0px; CURSOR: pointer; RIGHT: 0px; TEXT-DECORATION: none; -moz-opacity: .0; opacity: .0
+}
+A.next:hover {
+	Z-INDEX: 3; POSITION: absolute; FILTER: alpha(opacity=0); BACKGROUND-COLOR: #fff; TEXT-INDENT: -999px; WIDTH: 50%; HEIGHT: 100%; OVERFLOW: hidden; TOP: 0px; CURSOR: pointer; RIGHT: 0px; TEXT-DECORATION: none; -moz-opacity: .0; opacity: .0
+}
+#HotelImages A.next:hover {
+	FILTER: alpha(opacity=80); BACKGROUND: url(../image/next-photo.png) no-repeat 100% 50%; -moz-opacity: .8; opacity: .8
+}
+#HotelImages .image {
+	TEXT-ALIGN: center; HEIGHT: 30px
+}
+#HotelImages .hidden {
+	DISPLAY: none
+}
+#carousel_photo_container A {
+	OUTLINE-STYLE: none
+}
+#carousel_photo_container A:focus {
+	-moz-outline-style: none
+}
+.showpic {
+	BACKGROUND-COLOR: #fff; MARGIN: auto; WIDTH: 640px; HEIGHT: 420px
+}

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>添加/修改 攻略信息</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="keywords" content="添加/修改 攻略信息" />
+<meta name="description" content="添加/修改 攻略信息" />
+<link href="js/external/google-code-prettify/prettify.css" rel="stylesheet">
+<link href="public/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" 	rel="stylesheet">
+<link href="css/add_gonglue.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="public/css/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/global.css" />
+<link rel="stylesheet" type="text/css" href="public/css/mdd_detail_v2.css" />
+<link rel="stylesheet" type="text/css" href="public/css/header.css" />
+<link rel="stylesheet" type="text/css" href="public/css/home.css" />
+<link rel="stylesheet" type="text/css" href="css/ziteng.css" />
+
+<script src="public/javascript/jquery.js"></script>
+<script src="js/external/jquery.hotkeys.js"></script>
+<script src="public/javascript/bootstrap/bootstrap.js"></script>
+<script src="js/external/google-code-prettify/prettify.js"></script>
+<script src="js/bootstrap-wysiwyg.js"></script>
+<script src="js/admin_L.js"></script>
+<script type="text/javascript" src="js/ajaxfileupload.js"></script>
+
+</head>
+<body>
+
+<!--头部-->
+	<div class="header">
+		<div class="reo_header">
+			<div class="top">
+				<div class="c" id="statusBar">
+					<!-- 用于登录栏 -->
+				</div>
+			</div>
+		</div>
+
+		<div id="nav_header">
+			<ul>
+				<li class="titlewz">
+					<ol olnum="0">
+						<img src="public/images/headLogo.png"
+							style="margin-right: 3px; margin-bottom: 2px;" />
+						<a style="color:#FC3;" href="/ziteng/page/admin/user_manage.html">用户管理</a>
+					</ol>
+					<ol olnum="1">
+						<a href="/ziteng/page/guide_manager.html">攻略路线管理</a>
+					</ol>
+					<ol olnum="2">
+						<a href="/ziteng/page/add_gonglue.html">添加攻略</a>
+					</ol>
+					<ol olnum="3">
+						<a href="/ziteng/page/carOrder.html">车辆订单</a>
+					</ol>
+					<ol olnum="4">
+						<a href="/ziteng/page/ratio_manager.html">系数表管理</a>
+					</ol>
+					<ol olnum="5">
+						<a href="/ziteng/page/car_manager.html">车辆管理</a>
+					</ol>
+					<ol olnum="6">
+						<a href="/ziteng/page/cardegree_manager.html">车辆档次管理</a>
+					</ol>
+					<ol olnum="7">
+						<a href="/ziteng/page/area_manager.html">地区管理</a>
+					</ol>
+				</li>
+			</ul>
+			<ul>
+				<span id="blueline" class="testline" style="margin-left: 17px"></span>
+			</ul>
+		</div>
+
+		<div id="page_loading"
+			style="display: none; background: #000; display: block; position: absolute; top: 0; left: 0; z-index: 10000; opacity: 0.1; filter: progid:DXImageTransform.Microsoft.Alpha(opacity=10);"></div>
+		<img src="public/images/loading.gif?1"
+			style="display: none; width: 32px; height: 32px; z-index: 11000; position: absolute; border: 0;"
+			id="page_loadimg" />
+	</div>
+	<!--头部end -->
+	<div class="post" style="margin-left: 10%; margin-right: 10%; margin-top:20px; ">
+	<div>
+	
+  <form class="form-horizontal">
+    <fieldset>
+      <div id="legend" class="">
+        <legend class="" id="lg_add_or_modify_type">添加旅游攻略</legend>
+      </div>
+    <div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">攻略名称</label>
+          <div class="controls">
+            <input placeholder="请输入攻略名称" class="input-xlarge" type="text" id="txt_name">
+          </div>
+        </div>
+
+    <div class="control-group">
+
+          <!-- Select Basic -->
+          <label class="control-label">出发区域</label>
+          <div class="controls">
+            <select class="input-xlarge" id="sel_start_area">
+            </select>
+          </div>
+
+        </div>
+
+    <div class="control-group">
+
+          <!-- Select Basic -->
+          <label class="control-label" >到达区域</label>
+          <div class="controls">
+            <select class="input-xlarge" id="sel_end_area">
+            </select>
+          </div>
+
+        </div>
+
+    <div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">旅游天数</label>
+          <div class="controls">
+            <input placeholder="请输入整数天数" class="input-xlarge" type="text" id="txt_days">
+          </div>
+        </div>
+
+    <div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">行程公里</label>
+          <div class="controls">
+            <input placeholder="请输入整数里程" class="input-xlarge" type="text" id="txt_km">
+          </div>
+        </div>
+  <div class="control-group">
+          <!-- Text input-->
+          <label class="control-label" for="input01">淘宝链接</label>
+          <div class="controls">
+            <input placeholder="请输入淘宝链接" class="input-xlarge" type="text" id="txt_taoBaoLink">
+          </div>
+        </div>
+    <div class="control-group">
+
+          <!-- Select Basic -->
+          <label class="control-label">计价格方法</label>
+          <div class="controls">
+            <select class="input-xlarge" id="sel_price_type" onchange="change_price_type()">
+              <option value="1">按天计价</option>
+              <option value="2">按公里计价</option>
+              <option value="3">按系数计价</option>
+              <option value="4">按固定价格</option>
+            </select>
+          </div>
+
+        </div>
+
+	<div class="control-group">
+	<label class="control-label">双击设置车辆档次价格</label>
+		<div class="controls">
+		<table class="table table-striped">
+        <thead>
+          <tr id="tr_title">
+             <th>车辆档次</th> 
+             <th id="td_price_type">每天价格</th> 
+          </tr>
+        </thead>
+        <tbody id="tbody">
+           <!-- <tr>
+            <td>001</td>
+            <td>Rammohan </td>
+          </tr>  -->
+        </tbody>
+      </table>
+		</div>
+	</div>
+
+    <div class="control-group">
+          <label class="control-label">封面图片</label>
+
+          <!-- File Upload -->
+          <div class="controls">
+            <input class="input-file" id="fileInput" type="file" name="file" onchange="uploadImage();" >
+          </div>
+        </div>
+
+    </fieldset>
+  </form>
+	
+	</div>
+	<div class="hero-unit">
+			<!---
+	Please read this before copying the toolbar:
+	* One of the best things about this widget is that it does not impose any styling on you, and that it allows you 
+	* to create a custom toolbar with the options and functions that are good for your particular use. This toolbar
+	* is just an example - don't just copy it and force yourself to use the demo styling. Create your own. Read 
+	* this page to understand how to customise it:
+    * https://github.com/mindmup/bootstrap-wysiwyg/blob/master/README.md#customising-
+	--->
+			<div id="alerts"></div>
+			<div class="btn-toolbar" data-role="editor-toolbar"
+				data-target="#editor">
+				<div class="btn-group">
+					<a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i
+						class="icon-font"></i><b class="caret"></b></a>
+					<ul class="dropdown-menu">
+					</ul>
+				</div>
+				<div class="btn-group">
+					<a class="btn dropdown-toggle" data-toggle="dropdown"
+						title="Font Size"><i class="icon-text-height"></i>&nbsp;<b
+						class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
+						<li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
+						<li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+					</ul>
+				</div>
+				<div class="btn-group">
+					<a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i
+						class="icon-bold"></i></a> <a class="btn" data-edit="italic"
+						title="Italic (Ctrl/Cmd+I)"><i class="icon-italic"></i></a> <a
+						class="btn" data-edit="strikethrough" title="Strikethrough"><i
+						class="icon-strikethrough"></i></a> <a class="btn"
+						data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i
+						class="icon-underline"></i></a>
+				</div>
+				<div class="btn-group">
+					<a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i
+						class="icon-list-ul"></i></a> <a class="btn"
+						data-edit="insertorderedlist" title="Number list"><i
+						class="icon-list-ol"></i></a> <a class="btn" data-edit="outdent"
+						title="Reduce indent (Shift+Tab)"><i class="icon-indent-left"></i></a>
+					<a class="btn" data-edit="indent" title="Indent (Tab)"><i
+						class="icon-indent-right"></i></a>
+				</div>
+				<div class="btn-group">
+					<a class="btn" data-edit="justifyleft"
+						title="Align Left (Ctrl/Cmd+L)"><i class="icon-align-left"></i></a>
+					<a class="btn" data-edit="justifycenter"
+						title="Center (Ctrl/Cmd+E)"><i class="icon-align-center"></i></a>
+					<a class="btn" data-edit="justifyright"
+						title="Align Right (Ctrl/Cmd+R)"><i class="icon-align-right"></i></a>
+					<a class="btn" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i
+						class="icon-align-justify"></i></a>
+				</div>
+				<div class="btn-group">
+					<a class="btn dropdown-toggle" data-toggle="dropdown"
+						title="Hyperlink"><i class="icon-link"></i></a>
+					<div class="dropdown-menu input-append">
+						<input class="span2" placeholder="URL" type="text"
+							data-edit="createLink" />
+						<button class="btn" type="button">Add</button>
+					</div>
+					<a class="btn" data-edit="unlink" title="Remove Hyperlink"><i
+						class="icon-cut"></i></a>
+
+				</div>
+
+				<div class="btn-group">
+					<a class="btn" title="Insert picture (or just drag & drop)"
+						id="pictureBtn"><i class="icon-picture"></i></a> <input
+						type="file" data-role="magic-overlay" data-target="#pictureBtn"
+						data-edit="insertImage" />
+				</div>
+				<div class="btn-group">
+					<a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i
+						class="icon-undo"></i></a> <a class="btn" data-edit="redo"
+						title="Redo (Ctrl/Cmd+Y)"><i class="icon-repeat"></i></a>
+				</div>
+				<input type="text" data-edit="inserttext" id="voiceBtn"
+					x-webkit-speech="">
+			</div>
+
+			<div id="editor">请输入攻略详情...</div>
+		</div>
+		<div  id="div_source">
+		</div>
+		<button class="btn btn-success" onclick="add_or_modify_guide();" id="btn_add_or_modify">添加攻略</button>
+	<!-- content end! -->
+
+
+
+<!-- 对话框 -->
+<div id="myModal" class="modal hide" tabindex="-1" role="dialog-message" aria-labelledby="myModalLabel" aria-hidden="true"  style="width:250px">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">修改系数</h3>
+  </div>
+  <div class="modal-body">
+  	<label id="label_ratio"></label>
+    <input type="text" id="txt_car_degree_price">
+    <input type="text" id="txt_td_id" style="display:none;">
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+    <button class="btn btn-primary" onclick="save_car_degree_price();">保存</button>
+  </div>
+</div>
+<!-- footer start-->
+	<div class="footer">
+		<div class="nav_footer">
+	  		<div>
+	    		<ul class="inline">
+	      		<li><a  href="/ziteng/page/home.html">首　　页</a></li>
+	      		<li><a  href="#">服务网点</a></li>
+	      		<li><a  href="#">帮助中心</a></li>
+	      		<li><a  href="#">关于我们</a></li>
+	        </ul>
+	  		</div>
+		</div>
+		<div class="container">
+	  		<div>
+	    		<ul class="unstyled">
+	      		<li>本网站所有权归紫藤（青岛）租车有限公司所有</li>
+	    		</ul>
+	    		<ul class="unstyled">
+	      		<li>Copyright @2014 www.zitengtravel.com All Rights Reserved</li>
+	    		</ul>
+	  		</div>
+		</div>
+	</div>
+	
+	<!-- footer end -->
+	</div>
+</body>
+<script src="js/add_gonglue.js"></script>
+</html>

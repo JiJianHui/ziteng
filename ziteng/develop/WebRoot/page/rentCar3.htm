@@ -1,0 +1,796 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0148)file:///C:/Users/Andy/Desktop/%E7%91%9E%E5%8D%A1%E7%A7%9F%E8%BD%A6%20%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%AE%A2%20%E6%A0%B8%E5%AF%B9%E8%AE%A2%E5%8D%95.htm -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=10">
+<title>瑞卡租车 在线预订 核对订单</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<script type="text/javascript" async="" src="./rentCar3_files/conversion.js"></script><script type="text/javascript" async="" src="./rentCar3_files/conversion(1).js"></script><script language="javascript" type="text/javascript" src="./rentCar3_files/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="./rentCar3_files/jquery.easing.1.3.js"></script>
+<script language="javascript" type="text/javascript" src="./rentCar3_files/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="./rentCar3_files/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./rentCar3_files/home.css">
+<style>
+.yuding {
+	width: 295px;
+	text-align: center;
+	color: #666;
+	font-weight: bold;
+}
+.p1 {
+	font-style: italic;
+	width: 100px;
+	float: left;
+	height: 68px;
+	line-height: 68px;
+	font-size: 16px;
+}
+.p2 {
+	text-align: left;
+	width: 190px;
+	float: left;
+	font-size: 20px;
+	height: 48px;
+	line-height: 25px;
+}
+.p2 p {
+	font-size: 14px;
+}
+.p1 span {
+	font-size: 44px;
+}
+.dangqian {
+	color: #12569A;
+}
+.dangqian span {
+	color: #FC0;
+}
+#yudingUl li {
+	list-style: none;
+	float: left;
+}
+.pleft {
+	margin: 25px 0px 0px 0px;
+	height: 35px;
+	line-height: 35px;
+	font-size: 30px;
+	font-weight: bold;
+}
+.inline li {
+	vertical-align: middle;
+	margin: 10px;
+}
+.inline p {
+	margin: 20px;
+}
+.blues {
+	color: #4083C7;
+	font-weight: bold;
+}
+.liPMnull li {
+	margin: 0px;
+	padding: 0px;
+}
+#closeText {
+	color: #F00;
+	float: right;
+	cursor: pointer;
+	margin-top: 5px;
+	margin-right: 5px;
+}
+.textClick {
+	cursor: pointer;
+}
+.additionsBox {
+	width: 725px;
+	margin-left: 20px;
+}
+.paySelectBox {
+	border: #CCC solid 1px;
+	width: 693px;
+	padding: 15px;
+	margin-left: 20px;
+}
+.additionsBox li {
+	height: 40px;
+	margin: 10px 0 0 0;
+}
+.additionsBoxUlN {
+	border: 1px solid #CCC;
+	width: 723px;
+	height: 60px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+.additionsBoxUlY {
+	border: 2px solid #F90;
+	width: 721px;
+	height: 58px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+.additionsBox p {
+	padding: 0px;
+	margin: 0px;
+}
+.disBox {
+	margin: 8px 8px;
+	padding: 0px 0px 10px 20px;
+}
+.priceUl {
+	margin: 10px 0px 10px 20px;
+	list-style: none;
+	text-align: right;
+	width: 725px;
+}
+.priceUl li {
+	margin: 5px 0px 5px;
+	font-size: 14px;
+	font-weight: bold;
+}
+.priceMsg {
+	width: 100px;
+}
+.rentPrice {
+	margin-left: 10px;
+}
+.priceBox {
+	margin-top: 15px;
+	width: 725px;
+	margin-left: 20px;
+	text-align: right;
+}
+.priceBox ul {
+	float: right;
+	clear: both;
+}
+.priceBox li {
+	font-size: 16px;
+	color: #000;
+	margin: 0px;
+	padding: 0px;
+}
+#paymsg {
+	margin: 20px 0px 5px 20px;
+	font-size: 18px;
+}
+.priceVal {
+	width: 70px;
+}
+.checkbox {
+	width: 19px;
+	height: 25px;
+	padding: 0 5px 0 0;
+	background: url(/public/images/laba.png) no-repeat;
+	display: block;
+	clear: left;
+	float: left;
+}
+.checkboxImg {
+	width: 20px;
+	height: 20px;
+	margin-top: 10px;
+}
+.payStaImg {
+	cursor: pointer;
+	width: 150px;
+}
+.redBorder {
+	border: 2px solid #F00;
+}
+.msgUl li {
+	margin-top: 20px;
+	margin-bottom: 5px;
+}
+.couponUl li {
+	padding-top: 3px;
+	padding-bottom: 3px;
+	height: 28px;
+	line-height: 28px;
+	cursor: pointer;
+}
+.couponUl li img {
+	margin-right: 3px;
+}
+.errorMsg {
+	display: none;
+	margin-left: 30px;
+	color: #F00;
+}
+#serviceUl {
+	height: 30px;
+}
+.carDayPriceBox {
+	width: 100%;
+	height: auto;
+}
+.carDayPriceBox ul {
+	margin: 0 auto;
+	width: 569px;
+	height: 30px;
+}
+.carDayPriceBox li {
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	float: left;
+	border-right: 1px solid #73d6e6;
+}
+#lastLi {
+	width: 81px;
+	border: none;
+}
+#rebatePriceHtml{
+	color:#F00;
+}
+</style>
+<script language="javascript" type="text/javascript">
+
+$(function()
+{
+	var firstcarPrice,addedPrice,rentCarDay,totalValue,CouponRebatePrice,storedValue,allCarPrice,evenPrice,priceArray,couponSta;
+	firstcarPrice		=	parseInt(148.00);							//第一天的汽车价格
+	addedPrice			=	0;																//储值服务总价格
+	rentCarDay			=	2;									//租车的天数
+	totalValue			=	296;						//订单总额
+	CouponRebatePrice	=	0;																//优惠券优惠的价格
+	storedValue			=	parseInt($("#storedValue").val());								//储值优惠金额
+	allCarPrice			=	296;						//汽车总价格
+	evenPrice			=	0;																//活动优惠价格					
+	priceArray			=	new Array(148.00,148.00);	//价格数组
+	couponSta			=	1;
+	
+	function setUlStyle(ulObj,sta)
+	{
+		var staRes	=	sta	?	'Y'	:	'N';
+		
+		ulObj.find('input').prop("checked",sta);
+		ulObj.find('.checkboxImg').attr('src','/public/images/checkbox'+staRes+'.png')
+		ulObj.attr('class','inline additionsBoxUl'+staRes);
+	}
+	
+	function setPayBox()
+	{
+		var paysT	=	$(document).scrollTop()+$(window).height()/2-$("#paystaBox").height();
+		var paysL	=	document.body.clientWidth/2-$("#paystaBox").width()/2;
+		
+		$("#paystaBox").css('top',paysT);
+		$("#paystaBox").css('left',paysL);
+	}
+	
+	$("#closeText").click
+	(
+		function()
+		{
+			$(this).parents('li').first().prev().find('span').html('+');
+			$(this).parents('li').first().hide();
+		}
+	);
+	
+	$(".textClick").click
+	(
+		function()
+		{
+			if(couponSta == 1)
+			{
+				var spanVal	=	$(this).find('span').html();
+				
+				$(this).find('span').html(spanVal == '+' ? ' - ' : '+');
+				$(this).next().css('display',spanVal == '+' ? 'block' : 'none');
+			}
+		}
+	);
+	
+	function additionsUl(thisObj,sta)
+	{			
+		var maxDay	=	parseInt(thisObj.find('input').attr('maxDay'));
+		
+		setUlStyle(thisObj,sta);
+		
+		var addedDay		=	rentCarDay > maxDay ? (maxDay > 0 ? maxDay : rentCarDay) : rentCarDay;
+		
+		var thisAddedPrice	=	parseInt(thisObj.find('input').attr('price')) * addedDay;
+		
+		if(sta)
+		{
+			addedPrice	+=	thisAddedPrice;
+		}
+		else
+		{
+			addedPrice	-=	thisAddedPrice;
+		}
+				
+		changeValHtml();
+	}
+	
+	$('#additionsBox ul').click
+	(
+		function ()
+		{
+			additionsUl($(this),!$(this).find('input').is('input:checked'));
+		}
+	);
+	
+	$("#serviceSta").click
+	(
+		function ()
+		{
+			if($("#serviceSta").is('input:checked'))
+			{
+				$("#serviceUl").removeClass('redBorder');
+			}
+		}
+	);
+	
+	$('#payForm').submit(
+		function()
+		{
+			addBlackBox();
+			if(!$("#serviceSta").is('input:checked'))
+			{
+				removeBlackBox();
+				$("#noService").fadeIn('300');
+				$("#noService").css('top',($('#serviceSimg').offset().top-40)+'px');
+				$("#noService").css('left',($('#serviceSimg').offset().left-153)+'px');
+				return false;
+			}
+			
+			if($("#rPaysta").val() != 4)
+			{
+				setPayBox();
+				
+				$("#page_loadimg").remove();
+				$("#paystaBox").fadeIn(200);
+			}
+			
+			return true;
+		}
+	);
+	
+	$('.payStaImg').click(
+		function()
+		{
+			var payType	=	parseInt($(this).find('img:first').attr('staVal'));
+			$("#rPaysta").val(payType);
+			$('.errorMsg').hide();
+			
+			if(payType == 4)
+			{
+				$('#payForm').attr('target','');
+				alert('您选择了"门店支付"，未支付订单不确定保留，\n在车态紧张的情况下，订单随时可能会被自动取消!');
+			}
+			else
+			{
+				$('#payForm').attr('target','_blank');
+			}
+			
+			$('.payStaImg').find('img:first').attr('src','/public/images/radioN.gif');
+			$(this).find('img:first').attr('src','/public/images/radioY.gif');
+			$("#paySubmitName").val(payType == 4 ? '提交订单' : '立即支付');
+			$('#pay_types').val($(this).find('img:first').attr('staVal'));
+		}
+	);
+	
+	$('#additionsBox ul').hover(
+		function ()
+		{
+			$(this).attr('class','inline additionsBoxUlY');
+		},
+		function ()
+		{
+			if(!$(this).find('input').is('input:checked'))
+			{
+				$(this).attr('class','inline additionsBoxUlN');
+			}
+			
+		}
+	);
+	//提示关闭
+	$(".close").click(function(){  
+		$(this).parent().hide();  
+	  });
+	  
+	$(".close-btn").click(function(){  
+		$('#uinfo').hide();  
+	  });
+
+	function couponTpes(thisObj,sta)
+	{
+		var thisPrice	=	parseInt(thisObj.attr('price'));
+		
+		thisObj.prop("checked",sta);
+		
+		thisObj.prev().attr('src','/public/images/radio'+(sta	?	'Y'	:	'N')+'.gif')
+		
+		if(sta)
+		{
+			if(thisPrice == 0)
+			{
+				CouponRebatePrice	=	firstcarPrice;
+			}
+			else
+			{
+				CouponRebatePrice	=	thisPrice;
+			}
+		}
+		else
+		{
+			CouponRebatePrice	=	0;
+		}
+		
+		$('#uinfo').show();
+		setUinfoBox();
+		changeValHtml();
+	}
+	
+	function setUinfoBox()
+	{
+		var paysT	=	$(document).scrollTop()+$(window).height()/2-$("#uinfo").height();
+		var paysL	=	document.body.clientWidth/2-$("#uinfo").width()/2;
+		
+		$("#uinfo").css('top',paysT);
+		$("#uinfo").css('left',paysL);
+	}
+	
+	function changeValHtml()
+	{
+		totalValue	=	addedPrice + allCarPrice - CouponRebatePrice - evenPrice;
+		
+		if(totalValue < 0)
+		{
+			totalValue	=	0;
+		}
+		
+		$("#addedPriceHtml").html('￥'+addedPrice);
+		$("#CouponRebatePrice").val(CouponRebatePrice);
+		$("#rebatePriceHtml").html('￥-'+(CouponRebatePrice+evenPrice));
+		$("#totalValue").val('￥'+totalValue);
+		$("#totalValueHtml").html('￥'+totalValue);
+	}
+	
+		$('.couponUl li').click
+	(
+		function()
+		{
+			var couponArr	=	$('.couponUl li');
+			var sta			=	!$(this).find('input').is('input:checked');
+			
+			for(var i=0;i<couponArr.length;i++)
+			{
+				var inputObj	=	couponArr.eq(i).find('input');
+				
+				if(inputObj.is('input:checked') && inputObj.val() != $(this).find('input').val())
+				{
+					couponTpes(inputObj,false);
+				}
+			}
+			
+			couponTpes($(this).find('input'),sta)
+		}
+	);
+		additionsUl($('#ul7cfb259b-3f38-49f6-b595-167cf7eb3f3e'),true);
+	$("#4e249742-2e9a-4c46-8862-5e493a2ac977").trigger("click");
+	$("#9bf4d7c3-cb60-44ae-9cbd-e9f54ce4832c").trigger("click");
+	$('a[data-toggle="tooltip"]').tooltip($(this).attr('data-original-title'));
+	
+	$(window).scroll( function() {
+		if($('#paystaBox').css('display') == 'block'){setPayBox()};
+		if($('#uinfo').css('display') == 'block'){setUinfoBox()};
+	});
+	
+})
+
+</script>
+<script charset="utf-8" src="./rentCar3_files/v.js"></script><script charset="utf-8" src="./rentCar3_files/v(1).js"></script></head>
+<body>
+<script type="text/javascript">
+var youdao_conv_id = 272838; 
+</script> 
+<script type="text/javascript" src="./rentCar3_files/conv.js"></script>
+
+<script language="javascript" type="text/javascript" src="./rentCar3_files/publicfunction.js"></script>
+
+<div class="reo_header" style="background:none repeat scroll 0 0 #F1F1F1;border-bottom: 1px solid #CCCCCC;">
+    <div class="top" style="width:960px;margin:0 auto 0 auto;">
+    <div class="c">
+      <div id="login_status_info" style="cursor:pointer;width:80px; text-align:left" class="l" onclick="addfavorite()"><img src="./rentCar3_files/20130330A.png" style="float:left; margin-top:8px; margin-right:2px;">收藏瑞卡</div>
+     <div class="r">
+      </div>
+    </div>
+  </div>
+  <script language="javascript" type="text/javascript" src="./rentCar3_files/checklogin.js"></script>
+  <div id="div_login" style="display:none" class="div_login">
+    <ul class="blue_line">
+    </ul>
+    <form id="headLogin" onsubmit="return false">
+      <ul class="unstyled" style="margin-top:15px; margin-top:20px;">
+        <li style="line-height:35px;">
+          账号：<input type="text" name="head_account" data-check-sta="Y" data-check-type="isname" msgval="手机/邮箱/会员卡" style="width:65%;color:#CCC" value="手机/邮箱/会员卡">
+        </li>
+        <li style="line-height:35px;">
+          <!--<input type="text" value="密码" id="fuckpassword" msgVal='密码' style="width:75%;margin-top:10px;color:#CCC;"/>
+          <input type="password" msgVal='密码' id="headpassword" name="head_password" style="width:75%;margin-top:10px;display:none;"/>-->
+	  密码：<input type="password" msgval="密码" id="headpassword" name="head_password" style="width:65%;margin-top:0px;color:#000;">
+        </li>
+      </ul>
+      <ul class="inline" style="height:30px; line-height:30px; margin-top:3px;">
+        <li id="head-login-errormsg" style="width:150px; text-align:left; margin-left:0px; padding-left:0px;" class="text-error"></li>
+        <li style="width:60px; text-align:right;"><a target="_blank" href="http://www.ziteng.com/useraction/ForgetPassword">忘记密码</a></li>
+      </ul>
+      <ul style="margin-top:5px;">
+        <li>
+          <input type="submit" value="立即登录" style="width:200px; height:30px;margin:0 0 0 40px;" id="head_login" class="btn btn-primary">
+        </li>
+      </ul>
+    </form>
+  </div>
+</div>
+<style>
+.titlewz ol
+{
+	float:left;
+	width:110px;
+	text-align:center;
+	height:30px;
+	line-height:30px;
+	margin-top:45px;
+}
+.titlewz a
+{
+	font-size:16px;
+	color:#000;
+	line-height:30px;
+}
+.titlewz a:hover
+{
+	font-size:16px;
+	color:#FC3;;
+	line-height:30px;
+}
+
+</style>
+
+
+<!-- 中间部分start-->
+<form action="http://www.ziteng.com/orders/doOrders" target="_blank" id="payForm" method="post">
+  <div class="container" style="width:910px; padding-top:5px;">
+    <ul id="yudingUl" style="height:80px; width:100%">
+      <a style="cursor:pointer" href="http://www.ziteng.com/rentcar/selectShop">
+      <li class="yuding">
+        <p class="p1"> 第 <span> 1 </span> 步 </p>
+        <div class="p2" style="margin-top:10px;">选择门店<br>
+          <p>请选择最便捷的取车门店</p>
+        </div>
+      </li>
+      </a>
+      <li style="border-left:1px solid #f2f2f2; display:inline-block; width:1px; height:50px; padding:0px; margin-top:15px; margin-left:10px; margin-right:10px;"> </li>
+      <a style="cursor:pointer" href="http://www.ziteng.com/orders">
+      <li class="yuding">
+        <p class="p1"> 第 <span> 2 </span>步 </p>
+        <div class="p2" style="margin-top:10px;">填写订单<br>
+          <p>请留下你的真实资料</p>
+        </div>
+      </li>
+      </a>
+      <li style="border-left:1px solid #f2f2f2; display:inline-block; height:50px; width:1px; padding:0px; margin-top:15px;"> </li>
+      <li class="yuding dangqian">
+        <p class="p1"> 第 <span> 3 </span> 步
+        </p><div class="p2" style="margin-top:10px;">提交订单<br>
+          <p>核对订单信息后完成预订</p>
+        </div>
+      </li>
+    </ul>
+    <ul style="border-bottom:2px solid #CCC; height:1px; margin-top:4px; margin-bottom:10px;">
+    </ul>
+  </div>
+  <div class="container" style="width:765px; margin-top:30px;">
+	
+    <ul class="unstyled pleft" style="margin-top:0px;">
+      订单详情
+    </ul>
+    <ul style="border-bottom:2px solid #CCC; height:1px; margin-top:20px; margin-bottom:10px;" "="">
+    </ul>
+    <ul class="inline liPMnull" style="font-size:16px;">
+      <li style="width:105px;">取车人信息：</li>
+      <li> 龚玉斌 18811232345 &nbsp;身份证： 500236198908182978 </li>
+      <li>[<a href="http://www.ziteng.com/orders">修改</a>]</li>
+    </ul>
+    <ul class="inline liPMnull" style="font-size:16px;">
+      <li style="width:105px;">门店/车型：</li>
+      <li> 深圳宝安松岗店 / 凯越 1.6/自排/三厢</li>
+    </ul>
+    <ul class="inline liPMnull" style="font-size:16px;">
+      <li style="width:105px;">租车时间： </li>
+      <li> 取车 2014-03-31 11:00 还车 2014-04-02 11:00 共2天</li>
+    </ul>
+    <ul class="unstyled" style="height:auto">
+      <li>
+        <div class="carDayPriceBox" style="margin-top:5px; margin-left:3px;">
+          <ul class="unstyled" style="border:1px solid #73d6e6; background-color:#73d6e6; color:#FFF;">
+            <li>周日</li>
+            <li>星期一</li>
+            <li>星期二</li>
+            <li>星期三</li>
+            <li>星期四</li>
+            <li>星期五</li>
+            <li id="lastLi">星期六</li>
+          </ul>
+          <ul class="unstyled priceDayUl" style="height:auto; overflow:hidden; border-left:1px solid #73d6e6; border-right:1px solid #73d6e6;">
+            <li style="border-bottom:1px solid #73d6e6"></li><li style="border-bottom:1px solid #73d6e6">￥148</li><li style="border-bottom:1px solid #73d6e6">￥148</li><li style="border-bottom:1px solid #73d6e6"></li><li style="border-bottom:1px solid #73d6e6"></li><li style="border-bottom:1px solid #73d6e6"></li><li style="border-bottom:1px solid #73d6e6" id="lastLi"></li>          </ul>
+        </div>
+      </li>
+        
+	<div class="carDayPriceBox" style="margin-top:5px; margin-left:3px; height:70px;">
+          <ul>
+            <p>1. 在您取车时，我们将刷取2000元/车的预授权。</p>
+            <p>2. 在您还车后，我们会查询您用车期间是否有违章，如无违章，15天后自动解冻/退款。</p>
+            <p>3. 若您为首次租车，您必须使用信用卡刷取预授权。 </p>
+          </ul>
+        </div>
+      
+    </ul>
+	
+        <ul class="unstyled pleft">
+      增值服务
+    </ul>
+    <ul style="border-bottom:2px solid #CCC; height:1px; margin-top:10px; margin-bottom:10px;" "=""></ul>
+	
+    <ul class="liPMnull">
+      <div class="additionsBox" id="additionsBox">
+                
+		<ul class="inline additionsBoxUlY" id="ul7cfb259b-3f38-49f6-b595-167cf7eb3f3e">
+          <li style="line-height:40px; width:40px;margin-left:15px;"><img src="./rentCar3_files/7cfb259b-3f38-49f6-b595-167cf7eb3f3e.png" style="width:38px; height:38px;"></li>
+          <li style="width:430px">
+            <p style="color:#004a94; font-size:22px; font-weight:bold; padding:3px;"> 增值服务费-万元无忧 </p>
+            <p> 购买“万元无忧“增值服务后，您在租用瑞卡车辆期间，如发生事故 <a data-toggle="tooltip" data-placement="right" data-original-title="购买“万元无忧“增值服务后，您在租用瑞卡车辆期间，如发生事故，只要报保险并配合保险公司处理、 提供完整的保险资料后，我方车辆实际损失在10000元以内（含10000元）的，您无需承担该部分费用。 【节假日期间订单，需要同时购买万元无忧增值服务】">详情</a></p>
+          </li>
+          <li style="line-height:40px; width:90px; color:#004a94; font-size:22px; font-weight:bold">￥20.00</li>
+          <li style="line-height:40px; width:40px; margin-left:0px; padding-left:0px">X 2天</li>
+		  <li style="width:20px;"><img class="checkboxImg" src="file:///C:/public/images/checkboxY.png">
+            <input class="checkbox" name="services[]" type="checkbox" style="margin-top:15px;display:none" maxday="0" price="20.00" value="7cfb259b-3f38-49f6-b595-167cf7eb3f3e">
+          </li>
+        </ul>
+              </div>
+    </ul>
+        <ul class="unstyled pleft">
+      支付方式
+    </ul>
+    <ul style="border-bottom:2px solid #CCC; height:1px; margin-top:10px; margin-bottom:10px;" "="">
+    </ul>
+    <ul class="unstyled liPMnull">
+      <li id="paymsg">网上支付 (<span style="color:#F00;">推荐</span>)</li>
+      <li>
+        <div class="paySelectBox">
+          <ul class="inline liPMnull">
+            <li class="payStaImg"> <img staval="2" src="./rentCar3_files/radioY.gif"><img style="width:100px; height:35px; margin:0px 5px;" src="./rentCar3_files/alipay.png"></li>
+            <li class="payStaImg"> <img staval="1" src="./rentCar3_files/radioN.gif"><img style="width:100px; height:35px; margin:0px 5px;" src="./rentCar3_files/wangyin.png"></li>
+            <!--<li class="payStaImg"> <img staVal='3' src="/public/images/radioN.gif"/><img  style="width:100px; height:35px; margin:0px 5px;" src="/public/images/99bill.png" /></li>-->
+          </ul>
+          <ul style="padding-top:3px;">瑞卡优先为<span style="color:#F00;">已支付的订单提供车辆</span>，未支付的订单可能因为车辆紧张被自动取消。在线支付支持储蓄卡、信用卡等通过支付宝、网银在线提供的支付平台交易。</ul>
+        </div>
+      </li>
+      <li id="paymsg">门店支付</li>
+      <li>
+        <div class="paySelectBox">
+          <ul class="inline">
+            <li style="width:40px;" class="payStaImg"> <img staval="4" src="./rentCar3_files/radioN.gif"> </li>
+            <li style="width:600px;">选择门店支付，当车辆紧张的情况下，会被其他已支付的新订单订走车辆，<span style="color:#F00;">未支付订单有可能将自动取消</span>；建议您现在立即在线支付订单。</li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <ul class="unstyled pleft">
+      会员优惠
+    </ul>
+    <ul style="border-bottom:2px solid #CCC; height:1px; margin-top:10px; margin-bottom:10px;"></ul>
+    <ul class="unstyled liPMnull">
+      	  <li id="paymsg">暂时没有可用优惠</li>
+	      </ul>
+	<ul style="border-bottom:2px solid #CCC; height:1px; margin-top:10px; margin-bottom:10px;"></ul>
+    <ul>
+      <div class="priceBox">
+        <ul class="inline">
+          <li class="priceMsg">租车价格</li>
+          <li class="priceVal" id="allCarPrice">￥296 </li>
+        </ul>
+        <ul class="inline">
+          <li class="priceMsg">增值服务</li>
+          <li class="priceVal" id="addedPriceHtml">￥40</li>
+        </ul>
+        <ul class="inline">
+          <li class="priceMsg">优惠折扣</li>
+          <li class="priceVal" id="rebatePriceHtml">￥-0</li>
+        </ul>
+	<ul class="inline" style="margin:10px 0px 10px 0px; height:45px; line-height:45px; ">
+          <li class="priceMsg">总计：</li>
+          <li id="totalValueHtml" style="font-size:26px;color:#F90; height:45px; line-height:45px;">￥336</li>
+        </ul>
+        <ul class="inline" id="serviceUl">
+          <li> <img id="serviceSimg" style="cursor:pointer" src="./rentCar3_files/checkboxN.png" onclick="$(this).next().prop(&#39;checked&#39;,!$(this).next().is(&#39;input:checked&#39;)); $(this).attr(&#39;src&#39;,&#39;/public/images/checkbox&#39;+($(this).next().is(&#39;input:checked&#39;) ? &#39;Y&#39; : &#39;N&#39;)+&#39;.png&#39;)">
+            <input type="checkbox" style="display:none" id="serviceSta">
+            <div id="noService" class="tooltip fade top in" style="display: none;">
+              <div class="tooltip-arrow" style=""></div>
+              <div class="tooltip-inner">请确认同意瑞卡便利租车的服务条款后再提交订单！</div>
+            </div>
+          </li>
+          <li style="height:30px; line-height:30px;">我已经看过<a href="http://www.ziteng.com/wuyou/zcht" target="_blank">长期合同</a>，并同意接受相关条款。</li>
+        </ul>
+        <ul class="inline">
+          <li>
+            <input type="hidden" name="pay_types" id="pay_types" value="2">
+            <input type="submit" id="paySubmitName" value="立即支付" onclick="window.location.href='rentCarOdersOk.htm'"class="btn btn-primary" style="width:130px; margin-top:20px;">
+          </li>
+        </ul>
+      </div>
+    </ul>
+  </div>
+</form>
+<!-- 中间部分end--> 
+<!--底部start-->
+<div style="background-color: #FC0; width:100%; text-align:center; height: 40px; margin-top:40px; line-height:40px;">
+  <div style="width:970px;margin:auto;">
+    <ul style="float:left; width:50%;text-align:left;">
+      选择你常去的地方：<a target="_blank" href="http://www.ziteng.com/guangzhou">广州租车</a>  <a target="_blank" href="http://www.ziteng.com/wuhan">武汉租车</a> <a target="_blank" href="http://www.ziteng.com/chongqing">重庆租车</a> <a target="_blank" href="http://www.ziteng.com/shenzhen">深圳租车</a> <a target="_blank" href="http://www.ziteng.com/changsha">长沙租车</a> <a target="_blank" href="http://www.ziteng.com/beijing">北京租车</a>
+    </ul>
+    <ul style="float:left; width:50%; text-align:right; font-size:14px;">
+      有问题？ 致电 400-777-0888
+    </ul>
+     </div>
+</div>
+<div class="container" style="margin-top:30px;">
+</div>
+<!-- 底部 end-->
+<style>
+#paystaBox{
+	width:420px;
+	padding:6px;
+	background:#CCC;
+	position: absolute; 
+	z-index:10001; 
+	display:none;
+}
+#paystaBox ul{
+	background:#FFF;
+	margin:0px;
+	padding:0px;
+}
+</style>
+<!--提交完成-->
+<div id="paystaBox">
+  <ul style="height:40px; line-height:40px; font-size:18px; padding-left:5px;">
+    &nbsp;支付
+  </ul>
+  <ul style="height:1px; border-top:2px solid #CCC;">
+  </ul>
+  <ul class="inline" style="padding:15px 0px;">
+    <li style="margin:0px;"><img style="width:90px; height:90px;" src="./rentCar3_files/3839.gif"></li>
+    <li style="margin:0px;">
+      <p style="font-size:14px;">请您在新打开的页面上完成支付！</p>
+      <p>
+      </p><form action="http://www.ziteng.com/payment/ordersPay" target="_blank" method="post" style="text-align:center">
+        <input type="hidden" id="rPaysta" name="pay_types" value="1">
+        <a href="http://www.ziteng.com/orders/OrderOk" class="btn">已完成支付</a>&nbsp;&nbsp;&nbsp;
+        <input type="submit" href="/help" value="重新支付" class="btn">
+      </form>
+      <p></p>
+    </li>
+  </ul>
+</div>
+
+<!--会员信息提醒-->  
+<div id="uinfo" class="alert alert-block alert-error fade in" style="display:none;width:400px; height:210px;position:absolute;z-index:99;">  
+  <a class="close" href="http://www.ziteng.com/orders/Payment#">×</a>  
+  <h4 class="alert-heading" style="text-align:center">瑞卡会员注意了！</h4>  
+  <p><br>电子优惠劵限会员本人预订、本人取车，为了您能顺利获得租车优惠，请确认以下会员资料，使用优惠劵预订车辆后，不可修改订单，如预订未到、取消订单、提前还车，优惠劵将不予返还; <br><br>会员姓名：龚玉斌<br>身份证号：500236198908182978<br></p>  
+  <p style="text-align:center">
+    <a class="btn btn-danger" target="_blank" href="http://www.ziteng.com/userinfo/editUserInfo">修改个人资料</a>  
+    <a class="btn close-btn">关闭提示</a>  
+  </p>  
+</div>
+
+
+
+</body></html>

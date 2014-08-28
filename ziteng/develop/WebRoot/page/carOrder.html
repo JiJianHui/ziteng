@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>车订单管理</title>
+
+
+<link rel="stylesheet" type="text/css"
+	href="public/css/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="public/css/home.css" />
+<link rel="stylesheet" type="text/css" href="css/global.css" />
+<link rel="stylesheet" type="text/css"
+	href="public/css/mdd_detail_v2.css" />
+<link rel="stylesheet" type="text/css" href="public/css/header.css" />
+<link rel="stylesheet" type="text/css" href="css/ziteng.css" />
+
+<script src="public/javascript/jquery.js"></script>
+<script src="public/javascript/jquery.easing.1.3.js"></script>
+<script src="public/javascript/bootstrap/bootstrap.js"></script>
+<script class="text/javascript" src="js/jquery.dataTables.nightly.js"></script>
+<script src="js/carOrder.js"></script>
+<link rel="stylesheet" type="text/css" href="css/datepicker.css" />
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/admin_L.js"></script>
+
+
+</head>
+
+<style>
+</style>
+
+<body>
+
+	<!--头部-->
+	<div class="header">
+		<div class="reo_header">
+			<div class="top">
+				<div class="c" id="statusBar">
+					<!-- 用于登录栏 -->
+				</div>
+			</div>
+		</div>
+
+		<div id="nav_header">
+			<ul>
+				<li class="titlewz">
+					<ol olnum="0">
+						<img src="public/images/headLogo.png"
+							style="margin-right: 3px; margin-bottom: 2px;" />
+						<a style="color:#FC3;" href="/ziteng/page/admin/user_manager.html">用户管理</a>
+					</ol>
+					<ol olnum="1">
+						<a href="/ziteng/page/guide_manager.html">攻略路线管理</a>
+					</ol>
+					<ol olnum="2">
+						<a href="/ziteng/page/add_gonglue.html">添加攻略</a>
+					</ol>
+					<ol olnum="3">
+						<a href="/ziteng/page/carOrder.html">车辆订单</a>
+					</ol>
+					<ol olnum="4">
+						<a href="/ziteng/page/ratio_manager.html">系数表管理</a>
+					</ol>
+					<ol olnum="5">
+						<a href="/ziteng/page/car_manager.html">车辆管理</a>
+					</ol>
+					<ol olnum="6">
+						<a href="/ziteng/page/cardegree_manager.html">车辆档次管理</a>
+					</ol>
+					<ol olnum="7">
+						<a href="/ziteng/page/area_manager.html">地区管理</a>
+					</ol>
+				</li>
+			</ul>
+			<ul>
+				<span id="blueline" class="testline" style="margin-left: 17px"></span>
+			</ul>
+		</div>
+
+		<div id="page_loading"
+			style="display: none; background: #000; display: block; position: absolute; top: 0; left: 0; z-index: 10000; opacity: 0.1; filter: progid:DXImageTransform.Microsoft.Alpha(opacity=10);"></div>
+		<img src="public/images/loading.gif?1"
+			style="display: none; width: 32px; height: 32px; z-index: 11000; position: absolute; border: 0;"
+			id="page_loadimg" />
+	</div>
+	<!--头部end -->
+
+
+
+	<!-- content -->
+	<!-- comment start! -->
+	<div class="post"
+		style="margin-left: 5%; margin-right: 5%; margin-top: 20px;">
+		<div class="control-group">
+				<div id="legend" class="">
+					<legend class="">包车订单</legend>
+				</div>
+				<div class="control-group">
+					订单编号<input  class="input-small" type="text" id="txt_id" onchange="valueChanged();">
+					攻略路线<select class="input-medium" id="sel_guide" onchange="valueChanged();">
+							<option value="-1">请选择</option>
+						</select> 
+					车辆名称<select class="input-medium" id="sel_carDegree" onchange="valueChanged();">
+							<option value="-1">请选择</option>
+						</select>
+					联系人<input  class="input-small" type="text" id="txt_contacter" onchange="valueChanged();">
+					联系号码<input  class="input-small" type="text" onchange="valueChanged();" id="txt_contact"><br /><div style="margin-top:10px;" ></div>
+					订单日期<input id="datepicker" class="input-small datepicker" type="text" data-date-format="yyyy-mm-dd" onchange="valueChanged();">
+					订单状态<select class="input-medium" id="sel_status" onchange="valueChanged();">
+							<option value="-1">请选择</option>
+							<option value="1">等待支付</option>
+							<option value="2">已支付等待审核</option>
+							<option value="3">审核不通过，等待退款</option>
+							<option value="4">审核通过，等待签收</option>
+							<option value="5">已签收</option>
+							<option value="6">订单错误</option>
+							<option value="7">退款失败</option>
+							<option value="8">退款废弃订单</option>
+							<option value="9">未支付无效订单</option>
+						</select>
+					<button class="btn btn-success" onclick="query();" >搜索</button>
+				</div>
+		</div>
+		<hr style="border:1px">
+		<table class="table table-hover table-striped">
+			<thead>
+				<tr id="tr_title">
+					<th>订单号</th>
+					<th>联系人</th>
+					<th>联系电话</th>
+					<th>攻略路线</th>
+					<th>出发时间</th>
+					<th>结束时间</th>
+					<th>旅行天数</th>
+					<th>车辆名称</th>
+					<th>车辆档次</th>
+					<th>包车数量</th>
+					<th>人数</th>
+					<th>价格</th>
+					<th>下单时间</th>
+					<th>订单状态</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody id="tbody">
+			<!-- 	<tr>
+					<td>001</td>
+					<td>Rammohan</td>
+					<td>Reddy</td>
+					<td>A+</td>
+					<td>001</td>
+					<td>Rammohan</td>
+					<td>Reddy</td>
+					<td>A+</td>
+					<td>001</td>
+					<td>Rammohan</td>
+					<td>Reddy</td>
+					<td>A+</td>
+					<td>A+</td>
+					<td>A+</td>
+				</tr> -->
+			</tbody>
+		</table>
+		<ul class="pager">
+			<li><a href="#" onclick="prePage();">&larr; 上一页</a></li><span id="page_info">1/1 1</span>
+			<li><a href="#" onclick="nextPage();">下一页 &rarr;</a></li>
+		</ul>
+	</div>
+
+	<!-- content end! -->
+
+	<div class="modal hide" id="showConetntModal">
+		<div class="modal-header">
+			<button class="close" data-dismiss="modal">x</button>
+			<h3 id="h3_guide_title"></h3>
+		</div>
+		<div class="modal-body" id="modal_body">workding count;</div>
+	</div>
+
+	<!-- footer start-->
+	<div class="footer">
+		<div class="nav_footer">
+	  		<div>
+	    		<ul class="inline">
+	      		<li><a  href="/ziteng/page/home.html">首　　页</a></li>
+	      		<li><a  href="#">服务网点</a></li>
+	      		<li><a  href="#">帮助中心</a></li>
+	      		<li><a  href="#">关于我们</a></li>
+	        </ul>
+	  		</div>
+		</div>
+		<div class="container">
+	  		<div>
+	    		<ul class="unstyled">
+	      		<li>本网站所有权归紫藤（青岛）租车有限公司所有</li>
+	    		</ul>
+	    		<ul class="unstyled">
+	      		<li>Copyright @2014 www.zitengtravel.com All Rights Reserved</li>
+	    		</ul>
+	  		</div>
+		</div>
+	</div>
+	
+	<!-- footer end -->
+</body>
+<script>
+setting();
+</script>
+</html>

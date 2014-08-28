@@ -1,0 +1,28 @@
+﻿.listBox{width:1200px}
+.newFilter .wBox .place{width:auto}
+.newFilter .fBox .tiaojianmvt1{width:850px}
+.listSidebar{width:360px}
+.listSidebar .mapnew{width:360px;height:430px;border:1px solid #c1c1c1;position:relative;cursor:pointer}
+#sidebarMap{width:360px}
+.listSidebar .nocu{cursor:default}
+.aiOneNew .intxt{border:1px solid #d8d8d8;width:180px;height:18px;padding:5px 0 5px 5px;line-height:18px;font-size:14px;box-shadow:inset 1px 1px 2px #e9e9e9;border-radius:3px}
+.aiOneNew .intxt.city{background:#fff url(../css/hotels2012.png?t=201403271910) no-repeat 171px -16px}
+.aiOneNew .intxt.date{background:#fff url(../css/hotels2012.png?t=201403271910) no-repeat 164px 6px}
+.listMain .listSubway .rightcon{width:760px}
+.listMain{width:830px}
+.RpList .roomTypes li p.rw1{width:220px}
+.RpList .roomBox li p.rw1{width:200px}
+.listMain .newHotelInfo .helpInf dt{width:990px}
+.listMain .newHotelInfo .helpInf dd{width:988px}
+.listMain .newHotelInfo{border-left:5px solid #fff}
+.listMain .newHotelInfo:hover{border-left:5px solid #cadbf1}
+.listSidebar .wrap .hotelname{width:260px}
+.listMain .newHotelInfo .t2{width:370px;min-height:72px;height:auto!important;_height:72px}
+.listMain .newHotelInfo .t2 dd .hide-text{max-width:320px;_width:320px}
+.listMain .newHotelInfo .t2 dd .hide-text-addr{max-width:280px;_width:280px}
+#header .header_top{width:1200px}
+#header .tools{margin-right:50px}
+#header .nav_box{min-width:1200px}
+#nav{width:1200px}
+.RpList .roomTypes li p.rw10{width:50px;text-align:center;display:block}
+.listSEO{width:1158px;padding:10px 20px;border:1px solid #eee;color:#999}

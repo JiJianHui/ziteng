@@ -1,0 +1,252 @@
+BODY {
+	COLOR: #888; FONT-SIZE: 12px
+}
+#manleft {
+	WIDTH: 170px; FLOAT: left; OVERFLOW: hidden
+}
+#manright {
+	WIDTH: 1000px; FLOAT: right; OVERFLOW: hidden
+}
+#content {
+	MARGIN: 0px auto; WIDTH: 980px; DISPLAY: table; CLEAR: both; FONT-SIZE: 12px
+}
+.regt {
+	LINE-HEIGHT: 25px; TEXT-INDENT: 15px; WIDTH: 280px; DISPLAY: block; BACKGROUND: url(reg_18.gif) no-repeat left top; HEIGHT: 22px; COLOR: #fff; FONT-WEIGHT: bold
+}
+#topinfo {
+	BORDER-BOTTOM: #d5d5d5 1px solid; BORDER-LEFT: #d5d5d5 1px solid; PADDING-BOTTOM: 0px; LINE-HEIGHT: 21px; MARGIN-TOP: 5px; PADDING-LEFT: 2px; WIDTH: 974px; PADDING-RIGHT: 2px; BACKGROUND: url(/images/top_bg_1.gif) repeat-x; COLOR: #fff; BORDER-TOP: #d5d5d5 1px solid; BORDER-RIGHT: #d5d5d5 1px solid; PADDING-TOP: 2px
+}
+#toplogindiv {
+	BORDER-BOTTOM: #d5d5d5 1px solid; BORDER-LEFT: #d5d5d5 1px solid; MARGIN: 5px 0px; WIDTH: 978px; BACKGROUND: url(/images/top_bg_1.gif) repeat-x; BORDER-TOP: #d5d5d5 1px solid; BORDER-RIGHT: #d5d5d5 1px solid
+}
+#topnavtab {
+	BORDER-BOTTOM: #f5981f 1px solid; BORDER-LEFT: #f5981f 1px solid; WIDTH: 972px; BORDER-COLLAPSE: collapse; BACKGROUND: #f5981f; HEIGHT: 21px; BORDER-TOP: #f5981f 1px solid; BORDER-RIGHT: #f5981f 1px solid
+}
+#toptela {
+	LINE-HEIGHT: 21px; TEXT-INDENT: 5px; WIDTH: 320px; COLOR: #fff; FONT-WEIGHT: bold
+}
+#hyclass {
+	TEXT-ALIGN: center; LINE-HEIGHT: 21px; WIDTH: 160px; COLOR: #fff
+}
+#quit {
+	WIDTH: 75px
+}
+#quit A {
+	TEXT-ALIGN: center; LINE-HEIGHT: 19px; WIDTH: 65px; DISPLAY: block; FLOAT: left; COLOR: #fff
+}
+#quit A:hover {
+	BACKGROUND: url(/images/quitbg.gif) no-repeat; TEXT-DECORATION: none
+}
+#kjnav {
+	LINE-HEIGHT: 21px; WIDTH: 430px; FLOAT: right; MARGIN-RIGHT: 10px
+}
+#kjnav A {
+	TEXT-ALIGN: center; WIDTH: 65px; DISPLAY: block; FLOAT: right; HEIGHT: 19px
+}
+#kjnav A:hover {
+	BACKGROUND: url(/images/topnavbg2.gif) no-repeat
+}
+#topnavtab2 {
+	BORDER-RIGHT-WIDTH: 0px; MARGIN-TOP: 2px; WIDTH: 972px; BORDER-COLLAPSE: collapse; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 19px; BORDER-LEFT-WIDTH: 0px
+}
+#holle {
+	TEXT-ALIGN: left; TEXT-INDENT: 5px; COLOR: #565656
+}
+#home {
+	TEXT-ALIGN: right; PADDING-RIGHT: 5px
+}
+#home A {
+	COLOR: #04d
+}
+#navcen {
+	BORDER-BOTTOM: #cddddc 1px solid; BORDER-LEFT: #cddddc 1px solid; PADDING-BOTTOM: 10px; PADDING-LEFT: 0px; WIDTH: 168px; PADDING-RIGHT: 0px; BACKGROUND: #fff; BORDER-TOP: #cddddc 1px; BORDER-RIGHT: #cddddc 1px solid; PADDING-TOP: 6px
+}
+#manleft .topbg_box {
+	WIDTH: 170px; BACKGROUND: url(huiyuan_lefttop.gif) no-repeat 0px 0px; HEIGHT: 34px
+}
+#navcen H2 {
+	LINE-HEIGHT: 30px; TEXT-INDENT: 15px; BACKGROUND: url(huiyuan_bg12.gif) #f8fbfb repeat-x 0px 0px; HEIGHT: 30px; COLOR: #343434; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+#navcen H3 {
+	LINE-HEIGHT: 30px; TEXT-INDENT: 24px; BACKGROUND: url(hjhfg12.gif) no-repeat 15px 10px; HEIGHT: 30px; COLOR: #7e4e00; FONT-SIZE: 12px; FONT-WEIGHT: normal
+}
+.nobor {
+	BORDER-BOTTOM-WIDTH: 0px
+}
+#navcen H3 A {
+	COLOR: #005bb4
+}
+#navcen H3 A:hover {
+	COLOR: #fd6c03
+}
+#navcen H3 .on {
+	COLOR: #fd6c03
+}
+#navcen A {
+	COLOR: #7e4e00
+}
+#crumb {
+	LINE-HEIGHT: 30px; TEXT-INDENT: 0px; WIDTH: 800px; DISPLAY: block; HEIGHT: 36px; COLOR: #333; FONT-SIZE: 16px; FONT-WEIGHT: bold
+}
+#crumb STRONG {
+	FONT-WEIGHT: bold
+}
+.mainbox {
+	BORDER-BOTTOM: #d3d3d3 1px solid; TEXT-ALIGN: left; BORDER-LEFT: #d3d3d3 1px solid; PADDING-BOTTOM: 10px; MARGIN: 20px; PADDING-LEFT: 10px; WIDTH: 738px; PADDING-RIGHT: 10px; DISPLAY: table; BORDER-TOP: #d3d3d3 1px solid; BORDER-RIGHT: #d3d3d3 1px solid; PADDING-TOP: 10px
+}
+* + HTML .mainbox {
+	HEIGHT: 100%
+}
+.mainbox DL {
+	LINE-HEIGHT: 2em; COLOR: #666666
+}
+#infotabind {
+	MARGIN-TOP: 15px; WIDTH: 660px
+}
+.pagediv {
+	TEXT-ALIGN: right; MARGIN: 0px auto; WIDTH: 95%
+}
+.butdiv {
+	TEXT-ALIGN: center; MARGIN: 20px auto; WIDTH: 95%
+}
+#didantab {
+	WIDTH: 100%
+}
+#didantab TH {
+	TEXT-ALIGN: center; LINE-HEIGHT: 24px; BACKGROUND: #eee; HEIGHT: 24px; COLOR: #3d3d3d
+}
+#didantab TD {
+	TEXT-ALIGN: center; LINE-HEIGHT: 24px; HEIGHT: 24px
+}
+#guizetab {
+	MARGIN: 20px auto; WIDTH: 640px
+}
+.btn_hong {
+	LINE-HEIGHT: 150%; BORDER-RIGHT-WIDTH: 0px; WIDTH: 48px; BACKGROUND: url(/images/btn_hong.gif); BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 22px; COLOR: #fff; FONT-SIZE: 12px; BORDER-LEFT-WIDTH: 0px; CURSOR: pointer; FONT-WEIGHT: bold; _line-height: 190%
+}
+.hotelseatit {
+	LINE-HEIGHT: 25px; TEXT-INDENT: 10px; WIDTH: 600px; BACKGROUND: url(/images/a6.gif) #eee no-repeat 0px 10px; HEIGHT: 25px
+}
+.btn_hui {
+	LINE-HEIGHT: 150%; BORDER-RIGHT-WIDTH: 0px; WIDTH: 48px; BACKGROUND: url(/images/btn_hui.gif); BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 22px; COLOR: #666; FONT-SIZE: 12px; BORDER-LEFT-WIDTH: 0px; FONT-WEIGHT: bold; _line-height: 190%
+}
+.tab2 {
+	WIDTH: 80%; MARGIN-LEFT: 10%
+}
+.tab2 TH {
+	TEXT-ALIGN: right; FONT-WEIGHT: normal
+}
+.t2 {
+	LINE-HEIGHT: 22px; TEXT-INDENT: 1em; MARGIN: 18px 10px; BACKGROUND: #eee; COLOR: #000; FONT-WEIGHT: bold
+}
+* {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+#logos {
+	DISPLAY: none
+}
+#vbody {
+	TEXT-ALIGN: center; FONT-SIZE: 12px
+}
+#vieworder {
+	BORDER-BOTTOM: #cddddc 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #cddddc 1px solid; BACKGROUND-COLOR: #fff; TEXT-INDENT: 2em; MARGIN: 20px auto; WIDTH: 500px; COLOR: #000; BORDER-TOP: #cddddc 1px solid; BORDER-RIGHT: #cddddc 1px solid
+}
+#vieworder H1 {
+	BORDER-BOTTOM: #cccccc 1px solid; TEXT-ALIGN: left; PADDING-BOTTOM: 0px; LINE-HEIGHT: 30px; TEXT-INDENT: 1.6em; MARGIN: 0px 0px 20px; PADDING-LEFT: 0px; WIDTH: 113%; PADDING-RIGHT: 0px; FONT-FAMILY: "ºÚÌå"; BACKGROUND: #eef3f4 0px 0px; HEIGHT: 30px; COLOR: #000; FONT-SIZE: 18px; FONT-WEIGHT: normal; PADDING-TOP: 0px
+}
+#vieworder TABLE {
+	BORDER-SPACING: 2px; WIDTH: 560px; DISPLAY: table; COLOR: #000000; FONT-SIZE: 14px
+}
+#vieworder TABLE TH {
+	TEXT-ALIGN: right; LINE-HEIGHT: 24px; WIDTH: 120px; HEIGHT: 24px; FONT-WEIGHT: 100
+}
+#vieworder TABLE TD {
+	TEXT-ALIGN: left; LINE-HEIGHT: 24px; HEIGHT: 30px; FONT-WEIGHT: normal
+}
+#vieworder TABLE TD A {
+	COLOR: #0000cc; TEXT-DECORATION: underline
+}
+#vieworder TABLE TD A:hover {
+	COLOR: #ff0000
+}
+#vieworder INPUT {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 20px; MARGIN: 10px 0px; PADDING-LEFT: 20px; PADDING-RIGHT: 20px; HEIGHT: 28px; FONT-SIZE: 14px; PADDING-TOP: 0px
+}
+#link3 A {
+	COLOR: #fd6c03; FONT-SIZE: 12px
+}
+#link3 A:visited {
+	COLOR: #f00; FONT-SIZE: 12px
+}
+#link3 A:hover {
+	COLOR: #3d3d3d; FONT-SIZE: 12px
+}
+#link3 A:active {
+	COLOR: #f00; FONT-SIZE: 12px
+}
+#vieworder TABLE TD TEXTAREA {
+	WIDTH: 360px; HEIGHT: 90px
+}
+#orderSearch P {
+	LINE-HEIGHT: 24px; MARGIN: 5px 0px 10px; WIDTH: 740px; DISPLAY: table; HEIGHT: 24px
+}
+#orderSearch P SELECT {
+	LINE-HEIGHT: 24px; WIDTH: 120px
+}
+#orderSearch P STRONG {
+	COLOR: #000000; FONT-WEIGHT: bold
+}
+#viewtuanorder {
+	BORDER-BOTTOM: #cddddc 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #cddddc 1px solid; BACKGROUND-COLOR: #fff; TEXT-INDENT: 2em; MARGIN: 20px auto; WIDTH: 590px; COLOR: #000; BORDER-TOP: #cddddc 1px solid; BORDER-RIGHT: #cddddc 1px solid
+}
+#viewtuanorder H1 {
+	BORDER-BOTTOM: #cccccc 1px solid; TEXT-ALIGN: left; PADDING-BOTTOM: 0px; LINE-HEIGHT: 30px; TEXT-INDENT: 1.6em; MARGIN: 0px 0px 20px; PADDING-LEFT: 0px; WIDTH: 113%; PADDING-RIGHT: 0px; FONT-FAMILY: "ºÚÌå"; BACKGROUND: #eef3f4 0px 0px; HEIGHT: 30px; COLOR: #000; FONT-SIZE: 18px; FONT-WEIGHT: normal; PADDING-TOP: 0px
+}
+#viewtuanorder TABLE {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; BORDER-SPACING: 2px; WIDTH: 590px; PADDING-RIGHT: 5px; DISPLAY: table; COLOR: #000000; FONT-SIZE: 14px; PADDING-TOP: 5px
+}
+#viewtuanorder TABLE TH {
+	TEXT-ALIGN: left; LINE-HEIGHT: 24px; HEIGHT: 24px; FONT-WEIGHT: 100
+}
+#viewtuanorder TABLE TD {
+	TEXT-ALIGN: left; LINE-HEIGHT: 24px; HEIGHT: 30px; FONT-WEIGHT: normal
+}
+#viewtuanorder TABLE TD A {
+	COLOR: #0000cc; TEXT-DECORATION: underline
+}
+#viewtuanorder TABLE TD A:hover {
+	COLOR: #ff0000
+}
+#infotable {
+	MARGIN: 0px auto; WIDTH: 760px; FONT-SIZE: 12px
+}
+.manages FORM {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+#infotable TH {
+	BORDER-BOTTOM: #ccc 1px solid; TEXT-ALIGN: left; LINE-HEIGHT: 30px; TEXT-INDENT: 10px; BACKGROUND: #eef3f4; HEIGHT: 30px; FONT-WEIGHT: bold
+}
+#infotable TH STRONG {
+	COLOR: #000; FONT-WEIGHT: bold
+}
+#infotable TD {
+	LINE-HEIGHT: 28px; HEIGHT: 28px; COLOR: #333
+}
+#infotable TD INPUT {
+	COLOR: #333
+}
+.mainbox_fxj {
+	BORDER-BOTTOM: #cddddc 1px solid; BORDER-LEFT: #cddddc 1px solid; PADDING-BOTTOM: 10px; PADDING-LEFT: 20px; WIDTH: 758px; PADDING-RIGHT: 20px; MARGIN-BOTTOM: 10px; BORDER-TOP: #cddddc 1px solid; BORDER-RIGHT: #cddddc 1px solid; PADDING-TOP: 10px
+}
+.fxjhd_sj {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.fxjhd_sj DT {
+	MARGIN: 15px 0px 10px; COLOR: #fd6c03; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.fxjhd_sj DD {
+	LINE-HEIGHT: 22px
+}
+.bold3 {
+	COLOR: #333; FONT-WEIGHT: bold
+}

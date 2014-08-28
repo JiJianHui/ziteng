@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0028)http://www.ziteng.com/orders -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>瑞卡租车-网上租车-填写订单</title>
+
+<link rel="stylesheet" media="screen" href="./rentCart2_1_files/bootstrap.min.css">
+<script type="text/javascript" async="" src="./rentCart2_1_files/conversion.js"></script><script language="javascript" type="text/javascript" src="./rentCart2_1_files/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="./rentCart2_1_files/jquery.easing.1.3.js"></script>
+<script language="javascript" type="text/javascript" src="./rentCart2_1_files/bootstrap.js"></script>
+<script language="javascript" type="text/javascript" src="./rentCart2_1_files/bPopup.js"></script>
+<script language="javascript" type="text/javascript" src="./rentCart2_1_files/rentfirst.js"></script>
+<script language="javascript" type="text/ecmascript" src="./rentCart2_1_files/order.js"></script>
+<link rel="stylesheet" type="text/css" href="./rentCart2_1_files/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./rentCart2_1_files/home.css">
+<link rel="stylesheet" type="text/css" href="./rentCart2_1_files/order.css">
+<style>
+.yuding {
+	width:295px;
+	text-align:center;
+	color:#666;
+	font-weight:bold;
+}
+.p1 {
+	font-style:italic;
+	width:100px;
+	float:left;
+	height:68px;
+	line-height:68px;
+	font-size:16px;
+}
+.p2 {
+	text-align:left;
+	width:190px;
+	float:left;
+	font-size:20px;
+	height:48px;
+	line-height:25px;
+}
+.p2 p {
+	font-size:14px;
+}
+.p1 span {
+	padding:0px 2px;
+	font-size:44px;
+}
+.dangqian {
+	color:#12569A;
+}
+.dangqian span {
+	color:#FC0;
+}
+#yudingUl li {
+	list-style:none;
+	float:left;
+}
+</style>
+<script charset="utf-8" src="./rentCart2_1_files/v.js"></script></head>
+<body>
+<script type="text/javascript">
+var youdao_conv_id = 272838; 
+</script> 
+<script type="text/javascript" src="./rentCart2_1_files/conv.js"></script>
+
+<script language="javascript" type="text/javascript" src="./rentCart2_1_files/publicfunction.js"></script>
+<style>
+.titlewz ol
+{
+	float:left;
+	width:110px;
+	text-align:center;
+	height:30px;
+	line-height:30px;
+	margin-top:45px;
+}
+.titlewz a
+{
+	font-size:16px;
+	color:#000;
+	line-height:30px;
+}
+.titlewz a:hover
+{
+	font-size:16px;
+	color:#FC3;;
+	line-height:30px;
+}
+
+</style>
+
+<!-- 中间部分start-->
+
+<div class="container">
+  <ul id="yudingUl" style="height:80px; width:100%; padding-top:25px;">
+  	<a style="cursor:pointer" href="http://www.ziteng.com/rentcar/selectShop">
+    <li class="yuding">
+      <p class="p1">第<span>1</span>步</p>
+       <div class="p2" style="margin-top:10px;">选择车型<br>
+        <p>请选择您喜欢的车型</p>
+      </div>
+    </li>
+    </a>
+    <li style="border-left:1px solid #f2f2f2; display:inline-block; width:1px; height:50px; padding:0px; margin-top:15px; margin-left:10px; margin-right:10px;"> </li>
+    <li class="yuding dangqian">
+      <p class="p1">第<span>2</span>步</p>
+      <div class="p2" style="margin-top:10px;">填写订单<br>
+        <p>请留下你的真实资料</p>
+      </div>
+    </li>
+    <li style="border-left:1px solid #f2f2f2; display:inline-block; height:50px; width:1px; padding:0px; margin-top:15px;"> </li>
+    <li class="yuding">
+      <p class="p1">第<span>3</span>步
+      </p><div class="p2" style="margin-top:10px;">提交订单<br>
+        <p>核对订单信息后完成预订</p>
+      </div>
+    </li>
+  </ul>
+  <div style="border-top:1px solid #b2b2b2;border-bottom:1px solid #b2b2b2;margin:10px 0px 0px 0px;"> <span style="margin-left:205px;margin-top:30px;display:block;float:left;font-size:15px;"> 取车人信息 </span>
+        <span style="float:right;margin-top:30px;margin-right:200px; cursor:pointer;font-size:15px;" id="disLoginBox"> <a>我已是瑞卡会员</a> </span>
+        <form id="userInfo" method="post" action="http://www.ziteng.com/orders/doPickupCar" class="form-horizontal">
+      <div class="control-group" style="margin:80px 0 0 200px;">
+        <label class="control-label"> 取车人姓名 </label>
+        <div class="controls">
+          <input class="input-xlarge" data-check-sta="Y" data-check-type="isname" type="text" id="inputName" name="member_name" value="" msg-sta="Y" msg-val="取车人姓名" data-content="请输入正确的姓名" style="color: rgb(85, 85, 85);">
+        </div>
+      </div>
+      <div class="control-group" style="margin:20px 0 0 200px;">
+        <label class="control-label"> 手机号码 </label>
+        <div class="controls">
+          <input class="input-xlarge" data-check-sta="Y" data-check-type="isPhone" type="text" id="inputPhoto" value="" name="member_phone" msg-sta="Y" msg-val="手机号码" data-content="请输入正确的手机号码" style="color: rgb(85, 85, 85);">
+        </div>
+      </div>
+      <div class="control-group" style="margin:20px 0 0 200px;">
+        <label class="control-label" style="padding:0;margin:0;"> 
+			<select name="cardtype" id="cardtype" style="width:80px;" onchange="makeSelect()">
+			<option value="身份证">身份证</option>
+			<option value="护照">护照</option>
+			<option value="港澳台通行证">港澳台通行证</option>
+		  </select> </label>
+        <div class="controls">
+          <input class="input-xlarge" data-check-sta="Y" data-check-type="isIdCard" type="text" id="inputCar" value="" name="member_card" msg-sta="Y" msg-val="身份证号码" data-content="请输入正确的二代身份证号码" data-content2="身份证号与姓名不符" style="color: rgb(85, 85, 85);">
+        </div>
+		
+      </div>
+      <div class="control-group" style="margin:20px 0 30px 200px;">
+        <div class="controls">
+        <input type="hidden" id="submitSta" value="0">
+          <input type="submit" class="btn btn-primary" value="提交" onclick="window.location.href='rentCar3.htm'" style="width:120px; font-size:16px;">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- 中间部分end-->
+
+<!--未登录的，已经注册的用户-->
+<div id="userLogin" class="Pop-up-box">
+  <p class="close" style="padding-bottom:10px;"><img src="./rentCart2_1_files/fbot2.png"></p>
+  <ul style="font-size:15px;">
+    <a id="ruserName"></a>，你已是瑞卡会员，请输入会员密码进行登
+  </ul>
+  <form id="LoginForm">
+  <ul style="display:none"><input type="hidden" name="member_account"></ul>
+  <ul>
+    <input type="password" class="input-xlarge" placeholder="请输入密码" name="member_password">
+  </ul>
+  <ul style="line-height:20px; height:36px;">
+    忘记密码，点击<a style="cursor:pointer" id="docMsg" onclick="DochangePassword()">这里</a>，将发送验证码到<a id="ruserPhone">186********</a>进行身份验证。如手机号已更改，请致电客服热线400-777-0888修改！
+  </ul>
+  <ul style="text-align:center">
+    <input type="submit" class="btn btn-primary" value="  登录  ">
+  </ul>
+  </form>
+</div>
+
+<!--已有帐号的登录框-->
+<div id="LoginBox" class="Pop-up-box">
+  <p class="close"><img src="./rentCart2_1_files/fbot2.png"></p>
+  <ul style="font-size:15px;">
+    会员登录
+  </ul>
+  <form id="hasUserForm">
+  <ul class="inline inlineul">
+    <li class="inputTitle">用户名</li>
+    <li>
+      <input class="input-xlarge" type="text" name="member_account" msg-sta="Y" msg-val="会员号/手机号/身份证号" style="color: rgb(204, 204, 204);">
+    </li>
+  </ul>
+  <ul class="inline inlineul">
+    <li class="inputTitle">密码</li>
+    <li>
+      <input class="input-xlarge" type="password" name="member_password" placeholder="密码">
+    </li>
+  </ul>
+  <ul style="text-align:center">
+    <input type="submit" class="btn btn-primary" value="  登录  ">
+  </ul>
+  </form>
+</div>
+
+<!--忘记密码修改框，未登录未注册的弹出框-->
+<div id="codeBox" class="Pop-up-box">
+  <p class="close"><img src="./rentCart2_1_files/fbot2.png"></p>
+  <ul class="checkcodeUl" style="font-size:15px;">
+    验证码已发送到手机<a id="phoneNum"></a>，30分钟内有效！
+  </ul>
+  <form id="codeForm">
+  <ul class="inline checkcodeUl">
+    <li>
+      <input type="hidden" name="member_account" value="">
+      <input type="hidden" id="checkType" value="pReg">
+      <input name="member_code" type="text" msg-sta="Y" msg-val="请输入验证码" value="" class="input-xlarge" style="margin-right: 10px; color: rgb(204, 204, 204);">
+      <a class="text-error" style="display:none">验证码输入错误</a>
+    </li>
+    <li><a timeval="0" id="codeSendCount" class="btn" disabled="">秒后重新发送</a></li>
+  </ul>
+  <ul style="text-align:center; padding-top:30px;" class="checkcodeUl">
+    <input type="submit" class="btn btn-primary" style="width:90px;" value="下一步">
+  </ul>
+  </form>
+  <form id="doChangePassword">
+  <ul style="font-size:15px;" class="codeOk">
+    验证成功，请重新设置登录密码
+  </ul>
+  <ul class="inline inlineul codeOk">
+    <li class="inputTitle">登录密码：</li>
+    <li>
+      <input name="member_newpassword" type="password" data-check-sta="Y" data-check-type="isPasswd" data-content="请输入6至18位的密码" class="input-xlarge" style="margin-right:10px;">
+    </li>
+  </ul>
+  <ul class="inline inlineul codeOk">
+    <li class="inputTitle">再次输入：</li>
+    <li>
+      <input name="member_rpassword" type="password" data-check-sta="Y" data-check-type="rplay" data-check-rtype="member_newpassword" data-content="两次密码必须一致" class="input-xlarge" style="margin-right:10px;">
+    </li>
+  </ul>
+  <ul style="text-align:center" class="codeOk">
+    <input type="submit" class="btn btn-primary" style="width:90px;" value="修改">
+  </ul>
+  </form>
+</div>
+
+<!--注册成功登录框-->
+<div id="codeTrue" class="Pop-up-box">
+  <p class="close"><img src="./rentCart2_1_files/fbot2.png"></p>
+  <ul style="padding-top:20px;">
+    身份验证成功！
+  </ul>
+  <ul>
+    初始密码为你手机号的后6位，修改，请到我的<a target="_blank" href="http://www.ziteng.com/userinfo">瑞卡-密码重置</a>进行修改
+  </ul>
+  <ul style="text-align:center; padding-top:30px;">
+    <input value="继续预订" type="button" class="btn btn-primary" id="tureCodeyd">
+  </ul>
+</div>
+
+<!--密碼修改成功提示框-->
+<div id="changeTrue" class="Pop-up-box">
+  <ul style="padding-top:80px;">
+    密码修改成功，2秒后自动进入继续预订。
+  </ul>
+  <ul>
+    如果没有自动跳转，<a href="http://www.ziteng.com/orders#">请点击这里</a>
+  </ul>
+</div>
+
+
+<!--底部start-->
+<div style="background-color: #FC0; width:100%; text-align:center; height: 40px; margin-top:40px; line-height:40px;">
+  <div style="width:970px;margin:auto;">
+    <ul style="float:left; width:50%;text-align:left;">
+      选择你常去的地方：<a target="_blank" href="http://www.ziteng.com/guangzhou">广州租车</a>  <a target="_blank" href="http://www.ziteng.com/wuhan">武汉租车</a> <a target="_blank" href="http://www.ziteng.com/chongqing">重庆租车</a> <a target="_blank" href="http://www.ziteng.com/shenzhen">深圳租车</a> <a target="_blank" href="http://www.ziteng.com/changsha">长沙租车</a> <a target="_blank" href="http://www.ziteng.com/beijing">北京租车</a>
+    </ul>
+    <ul style="float:left; width:50%; text-align:right; font-size:14px;">
+      有问题？ 致电 400-777-0888
+    </ul>
+     </div>
+</div>
+<div class="container" style="margin-top:30px;">
+  <div style="text-align:center">
+  </div>
+</div>
+<!-- 底部 end--></body></html>

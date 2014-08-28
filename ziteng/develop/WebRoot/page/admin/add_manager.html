@@ -1,0 +1,378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=10" />
+<title>添加管理员</title>
+
+<link rel="stylesheet" type="text/css" href="../public/css/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/bootstrap/bootstrap.panel.min.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/bootstrap/bootstrap.list.min.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/home.css" />
+<link rel="stylesheet" type="text/css" href="../css/global.css" />
+
+<script src="../public/javascript/jquery.js"></script>
+<script src="../public/javascript/jquery.easing.1.3.js"></script>
+<script src="../public/javascript/bootstrap/bootstrap.js"></script>
+<script src="../js/admin_L.js"></script>
+
+<style>
+.list-group-item {
+	cursor:pointer;
+}
+.list-group-item:hover {
+	background-color: lightgrey;
+}
+</style>
+
+</head>
+
+<body>
+	<!--头部-->
+	<div class="header">
+	<div class="reo_header">
+	    <div class="top">
+	    <div class="c" id="statusBar"> <!-- 用于登录栏 -->
+	    </div>
+	  </div>
+	</div>
+	
+	<div id="nav_header">
+			<ul>
+				<li class="titlewz">
+					<ol olnum="0">
+						<img src="/ziteng/page/public/images/headLogo.png"
+							style="margin-right: 3px; margin-bottom: 2px;" />
+						<a style="color:#FC3;" href="/ziteng/page/admin/user_manage.html">用户管理</a>
+					</ol>
+					<ol olnum="1">
+						<a href="/ziteng/page/guide_manager.html">攻略路线管理</a>
+					</ol>
+					<ol olnum="2">
+						<a href="/ziteng/page/add_gonglue.html">添加攻略</a>
+					</ol>
+					<ol olnum="3">
+						<a href="/ziteng/page/carOrder.html">车辆订单</a>
+					</ol>
+					<ol olnum="4">
+						<a href="/ziteng/page/ratio_manager.html">系数表管理</a>
+					</ol>
+					<ol olnum="5">
+						<a href="/ziteng/page/car_manager.html">车辆管理</a>
+					</ol>
+					<ol olnum="6">
+						<a href="/ziteng/page/cardegree_manager.html">车辆档次管理</a>
+					</ol>
+					<ol olnum="7">
+						<a href="/ziteng/page/area_manager.html">地区管理</a>
+					</ol>
+				</li>
+			</ul>
+			<ul>
+				<span id="blueline" class="testline" style="margin-left: 17px"></span>
+			</ul>
+		</div>
+	
+	<div id="page_loading" style="display:none;background:#000;display:block;position:absolute;top:0;left:0;z-index:10000;opacity:0.1;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=10);"></div>
+	<img src="../public/images/loading.gif?1" style="display:none;width:32px; height:32px; z-index:11000; position:absolute;border:0;" id="page_loadimg" />
+</div>
+<!--头部end --> 
+	
+	<!-- content start-->
+	<div class="container" style="margin-top: 30px;">
+		<div class="row-fluid">
+			<div class="span3" style="text-align:center;">
+				<div class="panel panel-primary">
+   					<div class="panel-heading">
+      					<h3 class="panel-title">操作面板</h3>
+   					</div>
+   					<ul class="list-group">
+   						<li class="list-group-item">查看用户</li>
+      					<li class="list-group-item">添加管理员</li>
+      					<li class="list-group-item">修改密码</li>
+      					<li class="list-group-item">活动列表</li>
+      					<li class="list-group-item">酒店管理</li>
+   					</ul>
+				</div>
+			</div>
+		
+			<!--  左边start-->
+			<div class="span9">
+				<h2>添加系统管理员</h2>
+				<hr />
+				<form method="post" id="registerForm">
+					<table class=" table table-hover table-striped table-bordered t">
+						
+						<tr>
+							<td class="tabwenzi"><span>用户昵称</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input id="username" class="username"
+										name="member_username" type="text" data-sta='0'
+										data-content1="用户名由6-15个字母数字下划线组成" data-content2="该用户名已经注册" /></li>
+									<li class="lastLi">
+										<p>用户名用于登录后台</p>
+									</li>
+								</ul></td>
+						</tr>
+
+						<tr>
+							<td class="tabwenzi"><span>真实姓名</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input id="realname"
+										name="member_name" type="text" data-check-sta='Y'
+										data-check-type='isname' data-content="请输入真实的姓名"></li>
+									<li class="lastLi">真实姓名</li>
+								</ul></td>
+						</tr>
+
+						<tr>
+							<td class="tabwenzi"><span>手机号码</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input id="phonenumber"
+										name="member_phone" type="text" data-sta='0'
+										data-content1="手机号码只能由11位数字组成" data-content2="手机号码已经注册" /> <input
+										type="hidden" id="IDType" value="身份证" /></li>
+									<li class="lastLi">
+										<p>手机号可以作为登录用户名，请输入正确的手机号</p>
+									</li>
+								</ul></td>
+						</tr>
+
+						<tr>
+							<td class="tabwenzi"><span>电子邮件</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input id="email" class="email"
+										name="member_email" type="text" data-sta='0'
+										data-content1="请输入正确的邮箱地址" data-content2="邮箱已经被注册" /></li>
+									<li class="lastLi">
+										<p>可作为用户名登录</p>
+									</li>
+								</ul></td>
+						</tr>
+						<tr>
+							<!--<td class="tabwenzi"><span>身份证号码</span></td>-->
+							<td class="tabwenzi"><span>身份证</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input id="idcard"
+										name="member_card_num" data-sta='1' data-content1="请输入正确的身份证号"
+										data-content2="身份证号已经注册" type="text"></li>
+									<li class="lastLi">
+										<p>方便管理，请提供您的证件号码</p> <!--<p>为了方便您日后租车，请提供您的驾驶证或者身份证号码</p>-->
+									</li>
+								</ul></td>
+						</tr>
+						<tr>
+							<td class="tabwenzi"><span>登入密码</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input id="password"
+										name="member_password" type="password" data-check-sta='Y'
+										data-check-type='isPasswd' data-content="请输入6至18位的密码"></li>
+									<li class="lastLi">密码长度为6到18位</li>
+								</ul></td>
+						</tr>
+						<tr>
+							<td class="tabwenzi"><span>确认密码</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input id="confirm_pwd"
+										name="member_rpassword" type="password" data-check-sta='Y'
+										data-check-type='rplay' data-check-rtype='member_password'
+										data-content="两次密码必须一致"></li>
+									<li class="lastLi">请再次输入密码！</li>
+								</ul></td>
+						</tr>
+
+					</table>
+					<div style="margin: 30px; text-align: center;">
+						<input type="hidden" value="225045" name="member_channel" /> 
+						<input
+							type="button" class="btn btn-primary" style="width: 160px;"
+							id="submitBtn" value="    确定    " />
+						<p style="color: #fff; font-size: 20px;">225045老渠道</p>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- content end-->
+	
+	<!-- footer start-->
+	<div class="footer">
+		<div class="nav_footer">
+	  		<div>
+	    		<ul class="inline">
+	      		<li><a  href="/ziteng/page/home.html">首　　页</a></li>
+	      		<li><a  href="#">服务网点</a></li>
+	      		<li><a  href="#">帮助中心</a></li>
+	      		<li><a  href="#">关于我们</a></li>
+	        </ul>
+	  		</div>
+		</div>
+		<div class="container">
+	  		<div>
+	    		<ul class="unstyled">
+	      		<li>本网站所有权归紫藤（青岛）租车有限公司所有</li>
+	    		</ul>
+	    		<ul class="unstyled">
+	      		<li>Copyright @2014 www.zitengtravel.com All Rights Reserved</li>
+	    		</ul>
+	  		</div>
+		</div>
+	</div>
+	
+	<!-- footer end -->
+
+<script>
+function checkRegExps(thisObj)
+{
+	var inputObj	 = thisObj;
+	var ExpArr	 = new Array();
+	
+	ExpArr['isPasswd']		=	/^[a-zA-Z0-9_]{6,18}$/;//密码
+	ExpArr['isname']		    =	/^[\u4e00-\u9fa5]{2,9}$/;//姓名
+	ExpArr['isEmail']		=	/([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)/;//email
+	ExpArr['isPhone']		=	/^((\(\d{2,3}\))|(\d{3}\-))?(13|15|18|14)\d{9}$/;//手机
+	ExpArr['isIdCard']		=	/^([\d]{18,18})|([\d]{17,17}[xX]{1,1})$/;//身份证号
+	
+	var inputCheckType	=	inputObj.attr('data-check-type');
+	var ExpVal			=	ExpArr[inputCheckType];
+	var inputVal			=	inputObj.val();
+	var checkSta = false;
+	if(inputCheckType == 'rplay') {
+		checkSta	 = inputVal == $('input[name="'+thisObj.attr('data-check-rtype')+'"]').val() && inputVal.length > 2;
+	} else {
+		checkSta	 = ExpVal.test(inputVal);
+	}
+	
+	return checkSta;
+}
+
+function disError(sta,thisObj) {
+	var nextObj	=	thisObj.parent().next();
+	var oldHtml	=	nextObj.html();
+	var newHtml	=	thisObj.attr('data-content');
+	
+	if(sta == false) {
+		if(sta == 2) {
+			newHtml	= thisObj.attr('data-content1');
+		}
+		
+		if(oldHtml != newHtml) {
+			nextObj.attr('class','text-error');
+			nextObj.html(newHtml);
+		}
+	} else {
+		nextObj.html('<img src="/ziteng/page/public/images/right.gif"/>');
+	}
+}
+
+$(document).ready(function() {
+	$('.list-group-item').click(function() {
+		var url = '';
+		switch ($(this).index()) {
+		case 0:url='user_manage.html';break;
+		case 1:url='add_manager.html';break;
+		case 2:url='change_password.html';break;
+		case 3:url='activity_list.html';break;
+		case 4:url='/ziteng/page/zthotel/admin/index.html';break;
+		}
+		window.location.href=url;
+	});
+	
+	$('#submitBtn').click(function() {
+		var formObj			=	$("#registerForm input");
+		var returnSta 		=	true;
+		var formSta			=	true;
+		
+		var username = $("#username").val();
+		var realname = $("#realname").val();
+		var phonenum = $("#phonenumber").val();
+		var email = $('#email').val();
+		var idcard = $('#idcard').val();
+		var password = $('#password').val();
+		
+		for(var i = 0; i < formObj.length; i++)
+		{
+			inputObj	  = formObj.eq(i);
+			inputName = inputObj.attr('name');
+			
+			if(inputObj.attr('data-check-sta') == 'Y') {
+				formSta	= checkRegExps(inputObj);
+				disError(formSta, inputObj);
+			} else if (inputName == 'member_username' || inputName == 'member_card_num' || inputName == 'member_email' || inputName == 'member_phone') {
+				formSta = inputObj.attr('data-sta');
+			}
+			
+			if(formSta == false || formSta == 0 || formSta == 2) {
+				returnSta = false;
+				break;
+			}
+		}
+		
+		if(returnSta == false)
+		{
+			$("input").change();
+			return false;
+		}
+		else
+		{
+			var params = {"userName":username, "fullName":realname, "idCard":idcard, "email":email, "phoneNumber":phonenum,"password":password};
+			var url = "/ziteng/admin/addAdministrator.do";
+			$.post(url,params,function(data){
+				var json = eval('('+data+')');
+				if (json.success) {
+					alert('添加成功');
+				}
+			});
+			return true;
+		}
+	});
+	
+	$("input[data-check-sta='Y']").change(function() {
+		disError(checkRegExps($(this)),$(this));
+	});
+	
+	$("input[name='member_card_num'],input[name='member_email'],input[name='member_phone'],input[name='member_username']").change(function() {
+		var thisObj		= $(this);
+		var inputVal		= thisObj.val();
+		var nextObj		= thisObj.parent().next();
+		var expArr		= new Array();
+			
+		if(thisObj.attr('type') != 'hidden' && ($("#IDType").val() == "身份证")) {
+			expArr['member_card_num'] = /(^\d{15}$)|(^\d{17}[0-9Xx]$)/;
+			expArr['member_email']    = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)/;//姓名
+			expArr['member_phone']    = /^((\(\d{2,3}\))|(\d{3}\-))?(13|15|18|14)\d{9}$/;
+			expArr['member_username'] = /^([a-zA-z])([a-zA-Z0-9_]){5,14}$/;
+				
+			var expVal = expArr[thisObj.attr('name')];
+				
+			thisObj.attr('data-sta','2');
+			nextObj.html('<img src="/ziteng/page/public/images/xloading.gif"/>');
+				
+			if(!expVal.test(inputVal)) {
+				nextObj.attr('class','text-error');
+				nextObj.html(thisObj.attr('data-content1'));
+				thisObj.attr('data-sta','0');
+			} else {
+				$.post(
+					'/ziteng/user/register_check.do',
+					{"value":inputVal},
+					function(result) {
+						var json = eval('('+result+')');
+						if (json.success) {
+							thisObj.attr('data-sta','1');
+							nextObj.html('<img src="/ziteng/page/public/images/right.gif"/>');
+						} else {
+							thisObj.attr('data-sta','0');
+							nextObj.attr('class','text-error');
+							nextObj.html(thisObj.attr('data-content2'));
+						}
+					}
+				);
+			}
+		}
+	});
+});
+</script>	
+
+</body>
+</html>

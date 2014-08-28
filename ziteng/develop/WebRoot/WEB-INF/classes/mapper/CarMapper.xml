@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ziteng.dao.car.ICarDao">
+	<resultMap type="com.ziteng.entity.car.Car" id="carMap">
+		<id property="id" column="id"/>
+		<result property="carName" column="car_name"/>
+		<result property="carType" column="car_type"/>
+	</resultMap>
+	<insert id="insert" parameterType="com.ziteng.entity.car.Car" keyProperty="id" useGeneratedKeys="true" flushCache="true">
+		insert into car
+		(car_name,car_type)
+		values
+		(#{carName},#{carType})
+	</insert>
+	<update id="update" parameterType="com.ziteng.entity.car.Car" flushCache="true">
+		update car set
+		car_name=#{carName},
+		car_type=#{carType}
+		where id=#{id}
+	</update>
+	<delete id="delete" parameterType="com.ziteng.entity.car.Car" flushCache="true">
+		delete from car where id=#{id}
+	</delete>
+	<delete id="deleteById" parameterType="int" flushCache="true">
+		delete from car where id=#{id}
+	</delete>
+	<select id="selectById" parameterType="int" useCache="true" resultMap="carMap">
+		select * from car where id=#{value}
+	</select>
+	
+	<select id="selectByCarType" parameterType="java.lang.String" useCache="true" resultMap="carMap">
+		select * from car where car_type=#{value}
+	</select>
+	
+</mapper>

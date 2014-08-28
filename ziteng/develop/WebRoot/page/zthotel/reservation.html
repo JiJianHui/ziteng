@@ -1,0 +1,457 @@
+<html>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="IE=7.0000" http-equiv="X-UA-Compatible">
+<meta content="all" name="robots">
+<meta name="robots" content="index,follow">
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<title>紫藤车队网--酒店预订</title>
+
+
+
+<link rel="stylesheet" rev="stylesheet" href="css/EL_common.css" type="text/css" media="all">
+<link rel="stylesheet" rev="stylesheet" href="css/hotels_2013_index.css" type="text/css" media="all">   
+<LINK rel="stylesheet" type="text/css" href="css/thickbox-info.css">
+
+<LINK rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="admin/css/jquery-ui.css" />
+<SCRIPT type="text/javascript" charset="utf-8" src="css/jquery-1.6.2.js"></SCRIPT>
+<SCRIPT type="text/javascript" charset="utf-8" src="css/jquery-ui.js"></SCRIPT>
+<SCRIPT type="text/javascript" charset="utf-8" src="css/thickbox.js"></SCRIPT>
+<script type="text/javascript" src="admin/js/jquery.min.js"></script>
+<script type="text/javascript" src="admin/js/jquery-ui.js"></script>
+<script type="text/javascript" src="admin/js/jquery-ui-slide.min.js"></script>
+<script type="text/javascript" src="admin/js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="js/hotel/hotelroomsearch.js"></script>
+
+<link href="public/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../public/css/home.css" />
+<link rel="stylesheet" type="text/css" href="../css/global.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/reocar.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/mdd_detail_v2.css" />
+
+<script src="../public/javascript/jquery.easing.1.3.js"></script>
+<script src="../public/javascript/bootstrap/bootstrap.js"></script>
+
+<script src="js/public.js"></script>
+<script src="../js/login.js"></script>
+<script src="../js/register.js"></script>
+
+
+</HEAD>
+
+<script type="text/javascript">
+$(function(){
+	
+	$('#m_preDate').datepicker({
+	   showSecond: false,
+	   showMillisec: false,
+	   numberOfMonths: 2,
+	   minDate: 0,
+	   maxDate: 30
+    });
+	$('#m_endDate').datepicker({
+	   showSecond: false,
+	   showMillisec: false,
+	   numberOfMonths: 2,
+	   minDate: 0,
+	   maxDate: 30
+    });
+	
+});
+</script>
+
+<BODY onload="getIndexHotelRoom()">
+<!--头部-->
+	<div class="header">
+		<div class="reo_header">
+			<div class="top">
+				<div class="c" id="statusBar">
+					<!-- 用于登录栏 -->
+				</div>
+			</div>
+			<div id="div_login" style="display: none" class="div_login">
+				<ul class="blue_line">
+				</ul>
+				<form id="headLogin" onsubmit="return false">
+					<ul class="unstyled" style="margin-top: 15px; margin-top: 20px;">
+						<li style="line-height: 35px;">账号：<input id="login_account"
+							type="text" name="head_account" data-check-sta='Y'
+							data-check-type='isname' msgVal='手机/邮箱/用户名'
+							style="width: 65%; color: #CCC" value="手机/邮箱/用户名" />
+						</li>
+						<li style="line-height: 35px;">密码：<input type="password"
+							msgVal='密码' id="headpassword" name="head_password"
+							style="width: 65%; margin-top: 0px; color: #000;" />
+						</li>
+					</ul>
+					<ul class="inline"
+						style="height: 30px; line-height: 30px; margin-top: 3px;">
+						<li id="head-login-errormsg"
+							style="width: 150px; text-align: left; margin-left: 0px; padding-left: 0px;"
+							class="text-error"></li>
+						<li style="width: 60px; text-align: right;"><a
+							href="getpassword.html">忘记密码</a></li>
+					</ul>
+					<ul style="margin-top: 5px;">
+						<li><input type="submit" value="立即登录"
+							style="width: 200px; height: 30px; margin: 0 0 0 40px;"
+							id="head_login" class="btn btn-primary" /></li>
+					</ul>
+				</form>
+			</div>
+		</div>
+
+		<div id="nav_header">
+			<ul>
+				<li class="titlewz">
+					<ol olnum="0">
+						<img src="../public/images/headLogo.png"
+							style="margin-right: 3px; margin-bottom: 2px;" />
+						<a style="color: #FC3;" href="../home.html">首页</a>
+					</ol>
+					<ol olnum="1">
+						<a href="../gonglue.html">旅游攻略</a>
+					</ol>
+					<ol olnum="2">
+						<a href="../activity.html">活动</a>
+					</ol>
+					<ol olnum="3">
+						<a href="../rentcar.html">旅游包车</a>
+					</ol>
+					<ol olnum="4">
+						<a href="../carsharing/carsharing_list.html">拼车留言</a>
+					</ol>
+					<ol olnum="5">
+						<a href="home.html">酒店预订</a>
+					</ol>
+					<ol olnum="6">
+						<a href="#">BBS</a>
+					</ol>
+				</li>
+			</ul>
+			<ul>
+				<span id="blueline" class="testline" style="margin-left: 17px" />
+			</ul>
+		</div>
+
+		<div id="page_loading"
+			style="display: none; background: #000; display: block; position: absolute; top: 0; left: 0; z-index: 10000; opacity: 0.1; filter: progid:DXImageTransform.Microsoft.Alpha(opacity=10);"></div>
+		<img src="../public/images/loading.gif"
+			style="display: none; width: 32px; height: 32px; z-index: 11000; position: absolute; border: 0;"
+			id="page_loadimg" />
+	</div>
+	<!--头部end -->
+
+<!--中间内容 Content 开始-->
+
+<div class="homemain_box">
+	<div class="mb10">
+		<div class="main_search">
+			<div class="serch_title">酒店搜索</div>
+			<!--艺龙代码1开始-->
+			<div class="grid clx">
+					<!-- Sidebar Start-->
+					<div class="sidebar">
+						<!-- Search Start-->
+							<div id="dvSearchRegion" class="search">            
+								<ul> 
+									<br>
+									<li class="mb15">
+										<span class="title">入住城市 </span>
+										<input type="text" class="intxt" value="北京" maxlength="20" id="m_city" name="m_city" cityid="0101" cityname="Beijing" datacheck="" mod="address|notice" mod_address_source="hotel" mod_address_suggest="@Beijing|北京|53@Shanghai|上海|321@Shenzhen|深圳|91@Guangzhou|广州|80@Qingdao|青岛|292@Chengdu|成都|324@Hangzhou|杭州|383@Wuhan|武汉|192@Tianjin|天津|343@Dalian|大连|248@Xiamen|厦门|61@Chongqing|重庆|394@" mod_address_reference="getcityid" mod_notice_tip="中文/拼音" />
+		<input id="getcityid" name="getcityid" type="hidden" value="{$getcityid}" />
+									</li>                        
+									<li class="mb15">
+										<span class="title">入住日期 </span><input type="text" class="intxt checkin" method="txtEnterDate" onblurmethod="txtEnterDate" id="m_preDate" value="" maxlength="20" name="m_preDate"><span class="date" id="inDateWeek" method="txtEnterDate"></span>
+									</li>
+									<li class="mb15">
+										<span class="title">退房日期 </span><input type="text" class="intxt checkout" method="txtOutDate" onblurmethod="txtOutDate" id="m_endDate" value="" maxlength="20" name="m_endDate"><span class="date" id="outDateWeek" method="txtOutDate"></span>
+									</li>
+									<li class="mb15">
+										<span class="title">关键词</span>
+										<input type="text" class="intxt l_black" value="输入酒店名" id="allInOne" method="allInOne" onfocus="if (value =='输入酒店名'){value =''}" onblur="if (value ==''){value='输入酒店名'}">
+									</li> 
+								</ul>
+								  <input id="btnSearch" class="sousuo_button" type="button" name="btnSearch" method="searchHotel" onClick="getHotelList()"> 				  
+								<div class="search_bottom"></div>
+							</div>
+					</div>
+			</div>			
+			<!--艺龙代码1结束-->
+			<div class="serch_box" >
+				<ul class="why_us">
+					<li class="title">为什么选择我们</li>
+					<li>不收预订费，在线预订还<span class="col_org">返现金</span></li>
+					<li>预订价高于酒店前台挂牌价<span class="col_org">3倍差额赔付</span></li>
+					<li>我们每天售出超过<span class="col_org">40000间客房</span></li>
+					<li>国内<span class="col_org">3万2千家酒店</span>可供选择</li>
+					<li>到店无房<span class="col_org">赔付首晚房费</span></li>
+				</ul>
+			</div>  <!--serch_box end-->
+		</div> <!--main_search end-->
+
+		<div class="main_side">
+			<div class="banner_img">
+				<script type="text/javascript" src="css/swfobject.js"></script>
+				<object type="application/x-shockwave-flash" data="image/focuse.swf" width="668" height="300" id="swfContent" style="visibility: visible; ">
+					<param name="menu" value="false">
+					<param name="wmode" value="opaque">
+					<param name="flashvars" value="xmlData=<list><item><img>http://images.sunnychina.com/v2/image/banner_03.jpg</img><url>http://www.sunnychina.com/huodong/bonus/index.html</url></item><item><img>http://images.sunnychina.com/v2/image/banner_02.jpg</img><url>http://tuan.sunnychina.com</url></item><item><img>http://images.sunnychina.com/v2/image/banner_01.jpg</img><url>http://prepay.sunnychina.com</url></item><item><img>http://images.sunnychina.com/v2/image/banner04.jpg?v=2</img><url>http://www.elong.com/promotion/web/elongiphone/index.html?keycoid=shouji:130613:yangguang</url></item><item><img>http://images.sunnychina.com/v2/image/elong_banner_05.jpg?v=4</img><url>http://globalhotel.elong.com/?keycoid=global:140217:yangguang</url></item></list>"/>
+					<param name="movie" value="image/focuse.swf"/>
+				</object>
+				<script type="text/javascript">
+					var xmlData="<list>"
+					xmlData=xmlData+"<item><img>image/banner_03.jpg</img><url>/huodong/bonus/index.html</url></item>";
+					xmlData=xmlData+"<item><img>image/banner_02.jpg</img><url>http://tuan.sunnychina.com</url></item>";
+					xmlData=xmlData+"<item><img>image/banner_01.jpg</img><url>http://prepay.sunnychina.com</url></item>";
+					xmlData=xmlData+"<item><img>image/banner04.jpg?v=2</img><url>http://www.elong.com/promotion/web/elongiphone/index.html?keycoid=shouji:130613:yangguang</url></item>";
+					xmlData=xmlData+"<item><img>image/elong_banner_05.jpg?v=4</img><url>http://globalhotel.elong.com/?keycoid=global:140217:yangguang</url></item>";
+					xmlData=xmlData+"</list>";
+					var flashvars = {xmlData:xmlData};
+					var params = {menu:false,wmode:"opaque"};
+					var attributes = {};
+					swfobject.embedSWF("image/focuse.swf", "swfContent", "668", "300", "9","expressInstall.swf", flashvars, params, attributes);
+				</script>
+			</div> <!--banner_img end-->
+			<div class="index_moneyf">
+				<div class="fxj_link">
+					
+				</div><!--fxj_link end-->
+				<div class="money_but">
+					<ul class="money_butul">
+						
+					</ul>
+				</div><!--money_but end-->
+				<div class="marquee">
+					<div id="marqueeBox" style="overflow:hidden;height:20px">
+						<div></div>
+						<div>
+							
+						</div>
+					</div><!--marqueeBox end-->
+				</div><!--marquee end-->
+			</div><!--index_moneyf end-->
+		</div><!--main_side end -->
+		<strong>
+		<div class="clear"></div>
+		</strong>
+	</div> <!--mb10  end  此处为分割的滚动页面已经结束 -->
+
+	<!--预付酒店的模块开始-->
+	<div class="yufu_box">
+		<h3><a class="more" href="#">更多>></a>预付<span class="col_org">更便宜</span>酒店</h3>
+			
+		
+			
+		<div class="hotel_yflist  bod_b1" id="hotelbob1"> <!--hotel_yflist hotelbob1 begin-->
+			<div class="left-pic">
+				<a href="#"><img src="css/201242316011947172.jpg" width="127" height="84"></a> 
+				<p class="hot_title"><a href="#">广州十甫假日酒店</a></p>
+			</div> <!--left-pic end-->
+			<div class="right-txt"><!--right-txt begin-->
+				<table class="room_list" border="0" cellspacing="0" cellpadding="0">
+				  <tbody>
+				  <tr>
+					<td width="53%"><a href="#">假日高级房</a></td>
+					<td width="22%">
+					  <div class=" col_org">￥ <span class=" bold t14">728</span></div>
+					</td>
+					<td width="25%"><span class="span_fx">27</span>
+					</td>
+				  </tr>
+				  <tr>
+					<td width="53%"><a href="#">高级房</a></td>
+					<td width="22%">
+					  <div class=" col_org">￥ <span class=" bold t14">580</span></div>
+					</td>
+					<td width="25%"><span class="span_yf"></span></td>
+				  </tr>
+				  <tr>
+					<td width="53%"><a href="#">假日豪华房</a></td>
+					<td width="22%">
+					  <div class=" col_org">￥ <span class=" bold t14">768</span></div>
+					</td>
+					<td width="25%"><span class="span_fx">28</span></td>
+				  </tr>
+				  <tr>
+					<td width="53%"><a href="#">豪华房</a></td>
+					<td width="22%">
+					  <div class=" col_org">￥ <span class=" bold t14">640</span></div>
+					</td>
+					<td width="25%"><span class="span_yf"></span></td>
+				  </tr>
+				  </tbody>
+				</table>	
+			</div><!--right-txt end-->
+			<div class="clear"></div>
+		</div><!--hotel_yflist bod_b1 end-->
+
+
+		<div class="hotel_yflist "   id="hotelbob2"><!--hotel_yflist hotelbob2 begin-->
+			<div class="left-pic"><!--left-pic begin-->
+				<a href="#"><img src="css/201242413101516975.jpg" width="127" height="84"></a> 
+				<p class="hot_title"><a href="#">深圳五洲宾馆</a></p>
+			</div><!--left-pic end-->
+			<div class="right-txt"><!--right-txt begin-->
+				<table class="room_list" border="0" cellspacing="0" cellpadding="0">
+				  <tbody>
+				  <tr>
+					<td width="53%"><a href="#">标准双床房</a></td>
+					<td width="22%">
+					  <div class=" col_org">￥ <span class=" bold t14">920</span></div>
+					</td>
+					<td width="25%"><span class="span_fx">33</span></td>
+				  </tr>
+				  <tr>
+					<td width="53%"><a href="#">标双不含早</a></td>
+					<td width="22%">
+					  <div class=" col_org">￥ <span class=" bold t14">755</span></div>
+					</td>
+					<td width="25%"><span class="span_yf"></span></td>
+				  </tr>
+				  <tr>
+					<td width="53%"><a href="#">高级双床房</a></td>
+					<td width="22%">
+					  <div class=" col_org">￥ <span class=" bold t14">980</span></div>
+					</td>
+					<td width="25%"><span class="span_fx">34</span></td>
+				  </tr>
+				  <tr>
+					<td width="53%"><a href="#">高级客房 不含早</a></td>
+					<td width="22%">
+					  <div class=" col_org">￥ <span class=" bold t14">785</span></div>
+					</td>
+					<td width="25%"><span class="span_yf"></span></td>
+				  </tr>
+				  </tbody>
+				</table>
+			</div><!--right-txt end-->
+			<div class="clear"></div>
+		</div><!--hotel_yflist end-->
+	</div><!--yufu_box end -->
+	<!--预付酒店的模块结束-->
+
+	<!--酒店团购的模块开始-->
+	<div class="tuan_box">
+		<h3><a class="more" href="#">更多&gt;&gt;</a>酒店团购 <span class="col_org">1折</span>起</h3>
+		<div class="tuan">
+			<div class="tuan_box1" id="tuanbox1">
+				<div class="tuan_box1_txt"><!--tuan_box1_txt begin -->
+					<a href="#">【上海徐汇瑞峰酒店】标准大床房/标准双床房住宿1晚+免费宽带+免费健身房+免费停车！酒店位置可轻松到达地铁沿线的多个商圈！吃遍上海美食，享受购物天堂，体验海派格调的精品酒店！</a>
+				</div><!--tuan_box1_txt end -->
+				<img src="css/20120412_shxhrfl.jpg" width="210" height="110"> 
+				<p class="hot_title">
+					<a href="#">上海徐汇瑞峰酒店标准大床房/标准双床房</a>
+				</p>
+				<p class="hotel_money">团购价:<span class="col_org">￥<span class="t16">228</span></span></p>
+			</div><!--tuan_box1 end-->
+			<div class="tuan_box2"  id="tuanbox2"><!--tuan_box2 begin-->
+				<dl class="hot_hotel">
+					<a class="img_hotel" href="#">
+						<img src="css/20110726_bandaol.jpg" width="70" height="70">
+					</a> 
+					<dt>
+						<a href="#">成都半岛酒店（东恒店） 全天房</a> 
+					</dt>
+					<dd>团购价：<span class="col_org bold t16">￥158</span> </dd>
+					<dd>原 价：<span class="col_6">￥338</span> </dd>
+					<dd>折 扣：<span class=" col_org">4.7折</span> </dd>
+				</dl>
+			</div><!--tuan_box2 end-->
+
+			<div class="tuan_box2"  id="tuanbox3">
+				<dl class="hot_hotel">
+					<a class="img_hotel" href="#">
+						<img src="css/20130106_jllsnbydl.jpg" width="70" height="70">
+					</a> 
+					<dt>
+						<a href="#">成都嘉立连锁酒店（红星国际店）</a> 
+					</dt>
+					<dd>团购价：<span class="col_org bold t16">￥126</span> </dd>
+					<dd>原 价：<span class="col_6">￥168</span> </dd>
+					<dd>折 扣：<span class=" col_org">7.5折</span> </dd>
+				</dl>
+			</div><!--tuan_box2 end-->
+
+			<div class="tuan_box2"  id="tuanbox4">
+				<dl class="hot_hotel">
+					<a class="img_hotel" href="#">
+						<img src="css/20121018_shrfoujdl.jpg" width="70" height="70">
+					</a> 
+					<dt>
+						<a href="#">上海瑞峰公寓酒店豪华房（大床/双床）</a> 
+					</dt>
+					<dd>团购价：<span class="col_org bold t16">￥168</span> </dd>
+					<dd>原 价：<span class="col_6">￥1188</span> </dd>
+					<dd>折 扣：<span class=" col_org">1.4折</span> </dd>
+				</dl>
+			</div><!--tuan_box2 end-->
+
+			<div class="clear"></div>
+		</div><!--tuan-->
+	</div><!--tuan_box end -->
+	<!--酒店团购的模块结束-->
+	<div class="clear"></div>
+</div> <!--homemain_box end -->
+
+
+
+<!--艺龙时间和城市  开始 -->
+
+    <div style="display: none" >    
+        <!-- Main Start -->
+        <div class="main">
+            <!-- Poi start-->
+            <div id="poiDiv" class="fast_search" method="dvPoi">
+			<div class="tuan_title" method="nav">
+				<input type="text" method="poicity" class="inputCity" value="北京" readonly="readonly" datacheck="">		
+			</div>			
+		</div>   
+            <!-- HotelRecommend End -->
+        </div>
+        <!-- Main End -->
+    </div>
+    <!-- EDM Start -->
+		<div id="jsContainer" class="jsContainer" style="height:0">
+			<div id="tuna_alert" style="display:none;position:absolute;z-index:999;overflow:hidden;"></div>
+			<div id="tuna_jmpinfo" style="visibility:hidden;position:absolute;z-index:120;"></div>
+		</div>
+
+		<script type="text/javascript" src="js/fixdiv.js"></script>
+		<script type="text/javascript" src="js/address.js"></script>
+		<div align="center" style="clear:both;font-size:12px;color:#666;">
+		</div>
+    
+<!--艺龙时间和城市 结束 -->
+
+<!--中间内容 Content 结束-->
+
+<!-- footer start-->
+	<div class="footer">
+		<div class="nav_footer">
+	  		<div>
+	    		<ul class="inline">
+	      		<li><a  href="/ziteng/page/home.html">首　　页</a></li>
+	      		<li><a  href="#">服务网点</a></li>
+	      		<li><a  href="#">帮助中心</a></li>
+	      		<li><a  href="#">关于我们</a></li>
+	        </ul>
+	  		</div>
+		</div>
+		<div class="container">
+	  		<div>
+	    		<ul class="unstyled">
+	      		<li>本网站所有权归紫藤（青岛）租车有限公司所有</li>
+	    		</ul>
+	    		<ul class="unstyled">
+	      		<li>Copyright @2014 www.zitengtravel.com All Rights Reserved</li>
+	    		</ul>
+	  		</div>
+		</div>
+	</div>
+	
+	<!-- footer end -->
+
+</BODY>
+</html>

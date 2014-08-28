@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <!-- 输出日志到控制台  ConsoleAppender -->   
+    <appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d %-5p] [%t] {%c:%L} - %m%n"/>
+        </layout>
+    </appender>
+    
+    <!-- 输出日志到文件  文件大小到达指定尺寸的时候产生一个新的文件 -->  
+	<appender name="rollingFileAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="Append" value="true"/>
+		<param name="MaxFileSize" value="5MB"/> 
+		<param name="MaxBackupIndex" value="5"/> 
+		<param name="Threshold" value="info"/>
+		<!-- 
+		<param name="ImmediateFlush" value="true"/> 
+         --> 
+		<param name="File" value="${catalina.base}/mylog/ziteng_roll_file.log"/> 
+		
+		<!--  
+		 <param name="File" value="D:/mylog/ziteng.log"/> 
+		 -->
+		<layout class="org.apache.log4j.PatternLayout">
+		  <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss} %-5p] [%t] {%c:%L} - %m%n"/>
+		</layout>
+	</appender>
+	
+	<!-- 输出日志到文件  每天一个文件 -->  
+    <appender name="dailyRollingFileAppender"  
+        class="org.apache.log4j.DailyRollingFileAppender">  
+        <param name="Threshold" value="info"></param>  
+        <param name="ImmediateFlush" value="true"></param>  
+        <param name="File" value="${catalina.base}/mylog/ziteng_front.log"></param>  
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"></param>  
+        <layout class="org.apache.log4j.PatternLayout">  
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss} %-5p] [%t] {%c:%L} - %m%n"></param>  
+        </layout>  
+    </appender> 
+    
+    <logger name="log4j.logger.java.sql.Statement">
+        <level value="DEBUG" />
+        <appender-ref ref="consoleAppender"/>
+        <appender-ref ref="rollingFileAppender"/>
+    </logger>
+	<logger name="log4j.logger.java.sql.PreparedStatement">
+        <level value="DEBUG" />
+        <appender-ref ref="consoleAppender"/>
+        <appender-ref ref="rollingFileAppender"/>
+    </logger>
+    <logger name="log4j.logger.java.sql.ResultSet">
+        <level value="DEBUG" />
+        <appender-ref ref="consoleAppender"/>
+        <appender-ref ref="rollingFileAppender"/>
+    </logger>
+	
+	<!-- 
+		定义全局的日志输出级别,但是在输出目的地的配置中配置的具体输出级别优先级高于全局定义的优先级。  
+       	 如果在RollingFileAppender中定义<param name="Threshold" value="info"></param>，那么将会把info以上级别的信息输出  
+    -->
+	<root>
+		<priority value ="DEBUG" />
+		<appender-ref ref="consoleAppender"/>
+		<appender-ref ref="rollingFileAppender"/>
+		<appender-ref ref="dailyRollingFileAppender"/>
+	</root>
+    <category name="java.sql">  
+        <priority value="debug" />  
+    </category>  
+    <category name="com.ibatis">  
+        <priority value="debug" />  
+    </category>  
+</log4j:configuration> 

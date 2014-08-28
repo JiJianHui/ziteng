@@ -1,0 +1,82 @@
+﻿/*----------------------------- 遮罩背景 ------------------------------------*/
+.pop-shade{ position:absolute;left:0; top:0; width:100%; height:3000px; background-color:#000; filter:alpha(opacity=30); -ms-filter:alpha(opacity=30); opacity:0.30; -moz-opacity:30;}
+.pop-shade iframe{height:2000px}
+
+.pop-shade iframe{filter:alpha(opacity=0);-ms-filter:alpha(opacity=0); opacity:0;-moz-opacity:0;}
+
+.popup{ z-index:1009; position:absolute; left:300px; top:20px; padding:6px 6px;  background:rgba(36,36,36,0.4); filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#0f000000', endColorstr='#0f000000');}
+.popup iframe{ position:absolute;left:0; top:0; border:none;}
+.popup .body{ position:relative; z-index:2000;}
+.popup .body thead td{ overflow:hidden; height:32px; border:1px #d9d9d9 solid; border-bottom-color:#d9d9d9; background:url('../images/pop.png') repeat-x}
+.popup .body thead td h2{ position:relative; height:32px; color:#333; font-weight:bold; font-size:14px; line-height:32px; padding-left:15px}
+.popup .body thead td h2 a{ position:absolute; top:8px; right:11px; width:19px; height:19px; background:url('../images/pop.png') 0 -32px no-repeat}
+.popup .body thead td a:hover{ background:url('../images/pop.png') -28px -32px}
+.popup .body .main{ background-color:#fff;}
+.popup .body  table{ position:relative; z-index:2000 }
+.popup .body tbody td{border-left:1px #d9d9d9 solid; border-right:1px #d9d9d9 solid; border-bottom:1px #d9d9d9 solid}
+
+/*----------------------------- 相册 ------------------------------------*/
+.pop-photo{ width:624px; height:468px; position:relative}
+.pop-photo div img{width:624px; height:468px}
+.pop-photo .leftbtn,.pop-photo .rightbtn{ width:41px; height:54px;position:absolute; top:207px; cursor:pointer}
+.pop-photo .leftbtn{ background-position:-572px -124px;left:-1px}
+.pop-photo .rightbtn{ background-position:-624px -124px;right:-2px}
+
+/*----------------------------- 回复 ------------------------------------*/
+.pop-reply{ width:593px; display:inline-block; padding:15px}
+.pop-reply li{ background:url('../images/line3.png') 0 bottom repeat-x; padding:10px 0px}
+.pop-reply li.hover{ background-color:#f2f2f2}
+.pop-reply .head-pic{ width:40px; height:40px; border:1px #b3b3b3 solid; padding:2px; margin-right:10px}
+.pop-reply .head-pic img{ width:40px; height:40px}
+.pop-reply .func{ padding-top:10px}
+.pop-reply .ico-face{width:16px; height:16px;display:inline-block; float:left; background-position:-516px -125px;margin-right:10px}
+.pop-reply .font18{ font-size:18px}
+.pop-reply .name{ padding-left:10px; padding-right:20px}
+.pop-reply .wid400{ width:400px; color:#333}
+.pop-reply .tel{text-align:left;color:#666; margin-bottom:25px;}/***ym13/11/28***/
+.pop-reply .tel p {font-size:24px; background:url('../images/tel-ico.png') 0px 10px no-repeat;margin:0px; padding:5px 0px 0px 30px;}
+
+/*----------------------------- 添加银行 ------------------------------------*/
+.pop-bank{ width:622px; padding:15px 0px}
+.pop-bank li{ position:relative; z-index:1; padding-bottom:15px}
+.pop-bank .lab-style{ padding-right:15px; line-height:28px; width:134px; font-weight:bold; font-size:14px; color:#333; text-align:right}
+.pop-bank .tip3{ padding-left:149px; color:#999; margin-top:-5px}
+.pop-bank .name{ line-height:28px;font-weight:bold; font-size:14px; color:#333}
+.iup-style{top:0px}
+.blue-arrow{ position:absolute; width:9px; height:10px;right:10px;top:10px; background-position:-545px 0px}
+
+.pop-bank .bank-card{position:relative; width:118px; border:1px #2e98ea solid; height:29px; background:#fff; background-repeat:no-repeat; display:inline-block cursor:pointer}
+.pop-bank .bank-card.clicked{ border-bottom:none; z-index:1}
+.pop-bank .table { z-index:0; background-color:#fff;position:absolute;width:405px; height:146px; left:149px; top:29px; border:1px #2e98ea solid}
+.pop-bank td{border:1px #f0eded solid;width:100px; height:28px;}
+.pop-bank td div{ position:relative;width:100px; height:28px;}
+.pop-bank td a,.bank-card a{z-index:999; background-image:url('../images/bank3.png'); position:absolute; width:100px; height:28px; left:0px; top:0px; display:block}
+.pop-bank td a:hover{ border:1px #2e98ea solid;left:-1px;top:-1px;}
+.icbc3{ background-position:0 0px}
+.longye3{ background-position:0 -33px}
+.zhaoshang3{ background-position:0 -66px}
+.jianshe3{ background-position:0 -99px}
+.zhongguo3{ background-position:0 -132px}
+.jiaotong3{ background-position:0 -165px}
+.guangfa3{ background-position:0 -198px}
+.guangda3{ background-position:0 -231px}
+.shenzhen3{ background-position:0 -264px}
+.xinye3{ background-position:0 -297px}
+.pinan3{ background-position:0 -330px}
+.pufa3{ background-position:0 -363px}
+.minshen3{ background-position:0 -396px}
+.zhongxing3{ background-position:0 -429px}
+
+.shanghai3{ background-position:0 -462px}
+.huaxia3{ background-position:0 -495px}
+.beijin3{ background-position:0 -526px}
+.ningbo3{ background-position:0 -559px}
+
+.sign-pop{ padding-left:30px; margin-top:-4px; padding-right:45px; padding-bottom:26px}
+.sign-pop a{ display:inline-block; width:110px; height:45px; background-position:-342px -691px}
+.sign-pop a:hover{ background-position:-342px -742px}
+.sign-pop a.clicked{ background-position:-342px -793px}
+
+.line-inner{ padding:24px 78px 20px 59px}
+.line-inner .tip6{ width:477px; height:32px; padding:5px 0 5px 6px; line-height:17px; margin-bottom:15px; background-color:#f5f5f5; border:1px #d8d8d8 solid; overflow:hidden;}
+.line-inner label{ display:inline-block; width:55px; margin-right:10px; position:relative; top:5px; text-align:right; font-weight:bold;}

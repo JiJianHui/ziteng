@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0138)http://www.ziteng.com/rentcar/selectShop?shop_id=f2c8c61f-b924-459a-a368-df04967a9f47&area_id=9f3d63a1-f494-49d3-8d6b-1956fb29964d&index=1 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="x-ua-compatible" content="ie=9">
+<title>瑞卡租车在线订购_为您提供方便快捷的在线租车服务_便宜租好车|瑞卡租车</title>
+<meta name="description" content="瑞卡便利租车门店众多,广州,深圳,长沙,武汉,重庆,北京等城市均设有租车服务网点,本租车网提供详细的租车电话及租车地址,全国连锁租车公司提供优质的自驾租车服务.">
+<script type="text/javascript" async="" src="./rentCar2_files/conversion.js"></script><script language="javascript" type="text/javascript" src="./rentCar2_files/api"></script><script type="text/javascript" src="./rentCar2_files/getscript"></script>
+<script language="javascript" type="text/javascript" src="./rentCar2_files/jquery.js"> </script>
+<script language="javascript" type="text/javascript" src="./rentCar2_files/jquery.easing.1.3.js"> </script>
+<script language="javascript" type="text/javascript" src="./rentCar2_files/bootstrap.js"> </script>
+<script language="javascript" type="text/javascript" src="./rentCar2_files/dismap.js"> </script>
+<script language="javascript" type="text/javascript" src="./rentCar2_files/bPopup.js"></script>
+<script language="javascript" type="text/javascript" src="./rentCar2_files/WdatePicker.js"></script><link href="./rentCar2_files/WdatePicker.css" rel="stylesheet" type="text/css">
+<script language="javascript" type="text/javascript" src="./rentCar2_files/rentfirst.js"></script>
+<link rel="stylesheet" type="text/css" href="./rentCar2_files/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./rentCar2_files/home.css">
+<link rel="stylesheet" type="text/css" href="./rentCar2_files/order.css">
+<script charset="utf-8" src="./rentCar2_files/v.js"></script></head>
+<body>
+<div style="display:none; margin:0px; padding:0px; width:0px; height:0px;" class="selectedLi">广州</div>
+
+
+<style>
+.yuding {
+	width:295px;
+	text-align:center;
+	color:#666;
+	font-weight:bold;
+}
+.p1 {
+	font-style:italic;
+	width:100px;
+	float:left;
+	height:68px;
+	line-height:68px;
+	font-size:16px;
+}
+.p2 {
+	text-align:left;
+	width:190px;
+	float:left;
+	font-size:20px;
+	height:48px;
+	line-height:25px;
+}
+.p2 p {
+	font-size:14px;
+}
+.p1 span {
+	padding:0px 2px;
+	font-size:44px;
+}
+.dangqian {
+	color:#12569A;
+}
+.dangqian span {
+	color:#FC0;
+}
+#yudingUl li {
+	list-style:none;
+	float:left;
+}
+
+#oneShop dd{
+	text-align:center;
+	line-height:23px;
+	height:23px;
+	padding:2px 13px; 
+	border-right:1px solid #d7d7d7;
+	display: inline-block;
+	cursor: pointer;
+}
+.activeyell {
+    background-color: #FFCC00;
+    padding: 5px 15px 3px;
+}
+</style>
+<!-- 中间部分start-->
+<div class="container" style="margin-top: 30px; border: 0;">
+<ul id="yudingUl" style="height:80px; width:100%;">
+  
+    <li class="yuding dangqian">
+      <p class="p1">第<span>1</span>步</p>
+      <div class="p2" style="margin-top:10px;">选择车型<br>
+        <p>请选择您喜欢的车型</p>
+      </div>
+    </li>
+    
+    <li style="border-left:1px solid #f2f2f2; display:inline-block; width:1px; height:50px; padding:0px; margin-top:15px; margin-left:10px; margin-right:10px;"> </li>
+    <li class="yuding">
+      <p class="p1">第<span>2</span>步</p>
+      <div class="p2" style="margin-top:10px;">填写订单<br>
+        <p>请留下您的真实资料</p>
+      </div>
+    </li>
+    <li style="border-left:1px solid #f2f2f2; display:inline-block; height:50px; width:1px; padding:0px; margin-top:15px;"> </li>
+    <li class="yuding">
+      <p class="p1">第<span>3</span>步
+      </p><div class="p2" style="margin-top:10px;">提交订单<br>
+        <p>核对订单信息后完成预订</p>
+      </div>
+    </li>
+  </ul>
+  
+    <div style="display: block; min-height:200px;" id="listDiv">
+      <style>
+.shopListBox
+{
+width: 960px;
+background-color: #FAFAFA;
+ border: 1px solid #CCC; 
+
+ border-radius: 5px;;
+}
+.shopListBox ul
+{
+margin:0 auto;
+width:920px;
+}
+
+.shopListBox2
+{
+width: 400px;
+height: 165px; 
+background-color: #FAFAFA;
+ border: 1px solid #CCC; 
+margin: 20px 0 20px 40px;
+ border-radius: 5px;
+ padding: 0 10px;
+}
+.shopListBox2 ul
+{
+margin:0 auto;
+}
+.oneShop
+{
+	height:40px;
+}
+.oneShop ul{
+	padding:0;
+}
+</style>
+            <form method="post" id="shopArea白云区" action="http://www.ziteng.com/rentcar/doSelectShop" name="sShopForm" style="display:block">
+        <div class="shopListBox" style="position:relative;padding-bottom:10px;float:left;">
+          <ul class="unstyled" style="height:40px; margin:15px auto 5px auto; line-height:40px;">
+            <li style="float:left;">
+              <h4> 白云区 | 广州石井店 </h4>
+            </li>
+            <li style="float: right;">
+              <input type="hidden" name="shop_id" value="f2c8c61f-b924-459a-a368-df04967a9f47">
+              <input type="hidden" name="shop_name" value="广州石井店">
+             
+            </li>
+          </ul>
+          <ul style="height:2px; border-top:1px solid #999; margin-bottom:8px;">
+          </ul>
+		  <ul class="inline">
+            取车时间： 2014-03-24 11:00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;还车时间：2014-03-26 11:00          </ul>
+		  <ul class="inline">
+            电话： 400-777-0888          </ul>
+          <ul class="unstyled">
+            <li style="width:680px; float:left">地址： 白云区石槎路3号石井城市广场C栋103号铺（7天连锁酒店旁） <img style="cursor:pointer" src="./rentCar2_files/dt.png" onclick="createOneMap($(this))" shopinfoarr="113.249494,23.211933_f2c8c61f-b924-459a-a368-df04967a9f47_广州石井店_白云区"></li>
+            <!--<li style="width:30px; margin-left:3px; float:right"><img data-toggle="tooltip" data-placement="top" data-original-title="519、280、556、7、254、291A、291B、831、841、929、夜26路到石井站（或金碧新城）站下，步行过石井桥100米至石井城市广场即到 （7天连锁酒店旁）" src="/public/images/gj.png" /></li>-->
+          </ul>
+		  <ul class="inline" style="float:left;margin-left:20px;margin-bottom:20px;width:690px;">乘车指南：519、280、556、7、254、291A、291B、831、841、929、夜26路到石井站（或金碧新城）站下，步行过石井桥100米至石井城市广场即到 （7天连锁酒店旁）</ul>
+		  <!--<div style="position:absolute;right: 20px;top: 65px;"><img style="width:420px;height:110px;" src="/public/images/wxhd.jpg"/></div>-->
+        </div>
+      </form>
+          </div>
+  
+  
+  <div style="margin-top:10px;background-color: #F6F6F6; width: 100%; height: 145px; border: 1px solid #CCC; border-radius: 5px;">
+      <ul class="unstyled" style="height:123px;">
+        <li style="width:187px; float:left; margin-top:15px;"> <img src="./rentCar2_files/e8755d4c-76b8-4fec-bf68-266b72fcb187.jpg" class="img-polaroid" style="margin-left:10px;width:167px;height:108px;"> </li>
+        <li style="width:752px; float:right; margin-top:8px;">
+          <p style="background-color: #F6F6F6; float:left;height:50px; line-height:65px; font-size: 20px; width:630px;font-weight: bold;">别克GL8 <a style="font-size:14px; line-height:30px; color:#666;text-decoration:none;">(2.4/自排/三厢)</a>&nbsp;&nbsp;&nbsp;&nbsp;
+          </p>
+		            <a id="chooseCar" class="btn btn-primary" onclick="window.location.href='rentCart2_1.htm'" style="float:right; margin-right:8px;margin-top:20px;">立即预订</a>
+		  		  		  <p style="background-color: #F6F6F6; float:left;height:25px; line-height:35px; font-size: 20px; width:630px;font-weight: bold;">388.00 元/天
+            <a style="font-size:14px; line-height:30px; color:#666;text-decoration:none;">(周五至周日 388.00元/天) 信用卡预授权：2000元/订单 </a>  <img data-toggle="tooltip" data-placement="top" data-original-title="信用卡预授权是指商户在实际扣款前、确认冻结信用额度的一种交易。一般用于结算客户用车过程中产生的各种款项，包括交通违章押金、维修费、误工费、违约金等。" src="./rentCar2_files/help.png"></p>
+			
+          </li>
+      </ul>
+  </div>
+  
+  <div style="margin-top:10px;background-color: #F6F6F6; width: 100%; height: 145px; border: 1px solid #CCC; border-radius: 5px;">
+      <ul class="unstyled" style="height:123px;">
+        <li style="width:187px; float:left; margin-top:15px;"> <img src="./rentCar2_files/65052f2e-fe9c-4466-ace4-3257b89b7fd2.jpg" class="img-polaroid" style="margin-left:10px;width:167px;height:108px;"> </li>
+        <li style="width:752px; float:right; margin-top:8px;">
+          <p style="background-color: #F6F6F6; float:left;height:50px; line-height:65px; font-size: 20px; width:630px;font-weight: bold;">别克凯越<a style="font-size:14px; line-height:30px; color:#666;text-decoration:none;">(1.6/自排/三厢)</a>&nbsp;&nbsp;&nbsp;&nbsp;
+          </p>
+		            <a id="chooseCar" class="btn btn-primary" href="http://www.ziteng.com/rentcar/doSelectShop?shop_id=f2c8c61f-b924-459a-a368-df04967a9f47&index=1&car_type=65052f2e-fe9c-4466-ace4-3257b89b7fd2&shop_name=%E5%B9%BF%E5%B7%9E%E7%9F%B3%E4%BA%95%E5%BA%97" style="float:right; margin-right:8px;margin-top:20px;">立即预订</a>
+		  		  		  <p style="background-color: #F6F6F6; float:left;height:25px; line-height:35px; font-size: 20px; width:630px;font-weight: bold;">158.00 元/天
+            <a style="font-size:14px; line-height:30px; color:#666;text-decoration:none;">(周五至周日 158.00元/天) 信用卡预授权：2000元/订单 </a>  <img data-toggle="tooltip" data-placement="top" data-original-title="信用卡预授权是指商户在实际扣款前、确认冻结信用额度的一种交易。一般用于结算客户用车过程中产生的各种款项，包括交通违章押金、维修费、误工费、违约金等。" src="./rentCar2_files/help.png"></p>
+			
+          </li>
+      </ul>
+  </div>
+  
+  <div style="margin-top:10px;background-color: #F6F6F6; width: 100%; height: 145px; border: 1px solid #CCC; border-radius: 5px;">
+      <ul class="unstyled" style="height:123px;">
+        <li style="width:187px; float:left; margin-top:15px;"> <img src="./rentCar2_files/5f83ec2e-4394-4baa-ab70-71d4eee4e755.jpg" class="img-polaroid" style="margin-left:10px;width:167px;height:108px;"> </li>
+        <li style="width:752px; float:right; margin-top:8px;">
+          <p style="background-color: #F6F6F6; float:left;height:50px; line-height:65px; font-size: 20px; width:630px;font-weight: bold;">日产新阳光 <a style="font-size:14px; line-height:30px; color:#666;text-decoration:none;">(1.5/自排/三厢)</a>&nbsp;&nbsp;&nbsp;&nbsp;
+          </p>
+		            <a id="chooseCar" class="btn btn-primary" href="http://www.ziteng.com/rentcar/doSelectShop?shop_id=f2c8c61f-b924-459a-a368-df04967a9f47&index=1&car_type=5f83ec2e-4394-4baa-ab70-71d4eee4e755&shop_name=%E5%B9%BF%E5%B7%9E%E7%9F%B3%E4%BA%95%E5%BA%97" style="float:right; margin-right:8px;margin-top:20px;">立即预订</a>
+		  		  		  <p style="background-color: #F6F6F6; float:left;height:25px; line-height:35px; font-size: 20px; width:630px;font-weight: bold;">158.00 元/天
+            <a style="font-size:14px; line-height:30px; color:#666;text-decoration:none;">(周五至周日 158.00元/天) 信用卡预授权：2000元/订单 </a>  <img data-toggle="tooltip" data-placement="top" data-original-title="信用卡预授权是指商户在实际扣款前、确认冻结信用额度的一种交易。一般用于结算客户用车过程中产生的各种款项，包括交通违章押金、维修费、误工费、违约金等。" src="./rentCar2_files/help.png"></p>
+			
+          </li>
+      </ul>
+  </div>
+  
+  <div style="margin-top:10px;background-color: #F6F6F6; width: 100%; height: 145px; border: 1px solid #CCC; border-radius: 5px;">
+      <ul class="unstyled" style="height:123px;">
+        <li style="width:187px; float:left; margin-top:15px;"> <img src="./rentCar2_files/c0f09724-e48e-4e4c-a89d-135fa071ea92.jpg" class="img-polaroid" style="margin-left:10px;width:167px;height:108px;"> </li>
+        <li style="width:752px; float:right; margin-top:8px;">
+          <p style="background-color: #F6F6F6; float:left;height:50px; line-height:65px; font-size: 20px; width:630px;font-weight: bold;">别克新凯越<a style="font-size:14px; line-height:30px; color:#666;text-decoration:none;">(1.5/自排/三厢)</a>&nbsp;&nbsp;&nbsp;&nbsp;
+          </p>
+		  		  <input type="button" class="btn btn-warning" name="changeShop" id="changeShop" car_type="c0f09724-e48e-4e4c-a89d-135fa071ea92" style="float:right; margin-right:8px;margin-top:20px;" value="更换门店">
+		  		  		  <p style="background-color: #F6F6F6; float:left;height:25px; line-height:35px; font-size: 20px; width:630px;font-weight: bold;">158.00 元/天
+            <a style="font-size:14px; line-height:30px; color:#666;text-decoration:none;">(周五至周日 158.00元/天) 信用卡预授权：2000元/订单 </a>  <img data-toggle="tooltip" data-placement="top" data-original-title="信用卡预授权是指商户在实际扣款前、确认冻结信用额度的一种交易。一般用于结算客户用车过程中产生的各种款项，包括交通违章押金、维修费、误工费、违约金等。" src="./rentCar2_files/help.png"></p>
+			
+          </li>
+      </ul>
+  </div>
+    <input type="hidden" name="city_id" value="58d74580-f155-466c-a2e6-756d000b9e78">
+	<input type="hidden" name="city_name" value="广州">
+	<input type="hidden" name="city_code" value="020">
+	<input type="hidden" name="car_id" value="e8755d4c-76b8-4fec-bf68-266b72fcb187">
+	<input type="hidden" name="start_date" value="2014-03-24">
+	<input type="hidden" name="start_hours" value="">
+	<input type="hidden" name="end_date" value="2014-03-26">
+	<input type="hidden" name="end_hours" value="">
+  
+  
+</div>
+<!-- 中间部分end-->
+<div style="background-color: #FC0; width:100%; text-align:center; height: 40px; margin-top:40px; line-height:40px;">
+  <div style="width:970px;margin:auto;">
+    <ul style="float:left; width:50%;text-align:left;">
+      选择你常去的地方：<a target="_blank" href="http://www.ziteng.com/guangzhou">广州租车</a>  <a target="_blank" href="http://www.ziteng.com/wuhan">武汉租车</a> <a target="_blank" href="http://www.ziteng.com/chongqing">重庆租车</a> <a target="_blank" href="http://www.ziteng.com/shenzhen">深圳租车</a> <a target="_blank" href="http://www.ziteng.com/changsha">长沙租车</a> <a target="_blank" href="http://www.ziteng.com/beijing">北京租车</a>
+    </ul>
+    <ul style="float:left; width:50%; text-align:right; font-size:14px;">
+      有问题？ 致电 400-777-0888
+    </ul>
+     </div>
+</div>
+<div class="container" style="margin-top:30px;">
+  <div style="text-align:center">
+  </div>
+</div>
+
+<!--更换门店-->
+<div id="showShop" class="Pop-up-box" style="height:500px;overflow-y:scroll;">
+  <p class="close" style="width:20px;"><img src="./rentCar2_files/fbot2.png"></p>
+  <div style="width:95%;float:left;font-size:20px;font-weight:bold;height:40px;line-height:40px;">换门店看看</div>
+  <div id="oneShop" class="oneShop"></div>
+</div>
+<!--更换门店-->
+
+
+<div class="shijiandiv" style="display:none;" onmouseout="this.style.display=&#39;none&#39;" onmouseover="this.style.display=&#39;&#39;"> <s> <q></q> </s>
+  <p style="margin:5px 3px; text-align:left">瑞卡推荐最划算取车时间：</p>
+  <div id="shijianhong">11:00</div>
+  <div id="shijianhong">17:00</div>
+  <p style="clear:both;margin:5px 3px; text-align:left">请选择取车时间：</p>
+  <div>9:00</div> <div>10:00</div> <div id="shijianhong">11:00</div> <div>12:00</div> <div>13:00</div> <div>14:00</div> <div>15:00</div> <div>16:00</div> <div id="shijianhong">17:00</div> <div>18:00</div> <div>19:00</div> <div>20:00</div> <div>21:00</div> </div>
+<div id="disMapBox" style="width:600px; height:450px; display:none;overflow:hidden;">
+  <div id="closeOneMap" onclick="$(&#39;#disMapBox&#39;).bPopup().close();"><img src="./rentCar2_files/close.png"></div>
+  <div id="disOneMap" style="width:600px; height:480px; clear:both;"></div>
+</div>
+
+
+<script language="javascript" type="text/ecmascript">
+function doArea(id)
+{
+	var obj = $('#'+id);
+	obj.parent().find('dd').removeClass();
+	obj.attr('class','activeyell');
+	var aName = obj.text();
+	var allArea = $('.shopListBox2');
+	var i = 0;
+	$('h2').remove();
+	$('.shopListBox2').css('display','none');
+	$('.shopListBox2').each(function(){
+		var areaName = $(this).attr('areaName');
+		if(aName == areaName)
+		{
+			$(this).css('display','block');
+			i++;
+		}
+		else
+		{
+			$(this).css('display','none');
+		}
+	});
+	
+	if(i == 0)
+	{
+		$('#oneShop').append('<h2 style="margin-top:20px;">'+aName+' 该车型预订已满</h2>');
+	}
+	
+}
+
+function showImg(id)
+{
+	$("#img"+id).tooltip('show');
+}
+
+$(function()
+{
+	$('input[name="changeShop"]').click
+	(
+		function()
+		{
+			addBlackBox();
+			var car_type = $(this).attr('car_type');
+			$.post
+			(
+				'/rentcar/changeShop',
+				{car_type:car_type},
+				function(result)
+				{
+					var ResultObj	=	eval("("+result+")");
+					var AreaHtml	=	'<dl>';
+					var ShopHtml	=	'';
+					$('#oneShop').html('');
+
+					if(ResultObj.allShops.length > 0)
+					{
+						//区域列表
+						for(var i= 0; i < ResultObj.areaList.length; i++)
+						{
+							var area = ResultObj.areaList[i];
+							AreaHtml	+=	'<dd onclick=doArea("'+area.CodeID+'") id="'+area.CodeID+'">'+area.CodeName_CN+'</dd>';
+						}
+						AreaHtml += '</dl>';
+						$('#oneShop').append(AreaHtml);
+						
+						//门店列表
+						for(var i= 0; i < ResultObj.allShops.length; i++)
+						{
+							var shop = ResultObj.allShops[i];
+							ShopHtml += '<div class="shopListBox2" areaName="'+shop.Areal+'" style="float:left;"><ul class="unstyled" style="height:30px; margin:15px auto 5px auto; line-height:30px;"><li style="float:left;"><h4> '+shop.Areal+' | '+shop.DepartmentName+' </h4></li><li style="float: right;"><a href="/rentcar/doSelectShop?shop_id='+shop.DepartmentID+'&index=1&car_type='+ResultObj.carTypes+'&shop_name='+shop.DepartmentName+'" class="btn btn-primary"> 预 订 </a></li></ul><ul style="height:2px; border-top:1px solid #999; margin-bottom:8px;"></ul><ul class="inline">电话： '+shop.Tel+'</ul><ul class="unstyled"><li style="width:380px; float:left">地址：  '+shop.Address+'<img style="cursor:pointer" /></li><li style="width:30px; margin-left:3px; float:right"><img id="img'+shop.DepartmentID+'" onmouseover=showImg("'+shop.DepartmentID+'") data-toggle="tooltip" data-placement="left" data-original-title="交通指南：'+shop.TrafficGuide+'" src="/public/images/gj.png" /></li></ul></div>';
+						}
+						$('#oneShop').append(ShopHtml);
+					
+					}else{
+						$('#oneShop').html("<h2>该车型预订已满</h2>");
+					}
+					removeBlackBox();
+					$('#showShop').bPopup({easing: 'easeOutBack',speed: 300,transition: 'slideDown'});
+				}
+			);
+		}
+	);
+	
+	$('#searchForm').submit
+	(
+		function()
+		{
+			formObjArr		=	$("#listDiv").find('form');
+			var formfloat	=	'left';
+			
+			for(var i=0;i<formObjArr.length;i++)
+			{
+				var shopTitle	=	formObjArr.eq(i).find('H4').html();
+				
+				if(formObjArr.eq(i).find('H4').html().indexOf($('#searchKey').val()) > 0 || $('#searchKey').val().length == 0)
+				{
+					formObjArr.eq(i).children().first().css('float',formfloat);
+					formObjArr.eq(i).show();
+					formfloat	=	formfloat	==	'left'	?	'right'	:	'left';
+				}
+				else
+				{
+					formObjArr.eq(i).hide();
+				}
+			}
+			
+			return false;
+		}			
+	);
+	$('img[data-toggle="tooltip"]').mouseover
+	(
+		function()
+		{
+			$(this).tooltip('show');
+		}
+	);
+	
+	$("#disMap").click
+	(
+		function ()
+		{
+			$("#mapList").attr('class','');
+			$("#boxDiv").prev().hide();
+			$("#boxDiv").show();
+			$(".areaUl").hide();
+			createMap($(this),"f2c8c61f-b924-459a-a368-df04967a9f47");
+		}
+	);
+	
+	$("#changeCar").click
+	(
+		function ()
+		{
+			$("#xuanche").bPopup({easing: 'easeOutBack',speed: 300,transition: 'slideDown'});
+		}
+	);
+	
+	$("form[name='sShopForm']").submit
+	(
+		function()
+		{
+			addBlackBox();
+		}
+	);
+	
+	$('input[name="end_hours"]').click
+	(
+		function()
+		{
+			$(this).next().tooltip('show');
+		}
+	);
+		
+	$('input[name="end_hours"]').mouseout
+	(
+		function()
+		{
+			$(this).next().tooltip('hide');
+		}
+	);
+	$('.close').click
+	(
+		function()
+		{
+			$(this).parent().bPopup().close()
+		}
+	);
+
+});
+
+
+
+</script>
+<div id="_my97DP" style="position: absolute; top: -1970px; left: -1970px;"><iframe style="width: 186px; height: 203px;" src="./rentCar2_files/My97DatePicker.htm" frameborder="0" border="0" scrolling="no"></iframe></div></body></html>

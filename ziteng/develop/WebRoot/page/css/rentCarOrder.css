@@ -1,0 +1,278 @@
+
+.titlewz ol {
+	float: left;
+	width: 110px;
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+	margin-top: 45px;
+}
+
+.titlewz a {
+	font-size: 16px;
+	color: #000;
+	line-height: 30px;
+}
+
+.titlewz a:hover {
+	font-size: 16px;
+	color: #FC3;;
+	line-height: 30px;
+}
+.yuding {
+	width: 295px;
+	text-align: center;
+	color: #666;
+	font-weight: bold;
+}
+
+.p1 {
+	font-style: italic;
+	width: 100px;
+	float: left;
+	height: 68px;
+	line-height: 68px;
+	font-size: 16px;
+}
+
+.p2 {
+	text-align: left;
+	width: 190px;
+	float: left;
+	font-size: 20px;
+	height: 48px;
+	line-height: 25px;
+}
+
+.p2 p {
+	font-size: 14px;
+}
+
+.p1 span {
+	font-size: 44px;
+}
+
+.dangqian {
+	color: #12569A;
+}
+
+.dangqian span {
+	color: #FC0;
+}
+
+#yudingUl li {
+	list-style: none;
+	float: left;
+}
+
+.pleft {
+	margin: 25px 0px 0px 0px;
+	height: 35px;
+	line-height: 35px;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.inline li {
+	vertical-align: middle;
+	margin: 10px;
+}
+
+.inline p {
+	margin: 20px;
+}
+
+.blues {
+	color: #4083C7;
+	font-weight: bold;
+}
+
+.liPMnull li {
+	margin: 0px;
+	padding: 0px;
+}
+
+#closeText {
+	color: #F00;
+	float: right;
+	cursor: pointer;
+	margin-top: 5px;
+	margin-right: 5px;
+}
+
+.textClick {
+	cursor: pointer;
+}
+
+.additionsBox {
+	width: 725px;
+	margin-left: 20px;
+}
+
+.paySelectBox {
+	border: #CCC solid 1px;
+	width: 693px;
+	padding: 15px;
+	margin-left: 20px;
+}
+
+.additionsBox li {
+	height: 40px;
+	margin: 10px 0 0 0;
+}
+
+.additionsBoxUlN {
+	border: 1px solid #CCC;
+	width: 723px;
+	height: 60px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+
+.additionsBoxUlY {
+	border: 2px solid #F90;
+	width: 721px;
+	height: 58px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+
+.additionsBox p {
+	padding: 0px;
+	margin: 0px;
+}
+
+.disBox {
+	margin: 8px 8px;
+	padding: 0px 0px 10px 20px;
+}
+
+.priceUl {
+	margin: 10px 0px 10px 20px;
+	list-style: none;
+	text-align: right;
+	width: 725px;
+}
+
+.priceUl li {
+	margin: 5px 0px 5px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.priceMsg {
+	width: 100px;
+}
+
+.rentPrice {
+	margin-left: 10px;
+}
+
+.priceBox {
+	margin-top: 15px;
+	width: 725px;
+	margin-left: 20px;
+	text-align: right;
+}
+
+.priceBox ul {
+	float: right;
+	clear: both;
+}
+
+.priceBox li {
+	font-size: 16px;
+	color: #000;
+	margin: 0px;
+	padding: 0px;
+}
+
+#paymsg {
+	margin: 20px 0px 5px 20px;
+	font-size: 18px;
+}
+
+.priceVal {
+	width: 70px;
+}
+
+.checkbox {
+	width: 19px;
+	height: 25px;
+	padding: 0 5px 0 0;
+	background: url(/public/images/laba.png) no-repeat;
+	display: block;
+	clear: left;
+	float: left;
+}
+
+.checkboxImg {
+	width: 20px;
+	height: 20px;
+	margin-top: 10px;
+}
+
+.payStaImg {
+	cursor: pointer;
+	width: 150px;
+}
+
+.redBorder {
+	border: 2px solid #F00;
+}
+
+.msgUl li {
+	margin-top: 20px;
+	margin-bottom: 5px;
+}
+
+.couponUl li {
+	padding-top: 3px;
+	padding-bottom: 3px;
+	height: 28px;
+	line-height: 28px;
+	cursor: pointer;
+}
+
+.couponUl li img {
+	margin-right: 3px;
+}
+
+.errorMsg {
+	display: none;
+	margin-left: 30px;
+	color: #F00;
+}
+
+#serviceUl {
+	height: 30px;
+}
+
+.carDayPriceBox {
+	width: 100%;
+	height: auto;
+}
+
+.carDayPriceBox ul {
+	margin: 0 auto;
+	width: 569px;
+	height: 30px;
+}
+
+.carDayPriceBox li {
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	float: left;
+	border-right: 1px solid #73d6e6;
+}
+
+#lastLi {
+	width: 81px;
+	border: none;
+}
+
+#rebatePriceHtml {
+	color: #F00;
+}

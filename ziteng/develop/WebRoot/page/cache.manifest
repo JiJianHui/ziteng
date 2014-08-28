@@ -1,0 +1,5 @@
+CACHE MANIFEST
+# HTML5保存一些不在变动的资源到本地
+# version 2.2
+./js/jquery-1.9.1.min.js
+./js/ajaxfileupload.js

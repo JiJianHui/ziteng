@@ -1,0 +1,163 @@
+/* CSS Document */
+div#main{
+    width:760px;
+	margin:0 auto;
+	text-align:left;
+}
+div#paygateTop{
+    width:760px;
+	height:119px;
+ 
+}
+#topheader{ background-image:url(../i/topbg.gif); background-repeat:no-repeat; background-position:center top;}
+
+span.safe{
+    float:right;
+}
+div.orderandshow{
+    clear:both;
+}
+div.orderInfo{
+    width:400px;
+	float:left;
+	margin-top:0px;
+	border-bottom:1px solid #DFDFDF;
+	clear:left;
+}
+table#orderInfo th{
+    background:#DFDFDF;
+	padding:0 15px;
+}
+table#orderInfo td{
+    background:#F7F7F7;
+	padding:0 15px;
+}
+div.show{
+    width:350px;
+	float:right;
+	margin-top:0px;
+	clear:right;
+}
+div.show h2{
+    height:30px;
+	line-height:30px;
+	padding-left:35px;
+	background:#EFEFEF url(../i/guide_arrow.gif) no-repeat center left;
+	color:#369;
+	font-weight:normal;
+}
+div.show div.showCont{
+    width:340px;
+	padding:5px;
+    background:#369 url(../i/guide_bevel.gif) no-repeat bottom left;
+}
+div.show div.showCont p.showButton{
+    height:56px;
+	background:#EFEFEF;
+	padding-left:6px;
+	padding-top:5px;
+	line-height:200%;
+}
+div.payType{
+    margin-top:20px;
+}
+div.payType ul.button{
+    height:28px;
+	clear:both;
+}
+div.payType ul.button li{
+    display:inline;
+	margin-right:7px;
+	float:left;
+}
+div.payType ul.button li.on{
+    background:url(../i/btn_onL.gif) no-repeat left;
+}
+div.payType ul.button li.off{
+    background:url(../i/btn_offL.gif) no-repeat left;
+}
+div.payType ul.button li.on a{
+    display:block;
+	background:url(../i/btn_onR.gif) no-repeat right top;
+	line-height:28px;
+	font-size:14px;
+	font-weight:bold;
+	color:#FFF;
+	text-decoration:none;
+	padding:0 20px;
+}
+div.payType ul.button li.off a{
+    display:block;
+	background:url(../i/btn_offR.gif) no-repeat right top;
+	line-height:28px;
+	font-size:14px;
+	color:#000;
+	text-decoration:none;
+	padding:0 20px;
+}
+div.payType div.container{
+    width:748px;
+    border:1px solid #4875A0;
+	padding:5px;
+	background:#DFDFDF;
+	float:left;
+}
+div.payType div.container div.bankPay,
+div.payType div.container div.telePay,
+div.payType div.container div.creditcard,
+div.payType div.container div.rcard
+{
+    width:718px;
+    padding:15px;
+	background:#FFF;
+	float:left;
+}
+div.payType div.container div.bankPay ul.bank li{
+    display:inline;
+	padding:5px 14px;
+	*padding:5px 8px;
+	float:left;
+}
+div.payType div.container div.bankPay div.note{
+   	clear:both;
+    margin-top:20px;
+	padding:10px 70px 10px 60px;
+	background:#EEE url(../i/bg_note.gif) no-repeat center left;
+	line-height:200%;
+	border:1px solid #CCC;
+	height:50px;
+}
+div.payType div.container div.bankPay p.button{
+    padding:15px 30px;
+}
+table#bankInfo th{
+    background:#CCC;
+	padding:0 10px;
+}
+table#bankInfo td{
+    background:#FFF;
+	padding:0 10px;
+}
+div#paygateFooter{
+    width:760px;
+	clear:both;
+	margin-top:10px;
+	height:31px;
+	line-height:31px;
+	background:#369 url(../i/arrow2.gif) no-repeat bottom left;
+	color:#114ab1; margin-bottom:20px; text-indent:20px;
+}
+#paygateFooter a{ 
+	color:#114ab1; text-decoration:none
+}
+table.tele td,
+table.creditcard td
+{
+    padding:5px 10px;
+}
+div.rdetail{
+    padding-bottom:15px;
+	margin-bottom:20px;
+	line-height:200%;
+	border-bottom:2px solid #369;
+}

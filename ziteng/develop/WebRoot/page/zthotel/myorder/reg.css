@@ -1,0 +1,327 @@
+* {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+BODY {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #888
+}
+#regleft {
+	MARGIN-TOP: 10px; WIDTH: 200px; DISPLAY: table; BACKGROUND: url(/member/imgs/regbg.gif) repeat-x 50% top; FLOAT: left; HEIGHT: 380px; PADDING-TOP: 0px
+}
+#regright {
+	MARGIN-TOP: 10px; WIDTH: 780px; MARGIN-BOTTOM: 20px; BACKGROUND: url(/member/imgs/regbg.gif) repeat-x 50% top; FLOAT: left
+}
+#topinfo {
+	COLOR: #fff
+}
+#topinfo A {
+	COLOR: #fff
+}
+.regt {
+	LINE-HEIGHT: 25px; TEXT-INDENT: 15px; WIDTH: 500px; DISPLAY: block; BACKGROUND: url(images/reg_18.gif) no-repeat left top; HEIGHT: 22px; COLOR: #fff; FONT-WEIGHT: bold
+}
+#regbox {
+	POSITION: relative; HEIGHT: 400px; CLEAR: both
+}
+.okstate {
+	LINE-HEIGHT: 16px; PADDING-LEFT: 20px; HEIGHT: 16px
+}
+.newstate {
+	LINE-HEIGHT: 16px; PADDING-LEFT: 20px; HEIGHT: 16px
+}
+.newstate {
+	BACKGROUND: url(/member/images/c_error.gif) no-repeat; COLOR: #f20
+}
+.okstate {
+	BACKGROUND: url(/member/images/c_right.gif) no-repeat
+}
+#Err_Content {
+	BORDER-BOTTOM: #fea64e 1px solid; BORDER-LEFT: #fea64e 1px solid; PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; WIDTH: 200px; PADDING-RIGHT: 10px; DISPLAY: none; BORDER-TOP: #fea64e 1px solid; BORDER-RIGHT: #fea64e 1px solid; PADDING-TOP: 10px
+}
+.tstitle {
+	LINE-HEIGHT: 24px; MARGIN-BOTTOM: 5px; COLOR: #ff0000; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+#reg_memu_top {
+	MARGIN: 5px 0px 0px; WIDTH: 100%; BACKGROUND: #fff6c7; HEIGHT: 10px; BORDER-TOP: #fed082 1px solid
+}
+#loginleftbox {
+	MARGIN-TOP: 20px; WIDTH: 420px; BACKGROUND: url(/member/images/logbg1.gif) no-repeat; FLOAT: left; HEIGHT: 246px
+}
+#loginrightbox {
+	MARGIN: 20px 0px 10px 15px; WIDTH: 535px; BACKGROUND: url(/member/imgs/logbg2.gif) no-repeat; FLOAT: left; HEIGHT: 246px
+}
+#loginleftbox TABLE {
+	COLOR: #000
+}
+#regbut6 {
+	TEXT-ALIGN: center; LINE-HEIGHT: 38px; MARGIN-TOP: 185px; WIDTH: 150px; DISPLAY: block; BACKGROUND: url(../member/images/regbutbg.gif) no-repeat; HEIGHT: 38px; COLOR: #fff; MARGIN-LEFT: 200px; FONT-SIZE: 14px
+}
+A#regbut6:hover {
+	COLOR: #ffff33
+}
+#loginleftbox INPUT {
+	WIDTH: 160px; HEIGHT: 20px
+}
+.red {
+	COLOR: #f60
+}
+#repassmain {
+	BORDER-BOTTOM: #fed082 1px solid; BORDER-LEFT: #fed082 1px solid; MARGIN: 10px auto; WIDTH: 980px; HEIGHT: 285px; COLOR: #000; BORDER-TOP: #fed082 1px solid; BORDER-RIGHT: #fed082 1px solid
+}
+#repass {
+	MARGIN: 20px 20px 40px; PADDING-LEFT: 35px; WIDTH: 440px; BACKGROUND: url(/member/imgs/repassbg.gif) no-repeat; FLOAT: left; HEIGHT: 210px; BORDER-RIGHT: #ddd 1px solid; PADDING-TOP: 45px
+}
+#repass2 {
+	LINE-HEIGHT: 1.5em; WIDTH: 400px; FLOAT: right; PADDING-TOP: 50px
+}
+#regform {
+	MARGIN-TOP: 35px; WIDTH: 500px; DISPLAY: table
+}
+#regform H3 {
+	BORDER-BOTTOM: #999999 1px dashed; LINE-HEIGHT: 1.8em; TEXT-INDENT: 2px; WIDTH: 70%; DISPLAY: block; FONT-FAMILY: "ºÚÌå"; MARGIN-BOTTOM: 10px; COLOR: #c96702; MARGIN-LEFT: 40px; FONT-SIZE: 18px; FONT-WEIGHT: normal
+}
+#regdiv TABLE {
+	WIDTH: 760px; DISPLAY: table
+}
+#regdiv TABLE TH {
+	TEXT-ALIGN: right; LINE-HEIGHT: 32px; WIDTH: 100px; HEIGHT: 32px; FONT-WEIGHT: 500
+}
+#regdiv TABLE TD {
+	TEXT-ALIGN: left; LINE-HEIGHT: 32px; HEIGHT: 32px
+}
+#regdiv TABLE TD INPUT {
+	WIDTH: 160px; COLOR: #666
+}
+#regdiv TABLE TD #submit {
+	LINE-HEIGHT: 40px; WIDTH: 160px; HEIGHT: 40px; COLOR: #000
+}
+#regdiv TABLE TD SPAN {
+	COLOR: #999
+}
+#regdiv TABLE TD A {
+	COLOR: #001d75
+}
+#regdiv TABLE TD STRONG {
+	BORDER-BOTTOM: #009944 1px solid; BORDER-LEFT: #009944 1px solid; PADDING-BOTTOM: 3px; BACKGROUND-COLOR: #eefacf; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; COLOR: #00561f; BORDER-TOP: #009944 1px solid; FONT-WEIGHT: normal; BORDER-RIGHT: #009944 1px solid; PADDING-TOP: 3px
+}
+#regdiv TABLE TD {
+	HEIGHT: 32px
+}
+#regform {
+	MARGIN-TOP: 60px; MARGIN-BOTTOM: 60px
+}
+#getdiv TABLE {
+	WIDTH: 390px; DISPLAY: table; MARGIN-LEFT: 105px
+}
+#getdiv TABLE TD {
+	LINE-HEIGHT: 24px; TEXT-INDENT: 0px
+}
+#getdiv TABLE TD STRONG {
+	PADDING-BOTTOM: 3px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-WEIGHT: normal; PADDING-TOP: 3px
+}
+#getdiv .imgsub {
+	WIDTH: 73px; HEIGHT: 23px
+}
+#getdiv TABLE TD INPUT {
+	WIDTH: 160px; COLOR: #666; MARGIN-LEFT: 0px
+}
+#foot {
+	MARGIN: 0px auto
+}
+.box7 {
+	BORDER-BOTTOM: #c96702 1px dashed; BORDER-LEFT: #c96702 1px dashed; BACKGROUND-COLOR: #feeaba; WIDTH: 195px; DISPLAY: table; MARGIN-BOTTOM: 10px; COLOR: #c96702; BORDER-TOP: #c96702 1px dashed; BORDER-RIGHT: #c96702 1px dashed
+}
+.box7 DIV {
+	MARGIN: 12px
+}
+.box8 {
+	BORDER-BOTTOM: #d5d5d5 1px solid; BORDER-LEFT: #d5d5d5 1px solid; WIDTH: 195px; DISPLAY: table; MARGIN-BOTTOM: 20px; BORDER-TOP: #d5d5d5 1px solid; BORDER-RIGHT: #d5d5d5 1px solid
+}
+.box8 H3 {
+	LINE-HEIGHT: 30px; BACKGROUND-COLOR: #e7eef6; TEXT-INDENT: 1em; WIDTH: 195px; HEIGHT: 30px; COLOR: #c96702; FONT-WEIGHT: bold
+}
+.box8 DL {
+	BACKGROUND-COLOR: #f8fafd; WIDTH: 190px; DISPLAY: table
+}
+.box8 DL DT {
+	LINE-HEIGHT: 30px; TEXT-INDENT: 1em; WIDTH: 195px; FLOAT: left; HEIGHT: 30px; FONT-WEIGHT: bold
+}
+.box8 DL DD {
+	LINE-HEIGHT: 30px; TEXT-INDENT: 2em; WIDTH: 195px; FLOAT: left; HEIGHT: 30px
+}
+#regleft IMG {
+	BORDER-RIGHT-WIDTH: 0px; MARGIN-TOP: 3px; WIDTH: 195px; MARGIN-BOTTOM: 8px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px
+}
+.manages {
+	BORDER-BOTTOM: #cddddc 1px solid; TEXT-ALIGN: left; BORDER-LEFT: #cddddc 1px solid; TEXT-INDENT: 2em; WIDTH: 990px; MARGIN-BOTTOM: 20px; COLOR: #000; FONT-SIZE: 12px; BORDER-TOP: #cddddc 1px solid; BORDER-RIGHT: #cddddc 1px solid
+}
+.manages H2 {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 35px; TEXT-INDENT: 1.6em; MARGIN: 0px 0px 20px; PADDING-LEFT: 0px; WIDTH: 100%; PADDING-RIGHT: 0px; BACKGROUND: url(huiyuan_bg1.gif) repeat-x 0px 0px; HEIGHT: 35px; COLOR: #333; FONT-SIZE: 14px; FONT-WEIGHT: bold; PADDING-TOP: 0px
+}
+.manages H2 A {
+	COLOR: #ed080a; TEXT-DECORATION: underline
+}
+.manages H2 EM A {
+	COLOR: #000; FONT-SIZE: 12px; FONT-WEIGHT: normal; TEXT-DECORATION: underline
+}
+.manages P {
+	LINE-HEIGHT: 2em
+}
+.manages P A {
+	COLOR: #005bb4; TEXT-DECORATION: underline
+}
+.manages P A:active {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+.manages P A:visited {
+	COLOR: #0000cc; TEXT-DECORATION: underline
+}
+.manages P A:hover {
+	COLOR: #ff0000
+}
+.manages P STRONG {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; COLOR: #fd6c03; FONT-SIZE: 13px; FONT-WEIGHT: bold
+}
+.manages DL {
+	HEIGHT: 20px
+}
+#ordertable {
+	BORDER-BOTTOM: #e6e6e6 1px solid; BORDER-LEFT: #e6e6e6 1px solid; MARGIN: 0px 0px 10px 20px; BORDER-SPACING: 2px; WIDTH: 950px; DISPLAY: table; COLOR: #000000; BORDER-TOP: #e6e6e6 1px solid; BORDER-RIGHT: #e6e6e6 1px solid
+}
+#ordertable TH {
+	BORDER-BOTTOM: #e6e6e6 1px solid; TEXT-ALIGN: left; LINE-HEIGHT: 29px; BACKGROUND-COLOR: #f5f5f5; TEXT-INDENT: 0.4em; HEIGHT: 29px; COLOR: #333; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+#ordertable TD {
+	BORDER-BOTTOM: #e6e6e6 1px solid; TEXT-ALIGN: left; LINE-HEIGHT: 30px; TEXT-INDENT: 0.4em; HEIGHT: 30px; FONT-SIZE: 12px
+}
+#ordertable TD A {
+	COLOR: #005bb4; TEXT-DECORATION: none
+}
+#ordertable TD A:hover {
+	COLOR: #ff0000
+}
+#ordertable TD SPAN {
+	TEXT-ALIGN: center; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; COLOR: #ff0000; FONT-SIZE: 12px
+}
+#ordertable TD P {
+	MARGIN: 10px 5px; FONT-SIZE: 12px
+}
+#ordertable TD P SPAN {
+	LINE-HEIGHT: 22px; COLOR: #fd6c03
+}
+#ordertable TD P B {
+	COLOR: #333; FONT-WEIGHT: bold
+}
+#ordertable TD P SMALL {
+	COLOR: #666666; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+#ordertable TD P STRONG {
+	COLOR: #666666; FONT-SIZE: 12px; TEXT-DECORATION: line-through
+}
+#ordertable TD STRONG {
+	COLOR: #0000cc
+}
+#ordertable .reviewContent {
+	LINE-HEIGHT: 1.2em; TEXT-INDENT: 1.5em; WIDTH: 200px; WHITE-SPACE: normal
+}
+#infotable TD STRONG {
+	LINE-HEIGHT: 30px; TEXT-INDENT: 10px; HEIGHT: 30px; COLOR: #000000; FONT-SIZE: 14px; FONT-WEIGHT: normal
+}
+#ordertable2 {
+	MARGIN: 0px 0px 10px 20px; BORDER-SPACING: 2px; WIDTH: 740px; DISPLAY: table; COLOR: #000000
+}
+#ordertable2 TH {
+	BORDER-BOTTOM: #ccc 1px solid; TEXT-ALIGN: left; LINE-HEIGHT: 30px; TEXT-INDENT: 0.4em; BACKGROUND: #eef3f4; HEIGHT: 30px; FONT-WEIGHT: bold
+}
+#ordertable2 TD {
+	TEXT-ALIGN: left; LINE-HEIGHT: 18px; TEXT-INDENT: 0.4em; MARGIN-BOTTOM: 5px; HEIGHT: 24px; COLOR: #333; FONT-SIZE: 12px
+}
+#ordertable2 #tdh {
+	HEIGHT: 6px
+}
+.manages #kjcitylist {
+	TEXT-ALIGN: center; TEXT-INDENT: 0px; PADDING-LEFT: 10px
+}
+.manages #kjcitylist A {
+	MARGIN: 0px 4px
+}
+.manages .kjtd1 A {
+	COLOR: #0000cc; TEXT-DECORATION: underline
+}
+.manages .kjspan2 A {
+	COLOR: #0000cc; TEXT-DECORATION: underline
+}
+.manages .kjspan4 A {
+	COLOR: #0000cc; TEXT-DECORATION: underline
+}
+.manages .kjtd1 A:visited {
+	COLOR: #0000cc; TEXT-DECORATION: underline
+}
+.manages .kjspan2 A:visited {
+	COLOR: #0000cc; TEXT-DECORATION: underline
+}
+.manages .kjspan4 A:visited {
+	COLOR: #0000cc; TEXT-DECORATION: underline
+}
+.manages .kjtd1 {
+	WIDTH: 80px
+}
+.manages .kjspan2 {
+	WIDTH: 240px
+}
+.manages .kjspan3 {
+	WIDTH: 280px; COLOR: #000000
+}
+.manages .kjspan4 {
+	WIDTH: 90px
+}
+.manages UL LI {
+	BORDER-BOTTOM: #cccccc 1px dashed; HEIGHT: 36px
+}
+.manages H2 STRONG {
+	FONT-WEIGHT: normal
+}
+.manages H2 STRONG SPAN {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; COLOR: #ff0000
+}
+.manages #table_cash {
+	COLOR: #333
+}
+.manages #table_mobile {
+	COLOR: #000
+}
+.manages #ubfis {
+	TEXT-ALIGN: center; COLOR: #000
+}
+.manages #ordertables {
+	COLOR: #000
+}
+#ordertables {
+	LINE-HEIGHT: 22px; WIDTH: 100%; DISPLAY: table; COLOR: #333; FONT-SIZE: 12px
+}
+#ordertables TD {
+	LINE-HEIGHT: 22px; TEXT-INDENT: 0px; COLOR: #333; FONT-SIZE: 12px
+}
+#listtable {
+	MARGIN: 0px 0px 10px 20px; BORDER-SPACING: 2px; WIDTH: 740px; DISPLAY: table; COLOR: #000000
+}
+#listtable TH {
+	BORDER-BOTTOM: #cccccc 1px solid; TEXT-ALIGN: center; LINE-HEIGHT: 29px; TEXT-INDENT: 0em; BACKGROUND: #eef3f4 0px 0px; HEIGHT: 29px; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+#listtable TD {
+	HEIGHT: 28px; COLOR: #333; FONT-SIZE: 12px
+}
+.manages .review1 {
+	COLOR: #33ff66
+}
+#getcode {
+	COLOR: #000
+}
+#loginleftbox INPUT.postCode {
+	WIDTH: 50px
+}
+#loginleftbox .getcodeimg {
+	MARGIN-LEFT: 10px; CURSOR: pointer
+}
+.manages H4 {
+	LINE-HEIGHT: 30px; MARGIN-BOTTOM: 10px; HEIGHT: 30px; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}

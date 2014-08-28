@@ -1,0 +1,97 @@
+body,td,th {
+	font-size: 12px;
+	color: #333333;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+body {
+	margin-top: 8px;
+	margin-right: 4px;
+	margin-bottom: 2px;
+	margin-left: 2px;
+SCROLLBAR-FACE-COLOR: #0096CE;
+SCROLLBAR-HIGHLIGHT-COLOR: #DEF0FA; 
+SCROLLBAR-SHADOW-COLOR: #DEF0FA; 
+SCROLLBAR-3DLIGHT-COLOR: #DEF0FA; 
+SCROLLBAR-ARROW-COLOR: #DEF0FA; 
+SCROLLBAR-TRACK-COLOR: #DEF0FA;
+SCROLLBAR-DARKSHADOW-COLOR: #DEF0FA;
+}
+a:link {color:#787878;text-decoration: none;}
+a:visited {color:#787878;text-decoration: none;}
+a:hover {color:#009286;text-decoration:underline;}
+a:active {color:#787878;text-decoration: none;}
+.checkbox{border:0;}
+
+.border{border: 1px solid #0096CE;}
+.tdbg{background:#DEF0FA;line-height: 120%;}
+.tdbg1{background:#ABDEEF;}
+.topbg{background:#0096CE;color: #FFFFFF;}
+.title{background:#0096CE;}
+.Input {
+font-family:font-family: Verdana, Arial, Helvetica, sans-serif;
+LINE-HEIGHT:18PX;
+BORDER-TOP-WIDTH: 1px; 
+BORDER-LEFT-WIDTH: 1px; 
+FONT-SIZE: 12px; 
+BORDER-BOTTOM-WIDTH: 1px; 
+BORDER-RIGHT-WIDTH: 1px;
+color:#333333;
+}
+.Select {
+font-family:font-family: Verdana, Arial, Helvetica, sans-serif;
+LINE-HEIGHT:18PX;
+BORDER-TOP-WIDTH: 1px; 
+BORDER-LEFT-WIDTH: 1px; 
+FONT-SIZE: 12px; 
+BORDER-BOTTOM-WIDTH: 1px; 
+BORDER-RIGHT-WIDTH: 1px;
+color:#333333;
+}
+.textarea {
+font-family:font-family: Verdana, Arial, Helvetica, sans-serif;
+LINE-HEIGHT:18PX;
+BORDER-TOP-WIDTH: 1px; 
+BORDER-LEFT-WIDTH: 1px; 
+FONT-SIZE: 12px; 
+BORDER-BOTTOM-WIDTH: 1px; 
+BORDER-RIGHT-WIDTH: 1px;
+color:#333333;
+}
+.radio{border:0;}
+
+.table_1{
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style:solid;
+	border-left-style: solid;
+	border-top-color: #183789;
+	border-right-color: #183789;
+	border-bottom-color:#183789;
+	border-left-color: #183789;
+}
+.title1 {
+	color: #FFFFFF;
+	font-weight: bold;
+	letter-spacing:3PX;
+}
+.title2 {
+	color: #FFFFFF;
+	font-weight: bold;
+	letter-spacing:3PX;
+}
+.title3 {
+	color: #ff8800;
+}
+.title4 {
+	color: #0000FF;
+}
+.bt {
+font-size:12px;
+height:22px;
+PADDING-TOP: 2px;
+background-color:#DEF0FA;
+border-width:1px;}

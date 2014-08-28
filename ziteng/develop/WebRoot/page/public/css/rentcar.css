@@ -1,0 +1,79 @@
+@charset "utf-8";
+/* CSS Document */ /* 目的地筛选 */
+td li {
+	height: 20px;
+	line-height: 20px;
+	padding: 0 15px;
+	display: inline-block;
+	margin: 0 2px 8px 0;
+	color: #666;
+	border-radius: 3px;
+}
+
+td li.searchAreaOn,td li:hover {
+	background: #ffaa00;
+	color: #fff;
+	text-decoration: none;
+}
+
+/*选择车 */
+#cars li {
+	float: left;
+	position: relative;
+	margin: 0 4px 4px 0;
+	line-height: 20px;
+	vertical-align: middle;
+	padding: 1px;
+}
+
+#car {
+	width: 410px;
+	float: left;
+}
+
+#cars li a {
+	width: 32px !important;
+	height: 32px;
+	padding: 0;
+	line-height: 32px;
+	background-repeat: no-repeat;
+	outline: 0;
+	background-position: center center;
+}
+#cars li a  i {
+position: absolute;
+bottom: 0;
+right: 0;
+width: 12px;
+height: 12px;
+overflow: hidden;
+text-indent: -99em;
+display: block;
+background-repeat: no-repeat;
+background-position: -329px -58px;
+}
+
+/*选择车*/
+#cars li.tb-selected a {
+	border: 2px solid #be0106;
+	margin: -1px
+}
+
+#cars li.tb-selected a:hover {
+	border: 2px solid #be0106;
+	margin: -1px
+}
+
+#cars li a:hover {
+	border: 2px solid #be0106;
+	margin: -1px
+}
+
+#cars li a:focus {
+	outline: 0
+}
+
+#cars li.tb-selected li a {
+	border: 1px solid #e2e1e3;
+	margin: 0
+}

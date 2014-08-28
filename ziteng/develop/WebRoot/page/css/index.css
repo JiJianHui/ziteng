@@ -1,0 +1,143 @@
+
+
+.friendshipdiv a {
+	color:#666;
+}
+.shijiandiv {
+	position:absolute;
+	font-size:16px;
+	z-index:999;
+	width:273px;
+	border:1px solid #E3E3E3;
+	background-color:#F2F2F2;
+	border-radius: 5px;
+	left:0px;
+	top:0px;
+}
+.shijiandiv s {
+	position:absolute;
+	top:-21px;
+ *top:-20px;
+	left:80px;
+	display:block;
+	height:0;
+	width:0;
+	font-size: 0;
+	line-height: 0;
+	border-color:transparent transparent #E3E3E3 transparent;
+	border-style:dashed dashed solid dashed;
+	border-width:10px;
+}
+.shijiandiv s q {
+	position:absolute;
+	top:-9px;
+ *top:-9px;
+	left:-10px;
+	display:block;
+	height:0;
+	width:0;
+	font-size: 0;
+	line-height: 0;
+	border-color:transparent transparent #F2F2F2 transparent;
+	border-style:dashed dashed solid dashed;
+	border-width:10px;
+}
+.shijiandiv div {
+	width:52.3px;
+	height:24px;
+	background-color:#F2F2F2;
+	float:left;
+	border:1px solid #DFDFDF;
+	color:#333;
+	text-align:center;
+	line-height:26px;
+}
+.shijiandiv div:hover {
+	width:52.3px;
+	background-color:#F63;
+	float:left;
+	border:1px solid #DFDFDF;
+	color:#333;
+	text-align:center;
+	line-height:26px;
+	cursor:pointer;
+}
+.te_tip02_ct {
+	background-color: #FFEF84;
+	border: 1px solid #F0A400;
+	color: #333333;
+	height: auto !important;
+	left: -2px;
+	line-height: 20px;
+	min-height: 200px;
+	padding: 6px 13px;
+	position: relative;
+	top: -2px;
+}
+.resize_img {
+	color: #fff;
+	height: 600px;
+	text-align: center;
+	overflow: hidden;
+	background-position: 50% top;
+	background-repeat: no-repeat;
+	background-color: #fff;
+}
+#shijianhong {
+	width:52.3px;
+	height:24px;
+	background-color:#F2F2F2;
+	float:left;
+	border:1px solid #DFDFDF;
+	color:#F00;
+	text-align:center;
+	line-height:26px;
+}
+#shijianhong:hover {
+	width:52.3px;
+	background-color:#F63;
+	float:left;
+	border:1px solid #DFDFDF;
+	color:#000;
+	text-align:center;
+	line-height:26px;
+	cursor:pointer;
+}
+.selectCitySize { width: 270px; height: 320px; position: absolute; }
+#selectCityBg { margin-top: 30px; background: #FFF; opacity: 0.9; filter: Alpha (Opacity=90); z-index: 10; }
+#selectCityBk { width: 280px; height: 330px; margin-top: 30px; background-image: url(public/images/homeyy.png); z-index: 12; }
+#selectCityBox { margin-top: 30px; z-index: 12; }
+#selectCityBox ul { padding-left: 8px; height: 30px; line-height: 30px; }
+.dateInput { width: 110px; padding-left: 15px !important; font-size: 18px; background-color: #FFF !important; background: url(public/images/riqi.png) no-repeat #fff 100% 100%; }
+.timeInput { width: 73px; padding-left: 12px !important; font-size: 18px; background-color: #FFF !important; background: url(public/images/shijian.png) no-repeat #fff 100% 100%; }
+.rentTitle { font-size: 14px; clear: both; height: 25px !important; padding-left: 13px !important; line-height: 28px !important; }
+.cityUl { padding-left: 13px !important; padding-top: 3px; height: 30px !important; line-height: 30px !important; }
+.cityUl li { float: left; list-style: none; width: 40px; text-align: center; font-size: 12px; height: 25px; cursor: pointer; line-height: 25px; }
+.selectedCityLi { background-color: #FC0; }
+.infoUl { padding-left: 8px; }
+.infoUl span { padding-left: 5px; }
+.pricea { font-size: 18px; }
+.dhul { padding-top: 5px; font-size: 20px; text-align: center; }
+.dhul a { font-size: 25px; color: #FC0; padding: 0px 3px; }
+.highlight {
+    background-color: #F7F7F9;
+    border: 1px solid #E1E1E8;
+    border-radius: 4px;
+    margin-bottom: 14px;
+    padding: 9px 14px;
+	height: 18px;
+}
+.highlight a{ color:#666666;}
+.zijia li{width:212px; list-style:none; line-height:23px; height:23px; float:left}
+.weixinicon li{display: inline-block;margin-left: 30px;}
+#showarea{ border:1px solid #000;background-color: #FFFFFF;}
+#showarea dd{ height:20px; cursor:pointer; overflow:hidden; padding-left:5px;}
+#showarea dd:hover{ background-color:#3399ff; color:#FFFFFF;}
+#showshop{ border:1px solid #000;background-color: #000; color:#fff;}
+#showshop dd{ height:20px; cursor:pointer; overflow:hidden; padding-left:5px;}
+#showshop dd:hover{ background-color:#3399ff; color:#FFFFFF;}
+.blue{ background-color:#3399ff; color:#FFFFFF;}
+
+.services .con {
+	background: url(public/images/erwm.png) no-repeat 0 0;
+}

@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=10" />
+<title>用户注册</title>
+
+<link rel="stylesheet" type="text/css" href="public/css/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="public/css/home.css" />
+<link rel="stylesheet" type="text/css" href="css/global.css" />
+
+<script src="public/javascript/jquery.js"></script>
+<script src="public/javascript/jquery.easing.1.3.js"></script>
+<script src="public/javascript/bootstrap/bootstrap.js"></script>
+
+<script src="js/public.js"></script>
+<script src="js/login.js"></script>
+
+<script src="js/register.js"></script>
+</head>
+
+<body>
+	<!--头部-->
+	<div class="header">
+	<div class="reo_header">
+	    <div class="top">
+	    <div class="c" id="statusBar"> <!-- 用于登录栏 -->
+	    </div>
+	  </div>
+	  <div id="div_login" style="display:none" class="div_login">
+	  	<ul class="blue_line">
+		</ul>
+		<form id="headLogin" onsubmit="return false">
+			<ul class="unstyled" style="margin-top: 15px; margin-top: 20px;">
+				<li style="line-height: 35px;">账号：<input id="login_account" type="text"
+					name="head_account" data-check-sta='Y' data-check-type='isname'
+					msgVal='手机/邮箱/用户名' style="width: 65%; color: #CCC" value="手机/邮箱/用户名" />
+				</li>
+				<li style="line-height: 35px;">密码：<input type="password"
+					msgVal='密码' id="headpassword" name="head_password"
+					style="width: 65%; margin-top: 0px; color: #000;" />
+				</li>
+			</ul>
+			<ul class="inline"
+				style="height: 30px; line-height: 30px; margin-top: 3px;">
+				<li id="head-login-errormsg"
+					style="width: 150px; text-align: left; margin-left: 0px; padding-left: 0px;"
+					class="text-error"></li>
+				<li style="width: 60px; text-align: right;"><a target="_blank"
+					href="getpassword.html">忘记密码</a></li>
+			</ul>
+			<ul style="margin-top: 5px;">
+				<li><input type="submit" value="立即登录"
+					style="width: 200px; height: 30px; margin: 0 0 0 40px;"
+					id="head_login" class="btn btn-primary" /></li>
+			</ul>
+		</form>
+	  </div>
+	</div>
+	
+	<div id="nav_header">
+	  <ul>
+	    <li class="titlewz">
+	        <ol olnum="0">
+	        		<img src="public/images/headLogo.png" style="margin-right:3px; margin-bottom:2px;" />
+	        		<a style="color:#FC3;" href="index.html">包车路线攻略</a>
+	        	</ol>
+			<ol olnum="1"><a href="gonglue.html">包车</a></ol>
+			<ol olnum="2"><a href="activity.html">活动</a></ol>
+			<ol olnum="3"><a href="reservation.html">住宿预定</a></ol>
+			<ol olnum="4"><a href="carsharing.html">拼车留言</a></ol>
+			<ol olnum="5"><a href="aboutus.html">关于紫藤车队</a></ol>
+			<ol olnum="6"><a href="bbs.html">BBS</a></ol>
+		</li>
+	  </ul>
+	  <ul>
+	    <span id="blueline" class="testline" style="margin-left:17px"></span>
+	  </ul>
+	</div>
+	
+	<div id="page_loading" style="display:none;background:#000;display:block;position:absolute;top:0;left:0;z-index:10000;opacity:0.1;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=10);"></div>
+	<img src="public/images/loading.gif?1" style="display:none;width:32px; height:32px; z-index:11000; position:absolute;border:0;" id="page_loadimg" />
+</div>
+<!--头部end --> 
+	
+	<!-- content start-->
+	<div class="container" style="margin-top: 30px;">
+		<ul>
+			<h2>紫藤会员注册</h2>
+		</ul>
+		<ul>
+			<hr />
+		</ul>
+	</div>
+	<div class="container">
+		<div class="row-fluid">
+			<!--  左边start-->
+			<div class="span8">
+				<form method="post" id="registerForm">
+					<table class=" table table-hover table-striped table-bordered t">
+						
+						<tr>
+							<td class="tabwenzi"><span>用户昵称</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input id="username" class="username"
+										name="member_username" type="text" data-sta='0'
+										data-content1="用户名由6-15个字母数字下划线组成" data-content2="该用户名已经注册" /></li>
+									<li class="lastLi">
+										<p>作为用户名登录紫藤网</p>
+									</li>
+								</ul></td>
+						</tr>
+
+						<tr>
+							<td class="tabwenzi"><span>真实姓名</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input id="realname"
+										name="member_name" type="text" data-check-sta='Y'
+										data-check-type='isname' data-content="请输入真实的姓名"></li>
+									<li class="lastLi">真实姓名</li>
+								</ul></td>
+						</tr>
+
+						<tr>
+							<td class="tabwenzi"><span>手机号码</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input id="phonenumber"
+										name="member_phone" type="text" data-sta='0'
+										data-content1="手机号码只能由11位数字组成" data-content2="手机号码已经注册" /> <input
+										type="hidden" id="IDType" value="身份证" /></li>
+									<li class="lastLi">
+										<p>手机号可以作为登录用户名，请输入正确的手机号，订单信息将发送确认短信</p>
+									</li>
+								</ul></td>
+						</tr>
+
+						<tr>
+							<td class="tabwenzi"><span>手机验证码</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input name="member_name"
+										type="hidden" value="" /> <input id="checkcode"
+										name="member_phone" type="hidden" data-sta='1' value="" /> <input
+										name="member_code" data-sta='0' type="text"
+										data-checktype='pReg' /></li>
+									<li class="text-warning" id='getCode' style="cursor: pointer">
+										<p>请填写验证码</p>
+									</li>
+									<li><input type="button" class="btn" id="resetCode"
+										style="width: 130px; padding-left: 4px !important; padding-right: 4px !important; text-align: center; margin-left: 2px; font-size: 14px;"
+										iptime="" value="重新获取" /></li>
+								</ul></td>
+						</tr>
+						<tr>
+							<td class="tabwenzi"><span>电子邮件</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input id="email" class="email"
+										name="member_email" type="text" data-sta='0'
+										data-content1="请输入正确的邮箱地址" data-content2="邮箱已经被注册" /></li>
+									<li class="lastLi">
+										<p>可作为用户名登录，订单积分等信息将会发送到您的注册邮箱</p>
+									</li>
+								</ul></td>
+						</tr>
+						<tr>
+							<!--<td class="tabwenzi"><span>身份证号码</span></td>-->
+							<td class="tabwenzi"><span>身份证</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input id="idcard"
+										name="member_card_num" data-sta='1' data-content1="请输入正确的身份证号"
+										data-content2="身份证号已经注册" type="text"></li>
+									<li class="lastLi">
+										<p>为了方便您日后租车，请提供您的证件号码</p> <!--<p>为了方便您日后租车，请提供您的驾驶证或者身份证号码</p>-->
+									</li>
+								</ul></td>
+						</tr>
+						<tr>
+							<td class="tabwenzi"><span>登入密码</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input id="password"
+										name="member_password" type="password" data-check-sta='Y'
+										data-check-type='isPasswd' data-content="请输入6至18位的密码"></li>
+									<li class="lastLi">密码长度为6到18位</li>
+								</ul></td>
+						</tr>
+						<tr>
+							<td class="tabwenzi"><span>确认密码</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input id="confirm_pwd"
+										name="member_rpassword" type="password" data-check-sta='Y'
+										data-check-type='rplay' data-check-rtype='member_password'
+										data-content="两次密码必须一致"></li>
+									<li class="lastLi">请再次输入密码！</li>
+								</ul></td>
+						</tr>
+
+					</table>
+					<div style="margin: 30px;">
+						<span style="margin: 20px;">
+							瑞卡租车会员服务的所有全归瑞卡租车公司所有，所提供的服务必须按照其发布的公司章程，服务条款和操作规格严格执行。用户同意服务条款，完成注册信息填写并提交，这表示用户与瑞卡租车公司达成协议并接受所有的服务条款。</span>
+					</div>
+					<div style="margin: 30px; text-align: center;">
+						<input type="hidden" value="225045" name="member_channel" /> 
+						<input
+							type="button" class="btn btn-primary" style="width: 160px;"
+							id="submitBtn" value="    注册    " />
+						<p style="color: #fff; font-size: 20px;">225045老渠道</p>
+					</div>
+				</form>
+			</div>
+			<div class="span4">
+				<img src="public/images/zhuce.jpg" />
+			</div>
+		</div>
+	</div>
+	<!-- content end-->
+	
+	<!-- footer start-->
+	<div class="footer">
+		<div class="nav_footer">
+	  		<div>
+	    		<ul class="inline">
+	      		<li><a  href="/ziteng/page/home.html">首　　页</a></li>
+	      		<li><a  href="#">服务网点</a></li>
+	      		<li><a  href="#">帮助中心</a></li>
+	      		<li><a  href="#">关于我们</a></li>
+	        </ul>
+	  		</div>
+		</div>
+		<div class="container">
+	  		<div>
+	    		<ul class="unstyled">
+	      		<li>本网站所有权归紫藤（青岛）租车有限公司所有</li>
+	    		</ul>
+	    		<ul class="unstyled">
+	      		<li>Copyright @2014 www.zitengtravel.com All Rights Reserved</li>
+	    		</ul>
+	  		</div>
+		</div>
+	</div>
+	
+	<!-- footer end -->
+</body>
+</html>

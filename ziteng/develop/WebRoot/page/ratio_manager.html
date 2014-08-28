@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>比率管理</title>
+
+<link rel="stylesheet" type="text/css"
+	href="public/css/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="public/css/home.css" />
+<link rel="stylesheet" type="text/css" href="css/global.css" />
+<link rel="stylesheet" type="text/css"
+	href="public/css/mdd_detail_v2.css" />
+<link rel="stylesheet" type="text/css" href="public/css/header.css" />
+<link rel="stylesheet" type="text/css" href="css/ziteng.css" />
+<link rel="stylesheet" href="css/flexigrid.pack.css" />
+
+<script src="public/javascript/jquery.js"></script>
+<script src="public/javascript/jquery.easing.1.3.js"></script>
+<script src="public/javascript/bootstrap/bootstrap.js"></script>
+<script class="text/javascript" src="js/jquery.dataTables.nightly.js"></script>
+<script src="js/flexigrid.pack.js"></script>
+<script src="js/ratio_manager.js"></script>
+<script src="js/Chart.js"></script>
+<script src="js/admin_L.js"></script>
+
+</head>
+
+<style>
+</style>
+
+<body>
+
+	<!--头部-->
+	<div class="header">
+		<div class="reo_header">
+			<div class="top">
+				<div class="c" id="statusBar">
+					<!-- 用于登录栏 -->
+				</div>
+			</div>
+		</div>
+
+		<div id="nav_header">
+			<ul>
+				<li class="titlewz">
+					<ol olnum="0">
+						<img src="public/images/headLogo.png"
+							style="margin-right: 3px; margin-bottom: 2px;" />
+						<a style="color:#FC3;" href="/ziteng/page/admin/user_manage.html">用户管理</a>
+					</ol>
+					<ol olnum="1">
+						<a href="/ziteng/page/guide_manager.html">攻略路线管理</a>
+					</ol>
+					<ol olnum="2">
+						<a href="/ziteng/page/add_gonglue.html">添加攻略</a>
+					</ol>
+					<ol olnum="3">
+						<a href="/ziteng/page/carOrder.html">车辆订单</a>
+					</ol>
+					<ol olnum="4">
+						<a href="/ziteng/page/ratio_manager.html">系数表管理</a>
+					</ol>
+					<ol olnum="5">
+						<a href="/ziteng/page/car_manager.html">车辆管理</a>
+					</ol>
+					<ol olnum="6">
+						<a href="/ziteng/page/cardegree_manager.html">车辆档次管理</a>
+					</ol>
+					<ol olnum="7">
+						<a href="/ziteng/page/area_manager.html">地区管理</a>
+					</ol>
+				</li>
+			</ul>
+			<ul>
+				<span id="blueline" class="testline" style="margin-left: 17px"></span>
+			</ul>
+		</div>
+
+		<div id="page_loading"
+			style="display: none; background: #000; display: block; position: absolute; top: 0; left: 0; z-index: 10000; opacity: 0.1; filter: progid:DXImageTransform.Microsoft.Alpha(opacity=10);"></div>
+		<img src="public/images/loading.gif?1"
+			style="display: none; width: 32px; height: 32px; z-index: 11000; position: absolute; border: 0;"
+			id="page_loadimg" />
+	</div>
+	<!--头部end -->
+
+
+
+	<!-- content -->
+	<!-- comment start! -->
+	<div class="post"
+		style="margin-left: 10%; margin-right: 10%; margin-top: 20px;">
+
+		<div class="control-group">
+			<!-- Select Basic -->
+			<div class="controls" style="margin-left: 5%;">
+				<select class="input-xlarge" style="width: 100px" id="sel_year" onchange="queryRatio();">
+					<option value="2014">2014</option>
+					<option value="2015">2015</option>
+					<option value="2016">2016</option>
+					<option value="2017">2017</option>
+					<option value="2018">2018</option>
+					<option value="2019">2019</option>
+					<option value="2020">2020</option>
+					<option value="2021">2021</option>
+				</select>年 
+				<select class="input-xlarge" style="width: 100px" id="sel_month" onchange="queryRatio();">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+				</select>月
+			</div>
+		</div>
+
+		<div class="control-group" style="margin-left: 5%;">
+			<label class="control-label">选择显示的区域</label>
+			<!-- Multiple Checkboxes -->
+			<div class="controls" id="div_area_checkbox">
+				<!--  <label class="checkbox inline">
+	              <input value="1" type="checkbox" checked> 1
+	            </label> -->
+			</div>
+		</div>
+		<canvas id="canvas" height="450" width="850"></canvas>
+		
+		<table class="table table-striped">
+        <thead>
+          <tr id="tr_title">
+            <!-- <th>日期</th> -->
+          </tr>
+        </thead>
+        <tbody id="tbody">
+         <!--  <tr>
+            <td>001</td>
+            <td>Rammohan </td>
+            <td>Reddy</td>
+            <td>A+</td>
+          </tr> -->
+        </tbody>
+      </table>
+	</div>
+
+<!-- 对话框 -->
+<div id="myModal" class="modal hide" tabindex="-1" role="dialog-message" aria-labelledby="myModalLabel" aria-hidden="true"  style="width:250px">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">修改系数</h3>
+  </div>
+  <div class="modal-body">
+  	<label id="label_ratio"></label>
+    <input type="text" id="txt_ratio">
+    <input type="text" id="txt_ratio_id" style="display:none;">
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+    <button class="btn btn-primary" onclick="updateRatio();">保存</button>
+  </div>
+</div>
+
+	<!-- content end! -->
+<!-- footer start-->
+	<div class="footer">
+		<div class="nav_footer">
+	  		<div>
+	    		<ul class="inline">
+	      		<li><a  href="/ziteng/page/home.html">首　　页</a></li>
+	      		<li><a  href="#">服务网点</a></li>
+	      		<li><a  href="#">帮助中心</a></li>
+	      		<li><a  href="#">关于我们</a></li>
+	        </ul>
+	  		</div>
+		</div>
+		<div class="container">
+	  		<div>
+	    		<ul class="unstyled">
+	      		<li>本网站所有权归紫藤（青岛）租车有限公司所有</li>
+	    		</ul>
+	    		<ul class="unstyled">
+	      		<li>Copyright @2014 www.zitengtravel.com All Rights Reserved</li>
+	    		</ul>
+	  		</div>
+		</div>
+	</div>
+	
+	<!-- footer end -->
+</body>
+<script>
+setting();
+</script>
+</html>

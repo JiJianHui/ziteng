@@ -1,0 +1,166 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>后台数据管理</title>
+ <script language="javascript" type="text/javascript" src="../public/javascript/jquery.js"></script>
+   <script language="javascript" type="text/javascript" src="../public/javascript/jquery.easing.1.3.js"> </script>
+   <script language="javascript" type="text/javascript" src="../public/javascript/bootstrap/bootstrap.js"> </script>
+   <script language="javascript" type="text/javascript" src="../js/hotel/hotelroom.js"></script>
+<link href="admin_style.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style1 {
+	color: #0033FF;
+	font-weight: bold;
+}
+-->
+</style>
+<Script Language="JavaScript">
+	<!--
+	function chk_data(){
+		if (document.myform.hotelName.value==""){
+			alert("操作出错：请选择酒店！");
+			document.myform.hotelName.focus();
+			return false;
+		}
+		if (document.myform.roomName.value==0){
+			alert("操作出错：客房名称不能为空！");
+			document.myform.roomName.focus();
+			return false;
+		}
+		if (document.myform.roomType.value==0){
+			alert("操作出错：请选择客房类型！");
+			document.myform.roomType.focus();
+			return false;
+		}
+		if (document.myform.breakfastType.value==""){
+			alert("操作出错：请选择早餐类型！");
+			document.myform.breakfastType.focus();
+			return false;
+		}
+		if (document.myform.wideType.value==""){
+			alert("操作出错：请选择宽带类型！");
+			document.myform.wideType.focus();
+			return false;
+		}
+		
+		
+		hotelRoomAdd();
+	}
+	// -->
+</Script>
+
+</head>
+<script>    
+  var thisURL = document.URL;    
+  var  getval =thisURL.split('?')[1];  
+  var showval= getval.split("=")[1];    //当前hotel的id取值
+</script> 
+<body onload="hotelRoomInit(showval)">
+<table cellpadding="4" cellspacing="1" border="0" width="100%" class="border" align=center>
+  <tr align="center" valign="bottom"><td height=25 class="topbg"><span class="title1">酒店客房管理</span></tr>
+  <tr>
+    <td id="hotel_room_bar" height=23 class="tdbg">&nbsp;<a href="hotelroom_add.html">添加酒店客房</a>&nbsp;|&nbsp;<a href="hotel_room.html">管理酒店客房</a>&nbsp;|&nbsp;<a href="hotel_room.html">查询酒店客房</a></td>
+  </tr>
+</table>
+<br>
+<table width="100%" height="100" border="0" cellpadding="0" cellspacing="0">
+<form name="myform">
+  <tr>
+    <td align="center">
+<table width="100%" height="181" border="0" cellpadding="2" cellspacing="1"class="border">
+  <tr class="title">
+    <td height="23" colspan="4" align="center"><span class="title2">
+     添加信息</span></td>
+  </tr>
+  <tr class="tdbg">
+    <td width="15%" height="25" align="right" valign="middle">酒店名称：</td>
+    <td width="25%" valign="bottom">
+	<select name="hotelName" class="Select" id="hotelName" style="width:157">
+	<option value="0" selected>请选择酒店</option>
+	</select>
+	</td>
+    <td align="right" valign="bottom">客房名称：</td>
+	<td valign="bottom">
+	<input name="roomName" type="text" class="Input" id="roomName" value="" size="25" maxlength="40">
+	</td>
+  </tr>
+  <tr class="tdbg">
+    <td align="right" valign="bottom">房间类型：</td>
+	<td valign="bottom">
+	<select name="roomType" class="Select" id="roomType" style="width:157">
+	<option value="0" selected>请选择房型</option>
+
+	</select>
+	</td>
+    <td align="right" valign="bottom">价格：</td>
+    <td valign="bottom">
+	<input name="roomPrice" type="text" class="input" id="roomPrice" onKeyUp='this.value=this.value.replace(/\D/gi,"")'  size="10" maxlength="14" value="0"></td>
+  </tr>
+
+  <tr class="tdbg">
+    <td height="25" align="right" valign="middle">数量：</td>
+    <td valign="bottom">
+		<input name="roomNum" type="text" class="Input" id="roomNum" value="1" onKeyUp='this.value=this.value.replace(/\D/gi,"")' size="25" maxlength="40">
+	</td>
+    <td align="right" valign="bottom">早餐：</td>
+    <td valign="bottom">		
+		<select name="breakfastType" class="Select" id="breakfastType" style="width:157">
+		<option value="0" selected>请选择早餐</option>
+
+		</select>
+	</td>
+  </tr>
+  <tr class="tdbg">
+    <td height="25" align="right" valign="middle">宽带：</td>
+    <td  valign="bottom">
+	<select name="wideType" class="Select" id="wideType" style="width:157">
+		<option value="0" selected>请选择宽带</option>
+
+		</select>
+	</td>
+	<td align="right" valign="bottom">是否推荐房型：</td>
+    <td valign="bottom">		
+		<select name="recommendRoom" class="Select" id="recommendRoom" style="width:157">
+		<option value="是" selected>是</option>
+		<option value="否" selected>否</option>
+
+		</select>
+	</td>
+  </tr>
+ 
+ <tr class="tdbg">
+    <td height="25" align="right" valign="middle">客房介绍：</td>
+    <td colspan="3" valign="bottom">
+	<textarea name="roomDesc" cols="135" rows="4" id="roomDesc" class="input"></textarea>
+	</td>
+  </tr>
+</table>
+<br>
+<table width="100%" height="25" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center" valign="middle"><input name="Submit" type="button" class="bt" value="确定提交" onclick="chk_data();">
+&nbsp;&nbsp;
+<input name="Submit" type="reset" class="bt" value="重新填写">
+&nbsp;&nbsp;
+<input name="Cancel" type="button" class="bt" id="Cancel" onClick="history.go(-1)" value="返回操作">
+  </tr>
+</table>
+<br>
+	
+	</td>
+  </tr>
+  </form>
+</table>
+
+<table cellpadding="4" cellspacing="1" border="0" width="100%" class="border" align=center>
+  <tr align="center" valign="bottom">
+    <td height=25 class="topbg"><span class="title1">版权信息</span> 
+  </tr>
+
+ 
+</table>
+<p>&nbsp;</p>
+</body>
+</html>
