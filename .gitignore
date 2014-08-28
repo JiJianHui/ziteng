@@ -1,0 +1,16 @@
+.idea/*
+bac/*
+Document/*
+ziteng/ziteng.war
+ziteng/.svn/*
+ziteng/develop/.settings/*
+ziteng/develop/.externalToolBuilders/*
+ziteng/develop/develop.iml
+ziteng/develop/build/*.class
+ziteng/develop/build/classes/com/*
+ziteng/develop/build/classes/mapper/*
+ziteng/develop/doc/*
+ziteng/develop/WebRoot/WEB-INF/lib/*
+ziteng/develop/WebRoot/WEB-INF/classes/*.class
+ziteng/develop/test/*
+
