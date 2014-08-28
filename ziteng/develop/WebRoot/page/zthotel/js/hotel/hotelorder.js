@@ -408,7 +408,7 @@ function next_page(hotelId,nextPage){
 
 function pre_page1(nextPage){
 	if(nextPage > 0){	
-		alert("page" + nextPage);
+		//alert("page" + nextPage);
 		pageNo1 = nextPage;
 		getMyHotelOrder();
 	}

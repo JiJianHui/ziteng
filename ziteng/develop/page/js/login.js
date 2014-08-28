@@ -23,6 +23,7 @@ function removeBlackBox()
 }
 
 $(document).ready(function() {
+	
 	$(document).on('click', function(ClickObj) {
 		var thisObj  = $(ClickObj.target);
 			

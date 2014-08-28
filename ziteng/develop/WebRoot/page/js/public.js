@@ -143,9 +143,10 @@ function notLoggedIn() {
 	html += '<div class="r">';
 	html += '<ul>';
 	html += '<li style="height:28px; line-height:28px; border:0px;">欢迎来到紫藤包车！</li>';
+	//html += '<li class="rtcr_login" style="border:0px;" id="rtcr_login"><a id="bn_login">登 录</a></li>';
 	html += '<li class="rtcr_login" style="border:0px;" id="rtcr_login"><a id="bn_login">登 录</a></li>';
-	html += '<li class="rtcr_cent" style="border:0px;" ><a href="register.html" id="register">注 册</a></li>';
-	html += '<li class="rtcr_wh" style="border:0px;"><a href="help.html" id="help">帮助中心</a></li>';
+	html += '<li class="rtcr_cent" style="border:0px;" ><a href="/ziteng/page/register.html" id="register">注 册</a></li>';
+	html += '<li class="rtcr_wh" style="border:0px;"><a href="/ziteng/page/help.html" id="help">帮助中心</a></li>';
     html += '</ul>';
     html += '</div>';
     return html;
@@ -196,6 +197,9 @@ function setFooter() {
 	$('#ziteng_footer').html(html);
 }
 
+
+
+
 $(document).ready(function() {
 	var flg = false;
 	var json = '';
@@ -214,8 +218,10 @@ $(document).ready(function() {
 	
 	if (flg) {
 		$('#statusBar').html(loggedIn(json.datas.user.userName));
+		//alert("is Login!");
 	} else {
 		$('#statusBar').html(notLoggedIn());
+		//alert("NO Login!");
 	}
 	
 	$('#login_status_info').click(function() {

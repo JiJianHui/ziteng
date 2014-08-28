@@ -76,7 +76,7 @@
 				</li>
 			</ul>
 			<ul>
-				<span id="blueline" class="testline" style="margin-left: 17px"/>
+				<span id="blueline" class="testline" style="margin-left: 17px"></span>
 			</ul>
 		</div>
 	
@@ -106,7 +106,7 @@
 			
 			<div class="span9">
 				<h2 class="span6">活动列表</h2>
-				<div class="span6 text-right"><input class="btn btn-success" id="add_activity" type="button" value="创建新活动"/></div>
+				<div class="span6 text-right"><input class="btn btn-success" id="add_activity" type="button" value="创建新活动"></div>
 				<hr />
 				<table class="table">
         				<thead><tr>
@@ -162,13 +162,7 @@
 			switch (thisObj.status) {
 			case 0:status="活动已结束";operation='<input type="button" class="btn btn-primary delete_activity" value="删除" onclick="deleteActivity('+thisObj.id+');"/>';break;
 			case 1:status="活动参与中";break;
-			case 2:status="活动未发布";
-				   operation = '<input type="button" class="btn btn-primary publish_activity" value="发布" onclick="publishActivity(' + thisObj.id + ');"/>';
-				   operation += '<input type="button" class="btn btn-primary delete_activity" value="删除" onclick="deleteActivity('+ thisObj.id +');"/>';
-				   operation += '<input type="button" class="btn btn-primary delete_activity" value="修改" onclick="modifyActivity('+ thisObj.id +');"/>';
-									 
-				   break;
-				   
+			case 2:status="活动未发布";operation='<input type="button" class="btn btn-primary publish_activity" value="发布" onclick="publishActivity(' + thisObj.id + ');"/><input type="button" class="btn btn-primary delete_activity" value="删除" onclick="deleteActivity('+ thisObj.id +');"/>';break;
 			case 3:status="活动进行中";break;
 			}
 			var html = '<tr class="tableRow">' +
@@ -192,7 +186,6 @@
 				}
 			});
 		}
-		
 		function deleteActivity(id) {
 			$.post('/ziteng/v/w/activity/deleteActivity.do', {"activityId": id}, function(data) {
 				var json = eval('(' + data + ')');
@@ -204,10 +197,6 @@
 			});
 		}
 		
-		function modifyActivity(activityId) {
-			window.location.href = "/ziteng/page/admin/modify_activity.html?activityId=" + activityId;
-		}
-		
 		$(document).ready(function() {
 			$.post('/ziteng/activity/queryActivities.do', {}, function(data) {
 				var json = eval('(' + data + ')');
@@ -216,10 +205,10 @@
 					var activityList = json.datas.activities;
 					for (var i = 0; i < activityList.length; i++) {
 						tableObj.append(getRowHtml(activityList[i], i+1));
-					};
+					}
 				} else {
 					alert(json.msg);
-				};
+				}
 			});
 			
 			$('.list-group-item').click(function() {

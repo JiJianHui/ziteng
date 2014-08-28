@@ -58,12 +58,19 @@
         <input type="text" class="input-block-level" id="username" placeholder="管理员名">
         <input type="password" class="input-block-level" id="password" placeholder="密码">
         <button class="btn btn-large btn-primary" id="submitBtn" type="button">登录</button>
+        
       </form>
     </div> <!-- /container -->
   </body>
   
   <script src="../public/javascript/jquery.js"></script>
   <script>
+  document.onkeydown = function()//enter key 相当于点击登陆按钮
+  {
+          if(event.keyCode == 13) {
+                   document.getElementById("submitBtn").click(); 
+          }
+  }
 	$(document).ready(function() {
 		$.post("/ziteng/admin/isLogin.do", {}, function(data) {
 			json = eval("(" + data + ")");

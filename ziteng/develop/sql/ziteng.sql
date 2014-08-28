@@ -30,8 +30,8 @@ CREATE TABLE `t1_activity` (
   `city` varchar(200) DEFAULT NULL COMMENT '活动城市',
   `start_time` datetime DEFAULT NULL COMMENT '开始时间',
   `end_time` datetime DEFAULT NULL COMMENT '结束时间',
-  `involve_peoples` int(11) DEFAULT 0 COMMENT '参加人数',
-  `total_peoples` int(11) DEFAULT 0 COMMENT '活动总人数',
+  `involve_peoples` int(11) DEFAULT '0' COMMENT '参加人数',
+  `total_peoples` int(11) DEFAULT '0' COMMENT '活动总人数',
   `picture` varchar(200) DEFAULT NULL COMMENT '活动图片',
   `release_time` datetime DEFAULT NULL COMMENT '活动发布时间',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
@@ -44,7 +44,7 @@ CREATE TABLE `t1_activity` (
 --  Records of `t1_activity`
 -- ----------------------------
 BEGIN;
-INSERT INTO `t1_activity` VALUES ('20', '10', 'test', '请输入活动详情...s', '12', 'beijing', '2014-06-19 00:00:00', '2014-06-07 21:38:49', 0, '11', 'page/upload/image/activity/1402147492406.jpg', 0, '2014-06-07 21:25:04', '2014-06-07 21:25:04', '0'), ('21', '10', 'test', '请输入活动详情...s', '12', 'beijing', '2014-06-19 00:00:00', '2014-06-07 21:37:02', null, '11', 'page/upload/image/activity/1402147492406.jpg', 0, '2014-06-07 21:25:06', '2014-06-07 21:25:06', '0'), ('22', '10', 'test', '请输入活动详情...s', '12', 'beijing', '2014-06-19 00:00:00', '2014-06-07 21:31:53', 0, '11', 'page/upload/image/activity/1402147492406.jpg', 0, '2014-06-07 21:25:09', '2014-06-07 21:25:09', '0'), ('23', '10', 'test', '请输入活动详情...s', '12', 'beijing', '2014-06-19 00:00:00', '2014-06-07 21:32:02', 0, '11', 'page/upload/image/activity/1402147492406.jpg', 0, '2014-06-07 21:25:11', '2014-06-07 21:25:11', '0'), ('33', '10', 'ssd', '请输入活动详情...df', '12', 'ss', '2014-06-03 00:00:00', '2014-06-05 00:00:00', 0, '12', 'page/upload/image/activity/1402148321499.jpg', 0, '2014-06-07 21:38:45', '2014-06-07 21:38:45', '0'), ('34', '10', 'nwh', 'Test', '200', 'Aber', '2014-07-02 00:00:00', '2014-07-03 00:00:00', 0, '4', 'page/upload/image/activity/1404316098161.jpg', 0, '2014-07-02 23:48:51', '2014-07-02 23:48:51', '0');
+INSERT INTO `t1_activity` VALUES ('20', '10', 'test', '请输入活动详情...s', '12', 'beijing', '2014-06-19 00:00:00', '2014-06-07 21:38:49', null, '11', 'page/upload/image/activity/1402147492406.jpg', null, '2014-06-07 21:25:04', '2014-06-07 21:25:04', '0'), ('21', '10', 'test', '请输入活动详情...s', '12', 'beijing', '2014-06-19 00:00:00', '2014-06-07 21:37:02', null, '11', 'page/upload/image/activity/1402147492406.jpg', null, '2014-06-07 21:25:06', '2014-06-07 21:25:06', '0'), ('22', '10', 'test', '请输入活动详情...s', '12', 'beijing', '2014-06-19 00:00:00', '2014-06-07 21:31:53', null, '11', 'page/upload/image/activity/1402147492406.jpg', null, '2014-06-07 21:25:09', '2014-06-07 21:25:09', '0'), ('23', '10', 'test', '请输入活动详情...s', '12', 'beijing', '2014-06-19 00:00:00', '2014-06-07 21:32:02', null, '11', 'page/upload/image/activity/1402147492406.jpg', null, '2014-06-07 21:25:11', '2014-06-07 21:25:11', '0'), ('33', '10', 'ssd', '请输入活动详情...df', '12', 'ss', '2014-06-03 00:00:00', '2014-06-05 00:00:00', null, '12', 'page/upload/image/activity/1402148321499.jpg', null, '2014-06-07 21:38:45', '2014-06-07 21:38:45', '0'), ('34', '10', 'nwh', 'Test', '200', 'Aber', '2014-07-02 00:00:00', '2014-07-03 00:00:00', null, '4', 'page/upload/image/activity/1404316098161.jpg', null, '2014-07-02 23:48:51', '2014-07-02 23:48:51', '0');
 COMMIT;
 
 -- ----------------------------
@@ -664,21 +664,3 @@ CREATE TABLE `t1_user_activity_attend` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 SET FOREIGN_KEY_CHECKS = 1;
-
-
-
--- Create Trigger --
--- hyh -- 8_5
-CREATE TRIGGER involve_peoples_autoincrement
-AFTER INSERT ON t1_activity_order
-FOR EACH ROW
-UPDATE t1_activity
-SET t1_activity.involve_peoples = t1_activity.involve_peoples + 1
-WHERE t1_activity.id = NEW.activity_id;
-
-CREATE TRIGGER involve_peoples_autodecrement
-AFTER DELETE ON t1_activity_order
-FOR EACH ROW
-UPDATE t1_activity
-SET t1_activity.involve_peoples = t1_activity.involve_peoples - 1
-WHERE t1_activity.id = OLD.activity_id;

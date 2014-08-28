@@ -70,6 +70,7 @@
 	</select>
 	<sql id="selectEntityList_where">
 		<where>
+			
 		    <if test="id!=null">id=#{id}</if>
 		    <if test="hotelId!=null and hotelId!=''"> and t1_hotelId=#{hotelId}</if>
 		    <if test="hotelName!=null and hotelName!=''"> and t1_hotelName=#{hotelName}</if>		  
@@ -84,7 +85,8 @@
 			<if test="reserveCount!=null and reserveCount!=''"> and t1_reserveCount=#{reserveCount}</if>		
 			<if test="totalPirce!=null and totalPirce!=''"> and t1_totalPirce=#{totalPirce}</if>		
 			<if test="roomSource!=null and roomSource!=''"> and t1_roomSource=#{roomSource}</if>		
-			<if test="orderStatus!=null and orderStatus!=''"> and t1_orderStatus=#{orderStatus}</if>		
+			<if test="orderStatus!=null and orderStatus!=''"> and t1_orderStatus=#{orderStatus}</if>
+			<if test="expandCol3!=null and expandCol3!=''">and t1_expandCol3=#{expandCol3}</if> 
 		</where>
 	</sql>
 	<sql id="orderBySql">
