@@ -261,14 +261,14 @@ margin:0 auto;
 <!--更换门店-->
 
 
-<div class="shijiandiv" style="display:none;"> <!-- onmouseout="this.style.display=&#39;none&#39;" onmouseover="this.style.display=&#39;&#39;"--><s> <q></q> </s>
+<div class="shijiandiv" style="display:none;" onmouseout="this.style.display=&#39;none&#39;" onmouseover="this.style.display=&#39;&#39;"> <s> <q></q> </s>
   <p style="margin:5px 3px; text-align:left">瑞卡推荐最划算取车时间：</p>
   <div id="shijianhong">11:00</div>
   <div id="shijianhong">17:00</div>
   <p style="clear:both;margin:5px 3px; text-align:left">请选择取车时间：</p>
   <div>9:00</div> <div>10:00</div> <div id="shijianhong">11:00</div> <div>12:00</div> <div>13:00</div> <div>14:00</div> <div>15:00</div> <div>16:00</div> <div id="shijianhong">17:00</div> <div>18:00</div> <div>19:00</div> <div>20:00</div> <div>21:00</div> </div>
 <div id="disMapBox" style="width:600px; height:450px; display:none;overflow:hidden;">
-  <div id="closeOneMap" onclick="$(document).bPopup().close();"><img src="./rentCar2_files/close.png"></div>
+  <div id="closeOneMap" onclick="$(&#39;#disMapBox&#39;).bPopup().close();"><img src="./rentCar2_files/close.png"></div>
   <div id="disOneMap" style="width:600px; height:480px; clear:both;"></div>
 </div>
 

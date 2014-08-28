@@ -40,7 +40,4 @@
 	<select id="getCarsByTravelGuideId" useCache="true" resultMap="carMap">
 		select c.* from t1_car c,t1_travel_guide_2_car g2c where c.id=g2c.car_id and g2c.travel_guide_id = #{travelGuideId} 
 	</select>
-	<select id="getCarsByDegreeId" useCache="true" resultMap="carMap">
-		select c.* from t1_car c,t1_car_degree cd where c.car_degree_id=cd.id and cd.id = #{DegreeId} 
-	</select>
 </mapper>

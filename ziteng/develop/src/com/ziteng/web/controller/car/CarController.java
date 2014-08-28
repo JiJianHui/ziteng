@@ -141,52 +141,16 @@ public class CarController {
 			result.setMsg("获取车辆信息时候，travelGuideId参数不能为空！");
 		}else{
 			List<Car> cars = carService.getCarsByTravelGuideId(travelGuideId);
-			//System.out.println("cars size is "+cars.size());
 			if(cars==null){
 				result.setSuccess(false);
 				result.setMsg("没有车辆信息！");
-				System.out.println("cars is NULLL");
 			}else{
-				System.out.println("cars is not null!!!!!,cars size is "+cars.size());
 				for(Car car:cars){
 					List<CarImage> carImages = carImageSerive.getCarImages(car.getId());
 					if(!carImages.isEmpty()){
 						car.setCarImageUrl(carImages.get(0).getAddress());
 					}
 				}
-				
-				result.setSuccess(true);
-				result.setMsg("查询成功！");
-				result.putObject("cars", cars);
-			}
-		}
-		return result.toJsonString();
-	}
-	
-	@RequestMapping("/car/getCarsByDegreeId.do")
-	@ResponseBody
-	public String getCarsByDegreeId(Integer DegreeId){
-		Result result = new Result();
-		//System.out.println("execute this");
-		if(DegreeId==null){
-			result.setSuccess(false);
-			result.setMsg("获取车辆信息时候，DegreeId参数不能为空！");
-		}else{
-			List<Car> cars = carService.getCarsByDegreeId(DegreeId);
-			//System.out.println("cars size is "+cars.size());
-			if(cars==null){
-				result.setSuccess(false);
-				result.setMsg("没有车辆信息！");
-				System.out.println("cars is NULLL");
-			}else{
-				System.out.println("cars is not null!!!!!,cars size is "+cars.size());
-				for(Car car:cars){
-					List<CarImage> carImages = carImageSerive.getCarImages(car.getId());
-					if(!carImages.isEmpty()){
-						car.setCarImageUrl(carImages.get(0).getAddress());
-					}
-				}
-				
 				result.setSuccess(true);
 				result.setMsg("查询成功！");
 				result.putObject("cars", cars);
@@ -204,7 +168,6 @@ public class CarController {
 	@ResponseBody
 	public String getPriceByTravleGuideId(Integer travelGuideId,String date){
 		Result result = new Result();
-		//System.out.println("travelGuideId:"+travelGuideId+" date:"+date);
 		if(travelGuideId==null||date==null||"".equals(date)){
 			result.setSuccess(false);
 			result.setMsg("获取价格时候，travelGuideId和date参数不能为空！");			
@@ -217,7 +180,7 @@ public class CarController {
 				Map<String,Object> prices = travelGuideService.getPriceByTravelGuideId(travelGuideId,d);
 				if(prices==null||prices.size()==0){
 					result.setSuccess(false);
-					result.setMsg("没有该攻略的价格信息！");		
+					result.setMsg("没有改攻略的价格信息！");		
 				}else{
 					result.setMsg("查询成功！");
 					result.setSuccess(true);

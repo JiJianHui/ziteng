@@ -14,7 +14,6 @@ public interface ICarService {
     public List<Car> queryCar(CarQuery query);
     public List<Car> getAllCars();
 	public List<Car> getCarsByTravelGuideId(Integer travelGuideId);
-	public List<Car> getCarsByDegreeId(Integer DegreeId);
 	public Car getCarById(Integer carId);
 
 }

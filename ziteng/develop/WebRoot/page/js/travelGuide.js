@@ -27,9 +27,9 @@ function loadArea(){
 
 
 //load travel guide.
-function loadGuide(){
+function loadGuide(flag){
 	$("#ul_travel_guide_list").empty();
-	var param = {"pageNo":pageNo, "pageSize":pageSize,"days":days,"searchAreaId":searchAreaId};
+	var param = {"flag": flag, "pageNo":pageNo, "pageSize":pageSize,"days":days,"searchAreaId":searchAreaId};
 	var url = "/ziteng/travelGuide/getAllTravelGuides.do";
 	
 //	addBlackBox();
@@ -137,4 +137,4 @@ function goto_details(travelId){
 }
 
 loadArea();
-loadGuide();
+loadGuide(1);

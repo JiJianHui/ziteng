@@ -64,8 +64,6 @@
 		    <if test="endArea!=null and endArea!=''"> and end_area=#{endArea}</if>
 		    <if test="playDays!=null and playDays!=''"> and play_days=#{playDays}</if>
 		    <if test="status!=null"> and status=#{status}</if>
-		    
-		    <if test="userId!=null and userId!=''"> and user_id=#{userId}</if>
 		</where>
 	</sql>
 	<sql id="orderBySql">
@@ -79,7 +77,7 @@
 		select * from t1_car_sharing 
 			<include refid="selectEntityList_where"/>
 			<include refid="orderBySql"/>
-			<!-- <if test="startRow!=null and endRow!=null">limit #{startRow}, #{pageSize}</if> --><!-- 这条存在，则最多显示15条记录 -->
+			<if test="startRow!=null and endRow!=null">limit #{startRow}, #{pageSize}</if>
 	</select>
 	
 	<select id="selectEntityCount" parameterType="com.ziteng.dto.query.car.CarSharingQuery" resultType="int">

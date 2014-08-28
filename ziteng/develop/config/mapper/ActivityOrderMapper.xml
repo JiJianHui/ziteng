@@ -36,4 +36,8 @@
 	<select id="selectById" parameterType="int" useCache="true" resultMap="activityOrderMap">
 		select * from t1_activity_order where id=#{value}
 	</select>
+	
+	<select id="selectByUserIdAndActivityId" parameterType="map" useCache="true" resultMap="activityOrderMap">
+		select * from t1_activity_order where user_Id=#{userId} and activity_Id = #{activityId}
+	</select>
 </mapper>

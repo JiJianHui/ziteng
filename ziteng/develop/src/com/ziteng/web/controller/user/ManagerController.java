@@ -47,7 +47,8 @@ public class ManagerController {
     public String managerLogin(HttpSession session, String name, String password){   
     	Result result = new Result();
 		UserQuery query = new UserQuery();
-
+			
+		System.out.println("Name == " + name + "password == " + password);
 		// s1 validate
 		if (StringUtils.isBlank(name) || name.length() > 60) {
 			return result.setErrorMsg("用户名不能空,且长度不能超过60个字符").toJsonString();
@@ -61,6 +62,7 @@ public class ManagerController {
 		} else if (Regex.regex(Regex.sidCard, name)) { // 3. 身份证
 			query.setIdCard(name);
 		} else { // 4. 说明是用户登陆
+			System.out.println("Query.setUserName(" + name + ")");
 			query.setUserName(name);
 		}
 
@@ -69,6 +71,7 @@ public class ManagerController {
 
 		// s3 login.
 		int count = userService.queryCount(query);
+		
 		if (count == 0) {
 			return result.setErrorMsg("不存在该用户").toJsonString();
 		}
@@ -82,7 +85,6 @@ public class ManagerController {
 			session.setAttribute(Constants.USER_INFO, user);
 		}
 		result.putObject("admin", user);
-		System.out.println("this is managerController.java:managerLogin新的");
 		return result.toJsonString();
     }
     
@@ -114,7 +116,6 @@ public class ManagerController {
 		result.setSuccess(admin != null);
 		result.setMsg(admin != null ? "已登录" : "未登录");
 		result.putObject("admin", admin);
-		
 		return result.toJsonString();
 	}
     

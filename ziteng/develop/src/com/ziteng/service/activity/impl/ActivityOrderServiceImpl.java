@@ -46,7 +46,12 @@ public class ActivityOrderServiceImpl implements IActivityOrderService {
 	public ActivityOrder queryActivityOrderById(Integer id) {
 		return dao.selectById(id);
 	}
-
+	
+	@Override
+	public ActivityOrder queryActivityOrderByUserIdAndActivityId(Integer userId, Integer activityId) {
+		return dao.selectByUserIdAndActivityId(userId, activityId);
+	}
+	
 	@Override
 	public List<ActivityOrder> queryActivityOrder(ActivityOrderQuery query) {
 		List<ActivityOrder> orders = dao.selectEntityList(query);

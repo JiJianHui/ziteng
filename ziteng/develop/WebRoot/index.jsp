@@ -2,7 +2,6 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -26,8 +25,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <form action="<%=basePath%>c/user/updateKkuserHeadImg.do?sessionKey=de50bf172bcc8356149c33852b8f6a4f" method="post" enctype="multipart/form-data">
 	    <input type="file" name="headImg" value=""/>
     	<input type="submit" value="上传"/>
-    	
     </form>
-    <%out.println("this is out.println"); %><br>
   </body>
 </html>

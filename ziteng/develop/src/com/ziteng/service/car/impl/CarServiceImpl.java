@@ -75,11 +75,7 @@ public class CarServiceImpl implements ICarService {
 	public List<Car> getCarsByTravelGuideId(Integer travelGuideId) {
 		if(travelGuideId==null)
 			return new ArrayList<Car>(0);
-		//travelGuideId=1;
 		List<Car> cars = carDao.getCarsByTravelGuideId(travelGuideId);
-		System.out.println("travelGuideId:"+travelGuideId);
-		System.out.println("in carService,cars size is "
-				+ cars.size());
 		if(cars!=null){
 			for(Car c:cars){
 				c.setCarImages(carImageDao.getCarImagesByCarId(c.getId()));
@@ -87,22 +83,7 @@ public class CarServiceImpl implements ICarService {
 		}
 		return cars;
 	}
-	@Override
-	public List<Car> getCarsByDegreeId(Integer DegreeId) {
-		if(DegreeId==null)
-			return new ArrayList<Car>(0);
-		//travelGuideId=1;
-		List<Car> cars = carDao.getCarsByDegreeId(DegreeId);//要在carDao中也写个这个东西
-		//System.out.println("DegreeId:"+DegreeId);
-		//System.out.println("in carService,cars size is "
-		//		+ cars.size());
-		if(cars!=null){
-			for(Car c:cars){
-				c.setCarImages(carImageDao.getCarImagesByCarId(c.getId()));
-			}
-		}
-		return cars;
-	}
+
 	@Override
 	public Car getCarById(Integer carId) {
 		return carDao.selectById(carId);

@@ -214,10 +214,7 @@ public class HotelOrderController {
 		 else
 		 {
 			 query.setExpandCol3(user.getId()+"");
-			 //System.out.println("userID"+user.getId());
 		 }
-		 //System.out.println("query.ExpandCol3:"+query.getExpandCol3());
-		 
 		int           total     = hotelOrderService.queryHotelOrderCount(query);
 	    List<HotelOrder> hotelOrders  = hotelOrderService.queryHotelOrder(query);
 	    result.setSuccess(true);
