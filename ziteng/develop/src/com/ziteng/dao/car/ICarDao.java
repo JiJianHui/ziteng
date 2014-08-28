@@ -17,5 +17,5 @@ public interface ICarDao extends IBaseDao<Car>{
 	public List<Car> selectAll();
 
 	public List<Car> getCarsByTravelGuideId(Integer travelGuideId);
-	
+	public List<Car> getCarsByDegreeId(Integer DegreeId);
 }

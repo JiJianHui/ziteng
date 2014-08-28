@@ -32,12 +32,10 @@ function loadActivities(){
 				$activity += '<div class="span4" style="text-align:right;height:190px; line-height:190px;margin-left:0px;"><a target="_blank" href="activity_detail.html?activity_id=' + activity.id + '">' + '<img src="/ziteng/' + activity.picture + '" class="img-polaroid" style="width:250px; height:150px; margin-top:15px; margin-right:20px;"/></a></div>';
 				$activity += '<ul style="list-style:none;clear:both; font-size:16px; padding-left:20px;">';
 				$activity += '<li style="float:left; height:45px; line-height:45px;">';
-				// $activity += '<ol class="span2" style="margin-left:0px;" id = "involvePeoples">';
-				// $activity += '参加人数：' + activity.involvePeoples;
-				// $activity += '</ol>';
-				// $activity += '</li>';
-				$activity += '参加人数';
-				$activity += '<li style="float:left; height:45px; line-height:45px;" id = "involvePeoples"' + activity.id + '>' + activity.involvePeoples;
+				$activity += '<ol class="span2" style="margin-left:0px;">';
+				$activity += '参加人数：' + activity.involvePeoples;
+				$activity += '</ol>';
+				$activity += '</li>';
 				$activity += '<li style=" float:right;text-align:right; margin-left:0px; padding-right:35px; height:45px;">';
 				$activity += '<input type="button" value="立即参加" style="width:250px; height:30px;margin:0 0 0 40px;" class="btn btn-primary" id="' + activity.id + '" onclick="anticipate(this)"/>';
 				$activity += '</li>';
@@ -55,21 +53,7 @@ function loadActivities(){
 }
 
 function anticipate(id) {
-	var url = "/ziteng/activity/createActivityOrder.do";
-	
-	$.post(url, {"activity_id":$(id).attr('id')}, function(data) {
-		var json = eval("(" + data +")");
-		if(json.success) {
-			if (json.datas.hasExisted == 1) {
-				alert("The activity order has existed!");
-			} else {
-				alert("Create activtiy order successfully!");
-				location.reload();
-			}
-		} else {
-			alert(json.msg);
-		}
-	});
+	alert($(id).attr('value') + '，记得写接口' + $(id).attr('id'));
 }
 
 $(document).ready(function() {

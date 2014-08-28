@@ -40,7 +40,6 @@ public class ActivityController {
 	public String createNewActivity(HttpSession session, Activity activity) {
 		Result result = new Result();
 		User user = (User) session.getAttribute(Constants.USER_INFO);
-		
 		if (user == null) {
 			return result.setErrorMsg("用户未登录").toJsonString();
 		}
@@ -58,9 +57,9 @@ public class ActivityController {
 	 * @param activity
 	 * @return
 	 */
-	@RequestMapping("/v/w/activity/modifyActivity.do")
+	@RequestMapping("/activity/modifyActivity.do")
 	@ResponseBody
-	public String modifyActivity(HttpSession session, Integer activityId, Activity activity) {
+	public String modifyActivity(HttpSession session, Activity activity) {
 		Result result = new Result();
 		
 		User user = (User) session.getAttribute(Constants.USER_INFO);
@@ -70,11 +69,8 @@ public class ActivityController {
 			return result.toJsonString();
 		}
 		
-		activity.setId(activityId);
 		activity.setCreateUserId(user.getId());
 		activity.setModifyTime(new Date());
-		activity.setStatus(0);
-		
 		boolean flag = activityService.updateActivity(activity);
 		result.setSuccess(flag);
 		result.setMsg(flag ? "更新活动信息成功" : "更新活动信息失败");
@@ -96,7 +92,6 @@ public class ActivityController {
 		if (query == null) {
 			query = new ActivityQuery();
 		}
-		System.out.println("In query activities.do");
 		query.isUsePagination(false);
 		List<Activity> activities = activityService.queryActivities(query);
 		result.setSuccess(true);
@@ -113,10 +108,10 @@ public class ActivityController {
 	 */
 	@RequestMapping("/activity/getActivityInfo.do")
 	@ResponseBody
-	public String getActivityById(Integer activityId) {
+	public String getActivityById(Integer id) {
 		Result result = new Result();
 		
-		Activity activity = activityService.findActivityById(activityId);
+		Activity activity = activityService.findActivityById(id);
 		if (activity != null) {
 			result.setSuccess(true);
 			result.setMsg("查询成功");
@@ -159,7 +154,6 @@ public class ActivityController {
 		result.setMsg("删除成功");		
 		return result.toJsonString();
 	}
-	
 	
 	/**
 	 * 发布的活动

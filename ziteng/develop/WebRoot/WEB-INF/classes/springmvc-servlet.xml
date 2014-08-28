@@ -45,7 +45,7 @@
 	         </list>     
 	    </property>     
 	</bean>    
-		
+	
 	<mvc:annotation-driven />
 	<!-- 配置ContentNegotiatingViewResolver来支持返回多种视图 指定order优先级 先找order 1 找不到找后续的jspView(order 2) -->
 	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
