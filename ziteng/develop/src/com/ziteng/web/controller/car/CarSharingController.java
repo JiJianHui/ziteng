@@ -17,7 +17,7 @@ import com.ziteng.dto.query.car.CarSharingQuery;
 import com.ziteng.entity.car.CarSharing;
 import com.ziteng.entity.user.User;
 import com.ziteng.service.car.ICarSharingService;
-//import java.io.UnsupportedEncodingException;
+
 /**
  * 拼车控制层
  * @author yangzuo
@@ -36,12 +36,9 @@ public class CarSharingController {
 	 * @param carsharing
 	 * @return
 	 */
-	
-	
 	@RequestMapping("/v/carSharing/publicCarsharingInfo.do")
 	@ResponseBody
 	public String createCarSharingInfo(HttpSession session, CarSharing carsharing) {
-		
 		Result result = new Result();
 		User user = (User) session.getAttribute(Constants.USER_INFO);
 		if (user == null) {
@@ -58,22 +55,6 @@ public class CarSharingController {
 			carsharing.setStartTime(startDate);
 			carsharing.setStatus(1);
 			
-			System.out.println("param:"+carsharing.getTitle());
-			
-			//carsharing.setTitle(   carsharing.getTitle().);
-			/*
-			String str=carsharing.getTitle();
-		    char[] ch=str.toCharArray();
-		    String ss="";
-		    String info="";
-		    for (int i = 0; i < ch.length; i++) {
-			    ss="\\u"+Integer.toHexString(ch[i]);
-			    System.out.println(ss);
-			    info+=ss;
-		    }
-		    carsharing.setTitle(info);
-		    */
-			//carsharing.setTitle("张开");
 			boolean flg = service.createCarSharingInfo(carsharing);
 			result.setSuccess(flg);
 			result.setMsg(flg == true ? "发布拼车信息成功" : "发布拼车信息失败");
@@ -193,20 +174,12 @@ public class CarSharingController {
 			result.setMsg("用户未登录");
 			return result.toJsonString();
 		}
-		//System.out.println("userName:"+user.getUserName());
-		//System.out.println("Id:"+user.getId());
 		
 		CarSharingQuery query = new CarSharingQuery();
 		query.setUserId(user.getId());
 		
 		int total = service.queryCarSharingInfoCount(query);
 		List<CarSharing> carsharings  = service.queryCarSharingInfos(query);
-		/*
-		System.out.println("count:"+total);
-		for(CarSharing car:carsharings)
-		{
-			System.out.println("carsharings:"+car.getId());
-		}*/
 		result.setSuccess(true);
 		result.setMsg("查询成功");
 		result.putObject("total", total);  

@@ -1,8 +1,11 @@
 package com.ziteng.web.controller.travelGuide;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -83,12 +86,22 @@ public class TravelGuideController {
 
 	@RequestMapping("/travelGuide/getAllTravelGuides.do")
 	@ResponseBody
-	public String getSearchTravelGuide(TravelGuideQuery query){
+	public String getSearchTravelGuide(Integer flag, TravelGuideQuery query){
 		Result result = new Result();
 		int total = travelGuideService.queryTravelGuidesCount(query);
 		List<TravelGuide> travelGuides  = travelGuideService.queryTravelGuide(query);
 		result.setSuccess(true);
 		result.setMsg("查询成功");
+		switch(flag) {
+			case 1: 
+				Collections.sort(travelGuides, new GuideSortByComments());//, new GuideSortByComments());
+				break;
+			case 2: 
+				Collections.sort(travelGuides, new GuideSortByReleaseTime());//
+				break;
+			case 3: 
+				break;
+		}
 		result.putObject("total", total);  
 		result.putObject("travelGuides", travelGuides);
 		result.putObject("pageNo",query.getPageNo());
@@ -129,7 +142,7 @@ public class TravelGuideController {
 		return result.toJsonString();	
 	}
 
-	@RequestMapping("/travelGuide/poseComment.do")//在旅游攻略中添加评论
+	@RequestMapping("/travelGuide/poseComment.do")
 	@ResponseBody
 	public String poseComment(HttpSession session,Integer travelGuideId,String comment){
 		Result result = new Result();
@@ -275,6 +288,7 @@ public class TravelGuideController {
 	public String deleteGuide(Integer guideId){
 		TravelGuide travelGuide = new TravelGuide();
 		travelGuide.setId(guideId);
+		System.out.println("Delete guide");
 		boolean flag = travelGuideService.deleteTravelGuide(travelGuide);
 		Result result = new Result();
 		result.setSuccess(flag);
@@ -321,5 +335,19 @@ public class TravelGuideController {
 		result.setSuccess(flag);
 		result.setMsg(flag?"修改成功":"修改失败");
 		return result.toJsonString();
+	}
+}
+
+class GuideSortByComments implements Comparator<TravelGuide> {
+	@Override 
+	public int compare(TravelGuide t1, TravelGuide t2) {
+		return -(t1.getCommentsCount() - t2.getCommentsCount());
+	}
+}
+
+class GuideSortByReleaseTime implements Comparator<TravelGuide> {
+	@Override 
+	public int compare(TravelGuide t1, TravelGuide t2) {
+		return -(t1.getCreateTime().compareTo(t2.getCreateTime())); 
 	}
 }

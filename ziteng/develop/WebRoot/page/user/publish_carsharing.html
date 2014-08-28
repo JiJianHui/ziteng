@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="x-ua-compatible" content="ie=10" />
-<title>发布拼车</title>
+<title>成员管理</title>
 
 <link rel="stylesheet" type="text/css" href="../public/css/bootstrap/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="../css/datepicker.css" />
@@ -17,9 +17,6 @@
 <script src="../js/bootstrap-datepicker.js"></script>
 <script src="../js/login.js"></script>
 <script src="../js/public.js"></script>
-
-
-<script src="../js/login.js"></script>
 <style>
 ul a li:hover {
 	background-color: lightgrey;
@@ -72,9 +69,9 @@ ul a li:hover {
 	    <li class="titlewz">
 	        <ol olnum="0">
 	        		<img src="../public/images/headLogo.png" style="margin-right:3px; margin-bottom:2px;" />
-	        		<a style="color:#FC3;" href="/ziteng/page/gonglue.html">包车路线攻略</a>
+	        		<a style="color:#FC3;" href="/ziteng/page/index.html">包车路线攻略</a>
 	        	</ol>
-			<ol olnum="1"><a href="/ziteng/page/rentcar.html">包车</a></ol>
+			<ol olnum="1"><a href="/ziteng/page/gonglue.html">包车</a></ol>
 			<ol olnum="2"><a href="/ziteng/page/activity.html">活动</a></ol>
 			<ol olnum="3"><a href="/ziteng/page/reservation.html">住宿预定</a></ol>
 			<ol olnum="4"><a href="/ziteng/page/carsharing.html">拼车留言</a></ol>
@@ -216,8 +213,6 @@ ul a li:hover {
 			$("#submitBtn").click(function() {
 				var title = $.trim($("#carsharing_name").val());
 				if (title == "") {alert("标题不能为空");return false;}
-				//alert("titlefdafdss"+title);
-				//return false;
 				var startArea = $("#start_area").val();
 				var startTime = $("#start_date").val();
 				if (startTime == "") {alert("请输入开始时间");return false;}

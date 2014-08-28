@@ -8,10 +8,11 @@ import java.util.List;
  * @author yuyajie
  * @date   2014/4/10 
  * 
- **/
-public class HotelInfo{
+ * */
+public class HotelInfo {
 
-	private Integer id;
+	
+	private Integer	id;
 	private String	hotelName;
 	private String	hotelAddress;
 	private String	hotelManger;
@@ -22,7 +23,7 @@ public class HotelInfo{
 	private String	ownArea;
 	private String	addressDesc;
 	private String	roomPrice;
-	private Integer roomNum;
+	private Integer	roomNum;
 	private String	landMarks;
 	private String	hotelContent;
 	private String	hotelServices;

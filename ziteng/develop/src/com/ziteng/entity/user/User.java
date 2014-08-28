@@ -123,8 +123,4 @@ public class User implements java.io.Serializable{
 	public String getCreateTimeString(){
 		return DateUtils.yyyy_MM_dd(createTime); 
 	}
-	public void setBirthDayString(String date) {
-		System.out.println("setting car order beigin time date:"+date);
-		this.birth = DateUtils.yyyy_MM_dd2Date(date);
-	}
 }

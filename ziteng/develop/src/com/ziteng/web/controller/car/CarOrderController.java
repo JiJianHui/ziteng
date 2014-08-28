@@ -100,7 +100,6 @@ public class CarOrderController {
 		if(user==null){
 			return result.setErrorMsg("请登录！").toJsonString();
 		}else{
-			System.out.println("time:"+carOrder.getBeginTime());
 			carOrder.setUserId(user.getId());
 			carOrder.setFlowId(KeyGenerator.getNextCarOrderId(user.getId()));
 			carOrder.setStatus(CarOrder.S_INIT);

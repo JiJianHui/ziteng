@@ -26,20 +26,6 @@
 	</insert>
 	<update id="update" parameterType="com.ziteng.entity.user.User" flushCache="true">
 		update t1_user set
-		<if test="userName!=null and userName!=''">user_name=#{userName},</if>
-		<if test="fullName!=null and fullName!=''">full_name=#{fullName},</if>
-		<if test="idCard!=null and idCard!=''">id_card=#{idCard},</if>
-		<if test="email!=null and email!=''">email=#{email},</if>
-		<if test="phoneNumber!=null and phoneNumber!=''">phone_number=#{phoneNumber},</if>
-		<if test="sex!=null and sex!=''">sex=#{sex},</if>
-		<if test="type!=null and type!=''">type=#{type},</if>
-		<if test="address!=null and address!=''">address=#{address},</if>
-		<if test="birth!=null and birth!=''">birth=#{birth},</if>
-		<if test="password!=null and password!=''">password=#{password},</if>
-		<if test="createTime!=null and createTime!=''">create_time=#{createTime},</if>
-		<if test="modifyTime!=null and modifyTime!=''">modify_time=#{modifyTime},</if>
-		<if test="id!=null and id!=''">id=#{id}</if>
-		<!-- 
 		user_name=#{userName},
 		full_name=#{fullName},
 		id_card=#{idCard},
@@ -49,10 +35,10 @@
 		type=#{type},
 		address=#{address},
 		birth=#{birth},
+		avatar=#{avatar},
 		password=#{password},
 		create_time=#{createTime},
 		modify_time=#{modifyTime}
-		 -->
 		where id=#{id}
 	</update>
 	<delete id="delete" parameterType="com.ziteng.entity.user.User" flushCache="true">

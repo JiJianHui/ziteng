@@ -88,5 +88,4 @@
 		<include refid="orderBySql" />
 		<if test="startRow!=null and endRow!=null and usePagination">limit #{startRow}, #{pageSize}</if>
 	</select>
-
 </mapper>
