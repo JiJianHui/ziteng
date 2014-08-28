@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hotel信息列表</title>
+	
+    <meta name="keywords" content="ToWorld Company">
+    <meta name="description" content="ToWorld CompanyHotel Management">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+   <script language="javascript" type="text/javascript" src="public/javascript/jquery.js"></script>
+   <script language="javascript" type="text/javascript" src="public/javascript/jquery.easing.1.3.js"> </script>
+   <script language="javascript" type="text/javascript" src="public/javascript/bootstrap/bootstrap.js"> </script>
+   <script language="javascript" type="text/javascript" src="js/hotel/hotelinfo.js"></script>
+
+  </head>
+  <script type="text/javascript">
+	window.onload =getHotelInfo(); //这个是jquery代码 };
+  </script>
+  <body onload="getHotelInfo()">
+  <div id="hotel_page" width="100%" align="center">
+   <table width="100%" id="hotel_main">
+   <tr class="hotelTitle">
+	<td style="width:30px;"></td>
+	<td nowrap>Hotel Title</td>
+	<td nowrap>Hotel type</td>
+	<td nowrap>Hotel Star</td>
+	<td nowrap>Hotel Admin</td>
+	<td nowrap>Phone</td>
+	<td nowrap>Room numbers</td>
+	<td nowrap>Hotel Address</td>
+	<td nowrap>Flow</td>
+	<td nowrap>Good Reviews</td>
+	<td nowrap>Bad reviews</td>
+	</tr>
+   </table>
+   </div>
+   <div id="hotel_page" >
+   <table width="100%">
+   <tr>
+   <td id="pageDelete" width="10%"><input type="button" class="btn btn-primary" value="Delete" onClick="hotelInfoDelete()"/></td>
+   <td id="pageInfo" width="60%"></td>
+   <td id="pageNo" width="30%"></td>
+   </tr>
+   </table>
+   </div>
+  </body>
+</html>

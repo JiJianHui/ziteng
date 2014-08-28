@@ -1,0 +1,963 @@
+.hotelMain {
+	MARGIN: 20px auto; WIDTH: 1000px
+}
+.hotelMain .sidebar {
+	WIDTH: 380px; FLOAT: left
+}
+.hotelMain .rightMain {
+	WIDTH: 600px; FLOAT: right
+}
+.AIOS_Box {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; WIDTH: 370px; PADDING-RIGHT: 5px; BACKGROUND: #ffe64f; FLOAT: left; PADDING-TOP: 5px
+}
+.insideBox {
+	BORDER-BOTTOM: #f0be10 1px solid; BORDER-LEFT: #f0be10 1px solid; PADDING-BOTTOM: 9px; BACKGROUND: #fffef9; OVERFLOW: hidden; BORDER-TOP: #f0be10 1px solid; BORDER-RIGHT: #f0be10 1px solid
+}
+.insideBox .topTag {
+	WIDTH: 368px; HEIGHT: 43px
+}
+.insideBox .topTag LI {
+	FLOAT: left; HEIGHT: 43px; CURSOR: pointer
+}
+.insideBox .topTag LI.hotels {
+	WIDTH: 183px; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat 0px -43px
+}
+.insideBox .topTag LI.hotels_action {
+	WIDTH: 183px; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat 0px -43px
+}
+.insideBox .topTag LI.hotels_action {
+	BACKGROUND-POSITION: 0px 0px
+}
+.insideBox .topTag LI.flights {
+	WIDTH: 185px; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat 0px -129px
+}
+.insideBox .topTag LI.flights_action {
+	WIDTH: 185px; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat 0px -129px
+}
+.insideBox .topTag LI.flights_action {
+	BACKGROUND-POSITION: 0px -86px
+}
+.insideBox .topTagNew {
+	WIDTH: 368px; HEIGHT: 43px
+}
+.insideBox .topTagNew LI {
+	FLOAT: left; HEIGHT: 43px; CURSOR: pointer
+}
+.insideBox .topTagNew LI.hotels {
+	WIDTH: 123px; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat 0px -359px
+}
+.insideBox .topTagNew LI.hotels_action {
+	WIDTH: 123px; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat 0px -359px
+}
+.insideBox .topTagNew LI.hotels_action {
+	BACKGROUND-POSITION: -123px -359px
+}
+.insideBox .topTagNew LI.flights {
+	WIDTH: 123px; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat 0px -402px
+}
+.insideBox .topTagNew LI.flights_action {
+	WIDTH: 123px; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat 0px -402px
+}
+.insideBox .topTagNew LI.flights_action {
+	BACKGROUND-POSITION: -123px -402px
+}
+.insideBox .topTagNew LI.phone {
+	WIDTH: 122px; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat 0px -445px
+}
+.insideBox .topTagNew LI.phone_action {
+	WIDTH: 122px; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat 0px -445px
+}
+.insideBox .topTagNew LI.phone_action {
+	BACKGROUND-POSITION: -122px -445px
+}
+.insideBox .phoneCon {
+	WIDTH: 368px; BACKGROUND: #fff; HEIGHT: 340px
+}
+.insideBox .phoneCon .top {
+	WIDTH: 368px; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat 0px -488px; HEIGHT: 185px
+}
+.insideBox .phoneTel {
+	MARGIN: 16px 0px 0px 20px; WIDTH: 180px; DISPLAY: inline; FONT: 14px "Microsoft Yahei", Simsun; FLOAT: left; HEIGHT: 120px; COLOR: #555
+}
+.insideBox .phoneTel LI {
+	MARGIN-BOTTOM: 17px
+}
+.insideBox .phoneTel INPUT.txt {
+	BORDER-BOTTOM: #bbb 1px solid; BORDER-LEFT: #bbb 1px solid; LINE-HEIGHT: 29px; PADDING-LEFT: 3px; WIDTH: 165px; HEIGHT: 29px; COLOR: #999; BORDER-TOP: #bbb 1px solid; BORDER-RIGHT: #bbb 1px solid
+}
+.insideBox .phoneTel INPUT.but {
+	BORDER-BOTTOM: 0px; TEXT-ALIGN: center; BORDER-LEFT: 0px; WIDTH: 170px; FONT: 16px "Microsoft Yahei", Simsun; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat 0px -673px; HEIGHT: 30px; COLOR: #fff; BORDER-TOP: 0px; CURSOR: pointer; BORDER-RIGHT: 0px
+}
+.insideBox .phoneTel INPUT.zzfs {
+	BACKGROUND-IMAGE: none; BACKGROUND-COLOR: #999
+}
+.insideBox .phoneTel INPUT.but:hover {
+	BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat 0px -703px
+}
+.insideBox .phoneTel INPUT.zzfs:hover {
+	BACKGROUND-IMAGE: none; BACKGROUND-COLOR: #999
+}
+.insideBox .phoneerw {
+	MARGIN: 20px 20px 0px 0px; WIDTH: 135px; DISPLAY: inline; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat -233px -673px; FLOAT: right; HEIGHT: 110px
+}
+.insideBox .phoneTel SPAN.cg {
+	TEXT-ALIGN: center; WIDTH: 170px; DISPLAY: inline-block; FONT: 16px "Microsoft Yahei", Simsun; BACKGROUND: #fff; HEIGHT: 30px; COLOR: #999
+}
+.insideBox .phoneTel SPAN.cgicon {
+	WIDTH: 20px; DISPLAY: inline-block; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat -348px 0px; HEIGHT: 16px; VERTICAL-ALIGN: middle; MARGIN-RIGHT: 5px
+}
+.insideBox .centerTag {
+	MARGIN-TOP: 18px; PADDING-LEFT: 30px; HEIGHT: 28px
+}
+.insideBox .centerTag LI {
+	TEXT-ALIGN: center; WIDTH: 80px; FONT: 14px "Microsoft Yahei", Simsun; FLOAT: left; HEIGHT: 22px; COLOR: #ba8a49; CURSOR: pointer
+}
+.insideBox .centerTag LI.action {
+	POSITION: relative; BACKGROUND: #a37833; COLOR: #fff
+}
+.insideBox .centerTag LI.action SPAN {
+	POSITION: absolute; WIDTH: 9px; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat -183px 0px; HEIGHT: 5px; OVERFLOW: hidden; TOP: 22px; LEFT: 35px
+}
+.insideBox .txtList {
+	POSITION: relative; MARGIN: 10px 0px 0px 30px; WIDTH: 307px
+}
+.insideBox .txtList DT {
+	TEXT-ALIGN: right; WIDTH: 57px; PADDING-RIGHT: 8px; FONT: 14px/31px "Microsoft Yahei", Simsun; MARGIN-BOTTOM: 15px; FLOAT: left; HEIGHT: 31px; COLOR: #ba8a49
+}
+.insideBox .txtList .l_black {
+	COLOR: #777
+}
+.insideBox .txtList .type {
+	FONT-SIZE: 14px
+}
+.insideBox .txtList .radio {
+	VERTICAL-ALIGN: -2px; MARGIN-RIGHT: 3px; _vertical-align: -2px
+}
+.insideBox .txtList .dt_mb0 LABEL {
+	LINE-HEIGHT: 40px; _vertical-align: -12px
+}
+.insideBox .txtList DD {
+	WIDTH: 242px; MARGIN-BOTTOM: 15px; FLOAT: left; HEIGHT: 31px
+}
+.insideBox .swapBut {
+	POSITION: absolute; WIDTH: 21px; DISPLAY: inline-block; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat -198px 0px; HEIGHT: 54px; TOP: 60px; CURSOR: pointer; LEFT: 310px
+}
+.insideBox .swapBut:hover {
+	BACKGROUND-POSITION: -219px 0px
+}
+INPUT.txT {
+	BORDER-BOTTOM: #bbb 1px solid; BORDER-LEFT: #bbb 1px solid; PADDING-LEFT: 5px; WIDTH: 235px; FONT: 14px/29px "Microsoft Yahei", Simsun; HEIGHT: 29px; COLOR: #333; BORDER-TOP: #bbb 1px solid; BORDER-RIGHT: #bbb 1px solid
+}
+INPUT.txtDate {
+	BORDER-BOTTOM: #bbb 1px solid; BORDER-LEFT: #bbb 1px solid; PADDING-LEFT: 5px; WIDTH: 235px; FONT: 14px/29px "Microsoft Yahei", Simsun; HEIGHT: 29px; COLOR: #333; BORDER-TOP: #bbb 1px solid; BORDER-RIGHT: #bbb 1px solid
+}
+INPUT.select {
+	BORDER-BOTTOM: #bbb 1px solid; BORDER-LEFT: #bbb 1px solid; PADDING-LEFT: 5px; WIDTH: 235px; FONT: 14px/29px "Microsoft Yahei", Simsun; HEIGHT: 29px; COLOR: #333; BORDER-TOP: #bbb 1px solid; BORDER-RIGHT: #bbb 1px solid
+}
+INPUT.txtDate {
+	BACKGROUND: url(../pic/newindex.png?t=201403191434) #fff no-repeat 218px -174px
+}
+INPUT.c9 {
+	COLOR: #999
+}
+.inputTom {
+	POSITION: absolute; FONT: 14px "Microsoft Yahei", Simsun; COLOR: #999; TOP: 51px; LEFT: 160px; _top: 54px
+}
+.inputWeek {
+	POSITION: absolute; FONT: 14px "Microsoft Yahei", Simsun; COLOR: #999; TOP: 97px; LEFT: 160px; _top: 102px
+}
+.inputFlightsTom {
+	POSITION: absolute; FONT: 14px "Microsoft Yahei", Simsun; COLOR: #999; TOP: 143px; LEFT: 160px; _top: 150px
+}
+.inputFlightsWeek {
+	POSITION: absolute; FONT: 14px "Microsoft Yahei", Simsun; COLOR: #999; TOP: 188px; LEFT: 160px; _top: 198px
+}
+.allserchBut {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; WIDTH: 240px; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat 0px -785px; HEIGHT: 34px; BORDER-TOP: 0px; CURSOR: pointer; BORDER-RIGHT: 0px
+}
+.allserchBut:hover {
+	BACKGROUND-POSITION: 0px -819px
+}
+.hotelserchBut {
+	WIDTH: 130px; BACKGROUND-POSITION: -110px -203px
+}
+.hotelserchBut:hover {
+	BACKGROUND-POSITION: -110px -237px
+}
+.mapserchBut {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; WIDTH: 100px; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat 0px -203px; HEIGHT: 34px; BORDER-TOP: 0px; CURSOR: pointer; MARGIN-RIGHT: 10px; BORDER-RIGHT: 0px
+}
+.mapserchBut:hover {
+	BACKGROUND-POSITION: 0px -237px
+}
+.allserchButlod {
+	BORDER-BOTTOM: #bbb 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #bbb 1px solid; WIDTH: 240px; FONT: 14px/32px "Microsoft Yahei", Simsun; BACKGROUND: #dcdcdc; HEIGHT: 32px; COLOR: #999; BORDER-TOP: #bbb 1px solid; BORDER-RIGHT: #bbb 1px solid; _padding-top: 5px; _height: 29px
+}
+.allserchButlod SPAN {
+	WIDTH: 16px; DISPLAY: inline-block; BACKGROUND: url(../pic/lc_loading.gif) no-repeat; HEIGHT: 16px; MARGIN-LEFT: 5px; VERTICAL-ALIGN: middle
+}
+.hotelserchButlod {
+	BORDER-BOTTOM: #bbb 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #bbb 1px solid; WIDTH: 128px; FONT: 14px/32px "Microsoft Yahei", Simsun; BACKGROUND: #dcdcdc; FLOAT: right; HEIGHT: 32px; COLOR: #999; BORDER-TOP: #bbb 1px solid; CURSOR: not-allowed; BORDER-RIGHT: #bbb 1px solid; _padding-top: 5px; _height: 27px; _width: 126px
+}
+.hotelserchButlod SPAN {
+	WIDTH: 16px; DISPLAY: inline-block; BACKGROUND: url(../pic/lc_loading.gif?t=201403191434) no-repeat; HEIGHT: 16px; MARGIN-LEFT: 5px; VERTICAL-ALIGN: middle
+}
+INPUT.select {
+	BACKGROUND: url(../pic/newindex.png?t=201403191434) #fff no-repeat 215px -275px
+}
+.menu {
+	Z-INDEX: 10; BORDER-BOTTOM: #bbb 1px solid; POSITION: absolute; BORDER-LEFT: #bbb 1px solid; WIDTH: 240px; BACKGROUND: #f8f8f8; BORDER-TOP: #bbb 1px solid; BORDER-RIGHT: #bbb 1px solid
+}
+.menu LI {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 10px; WIDTH: 220px; PADDING-RIGHT: 10px; COLOR: #666; FONT-SIZE: 14px; CURSOR: pointer; PADDING-TOP: 5px
+}
+.menu LI:hover {
+	BACKGROUND: #36c; COLOR: #fff
+}
+.menu LI.action {
+	BACKGROUND: #36c; COLOR: #fff
+}
+.flightType {
+	TOP: 30px; LEFT: 65px
+}
+.berthGrade {
+	TOP: 214px; LEFT: 65px; _top: 220px
+}
+.adNo1 {
+	MARGIN: 20px 0px; WIDTH: 380px; FLOAT: left; HEIGHT: 100px
+}
+.adNo2 {
+	MARGIN: 20px 0px; WIDTH: 600px; FLOAT: right; HEIGHT: 100px
+}
+.sidebar .whyus {
+	FONT: 14px "Microsoft Yahei", Simsun; FLOAT: left; COLOR: #666
+}
+.sidebar .whyus H3 {
+	MARGIN-BOTTOM: 15px; COLOR: #a25005; FONT-SIZE: 24px
+}
+.sidebar .whyus DT {
+	LINE-HEIGHT: 30px; HEIGHT: 30px; COLOR: #e27720; FONT-SIZE: 16px; FONT-WEIGHT: 700
+}
+.sidebar .whyus DT I {
+	WIDTH: 26px; DISPLAY: inline-block; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat -183px -54px; HEIGHT: 26px; VERTICAL-ALIGN: -5px; MARGIN-RIGHT: 5px
+}
+.sidebar .whyus DD {
+	PADDING-LEFT: 31px; MARGIN-BOTTOM: 10px
+}
+.sidebar .subscription {
+	WIDTH: 380px; MARGIN-BOTTOM: 20px; BACKGROUND: url(../pic/newindex.png?t=201403191434) #f1f4f7 no-repeat -154px -271px; FLOAT: left; HEIGHT: 75px
+}
+.sidebar .subscription P {
+	MARGIN: 0px auto; WIDTH: 290px; HEIGHT: 25px
+}
+.sidebar .subscription P.title {
+	MARGIN-TOP: 10px; FONT: 700 16px "Microsoft Yahei", Simsun; COLOR: #36c
+}
+.sidebar .subscription .subTxt {
+	BORDER-BOTTOM: #8dadd8 1px solid; BORDER-LEFT: #8dadd8 1px solid; LINE-HEIGHT: 28px; PADDING-LEFT: 10px; WIDTH: 209px; FLOAT: left; HEIGHT: 28px; COLOR: #999; BORDER-TOP: #8dadd8 1px solid; BORDER-RIGHT: 0px; _width: 205px
+}
+.sidebar .subscription .subBut {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; WIDTH: 70px; FONT: 12px "Microsoft Yahei", Simsun; BACKGROUND: #3672bd; HEIGHT: 30px; COLOR: #fff; BORDER-TOP: 0px; CURSOR: pointer; BORDER-RIGHT: 0px
+}
+.sidebar .subscription .subBut:hover {
+	BACKGROUND: #4785d3
+}
+.sidebar .travel {
+	MARGIN-TOP: 20px; WIDTH: 380px; FLOAT: left
+}
+.sidebar .travel H2 {
+	PADDING-BOTTOM: 3px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; FONT: 400 18px Microsoft Yahei, 宋体; BACKGROUND: #f8f8f8; BORDER-TOP: #bdbdbd 1px solid; PADDING-TOP: 3px
+}
+.sidebar .travel H2 TT {
+	WIDTH: 21px; DISPLAY: inline-block; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat -23px -178px; HEIGHT: 21px; VERTICAL-ALIGN: middle; MARGIN-RIGHT: 5px
+}
+.sidebar .travel A.move {
+	MARGIN-TOP: -23px; OUTLINE-STYLE: none; OUTLINE-COLOR: invert; OUTLINE-WIDTH: 0px; FLOAT: right; COLOR: #36c; MARGIN-RIGHT: 10px; TEXT-DECORATION: none
+}
+.sidebar .travel A.move:hover {
+	TEXT-DECORATION: underline
+}
+.sidebar .travel DL {
+	PADDING-BOTTOM: 0px; MARGIN-TOP: 20px; PADDING-LEFT: 10px; WIDTH: 380px; PADDING-RIGHT: 10px; FLOAT: left; PADDING-TOP: 0px
+}
+.sidebar .travel DT {
+	WIDTH: 130px; FLOAT: left; HEIGHT: 80px
+}
+.sidebar .travel DD {
+	WIDTH: 215px; MARGIN-BOTTOM: 5px; FLOAT: left; MARGIN-LEFT: 10px
+}
+.sidebar .travel DD SPAN.iconList {
+	WIDTH: 8px; DISPLAY: inline-block; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat -184px -8px; HEIGHT: 8px; OVERFLOW: hidden; MARGIN-RIGHT: 2px
+}
+.sidebar .travel DD A {
+	COLOR: #666; CURSOR: pointer; TEXT-DECORATION: none
+}
+.sidebar .travel DD A:hover {
+	TEXT-DECORATION: underline
+}
+.sidebar .cheapFlights {
+	POSITION: relative; WIDTH: 380px; FLOAT: left
+}
+.sidebar .cheapFlights H2 {
+	PADDING-BOTTOM: 3px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; FONT: 400 18px Microsoft Yahei, 宋体; BACKGROUND: #f8f8f8; BORDER-TOP: #bdbdbd 1px solid; PADDING-TOP: 3px
+}
+.sidebar .cheapFlights H2 TT {
+	WIDTH: 21px; DISPLAY: inline-block; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat -48px -178px; HEIGHT: 21px; VERTICAL-ALIGN: middle; MARGIN-RIGHT: 5px
+}
+.sidebar .cheapFlights UL.city {
+	POSITION: absolute; TOP: 0px; RIGHT: 0px
+}
+.sidebar .cheapFlights UL.city LI {
+	POSITION: relative; PADDING-BOTTOM: 6px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FLOAT: left; PADDING-TOP: 6px
+}
+.sidebar .cheapFlights UL.city LI A {
+	OUTLINE-STYLE: none; OUTLINE-COLOR: invert; OUTLINE-WIDTH: 0px; COLOR: #36c; TEXT-DECORATION: none
+}
+.sidebar .cheapFlights UL.city LI.action {
+	BACKGROUND: #3672bd
+}
+.sidebar .cheapFlights UL.city LI SPAN.jt {
+	POSITION: absolute; WIDTH: 7px; BACKGROUND: 0px 50%; HEIGHT: 4px; TOP: 32px; LEFT: 13px
+}
+.sidebar .cheapFlights UL.city LI.action A {
+	COLOR: #fff
+}
+.sidebar .cheapFlights UL.city LI.action SPAN.jt {
+	POSITION: absolute; WIDTH: 7px; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat -184px -20px; HEIGHT: 4px; TOP: 32px; LEFT: 13px
+}
+.sidebar .cheapFlights .tips {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 16px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 16px
+}
+.sidebar .cheapFlights .tips P {
+	FONT: 12px "Microsoft Yahei", Simsun; COLOR: #666
+}
+.sidebar .cheapFlights .tips TT {
+	WIDTH: 40px; DISPLAY: inline-block; BACKGROUND: url(../pic/popuploading.gif?t=201403191434) no-repeat; HEIGHT: 40px
+}
+.sidebar .cheapFlights UL.flightList {
+	WIDTH: 380px
+}
+.sidebar .cheapFlights UL.flightList LI {
+	LINE-HEIGHT: 30px; HEIGHT: 30px; COLOR: #666
+}
+.sidebar .cheapFlights UL.flightList LI.bg {
+	BACKGROUND: #f8f8f8
+}
+.sidebar .cheapFlights UL.flightList LI SPAN {
+	TEXT-ALIGN: center; WIDTH: 60px; FLOAT: left
+}
+.sidebar .cheapFlights UL.flightList LI SPAN.w120 {
+	WIDTH: 120px
+}
+.sidebar .cheapFlights UL.flightList LI SPAN.price {
+	FONT-FAMILY: Arial; COLOR: #f60; FONT-SIZE: 14px
+}
+.sidebar .cheapFlights UL.flightList LI A {
+	COLOR: #36c; TEXT-DECORATION: none
+}
+.sidebar .cheapFlights UL.flightList LI A:hover {
+	COLOR: #36c; TEXT-DECORATION: underline
+}
+.rightMain .focusMap {
+	POSITION: relative; WIDTH: 600px; FLOAT: left; HEIGHT: 230px; OVERFLOW: hidden
+}
+.rightMain .focusMap .box A {
+	POSITION: absolute; WIDTH: 600px; DISPLAY: block; HEIGHT: 230px; OVERFLOW: hidden; TOP: 0px; LEFT: 0px
+}
+.rightMain .focusMap UL {
+	POSITION: absolute; BOTTOM: 10px; HEIGHT: 12px; OVERFLOW: hidden; RIGHT: 20px
+}
+.rightMain .focusMap LI {
+	WIDTH: 12px; DISPLAY: block; BACKGROUND: #fff; FLOAT: left; HEIGHT: 12px; CURSOR: pointer; MARGIN-RIGHT: 10px; border-radius: 20px
+}
+.rightMain .focusMap LI:hover {
+	BACKGROUND: #ccc
+}
+.rightMain .focusMap LI.action {
+	BACKGROUND: #06c; CURSOR: default
+}
+.rightMain .Promotions {
+	BORDER-BOTTOM: #d9d9d9 1px solid; POSITION: relative; BORDER-LEFT: #d9d9d9 1px solid; PADDING-BOTTOM: 15px; WIDTH: 598px; MARGIN-BOTTOM: 20px; FLOAT: left; BORDER-TOP: #ed9274 2px solid; BORDER-RIGHT: #d9d9d9 1px solid
+}
+.rightMain .Promotions H2 {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; FONT: 400 18px Microsoft Yahei, 宋体; BACKGROUND: #f8f8f8; COLOR: #555; PADDING-TOP: 5px
+}
+.rightMain .Promotions H2 SPAN {
+	MARGIN: 0px 5px; FONT-FAMILY: Arial; FONT-SIZE: 18px; FONT-WEIGHT: 800
+}
+.rightMain .Promotions H2 A {
+	COLOR: #555; TEXT-DECORATION: none
+}
+.rightMain .Promotions H2 A:hover {
+	TEXT-DECORATION: underline
+}
+.rightMain .Promotions A.more {
+	MARGIN-TOP: -28px; OUTLINE-STYLE: none; OUTLINE-COLOR: invert; OUTLINE-WIDTH: 0px; FLOAT: right; COLOR: #36c; MARGIN-RIGHT: 10px; TEXT-DECORATION: none
+}
+.rightMain .Promotions A.more:hover {
+	COLOR: #f60
+}
+.rightMain .Promotions A.leftBut {
+	POSITION: absolute; OUTLINE-STYLE: none; OUTLINE-COLOR: invert; OUTLINE-WIDTH: 0px; WIDTH: 27px; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat -186px -86px; HEIGHT: 50px; TOP: 100px; LEFT: 0px
+}
+.rightMain .Promotions A.leftBut:hover {
+	BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat -186px -136px
+}
+.rightMain .Promotions A.rightBut {
+	POSITION: absolute; OUTLINE-STYLE: none; OUTLINE-COLOR: invert; OUTLINE-WIDTH: 0px; WIDTH: 27px; BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat -213px -86px; HEIGHT: 50px; TOP: 100px; RIGHT: 0px
+}
+.rightMain .Promotions A.rightBut:hover {
+	BACKGROUND: url(../pic/newindex.png?t=201403191434) no-repeat -213px -136px
+}
+.rightMain .Promotions A.leftBut_no {
+	BACKGROUND-POSITION: -186px -86px; CURSOR: not-allowed; opacity: .5
+}
+.rightMain .Promotions A.leftBut_no:hover {
+	BACKGROUND-POSITION: -186px -86px; CURSOR: not-allowed; opacity: .5
+}
+.rightMain .Promotions A.rightBut_no {
+	BACKGROUND-POSITION: -213px -86px; CURSOR: not-allowed; opacity: .5
+}
+.rightMain .Promotions A.rightBut_no:hover {
+	BACKGROUND-POSITION: -213px -86px; CURSOR: not-allowed; opacity: .5
+}
+.rightMain .groupon DD A {
+	COLOR: #36c; TEXT-DECORATION: none
+}
+.rightMain .xsq DD A {
+	COLOR: #36c; TEXT-DECORATION: none
+}
+.rightMain .gjhotel DD A {
+	COLOR: #36c; TEXT-DECORATION: none
+}
+.rightMain .groupon DD A:hover {
+	COLOR: #f60
+}
+.rightMain .xsq DD A:hover {
+	COLOR: #f60
+}
+.rightMain .gjhotel DD A:hover {
+	COLOR: #f60
+}
+.rightMain .groupon DT IMG:hover {
+	FILTER: alpha(opacity=80); opacity: .8
+}
+.rightMain .xsq DT IMG:hover {
+	FILTER: alpha(opacity=80); opacity: .8
+}
+.rightMain .gjhotel DT IMG:hover {
+	FILTER: alpha(opacity=80); opacity: .8
+}
+.rightMain .groupon DD A SPAN {
+	COLOR: #666; MARGIN-LEFT: 3px
+}
+.rightMain .xsq DD A SPAN {
+	COLOR: #666; MARGIN-LEFT: 3px
+}
+.rightMain .gjhotel DD A SPAN {
+	COLOR: #666; MARGIN-LEFT: 3px
+}
+.rightMain .groupon DD A:hover SPAN {
+	COLOR: #f60
+}
+.rightMain .xsq DD A:hover SPAN {
+	COLOR: #f60
+}
+.rightMain .gjhotel DD A:hover SPAN {
+	COLOR: #f60
+}
+.rightMain .groupon_wrap {
+	MARGIN: 12px 29px 0px; WIDTH: 540px; HEIGHT: 195px; OVERFLOW: hidden
+}
+.rightMain .groupon {
+	DISPLAY: inline; FLOAT: left
+}
+.rightMain .groupon DL {
+	WIDTH: 265px; FLOAT: left; HEIGHT: 195px
+}
+.rightMain .groupon DL.right {
+	FLOAT: right
+}
+.rightMain .groupon DT {
+	WIDTH: 265px; HEIGHT: 120px
+}
+.rightMain .groupon DD {
+	LINE-HEIGHT: 17px; MARGIN-TOP: 6px; HEIGHT: 35px; COLOR: #666; OVERFLOW: hidden
+}
+.rightMain .groupon DD SPAN.price {
+	MARGIN: 0px 3px; FONT: 18px Microsoft Yahei, 宋体; COLOR: #f60
+}
+.rightMain .groupon DD SPAN.ori {
+	TEXT-DECORATION: line-through
+}
+.rightMain .groupon A.groBut {
+	TEXT-ALIGN: center; LINE-HEIGHT: 24px; WIDTH: 65px; DISPLAY: inline-block; BACKGROUND: #f80; FLOAT: right; HEIGHT: 24px; COLOR: #fff; TEXT-DECORATION: none
+}
+.rightMain .groupon A.groBut:hover {
+	BACKGROUND: #ce6f03; COLOR: #fff; TEXT-DECORATION: none
+}
+.rightMain .xsqtop {
+	BORDER-TOP: #6f9ed8 2px solid
+}
+.rightMain .xsq {
+	MARGIN: 12px 0px 0px 19px; WIDTH: 570px; DISPLAY: inline; FLOAT: left
+}
+.rightMain .xsq DL {
+	WIDTH: 180px; DISPLAY: inline; FLOAT: left; MARGIN-RIGHT: 10px
+}
+.rightMain .xsq DL.right {
+	FLOAT: right
+}
+.rightMain .xsq DT {
+	WIDTH: 180px; HEIGHT: 120px
+}
+.rightMain .xsq DD {
+	LINE-HEIGHT: 24px; MARGIN-TOP: 3px; WIDTH: 180px; TEXT-OVERFLOW: ellipsis; WHITE-SPACE: nowrap; HEIGHT: 24px; COLOR: #666; OVERFLOW: hidden
+}
+.rightMain .xsq DD SPAN.price {
+	MARGIN: 0px 3px; FONT: 18px Microsoft Yahei, 宋体; COLOR: #f60
+}
+.rightMain .xsq DD SPAN.ori {
+	TEXT-DECORATION: line-through
+}
+.rightMain .gjhoteltop {
+	BORDER-TOP: #6fc3d8 2px solid
+}
+.rightMain .gjhotel {
+	MARGIN: 12px 0px 0px 19px; WIDTH: 570px; DISPLAY: inline; FLOAT: left
+}
+.rightMain .gjhotel DL {
+	WIDTH: 180px; DISPLAY: inline; FLOAT: left; MARGIN-RIGHT: 10px
+}
+.rightMain .gjhotel DL.right {
+	FLOAT: right
+}
+.rightMain .gjhotel DT {
+	WIDTH: 180px; HEIGHT: 80px
+}
+.rightMain .gjhotel DD {
+	LINE-HEIGHT: 24px; MARGIN-TOP: 3px; HEIGHT: 24px; COLOR: #666
+}
+.rightMain .gjhotel DD SPAN.price {
+	MARGIN: 0px 3px; FONT: 18px Microsoft Yahei, 宋体; COLOR: #f60
+}
+.rightMain .gjhotel DD SPAN.ori {
+	TEXT-DECORATION: line-through
+}
+.fast_search {
+	BORDER-BOTTOM: #d9d9d9 1px solid; POSITION: relative; BORDER-LEFT: #d9d9d9 1px solid; WIDTH: 598px; MARGIN-BOTTOM: 20px; FLOAT: left; BORDER-TOP: 0px; BORDER-RIGHT: #d9d9d9 1px solid
+}
+.fast_search .tuan_title H3 {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; FONT: 400 18px Microsoft Yahei, 宋体; BACKGROUND: #f8f8f8; HEIGHT: 25px; COLOR: #555; BORDER-TOP: #bbb 2px solid; PADDING-TOP: 5px
+}
+.fast_search .tuan_title .inputCity {
+	BORDER-BOTTOM: #dcdcdc 1px solid; POSITION: absolute; BORDER-LEFT: #dcdcdc 1px solid; LINE-HEIGHT: 20px; MARGIN-TOP: 5px; PADDING-LEFT: 5px; WIDTH: 55px; TEXT-OVERFLOW: ellipsis; PADDING-RIGHT: 20px; WHITE-SPACE: nowrap; BACKGROUND: url(../pic/newindex.png?t=201403191434) #fff no-repeat 60px -302px; HEIGHT: 20px; OVERFLOW: hidden; BORDER-TOP: #dcdcdc 1px solid; TOP: 0px; CURSOR: pointer; BORDER-RIGHT: #dcdcdc 1px solid; LEFT: 170px
+}
+.fast_search .tuan_title .inputCity:hover {
+	BACKGROUND-POSITION: 60px -322px
+}
+.city_switch A.select {
+	BACKGROUND: url(../pic/select.png?t=201403191434) no-repeat
+}
+.city_switch A.select:hover {
+	BACKGROUND: url(../pic/select.png?t=201403191434) no-repeat
+}
+.city_switch A.select_on {
+	BACKGROUND: url(../pic/select.png?t=201403191434) no-repeat
+}
+.city_switch A.select_on:hover {
+	BACKGROUND: url(../pic/select.png?t=201403191434) no-repeat
+}
+.fast_search_tab .turn_left {
+	BACKGROUND: url(../pic/select.png?t=201403191434) no-repeat
+}
+.fast_search_tab .turn_right {
+	BACKGROUND: url(../pic/select.png?t=201403191434) no-repeat
+}
+.fast_search_mod LI {
+	BACKGROUND: url(../pic/select.png?t=201403191434) no-repeat
+}
+.catemod I {
+	BACKGROUND: url(../pic/select.png?t=201403191434) no-repeat
+}
+.city_switch {
+	Z-INDEX: 2; POSITION: relative; FLOAT: left
+}
+.city_switch A.select {
+	Z-INDEX: 6; POSITION: relative; MARGIN: 10px; WIDTH: 85px; DISPLAY: block; BACKGROUND-POSITION: 0px 0px; HEIGHT: 22px; COLOR: #666; CURSOR: pointer
+}
+.city_switch A.select .value {
+	POSITION: absolute; TOP: 1px; LEFT: 12px
+}
+.city_switch A.select:hover {
+	BACKGROUND-POSITION: 0px -23px; TEXT-DECORATION: none
+}
+.city_switch A.select:hover .value {
+	COLOR: #fff; TEXT-DECORATION: none
+}
+.city_switch A.select_on {
+	BACKGROUND-POSITION: 0px -46px
+}
+.city_switch A.select_on:hover {
+	BACKGROUND-POSITION: 0px -46px
+}
+.city_switch A.select_on .value {
+	COLOR: #666
+}
+.city_switch A.select_on:hover .value {
+	COLOR: #666
+}
+.city_switch .list {
+	Z-INDEX: 5; BORDER-BOTTOM: #4f89cf 2px solid; POSITION: absolute; BORDER-LEFT: #4f89cf 2px solid; PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; WIDTH: 240px; PADDING-RIGHT: 10px; BACKGROUND: #fff; BORDER-TOP: #4f89cf 2px solid; TOP: 30px; BORDER-RIGHT: #4f89cf 2px solid; PADDING-TOP: 10px; LEFT: 10px; box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2)
+}
+.city_switch .list LI {
+	FLOAT: left
+}
+.city_switch .list LI A {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 3px; PADDING-LEFT: 0px; WIDTH: 60px; PADDING-RIGHT: 0px; DISPLAY: block; COLOR: #3c8ad0; PADDING-TOP: 3px
+}
+.city_switch .list LI A:hover {
+	BACKGROUND: #3c8ad0; COLOR: #fff; TEXT-DECORATION: none
+}
+.city_switch .page-tab LI {
+	FLOAT: left
+}
+.fast_search_mod UL {
+	MARGIN: 15px auto; FLOAT: left
+}
+.fast_search_mod LI {
+	PADDING-BOTTOM: 0px; MARGIN: 0px 2px; PADDING-LEFT: 0px; WIDTH: 70px; PADDING-RIGHT: 0px; FLOAT: left; CURSOR: pointer; PADDING-TOP: 65px
+}
+.fast_search_mod LI A {
+	TEXT-ALIGN: center; LINE-HEIGHT: 27px; OUTLINE-STYLE: none; OUTLINE-COLOR: invert; OUTLINE-WIDTH: 0px; DISPLAY: block; HEIGHT: 27px; COLOR: #666; TEXT-DECORATION: none
+}
+.fast_search_mod .cate-1 {
+	BACKGROUND-POSITION: -8px -164px
+}
+.fast_search_mod .cate-2 {
+	WIDTH: 72px; BACKGROUND-POSITION: -8px -259px
+}
+.fast_search_mod .cate-3 {
+	BACKGROUND-POSITION: -8px -354px
+}
+.fast_search_mod .cate-4 {
+	BACKGROUND-POSITION: -8px -449px
+}
+.fast_search_mod .cate-5 {
+	BACKGROUND-POSITION: -8px -544px
+}
+.fast_search_mod .cate-6 {
+	BACKGROUND-POSITION: -8px -639px
+}
+.fast_search_mod .cate-7 {
+	BACKGROUND-POSITION: -8px -803px
+}
+.fast_search_mod .cate-8 {
+	BACKGROUND-POSITION: -8px -898px
+}
+.fast_search_mod .cate-1:hover {
+	BACKGROUND-POSITION: -148px -164px
+}
+.fast_search_mod .cate-1on {
+	BACKGROUND-POSITION: -148px -164px
+}
+.fast_search_mod .cate-2:hover {
+	BACKGROUND-POSITION: -148px -259px
+}
+.fast_search_mod .cate-2on {
+	BACKGROUND-POSITION: -148px -259px
+}
+.fast_search_mod .cate-3:hover {
+	BACKGROUND-POSITION: -148px -354px
+}
+.fast_search_mod .cate-3on {
+	BACKGROUND-POSITION: -148px -354px
+}
+.fast_search_mod .cate-4:hover {
+	BACKGROUND-POSITION: -148px -449px
+}
+.fast_search_mod .cate-4on {
+	BACKGROUND-POSITION: -148px -449px
+}
+.fast_search_mod .cate-5:hover {
+	BACKGROUND-POSITION: -148px -544px
+}
+.fast_search_mod .cate-5on {
+	BACKGROUND-POSITION: -148px -544px
+}
+.fast_search_mod .cate-6:hover {
+	BACKGROUND-POSITION: -148px -639px
+}
+.fast_search_mod .cate-6on {
+	BACKGROUND-POSITION: -148px -639px
+}
+.fast_search_mod .cate-7:hover {
+	BACKGROUND-POSITION: -148px -803px
+}
+.fast_search_mod .cate-7on {
+	BACKGROUND-POSITION: -148px -803px
+}
+.fast_search_mod .cate-8:hover {
+	BACKGROUND-POSITION: -148px -898px
+}
+.fast_search_mod .cate-8on {
+	BACKGROUND-POSITION: -148px -898px
+}
+.fast_search_mod .cate-1:hover A {
+	COLOR: #36c; FONT-WEIGHT: 400
+}
+.fast_search_mod .cate-1on A {
+	COLOR: #36c; FONT-WEIGHT: 400
+}
+.fast_search_mod .cate-2:hover A {
+	COLOR: #36c; FONT-WEIGHT: 400
+}
+.fast_search_mod .cate-2on A {
+	COLOR: #36c; FONT-WEIGHT: 400
+}
+.fast_search_mod .cate-3:hover A {
+	COLOR: #36c; FONT-WEIGHT: 400
+}
+.fast_search_mod .cate-3on A {
+	COLOR: #36c; FONT-WEIGHT: 400
+}
+.fast_search_mod .cate-4:hover A {
+	COLOR: #36c; FONT-WEIGHT: 400
+}
+.fast_search_mod .cate-4on A {
+	COLOR: #36c; FONT-WEIGHT: 400
+}
+.fast_search_mod .cate-5:hover A {
+	COLOR: #36c; FONT-WEIGHT: 400
+}
+.fast_search_mod .cate-5on A {
+	COLOR: #36c; FONT-WEIGHT: 400
+}
+.fast_search_mod .cate-6:hover A {
+	COLOR: #36c; FONT-WEIGHT: 400
+}
+.fast_search_mod .cate-6on A {
+	COLOR: #36c; FONT-WEIGHT: 400
+}
+.fast_search_mod .cate-7:hover A {
+	COLOR: #36c; FONT-WEIGHT: 400
+}
+.fast_search_mod .cate-7on A {
+	COLOR: #36c; FONT-WEIGHT: 400
+}
+.fast_search_mod .cate-8:hover A {
+	COLOR: #36c; FONT-WEIGHT: 400
+}
+.fast_search_mod .cate-8on A {
+	COLOR: #36c; FONT-WEIGHT: 400
+}
+.fast_search_mod .cate-1on A {
+	FONT-WEIGHT: 700
+}
+.fast_search_mod .cate-2on A {
+	FONT-WEIGHT: 700
+}
+.fast_search_mod .cate-3on A {
+	FONT-WEIGHT: 700
+}
+.fast_search_mod .cate-4on A {
+	FONT-WEIGHT: 700
+}
+.fast_search_mod .cate-5on A {
+	FONT-WEIGHT: 700
+}
+.fast_search_mod .cate-6on A {
+	FONT-WEIGHT: 700
+}
+.fast_search_mod .cate-7on A {
+	FONT-WEIGHT: 700
+}
+.fast_search_mod .cate-8on A {
+	FONT-WEIGHT: 700
+}
+.fast_search_mod .cate-1:active {
+	BACKGROUND-POSITION: -218px -164px
+}
+.fast_search_mod .cate-2:active {
+	BACKGROUND-POSITION: -218px -259px
+}
+.fast_search_mod .cate-3:active {
+	BACKGROUND-POSITION: -218px -354px
+}
+.fast_search_mod .cate-4:active {
+	BACKGROUND-POSITION: -218px -449px
+}
+.fast_search_mod .cate-5:active {
+	BACKGROUND-POSITION: -218px -544px
+}
+.fast_search_mod .cate-6:active {
+	BACKGROUND-POSITION: -218px -639px
+}
+.fast_search_mod .cate-7:active {
+	BACKGROUND-POSITION: -218px -803px
+}
+.fast_search_mod .cate-8:active {
+	BACKGROUND-POSITION: -218px -898px
+}
+.fast_search_mod .cate-1a {
+	BACKGROUND-POSITION: -78px -164px
+}
+.fast_search_mod .cate-2a {
+	BACKGROUND-POSITION: -78px -259px
+}
+.fast_search_mod .cate-3a {
+	BACKGROUND-POSITION: -78px -354px
+}
+.fast_search_mod .cate-4a {
+	BACKGROUND-POSITION: -78px -449px
+}
+.fast_search_mod .cate-5a {
+	BACKGROUND-POSITION: -78px -544px
+}
+.fast_search_mod .cate-6a {
+	BACKGROUND-POSITION: -78px -639px
+}
+.fast_search_mod .cate-7a {
+	BACKGROUND-POSITION: -78px -803px
+}
+.fast_search_mod .cate-8a {
+	BACKGROUND-POSITION: -78px -898px
+}
+.fast_search_mod .cate-1a {
+	CURSOR: not-allowed
+}
+.fast_search_mod .cate-2a {
+	CURSOR: not-allowed
+}
+.fast_search_mod .cate-3a {
+	CURSOR: not-allowed
+}
+.fast_search_mod .cate-4a {
+	CURSOR: not-allowed
+}
+.fast_search_mod .cate-5a {
+	CURSOR: not-allowed
+}
+.fast_search_mod .cate-6a {
+	CURSOR: not-allowed
+}
+.fast_search_mod .cate-7a {
+	CURSOR: not-allowed
+}
+.fast_search_mod .cate-8a {
+	CURSOR: not-allowed
+}
+.fast_search_mod .cate-1a A {
+	CURSOR: not-allowed
+}
+.fast_search_mod .cate-2a A {
+	CURSOR: not-allowed
+}
+.fast_search_mod .cate-3a A {
+	CURSOR: not-allowed
+}
+.fast_search_mod .cate-4a A {
+	CURSOR: not-allowed
+}
+.fast_search_mod .cate-5a A {
+	CURSOR: not-allowed
+}
+.fast_search_mod .cate-6a A {
+	CURSOR: not-allowed
+}
+.fast_search_mod .cate-7a A {
+	CURSOR: not-allowed
+}
+.fast_search_mod .cate-8a A {
+	CURSOR: not-allowed
+}
+.fast_search_mod .cate-1a A:hover {
+	COLOR: #666
+}
+.fast_search_mod .cate-2a A:hover {
+	COLOR: #666
+}
+.fast_search_mod .cate-3a A:hover {
+	COLOR: #666
+}
+.fast_search_mod .cate-4a A:hover {
+	COLOR: #666
+}
+.fast_search_mod .cate-5a A:hover {
+	COLOR: #666
+}
+.fast_search_mod .cate-6a A:hover {
+	COLOR: #666
+}
+.fast_search_mod .cate-7a A:hover {
+	COLOR: #666
+}
+.fast_search_mod .cate-8a A:hover {
+	COLOR: #666
+}
+.fast_search_tab .tips {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 41px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 41px
+}
+.fast_search_tab .tips P {
+	FONT: 18px "Microsoft Yahei", Simsun; COLOR: #666
+}
+.fast_search_tab .tips TT {
+	WIDTH: 40px; DISPLAY: inline-block; BACKGROUND: url(../pic/popuploading.gif?t=201403191434) no-repeat; HEIGHT: 40px
+}
+.catemod {
+	POSITION: relative; PADDING-BOTTOM: 16px; PADDING-LEFT: 16px; PADDING-RIGHT: 16px; BACKGROUND: #f7f7f7; FLOAT: left; BORDER-TOP: #d9d9d9 1px solid; PADDING-TOP: 16px
+}
+.catemod I {
+	POSITION: absolute; WIDTH: 21px; DISPLAY: block; BACKGROUND-POSITION: 0px -73px; HEIGHT: 11px
+}
+.catemod I.action01 {
+	TOP: -11px; LEFT: 30px
+}
+.catemod I.action02 {
+	TOP: -11px; LEFT: 105px
+}
+.catemod I.action03 {
+	TOP: -11px; LEFT: 180px
+}
+.catemod I.action04 {
+	TOP: -11px; LEFT: 255px
+}
+.catemod I.action05 {
+	TOP: -11px; LEFT: 330px
+}
+.catemod I.action06 {
+	TOP: -11px; LEFT: 402px
+}
+.catemod I.action07 {
+	TOP: -11px; LEFT: 475px
+}
+.catemod I.action08 {
+	TOP: -11px; LEFT: 550px
+}
+.cate_more {
+	BORDER-BOTTOM: #d9d9d9 1px solid; PADDING-BOTTOM: 7px; PADDING-LEFT: 0px; WIDTH: 565px; PADDING-RIGHT: 0px; ZOOM: 1; OVERFLOW: hidden; PADDING-TOP: 0px
+}
+.cate_more LI {
+	PADDING-BOTTOM: 3px; LINE-HEIGHT: 22px; PADDING-LEFT: 0px; WIDTH: 88px; PADDING-RIGHT: 5px; FLOAT: left; HEIGHT: 22px; PADDING-TOP: 0px
+}
+.cate_more LI A {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 8px; PADDING-RIGHT: 8px; DISPLAY: inline-block; COLOR: #666; TEXT-DECORATION: none; PADDING-TOP: 0px
+}
+.cate_more .cur A {
+	BACKGROUND: #36c; COLOR: #fff; TEXT-DECORATION: none
+}
+.cate_more LI A:hover {
+	BACKGROUND: #36c; COLOR: #fff; TEXT-DECORATION: none
+}
+.cate_area {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; WIDTH: 565px; PADDING-RIGHT: 0px; ZOOM: 1; OVERFLOW: hidden; PADDING-TOP: 8px
+}
+.cate_area LI {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 25px; PADDING-LEFT: 8px; WIDTH: 100px; TEXT-OVERFLOW: ellipsis; PADDING-RIGHT: 0px; WHITE-SPACE: nowrap; FLOAT: left; HEIGHT: 25px; OVERFLOW: hidden; PADDING-TOP: 0px
+}
+.cate_area LI A {
+	COLOR: #36c; TEXT-DECORATION: none
+}
+.cate_area LI A:hover {
+	TEXT-DECORATION: underline
+}

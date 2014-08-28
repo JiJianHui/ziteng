@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=10" />
+<title>Activities Management</title>
+
+<link rel="stylesheet" type="text/css" href="../public/css/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/bootstrap/bootstrap.panel.min.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/bootstrap/bootstrap.list.min.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/home.css" />
+<link rel="stylesheet" type="text/css" href="../css/global.css" />
+
+<script src="../public/javascript/jquery.js"></script>
+<script src="../public/javascript/jquery.easing.1.3.js"></script>
+<script src="../public/javascript/bootstrap/bootstrap.js"></script>
+<script src="../js/admin_L.js"></script>
+
+<style>
+.tableRow {
+	cursor:pointer;
+}
+.tableRow:hover {
+	background-color: lightgrey;
+}
+.list-group-item {
+	cursor:pointer;
+}
+.list-group-item:hover {
+	background-color: lightgrey;
+}
+</style>
+
+</head>
+
+<body>
+
+<!--头部-->
+	<div class="header">
+	<div class="reo_header">
+	    <div class="top">
+	    <div class="c" id="statusBar"> <!-- 用于登录栏 -->
+	    </div>
+	  </div>
+	</div>
+	
+	<div id="nav_header">
+			<ul>
+				<li class="titlewz">
+					<ol olnum="0">
+						<img src="/ziteng/page/public/images/headLogo.png"
+							style="margin-right: 3px; margin-bottom: 2px;" />						<a style="color:#FC3;" href="/ziteng/page/admin/user_manage.html">User Management</a>
+					</ol>
+					<ol olnum="1">
+						<a href="/ziteng/page/guide_manager.html">Guide Management</a>
+					</ol>
+					<ol olnum="2">
+						<a href="/ziteng/page/add_gonglue.html">Add Itinerary</a>
+					</ol>
+					<ol olnum="3">
+						<a href="/ziteng/page/carOrder.html">Car Order</a>
+					</ol>
+					<ol olnum="4">
+						<a href="/ziteng/page/ratio_manager.html">Coefficient Management</a>
+					</ol>
+					<ol olnum="5">
+						<a href="/ziteng/page/car_manager.html">Car Management</a>
+					</ol>
+					<ol olnum="6">
+						<a href="/ziteng/page/cardegree_manager.html">Car Grades Management</a>
+					</ol>
+					<ol olnum="7">
+						<a href="/ziteng/page/area_manager.html">Area Management</a>
+					</ol>
+				</li>
+			</ul>
+			<ul>
+				<span id="blueline" class="testline" style="margin-left: 17px"></span>
+			</ul>
+		</div>
+	
+	<div id="page_loading" style="display:none;background:#000;display:block;position:absolute;top:0;left:0;z-index:10000;opacity:0.1;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=10);"></div>
+	<img src="../public/images/loading.gif?1" style="display:none;width:32px; height:32px; z-index:11000; position:absolute;border:0;" id="page_loadimg" />
+</div>
+<!--头部end --> 
+
+<!-- content start-->
+
+	<div class="container" style="margin-top: 30px;">
+		<div class="row-fluid">
+			<div class="span3" style="text-align:center;">
+				<div class="panel panel-primary">
+   					<div class="panel-heading">
+      					<h3 class="panel-title">Operation Panel</h3>
+   					</div>
+   					<ul class="list-group">
+   						<li class="list-group-item">View Users</li>
+      					<li class="list-group-item">Add Administrator</li>
+      					<li class="list-group-item">Change Password</li>
+      					<li class="list-group-item">Activities</li>
+      					<li class="list-group-item">Hotel Management</li>
+   					</ul>
+				</div>
+			</div>
+			
+			<div class="span9">
+				<h2 class="span6">Activities</h2>
+				<div class="span6 text-right"><input class="btn btn-success" id="add_activity" type="button" value="创建新Activities"></div>
+				<hr />
+				<table class="table">
+        				<thead><tr>
+            				<th>Number</th>
+            				<th>Activities Title</th>
+            				<th>Number of people</th>
+            				<th>Start</th>
+            				<th>End</th>
+            				<th>Activities Status</th>
+            				<th>Operation</th>
+          				</tr>
+        				</thead>
+        				<tbody id="table_body">
+        					<!-- content -->
+        				</tbody>
+      			</table>
+			</div>
+		</div>
+	</div>
+
+<!-- content end-->
+	
+	<!-- footer start-->
+	<div class="footer">
+		<div class="nav_footer">
+	  		<div>
+	    		<ul class="inline">
+	      		<li><a  href="/ziteng/page/home.html">Homepage</a></li>
+	      		<li><a  href="#">Service Stores</a></li>
+	      		<li><a  href="#">Help Centre</a></li>
+	      		<li><a  href="#">About Us</a></li>
+	        </ul>
+	  		</div>
+		</div>
+		<div class="container">
+	  		<div>
+	    		<ul class="unstyled">
+	      		<li>The website is owned by ToWorld Company</li>
+	    		</ul>
+	    		<ul class="unstyled">
+	      		<li>Copyright @2014 www.ToWorld.com All Rights Reserved</li>
+	    		</ul>
+	  		</div>
+		</div>
+	</div>
+	<!-- footer end -->
+	
+	<script>
+		function getRowHtml(thisObj, seq) {
+			var status = "";
+			var operation = "";
+			switch (thisObj.status) {
+			case 0:status="Activities Ended";operation='<input type="button" class="btn btn-primary delete_activity" value="Delete" onclick="deleteActivity('+thisObj.id+');"/>';break;
+			case 1:status="Activities Joined";break;
+			case 2:status="Activities Unreleased";operation='<input type="button" class="btn btn-primary publish_activity" value="Release" onclick="publishActivity(' + thisObj.id + ');"/><input type="button" class="btn btn-primary delete_activity" value="删除" onclick="deleteActivity('+ thisObj.id +');"/>';break;
+			case 3:status="Activities in progress";break;
+			}
+			var html = '<tr class="tableRow">' +
+	            		'<td>'+ seq + '</td>' +
+	            		'<td>'+ thisObj.title + '</td>' +
+	            		'<td>'+ thisObj.involvePeoples + "/" + thisObj.totalPeoples + '</td>' +
+	            		'<td>'+ thisObj.startTimeString + '</td>' +
+	            		'<td>'+ thisObj.endTimeString + '</td>' +
+	            		'<td>'+ status + '</td>' +
+	            		'<td>' + operation + '</td>' +
+	            		'</tr>';
+	        return html;
+		}
+		function publishActivity(id) {
+			$.post('/ziteng/v/w/activity/releaseActivity.do', {"activityId": id}, function(data) {
+				var json = eval('(' + data + ')');
+				if (json.success) {
+					location.reload();
+				} else {
+					alert(json.msg);
+				}
+			});
+		}
+		function deleteActivity(id) {
+			$.post('/ziteng/v/w/activity/deleteActivity.do', {"activityId": id}, function(data) {
+				var json = eval('(' + data + ')');
+				if (json.success) {
+					location.reload();
+				} else {
+					alert(json.msg);
+				}
+			});
+		}
+		
+		$(document).ready(function() {
+			$.post('/ziteng/activity/queryActivities.do', {}, function(data) {
+				var json = eval('(' + data + ')');
+				if (json.success) {
+					var tableObj = $('#table_body');
+					var activityList = json.datas.activities;
+					for (var i = 0; i < activityList.length; i++) {
+						tableObj.append(getRowHtml(activityList[i], i+1));
+					}
+				} else {
+					alert(json.msg);
+				}
+			});
+			
+			$('.list-group-item').click(function() {
+				var url = '';
+				switch ($(this).index()) {
+				case 0:url='user_manage.html';break;
+				case 1:url='add_manager.html';break;
+				case 2:url='change_password.html';break;
+				case 3:url='activity_list.html';break;
+				case 4:url='/ziteng/page/zthotel/admin/index.html';break;
+				}
+				window.location.href=url;
+			});
+			
+			$("#add_activity").click(function() {
+				window.location.href = "/ziteng/page/admin/add_activity.html";
+			});
+		});
+	</script>
+</body>
+</html>

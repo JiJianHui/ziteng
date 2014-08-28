@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Car grade management</title>
+
+<link rel="stylesheet" type="text/css"
+	href="public/css/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="public/css/home.css" />
+<link rel="stylesheet" type="text/css" href="css/global.css" />
+<link rel="stylesheet" type="text/css"
+	href="public/css/mdd_detail_v2.css" />
+<link rel="stylesheet" type="text/css" href="public/css/header.css" />
+<link rel="stylesheet" type="text/css" href="css/ziteng.css" />
+
+<script src="public/javascript/jquery.js"></script>
+<script src="public/javascript/jquery.easing.1.3.js"></script>
+<script src="public/javascript/bootstrap/bootstrap.js"></script>
+
+<script src="js/flexigrid.pack.js"></script>
+<script src="js/admin_L.js"></script>
+<script src="js/cardegree_manager.js"></script>
+<link rel="stylesheet" href="css/flexigrid.pack.css" />
+
+
+</head>
+
+<style>
+
+</style>
+
+<body>
+
+	<!--头部-->
+	<div class="header">
+		<div class="reo_header">
+			<div class="top">
+				<div class="c" id="statusBar">
+					<!-- 用于登录栏 -->
+				</div>
+			</div>
+		</div>
+
+		<div id="nav_header">
+			<ul>
+				<li class="titlewz">
+					<ol olnum="0">
+						<img src="public/images/headLogo.png"
+							style="margin-right: 3px; margin-bottom: 2px;" />						
+						<a style="color:#FC3;" href="/ziteng/page/admin/user_manage.html">User Management</a>
+					</ol>
+					<ol olnum="1">
+						<a href="/ziteng/page/guide_manager.html">Guide Management</a>
+					</ol>
+					<ol olnum="2">
+						<a href="/ziteng/page/add_gonglue.html">Add Itinerary</a>
+					</ol>
+					<ol olnum="3">
+						<a href="/ziteng/page/carOrder.html">Car Order</a>
+					</ol>
+					<ol olnum="4">
+						<a href="/ziteng/page/ratio_manager.html">Coefficient Management</a>
+					</ol>
+					<ol olnum="5">
+						<a href="/ziteng/page/car_manager.html">Car Management</a>
+					</ol>
+					<ol olnum="6">
+						<a href="/ziteng/page/cardegree_manager.html">Car Grades Management</a>
+					</ol>
+					<ol olnum="7">
+						<a href="/ziteng/page/area_manager.html">Area Management</a>
+					</ol>
+				</li>
+			</ul>
+			<ul>
+				<span id="blueline" class="testline" style="margin-left: 17px"></span>
+			</ul>
+		</div>
+
+		<div id="page_loading"
+			style="display: none; background: #000; display: block; position: absolute; top: 0; left: 0; z-index: 10000; opacity: 0.1; filter: progid:DXImageTransform.Microsoft.Alpha(opacity=10);"></div>
+		<img src="public/images/loading.gif?1"
+			style="display: none; width: 32px; height: 32px; z-index: 11000; position: absolute; border: 0;"
+			id="page_loadimg" />
+	</div>
+	<!--头部end -->
+
+	<!-- comment start! -->
+	<div class="post" style="margin-left: 10%; margin-right: 10%; margin-top:20px; ">
+	<h2>Grade Management</h2>
+		<table class="area_flex3" style="display: none"></table>
+		<script >
+		$(".area_flex3").flexigrid({
+			url : '/ziteng/car/getAllCarDegreesForFlexi.do',
+			dataType : 'json',
+			colModel : [ {
+				display : 'No',
+				name : 'id',
+				width : 180,
+				sortable : true,
+				align : 'left'
+			}, {
+				display : 'Grade Name',
+				name : 'name',
+				width : 420,
+				sortable : true,
+				align : 'left'
+			},{
+				display : 'Create Time',
+				name : 'createTimeString',
+				width : 220,
+				sortable : true,
+				align : 'left'
+			} ],
+			buttons : [ {
+				name : 'Add',
+				bclass : 'add',
+				onpress : test
+			}, {
+				name : 'Delete',
+				bclass : 'delete',
+				onpress : test
+			}, {
+				separator : true
+			} ],
+			searchitems : [ {
+				display : 'Grade Name',
+				name : 'name',
+				isdefault : true
+			} ],
+			sortorder : "asc",
+			title : 'Grade Name',
+			useRp : true,
+			height : 300
+		});
+		/*
+		pagestat: '当前显示记录 {from} 到 {to} 条，总 {total} 条',  
+		    procmsg: '正在处理，请稍等 ...',  
+		    nomsg: '找不到符合条件的资料！',  
+		    errormsg: '连接后台失败！',  
+		    usepager: true,  
+		    rp: 15,  
+		    showTableToggleBtn: false,
+		 */
+
+		function test(com, grid) {			if (com == 'Delete') {
+				if(confirm('Confirm Delete?')){
+					deleteCarDegree($('.trSelected', grid)[0].id.substring(3));
+				}
+			} else if (com == 'Add') {
+				$('#myModal').modal('show');
+
+			}
+		}
+		
+		</script>
+		
+ 
+<!-- 对话框 -->
+<div id="myModal" class="modal hide" tabindex="-1" role="dialog-message" aria-labelledby="myModalLabel" aria-hidden="true"  style="width:250px">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Add Grade</h3>
+  </div>
+  <div class="modal-body">
+    <input type="text" id="txt_cardegree_name">
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary" onclick="addCarDegree();">Save</button>
+  </div>
+</div>
+<script>
+$('#myModal').modal({
+	backdrop: false,
+	show:false
+	});
+
+
+</script>
+
+	</div>
+	<!-- content end! -->
+
+	<!-- footer start-->
+	<div class="footer">
+		<div class="nav_footer">
+	  		<div>
+	    		<ul class="inline">
+	      		<li><a  href="/ziteng/page/home.html">Homepage</a></li>
+	      		<li><a  href="#">Service Stores</a></li>
+	      		<li><a  href="#">Help Centre</a></li>
+	      		<li><a  href="#">About Us</a></li>
+	        </ul>
+	  		</div>
+		</div>
+		<div class="container">
+	  		<div>
+	    		<ul class="unstyled">
+	      		<li>The website is owned by ToWorld Company</li>
+	    		</ul>
+	    		<ul class="unstyled">
+	      		<li>Copyright @2014 www.ToWorld.com All Rights Reserved</li>
+	    		</ul>
+	  		</div>
+		</div>
+	</div>
+	
+	<!-- footer end -->
+</body>
+</html>

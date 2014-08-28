@@ -1,0 +1,130 @@
+﻿
+html{font-family:Arial, Helvetica, sans-serif,宋体; overflow-y:auto; overflow-x:hidden;}body,dl,dd,ul,ol,h1,h2,h3,h4,h5,h6,form,input,textarea,p,th,td,hr,button{margin:0;padding:0}body,button,input,select,textarea{font:12px/1.5 tahoma,arial,\5b8b\4f53}input,select,textarea{font-size:100%}table{border-collapse:collapse;border-spacing:0}th{text-align:inherit}fieldset,img,a img{border:0}iframe{display:block}ol,ul{list-style:none}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:500}sup{vertical-align:text-top}sub{vertical-align:text-bottom}a:hover{text-decoration:underline;cursor:pointer}a{text-decoration:none}.fn-hide{display:none}.fn-left,.fn-right{display:inline}.fn-left{float:left}.fn-right{float:right}
+a,input,select,textarea{ outline:none}
+i,b{ font-style:normal; font-weight:normal}
+
+a{blr:expression(this.onFocus=this.blur())}
+/*************clear fix***************/
+.clearfix:after
+{
+content:".";
+display:block;
+height:0px;
+clear:both;
+visibility:hidden;
+}
+.clearfix
+{
+display:inline-block;
+}
+/* Hide from IE Mac */
+.clearfix {display:block;}
+/* End hide from IE Mac */
+
+.yahei{ font-family:"微软雅黑","Microsoft Yahei","黑体","Hei";}
+
+/*-----颜色值-----*/
+.cr333{ color:#333}
+.cr666{ color:#666}
+.cr999{ color:#999}
+.crccc{ color:#ccc}
+.cr2e{ color:#2e98ea}/*蓝色*/
+.cr1f{ color:#1f8b15!important}/*绿色*/
+.cr006{ color:#006699}
+.crff66{ color:#ff6633;}/*橙色*/
+.crfb{ color:#FB4B0F!important}
+.crfc{color:#ffffcc}
+.crf0{color:#ff0014}
+.crfff{ color:#fff}
+.cr31f{ color:#315ca1}
+.cr81a{ color:#81aaec}
+
+.fz14{font-size:14px}
+.fz18{font-size:18px}
+.labwd154{ width:154px!important; text-align:right}
+.labwd124{ width:124px!important; text-align:right}
+
+.mb20{ margin-bottom:20px}
+.orange{ color:#FF6633; font-size:12px; margin-right:5px;}
+.iup-top2{ margin-right:5px; position:relative; top:2px;}
+
+.sel-style{ width:213px; height:34px; padding:4px; border:1px solid #B9B9B9}
+.ml15{ margin-left:15px}
+.mr15{ margin-right:15px}
+.ie6ml10{ _margin-left:10px!important}
+
+
+
+
+/*-----宽度-----*/
+.wd980{ width:980px; margin:0 auto; z-index:1}
+.wd86{ width:86px}
+.wd86 input{ width:64px}
+.wd62{ width:62px}
+.wd62 input{ width:60px}
+
+.wd86 .iup-list{ width:86px}
+.wd179{ width:179px}
+.wd179 .input{ width:157px}
+
+.wd172{ width:172px}
+.wd172 input{ width:147px}
+.wd143{ width:143px}
+.wd143 input{ width:118px}
+.wd210{ width:203px}
+.wd210 input{ width:180px}
+.wd283{ width:283px; }
+.wd283 input{ width:280px;}
+.wd195{ width:195px}
+.wd195 input{ width:185px}
+.wd189{ width:189px}
+.wd189 input{ width:164px}
+.wd286{ width:286px}
+.wd286 input{ width:283px}
+.wd284{ width:284px}/*12/21*/
+.wd284 input{ width:265px}/*12/21*/
+.wd150{ width:150px}/*12/21*/
+.wd150 input{ width:131px}/*12/21*/
+.wd230{ width:230px}
+.wd230 input{ width:227px}
+.wd246{ width:246px}
+.wd246 input{ width:224px}
+.wd250{ width:250px}
+.wd250 input{ width:245px}
+.wd250{ width:250px}
+.wd250 input{ width:245px}
+.wd102{ width:102px}
+.wd102 input{ width:97px}
+.wd205{ width:205px}
+.wd205 input{ width:203px}
+.wd356{ width:350px}
+.wd356 input{ width:347px}
+.wd202{ width:202px}
+.wd202 input{ width:195px}
+
+
+.sure-btn a,.user-approve .gray-tip .btn,.mo-tit-l .btn{width:71px; height:26px; line-height:23px; line-height:26px\9;  background-position:0 -50px; display:inline-block; text-align:center;color:#fff!important; font-weight:bold; font-size:14px}
+.sure-btn a:hover,.user-approve .gray-tip .btn:hover{ background-position:-75px -50px; text-decoration:none}
+.sure-btn a.clicked,.user-approve .gray-tip .btn.clicked{ background-position:-150px -50px!important}
+
+.ucm-r-psg-list .driver,.ucm-r-psg-list .passenger{ background-image:url("../images/dr_pger.png")!important; display:inline-block; width:22px; height:23px}
+
+.green-btn02{height:28px;display:inline-block;padding:0px 0px 0px 15px;background-position:0px -84px; font-size:12px; font-weight:bold; color:#fff; margin:0px 5px}
+.green-btn02 span{background-position:right -84px;height:28px; line-height:26px; *line-height:27px; display:inline-block; padding:0px 15px 0px 0px; position:relative; right:-1px;}
+.green-btn02:hover{background-position:0px -116px; text-decoration:none}
+.green-btn02:hover span{background-position:right -116px; text-decoration:none;position:relative; right:-1px;}
+
+
+/*-----公共图像-----*/
+.logo a{display:block; height:78px; width:363px; background-image:url('../images/logo.png')}
+.logo a img{ display:inline-block; margin-top:-20px}
+.regist-pd a{ width:200px}
+.logo-pd a,.regist-pd a,.safe-pd a,.tf-header .logo a{ background-image:url('../images/logo2.png')}
+.gradual{ background-image:url('../images/gradual_bg.png')}
+.ico,a.radio,a.radio i,.iup-style i,a.closed,.check,.approve span,.aa-share a,.three-login a,.a-app-hp span,.private-letter td a.click,.popup-tip i.ico2{ background-image:url('../images/ico.png')!important; background-repeat:no-repeat}
+.btn,.aa-srh-nav li a{ background-image:url('../images/btn.png'); display:inline-block}
+.safe-bg{ background-image:url('../images/safe_center/safe_center.png')}
+.iup-style,.iup-style span,.popup-tip,.popup-tip-r,.popup-tip i.btn,.popup-tip2 i.btn,.popup-tip2 em.btn{ display:inline-block; background-image:url('../images/iupt_sp.png'); _background-image:url('../images/iupt_spie6.png')}
+.flat-ico{ background-image:url('../images/ico2-24.png'); _background-image:url('../images/ico2.png');}
+
+

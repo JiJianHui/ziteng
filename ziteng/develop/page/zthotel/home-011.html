@@ -1,0 +1,563 @@
+<HTML>
+
+<HEAD>
+
+<META content="IE=7.0000" http-equiv="X-UA-Compatible">
+<TITLE>Hotel Booking</TITLE>
+<META content="text/html;" charset="utf-8" http-equiv="Content-Type">
+<SCRIPT type="text/javascript" charset="utf-8" src="home01/jquery-1.6.2.js"></SCRIPT>
+<SCRIPT type="text/javascript" charset="utf-8" src="home01/jquery-ui.js"></SCRIPT>
+<SCRIPT type="text/javascript" charset="utf-8" src="home01/public.js"></SCRIPT>
+<SCRIPT type="text/javascript" charset="utf-8" src="home01/thickbox.js"></SCRIPT>
+<LINK rel=stylesheet type=text/css href="home01/thickbox-info.css">
+<LINK rel=stylesheet type=text/css href="home011/public.css">
+<LINK rel=stylesheet type=text/css href="home01/jquery-ui.css">
+<LINK rel=stylesheet type=text/css href="home011/index.css">
+<LINK rel=stylesheet type=text/css href="home011/sow.css">
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+</HEAD>
+<script type="text/javascript" src="js/hotel/hoteldetail.js"></script>
+<link href="public/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../public/css/home.css" />
+<link rel="stylesheet" type="text/css" href="../css/global.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/reocar.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/mdd_detail_v2.css" />
+
+<script src="../public/javascript/jquery.easing.1.3.js"></script>
+<script src="../public/javascript/bootstrap/bootstrap.js"></script>
+
+<script src="js/public.js"></script>
+<script src="../js/login.js"></script>
+<script src="../js/register.js"></script>
+
+
+<script>    
+  var thisURL = document.URL;    
+  var  getval =thisURL.split('?')[1];  
+  var showval= getval.split("=")[1];  
+  showval.replace("#","");
+  getval = showval.replace("#",""); 
+  var m_preDate = "";
+  var m_endDate = "";
+  var hid = "";
+  if (getval != null && getval != undefined && getval != '') {  
+	hid = getval.split("&")[0];
+	
+	m_preDate = getval.split("&")[1];
+	
+	m_endDate = getval.split("&")[2];
+	//alert(m_endDate);
+  }
+
+</script>
+<BODY onload="getHotelInfo2Rooms(parseInt(hid))">
+<!--头部-->
+	<div class="header">
+		<div class="reo_header">
+			<div class="top">
+				<div class="c" id="statusBar">
+					<!-- 用于登录栏 -->
+				</div>
+			</div>
+			<div id="div_login" style="display: none" class="div_login">
+				<ul class="blue_line">
+				</ul>
+				<form id="headLogin" onsubmit="return false">
+					<ul class="unstyled" style="margin-top: 15px; margin-top: 20px;">
+						<li style="line-height: 35px;">Account：<input id="login_account"
+							type="text" name="head_account" data-check-sta='Y'
+							data-check-type='isname' msgVal='Phone/Email/Username'
+							style="width: 65%; color: #CCC" value="Phone/Email/Username" />
+						</li>
+						<li style="line-height: 35px;">Password：<input type="password"
+							msgVal='Password' id="headpassword" name="head_password"
+							style="width: 65%; margin-top: 0px; color: #000;" />
+						</li>
+					</ul>
+					<ul class="inline"
+						style="height: 30px; line-height: 30px; margin-top: 3px;">
+						<li id="head-login-errormsg"
+							style="width: 150px; text-align: left; margin-left: 0px; padding-left: 0px;"
+							class="text-error"></li>
+						<li style="width: 60px; text-align: right;"><a
+							href="getpassword.html">Forgot Password</a></li>
+					</ul>
+					<ul style="margin-top: 5px;">
+						<li><input type="submit" value="Login"
+							style="width: 200px; height: 30px; margin: 0 0 0 40px;"
+							id="head_login" class="btn btn-primary" /></li>
+					</ul>
+				</form>
+			</div>
+		</div>
+
+		<div id="nav_header">
+			<ul>
+				<li class="titlewz">
+					<ol olnum="0">
+						<img src="../public/images/headLogo.png"
+							style="margin-right: 3px; margin-bottom: 2px;" />
+						<a style="color: #FC3;" href="../home.html">Homepage</a>
+					</ol>
+					<ol olnum="1">
+						<a href="../gonglue.html">Travel Guide</a>
+					</ol>
+					<ol olnum="2">
+						<a href="../activity.html">Activities</a>
+					</ol>
+					<ol olnum="3">
+						<a href="../rentcar.html">Itinerary</a>
+					</ol>
+					<ol olnum="4">
+						<a href="../carsharing/carsharing_list.html">Car Sharing</a>
+					</ol>
+					<ol olnum="5">
+						<a href="home.html">Hotel Booking</a>
+					</ol>
+					<ol olnum="6">
+						<a href="#">BBS</a>
+					</ol>
+				</li>
+			</ul>
+			<ul>
+				<span id="blueline" class="testline" style="margin-left: 17px" />
+			</ul>
+		</div>
+
+		<div id="page_loading"
+			style="display: none; background: #000; display: block; position: absolute; top: 0; left: 0; z-index: 10000; opacity: 0.1; filter: progid:DXImageTransform.Microsoft.Alpha(opacity=10);"></div>
+		<img src="../public/images/loading.gif"
+			style="display: none; width: 32px; height: 32px; z-index: 11000; position: absolute; border: 0;"
+			id="page_loadimg" />
+	</div>
+	<!--头部end -->
+
+
+<!--Content Start-->
+<DIV class=th_main>
+<DIV class=mbdh>
+
+	<DIV class=mbdh_txt id="mbdhtxtdh">
+		
+	</DIV>
+
+	
+</DIV><!--mbdh end -->
+
+<DIV class=title_top>
+	<DIV class=top_left id="topleftth">
+	
+	</DIV>
+	<DIV class=top_right>
+		<DIV class=top_price>Price：<SPAN class=price_txt id="hpricetxt"></SPAN>From </DIV>
+		
+		</DIV>
+	</DIV>
+<DIV class=img_info>
+
+	<DIV class=photo_fl id="photo_fl_photos">
+		
+	</DIV><!--photo_fl end 图片效果展示-->
+	<DIV class=right_price id="pingjcontent">
+	
+	<DIV class=clear></DIV>
+	</DIV><!--right_price end -->
+
+
+<DIV class=clear></DIV>
+
+<DIV class=part2_box>
+	<DIV class=side_l>
+		<DIV class=mn_box>
+			<DIV class=top>Map</DIV>
+			<DIV class=bg2 id="bg2baidumap">
+			
+			  <!--百度Map容器-->
+				<div style="width:220px;height:230px;border:#ccc solid 1px;" id="dituContent"></div>
+				</body>
+				<script type="text/javascript">
+					//创建和初始化Map函数：
+					function initMap(){
+						createMap();//创建Map
+						setMapEvent();//设置Map事件
+						addMapControl();//向Map添加控件
+						addMarker();//向Map中添加marker
+					}
+					
+					//创建Map函数：
+					function createMap(){
+						var map = new BMap.Map("dituContent");//在百度Map容器中创建一个Map
+						var point = new BMap.Point(116.431123,39.854183);//定义一个中心点坐标
+						map.centerAndZoom(point,17);//设定Map的中心点和坐标并将Map显示在Map容器中
+						window.map = map;//将map变量存储在全局
+					}
+					
+					//Map事件设置函数：
+					function setMapEvent(){
+						map.enableDragging();//启用Map拖拽事件，默认启用(可不写)
+						map.enableScrollWheelZoom();//启用Map滚轮放大缩小
+						map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+						map.enableKeyboard();//启用键盘上下左右键移动Map
+					}
+					
+					//Map控件添加函数：
+					function addMapControl(){
+						//向Map中添加缩放控件
+					var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+					map.addControl(ctrl_nav);
+						//向Map中添加缩略图控件
+					var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
+					//map.addControl(ctrl_ove);
+						//向Map中添加比例尺控件
+					var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+					map.addControl(ctrl_sca);
+					}
+					
+					//标注点数组
+					var markerArr = [{title:"Beijing technology Co",content:"Bus：740,736,602,特3,特9花乡桥东下",point:"116.431123|39.854183",isOpen:0,icon:{w:21,h:21,l:46,t:0,x:6,lb:5}}
+						 ];
+					//创建marker
+					function addMarker(){
+						for(var i=0;i<markerArr.length;i++){
+							var json = markerArr[i];
+							var p0 = json.point.split("|")[0];
+							var p1 = json.point.split("|")[1];
+							var point = new BMap.Point(p0,p1);
+							var iconImg = createIcon(json.icon);
+							var marker = new BMap.Marker(point,{icon:iconImg});
+							var iw = createInfoWindow(i);
+							var label = new BMap.Label(json.title,{"offset":new BMap.Size(json.icon.lb-json.icon.x+10,-20)});
+							marker.setLabel(label);
+							map.addOverlay(marker);
+							label.setStyle({
+										borderColor:"#808080",
+										color:"#333",
+										cursor:"pointer"
+							});
+							
+							(function(){
+								var index = i;
+								var _iw = createInfoWindow(i);
+								var _marker = marker;
+								_marker.addEventListener("click",function(){
+									this.openInfoWindow(_iw);
+								});
+								_iw.addEventListener("open",function(){
+									_marker.getLabel().hide();
+								})
+								_iw.addEventListener("close",function(){
+									_marker.getLabel().show();
+								})
+								label.addEventListener("click",function(){
+									_marker.openInfoWindow(_iw);
+								})
+								if(!!json.isOpen){
+									label.hide();
+									_marker.openInfoWindow(_iw);
+								}
+							})()
+						}
+					}
+					//创建InfoWindow
+					function createInfoWindow(i){
+						var json = markerArr[i];
+						var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
+						return iw;
+					}
+					//创建一个Icon
+					function createIcon(json){
+						var icon = new BMap.Icon("http://app.baidu.com/map/images/us_mk_icon.png", new BMap.Size(json.w,json.h),{imageOffset: new BMap.Size(-json.l,-json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),offset:new BMap.Size(json.x,json.h)})
+						return icon;
+					}
+					
+					initMap();//创建和初始化Map
+				</script>
+
+				
+
+			</DIV>
+		</DIV>
+		<!--<div class="mn_box">
+			<div class="top">Why choose us</div>
+			<div class="bg2">
+				<ul class="why_us2">
+					<li>No reservation fee Cash back </li>
+					<li>Over 40000 rooms sold In a single day </li>
+					<li>Nationwide 30 thousand hotels To choose</li>
+					<li>Whole refund If there is no rooms</li>
+					<li>Keep steady price， Always the same </li>
+				</ul>
+			</div>
+		</div>-->
+
+
+		<DIV class=mn_box>
+	<!--		<DIV class=top>Browsing history</DIV>
+			<DIV class="bg2 bod_b_1">
+				<DL class=seenHotel>
+					<A class=img_hotel title=Beijing health Hotel   href="http://www.sunnychina.com/hotel/hotel_9120.html" target=_blank>
+					<IMG   src="home011/20130321104742cRMRNnWw.jpg" width=60 height=60> </A>
+					<DT><A href="http://www.sunnychina.com/hotel/hotel_9120.html"   target=_blank>Beijing health Hotel </A>
+					</DT>
+					<DD><SPAN class="star_img star_9"></SPAN></DD>
+					<DD>459 起 </DD>
+				</DL>
+			</DIV>-->
+		</DIV>
+	</DIV><!--side_l end -->
+
+
+<DIV class=side_r>
+	<DIV class=Menubox>
+		<UL>
+		  <LI class=hover index="0">Hotel Booking </LI>
+		  <LI index="1">Hotel Picture(23) </LI>
+		<!--  <LI index="2">
+		  <A href="home-012.html#review" 	  name=review>住客点评(48)</A> </LI>-->
+		</UL>
+	</DIV>
+<DIV id=HotelContent class=MenuMain>
+	<DIV class=date_info>
+	<INPUT id="startDate1"  type="hidden"  name="startDate1">
+			<INPUT id="endDate1"  type="hidden"  name="endDate1">
+		<SPAN id=showDate>2014.04.03<SPAN class=col_9>(Thursday)</SPAN> 
+			Check in,2014.04.04<SPAN class=col_9>(Friday)</SPAN> &nbsp;Check out 
+			
+		</SPAN>&nbsp;&nbsp;
+		<IMG alt=Change date src="home011/redate.png" width=82 height=22 onclick="chgDate()"> 
+		<DIV style="WIDTH: 220px; DISPLAY: none; TOP: 26px; LEFT: 375px" class=com_way>
+			<DIV style="TOP: -6px; LEFT: 5px" class=com_arrow1></DIV>
+			<DIV class=com_way_son>
+				<UL class=info_price_note>
+				  <LI class=noteclose><A></A></LI>
+				  <LI>Check in：<INPUT id="ChgCheckIn"  class=wid_110 name="ChgCheckIn"> </LI>
+				  <LI>Check out：<INPUT id="ChgCheckOut" class=wid_110 name="ChgCheckOut"> </LI>
+				  <LI><INPUT class=info_price_btn value="Change " type=submit> 
+				  </LI>
+				</UL>
+			</DIV>
+		</DIV>
+	</DIV> <!--date_info  end-->
+
+	<DIV class=hotel_room id="hotel_roomzp">
+				
+	</DIV>
+
+
+
+
+<SCRIPT type=text/javascript>
+var par={
+keyPoiName:"",
+hotelName:"",
+cityName:"Beijing",
+cityId:"0101",
+checkInDate:m_preDate,
+checkOutDate:m_endDate,
+baiduLat:0,
+baiduLng:0,
+sort:0,
+pageType:"0",
+laiyuan:"ziteng",
+shenhe:"1",
+hotelid:"9120",
+uid:"0",
+staticUrl:"",
+xpoint:"116.5138705",
+ypoint:"39.93810069",
+imagenum:"23",
+page:1,
+pageSize:20,
+MaxPage:0,
+reviewCount:"48"
+}
+</SCRIPT>
+
+<DIV class=ho_box id="ho_box1"><!--ho_box 开始-->
+
+
+</DIV>  <!--ho_box 结束-->
+
+
+<DIV class=ho_box  id="ho_box4">
+
+  
+ </DIV>
+<DIV class=ho_box   id="ho_box2">
+
+</DIV>
+<DIV class=ho_box   id="ho_box3">
+
+
+</DIV>
+</DIV>
+<DIV id=HotelImages class="MenuMain hidden">
+<DIV class=photo_fla id="photo_flatitle"><STRONG id="pictitle"></STRONG> 
+	<P  id="pictitlenum"></P>
+<DIV>
+<DIV class=download>
+<DIV class=showpic id = "pobigview">
+<DIV style="WIDTH: 600px" id="carousel_photo_container"> <IMG 
+style="WIDTH: 360px; HEIGHT: 200px" id=carousel_photo alt=Restaurant 
+src="home011/20130321104738SggHhQVR.jpg"> </DIV>
+<P id=carousel_photo_intro class=image>Hiroba Restaurant </P>
+</DIV>
+<DIV class=clear></DIV>
+<DIV id="carousel">
+<DIV id="carousel_btn_lastgroup"><A class=" " 
+href="#">Previous</A></DIV>
+<DIV style="OVERFLOW: hidden" id="carousel_container">
+<UL id="samples_list">
+  <LI><A class=" " title=Hiroba Restaurant1 href="home011/20130321104738SggHhQVR.jpg" 
+  target=_blank><IMG alt=Hiroba Restaurant4 
+  src="home011/20130321104738SggHhQVR.jpg"></A> </LI>
+  <LI><A class=" " title=Suite 
+  href="http://images.sunnychina.com/hotel_images/01/201309031644513dISwasB.jpg" 
+  target=_blank><IMG alt=Suite src="home011/201309031644513dISwasB.jpg"></A> 
+  </LI>
+  <LI><A class=" " title=Deluxe double 
+  href="http://images.sunnychina.com/hotel_images/01/201309031644511KbcQ9Ve.jpg" 
+  target=_blank><IMG alt=Deluxe double src="home011/201309031644511KbcQ9Ve.jpg"></A> 
+  </LI>
+  <LI><A class=" " title=Hiroba Restaurant 
+  href="http://images.sunnychina.com/hotel_images/01/201303211047390Cb8cglV.jpg" 
+  target=_blank><IMG alt=Hiroba Restaurant src="home011/201303211047390Cb8cglV.jpg"></A> 
+  </LI>
+  <LI><A class=" " title=Butsu restaurant 
+  href="http://images.sunnychina.com/hotel_images/01/20130321104739LD5DdNRr.jpg" 
+  target=_blank><IMG alt=Butsu restaurant src="home011/20130321104739LD5DdNRr.jpg"></A> 
+  </LI>
+  <LI><A class=" " title=Butsu restaurant 
+  href="http://images.sunnychina.com/hotel_images/01/20130321104739wp4cl1Ei.jpg" 
+  target=_blank><IMG alt=Butsu restaurant src="home011/20130321104739wp4cl1Ei.jpg"></A> 
+  </LI>
+  <LI><A class=" " title=Hotel Exterior 
+  href="http://images.sunnychina.com/hotel_images/01/2012060710211504889090.jpg" 
+  target=_blank><IMG alt=Hotel Exterior src="home011/2012060710211504889090.jpg"></A> 
+  </LI>
+  <LI><A class=" " title=multi-function room
+  href="http://images.sunnychina.com/hotel_images/01/2012060710211287692013.jpg" 
+  target=_blank><IMG alt=multi-function roomsrc="home011/2012060710211287692013.jpg"></A> 
+  </LI>
+  <LI><A class=" " title=Butsu restaurant 
+  href="http://images.sunnychina.com/hotel_images/01/20130321104740TuUu5E5E.jpg" 
+  target=_blank><IMG alt=Butsu restaurant src="home011/20130321104740TuUu5E5E.jpg"></A> 
+  </LI>
+  <LI><A class=" " title=multi-function room
+  href="http://images.sunnychina.com/hotel_images/01/20130321104740PmnwbP8L.jpg" 
+  target=_blank><IMG alt=multi-function roomsrc="home011/20130321104740PmnwbP8L.jpg"></A> 
+  </LI>
+  <LI><A class=" " title=Pool 
+  href="http://images.sunnychina.com/hotel_images/01/20130321104741jGCcLQ9q.jpg" 
+  target=_blank><IMG alt=Pool src="home011/20130321104741jGCcLQ9q.jpg"></A> 
+  </LI>
+  <LI><A class=" " title=Bali spring 
+  href="http://images.sunnychina.com/hotel_images/01/20130321104741E26w7bfb.jpg" 
+  target=_blank><IMG alt=Bali spring src="home011/20130321104741E26w7bfb.jpg"></A> 
+  </LI>
+  <LI><A class=" " title=conference room 
+  href="http://images.sunnychina.com/hotel_images/01/20130321104741N2XwBbLG.jpg" 
+  target=_blank><IMG alt=conference room src="home011/20130321104741N2XwBbLG.jpg"></A> 
+  </LI>
+  <LI><A class=" " title=10 level
+  href="http://images.sunnychina.com/hotel_images/01/20130321104742ou11FX7g.jpg" 
+  target=_blank><IMG alt=10 levelsrc="home011/20130321104742ou11FX7g.jpg"></A> 
+  </LI>
+  <LI><A class=" " title=Hotel Exterior 
+  href="http://images.sunnychina.com/hotel_images/01/20130321104742cRMRNnWw.jpg" 
+  target=_blank><IMG alt=Hotel Exterior src="home011/20130321104742cRMRNnWw.jpg"></A> 
+  </LI>
+  <LI><A class=" " title=Lobby
+  href="http://images.sunnychina.com/hotel_images/01/20130321104742WGBGLcLl.jpg" 
+  target=_blank><IMG alt=Lobbysrc="home011/20130321104742WGBGLcLl.jpg"></A> 
+  </LI>
+  <LI><A class=" " title=Lobby
+  href="http://images.sunnychina.com/hotel_images/01/20130321104743aLbCQqQq.jpg" 
+  target=_blank><IMG alt=Lobbysrc="home011/20130321104743aLbCQqQq.jpg"></A> 
+  </LI>
+  <LI><A class=" " title=Lobby
+  href="http://images.sunnychina.com/hotel_images/01/201303211047431fx738HL.jpg" 
+  target=_blank><IMG alt=Lobbysrc="home011/201303211047431fx738HL.jpg"></A> 
+  </LI>
+  <LI><A class=" " title=Lobby Club
+  href="http://images.sunnychina.com/hotel_images/01/20130321104744V3cDyDdh.jpg" 
+  target=_blank><IMG alt=Lobby Clubsrc="home011/20130321104744V3cDyDdh.jpg"></A> 
+  </LI>
+  <LI><A class=" " title=Lobby Club
+  href="http://images.sunnychina.com/hotel_images/01/20130321104744o8pZyDz0.jpg" 
+  target=_blank><IMG alt=Lobby Clubsrc="home011/20130321104744o8pZyDz0.jpg"></A> 
+  </LI>
+  <LI><A class=" " title=Business Room
+  href="http://images.sunnychina.com/hotel_images/01/20130321104746DvrSrwBa.jpg" 
+  target=_blank><IMG alt=Business Roomsrc="home011/20130321104746DvrSrwBa.jpg"></A> 
+  </LI>
+  <LI><A class=" " title=administrative room 
+  href="http://images.sunnychina.com/hotel_images/01/201303211047464iINnjns.jpg" 
+  target=_blank><IMG alt=administrative room src="home011/201303211047464iINnjns.jpg"></A> 
+  </LI>
+  <LI><A class=" " title=Standard room 
+  href="http://images.sunnychina.com/hotel_images/01/20130321104748XocLHql5.jpg" 
+  target=_blank><IMG alt=Standard room src="home011/20130321104748XocLHql5.jpg"></A> 
+  </LI></UL></DIV>
+<DIV id=carousel_btn_nextgroup><A class=" " 
+href="#">Next</A></DIV>
+</DIV> <!--carousel end -->
+</DIV> <!--showpic end -->
+
+
+<SCRIPT type=text/javascript src="home011/sow.js"></SCRIPT>
+</DIV></DIV></DIV></DIV></DIV>
+<DIV></DIV></DIV>
+
+<SCRIPT type=text/javascript src="home011/info140120.js"></SCRIPT>
+<!--Content End-->
+<script type="text/javascript">
+<!--
+	  document.getElementById("startDate1").value=m_preDate;
+	  //$("#ChgCheckIn").text(m_preDate) 
+	  document.getElementById("endDate1").value=m_endDate;
+	  //$("#ChgCheckOut").text(m_endDate) 
+	  $("#showDate").empty();
+	  var arr_week = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+    
+	  var arys1= new Array();      
+	  arys1=m_preDate.split('-');     //日期为输入日期，格式为 2013-3-10
+	  var ssdate=new Date(arys1[0],parseInt(arys1[1]-1),arys1[2]);   
+	   ssdate.getDay()  //就是你要的星期几
+	   var arys2=m_endDate.split('-');     
+	   var sedate=new Date(arys2[0],parseInt(arys2[1]-1),arys2[2]);   
+	   sedate.getDay()  //就是你要的星期几
+	  $("#showDate").html(m_preDate + '<SPAN class=col_9>('+arr_week[ssdate.getDay()]+')</SPAN> Check in,' + m_endDate + '<SPAN class=col_9>('+arr_week[sedate.getDay()]+')</SPAN> &nbsp;Check out');
+		
+//-->
+</script>
+<!-- footer start-->
+	<div class="footer">
+		<div class="nav_footer">
+	  		<div>
+	    		<ul class="inline">
+	      		<li><a  href="/ziteng/page/home.html">Homepage</a></li>
+	      		<li><a  href="#">Service Stores</a></li>
+	      		<li><a  href="#">Help Centre</a></li>
+	      		<li><a  href="#">About Us</a></li>
+	        </ul>
+	  		</div>
+		</div>
+		<div class="container">
+	  		<div>
+	    		<ul class="unstyled">
+	      		<li>The website is owned by ToWorld Company</li>
+	    		</ul>
+	    		<ul class="unstyled">
+	      		<li>Copyright @2014 www.ToWorld.com All Rights Reserved</li>
+	    		</ul>
+	  		</div>
+		</div>
+	</div>
+	
+	<!-- footer end -->
+
+
+
+</BODY></HTML>

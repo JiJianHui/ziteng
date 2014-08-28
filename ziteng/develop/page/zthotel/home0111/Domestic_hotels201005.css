@@ -1,0 +1,387 @@
+#fill_order {
+	MARGIN: 10px auto; WIDTH: 978px; FONT-FAMILY: Tahoma, Geneva, sans-serif; BACKGROUND: #ebf0f8
+}
+#fill_order A {
+	COLOR: #1568bd; TEXT-DECORATION: none
+}
+#fill_order A:hover {
+	COLOR: #ff3300
+}
+#fill_order H1 {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 15px; PADDING-RIGHT: 0px; FONT-FAMILY: simhei; FONT-SIZE: 20px; PADDING-TOP: 5px
+}
+#fill_order .top_side {
+	HEIGHT: 10px; OVERFLOW: hidden
+}
+#fill_order .down_side {
+	HEIGHT: 10px; OVERFLOW: hidden
+}
+#fill_order .top_side SPAN {
+	WIDTH: 10px; DISPLAY: inline-block; BACKGROUND: url(../image/hotel_new.png?t=20112012) no-repeat -712px -64px; HEIGHT: 10px; OVERFLOW: hidden
+}
+#fill_order .down_side SPAN {
+	WIDTH: 10px; DISPLAY: inline-block; BACKGROUND: url(../image/hotel_new.png?t=20112012) no-repeat -712px -64px; HEIGHT: 10px; OVERFLOW: hidden
+}
+#fill_order .top_side SPAN.l {
+	BACKGROUND-POSITION: -712px -64px; FLOAT: left
+}
+#fill_order .top_side SPAN.r {
+	BACKGROUND-POSITION: -722px -64px; FLOAT: right
+}
+#fill_order .down_side SPAN.l {
+	BACKGROUND-POSITION: -712px -74px; FLOAT: left
+}
+#fill_order .down_side SPAN.r {
+	BACKGROUND-POSITION: -722px -74px; FLOAT: right
+}
+#fill_order .side_box {
+	MARGIN: 8px 10px 5px; BACKGROUND: #fff
+}
+#fill_order .side_box .t_s {
+	HEIGHT: 10px; OVERFLOW: hidden
+}
+#fill_order .side_box .d_s {
+	HEIGHT: 10px; OVERFLOW: hidden
+}
+#fill_order .side_box .t_s SPAN {
+	WIDTH: 10px; DISPLAY: inline-block; BACKGROUND: url(../image/hotel_new.png?t=20112012) no-repeat -752px -64px; HEIGHT: 10px; OVERFLOW: hidden
+}
+#fill_order .side_box .d_s SPAN {
+	WIDTH: 10px; DISPLAY: inline-block; BACKGROUND: url(../image/hotel_new.png?t=20112012) no-repeat -752px -64px; HEIGHT: 10px; OVERFLOW: hidden
+}
+#fill_order .side_box .t_s SPAN.l {
+	BACKGROUND-POSITION: -752px -64px; FLOAT: left
+}
+#fill_order .side_box .t_s SPAN.r {
+	BACKGROUND-POSITION: -762px -64px; FLOAT: right
+}
+#fill_order .side_box .d_s SPAN.l {
+	BACKGROUND-POSITION: -752px -74px; FLOAT: left
+}
+#fill_order .side_box .d_s SPAN.r {
+	BACKGROUND-POSITION: -762px -74px; FLOAT: right
+}
+#fill_order .main {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px
+}
+#fill_order #left {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 5px; WIDTH: 240px; PADDING-RIGHT: 15px; FLOAT: left; PADDING-TOP: 0px
+}
+#fill_order #left .hotel_info {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; PADDING-TOP: 0px
+}
+#fill_order #left .hotel_info .l {
+	WIDTH: 60px; FLOAT: left
+}
+#fill_order #left .hotel_info .l IMG {
+	BORDER-BOTTOM: #dddddd 1px solid; BORDER-LEFT: #dddddd 1px solid; PADDING-BOTTOM: 2px; PADDING-LEFT: 2px; WIDTH: 60px; PADDING-RIGHT: 2px; HEIGHT: 60px; BORDER-TOP: #dddddd 1px solid; BORDER-RIGHT: #dddddd 1px solid; PADDING-TOP: 2px
+}
+#fill_order #left .hotel_info .r {
+	LINE-HEIGHT: 1.5em; MARGIN-LEFT: 75px; _margin-left: 70px
+}
+#fill_order #left .hotel_info .r .dizhi {
+	LINE-HEIGHT: 1.4em; COLOR: #666666; PADDING-TOP: 3px
+}
+#fill_order #left .hotel_info .rm_type {
+	PADDING-BOTTOM: 8px; MARGIN-TOP: 8px; BORDER-TOP: #e7e7e7 1px solid; PADDING-TOP: 10px
+}
+#fill_order #left .hotel_info .rm_type UL LI {
+	LINE-HEIGHT: 1.5em; MARGIN-BOTTOM: 2px
+}
+#fill_order #left .hotel_info .rm_type UL LI SPAN {
+	PADDING-RIGHT: 5px
+}
+#fill_order #left .hotel_info .cu UL LI.no {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+#fill_order #left .why_box {
+	MARGIN-TOP: 30px; PADDING-LEFT: 5px; BORDER-TOP: #e7e7e7 1px solid; PADDING-TOP: 15px
+}
+#fill_order #left .why_box UL LI {
+	PADDING-LEFT: 20px; MARGIN-BOTTOM: 9px; BACKGROUND: url(../image/hotel_icons.png?t=20112012) no-repeat 0px -270px; COLOR: #896e01; FONT-SIZE: 14px
+}
+#fill_order #right {
+	BORDER-LEFT: #cccccc 1px dotted; PADDING-BOTTOM: 0px; PADDING-LEFT: 20px; WIDTH: 626px; PADDING-RIGHT: 10px; FLOAT: right; PADDING-TOP: 0px
+}
+#fill_order #right H2 {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 12px; PADDING-RIGHT: 0px; BACKGROUND: #f2f9fe; HEIGHT: 25px; FONT-SIZE: 14px; BORDER-TOP: #a1d0f4 1px solid; FONT-WEIGHT: bold; PADDING-TOP: 6px
+}
+#fill_order #right H2 SPAN {
+	FONT-WEIGHT: normal
+}
+#fill_order #right SELECT {
+	HEIGHT: 21px
+}
+#fill_order .wl {
+	TEXT-ALIGN: right; WIDTH: 95px; PADDING-RIGHT: 5px
+}
+#fill_order SPAN.wl {
+	DISPLAY: inline-block
+}
+#fill_order UL.normal_list LI {
+	PADDING-BOTTOM: 6px
+}
+#fill_order UL.normal_list LI SPAN {
+	DISPLAY: inline-block
+}
+#fill_order .room_no {
+	FONT-FAMILY: Tahoma; FONT-SIZE: 12px
+}
+#fill_order .price_list {
+	PADDING-LEFT: 100px
+}
+#fill_order .price_list .arr {
+	BORDER-BOTTOM: #8dacd5 1px solid; BORDER-LEFT: #8dacd5 1px solid; BORDER-COLLAPSE: collapse; BORDER-TOP: #8dacd5 1px solid; BORDER-RIGHT: #8dacd5 1px solid
+}
+#fill_order #right .price_list TH {
+	BORDER-BOTTOM: #8dacd5 1px solid; BORDER-LEFT: #8dacd5 1px solid; BORDER-COLLAPSE: collapse; BORDER-TOP: #8dacd5 1px solid; BORDER-RIGHT: #8dacd5 1px solid
+}
+#fill_order #right .price_list TD {
+	BORDER-BOTTOM: #8dacd5 1px solid; BORDER-LEFT: #8dacd5 1px solid; BORDER-COLLAPSE: collapse; BORDER-TOP: #8dacd5 1px solid; BORDER-RIGHT: #8dacd5 1px solid
+}
+#fill_order .price_list .arr1 {
+	MARGIN-TOP: -1px
+}
+#fill_order .price_list TH {
+	TEXT-ALIGN: center; WIDTH: 100px; BACKGROUND: #dee7ef; HEIGHT: 24px
+}
+#fill_order .price_list TD {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 5px; LINE-HEIGHT: 1.4em; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif; PADDING-TOP: 5px
+}
+#fill_order .price_list TD SPAN {
+	COLOR: #001d75; FONT-SIZE: 12px
+}
+#fill_order .cu {
+	PADDING-BOTTOM: 10px; MARGIN-TOP: 15px; BORDER-TOP: #999999 1px dotted; PADDING-TOP: 10px
+}
+#fill_order .cu .qt {
+	MARGIN-LEFT: 0px
+}
+#fill_order .cu .fan {
+	MARGIN-LEFT: 0px
+}
+#fill_order .check_info {
+	MARGIN: 10px 0px 20px
+}
+#fill_order .check_info .danbao_tips {
+	PADDING-LEFT: 100px
+}
+#fill_order .check_info UL LI {
+	LINE-HEIGHT: 24px
+}
+#fill_order .check_info UL LI .w1 {
+	VERTICAL-ALIGN: top
+}
+#fill_order .check_info UL LI.readme {
+	PADDING-LEFT: 100px
+}
+#fill_order .check_info UL LI.h65 {
+	HEIGHT: 65px
+}
+#fill_order .check_info UL LI.readme .tishitime {
+	BORDER-BOTTOM: #ffca7f 1px solid; BORDER-LEFT: #ffca7f 1px solid; PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; BACKGROUND: #fffedd; BORDER-TOP: #ffca7f 1px solid; BORDER-RIGHT: #ffca7f 1px solid; PADDING-TOP: 5px
+}
+#fill_order .check_info UL LI.readme .tishitime STRONG {
+	COLOR: #ff0000
+}
+#fill_order .check_info UL LI SPAN {
+	DISPLAY: inline-block; VERTICAL-ALIGN: middle
+}
+#fill_order .check_info UL LI SPAN.w1 {
+	TEXT-ALIGN: right; WIDTH: 95px; PADDING-RIGHT: 5px
+}
+#fill_order .check_info UL LI SPAN.w2 {
+	WIDTH: 160px
+}
+#fill_order .check_info UL LI SPAN.w3 {
+	WIDTH: 500px
+}
+#fill_order #bookxyk UL LI {
+	LINE-HEIGHT: 1.3em; HEIGHT: 26px
+}
+#fill_order INPUT.text {
+	BORDER-BOTTOM: #d0d0d0 1px solid; BORDER-LEFT: #d0d0d0 1px solid; PADDING-BOTTOM: 2px; LINE-HEIGHT: 24px; PADDING-LEFT: 3px; PADDING-RIGHT: 1px; FONT-FAMILY: Tahoma; MARGIN-BOTTOM: 5px; BACKGROUND: url(../image/icons.png?t=201210161020) no-repeat 110px -591px; HEIGHT: 21px; COLOR: #666; FONT-SIZE: 12px; BORDER-TOP: #999999 1px solid; BORDER-RIGHT: #d0d0d0 1px solid; PADDING-TOP: 0px; _line-height: 20px
+}
+#fill_order INPUT.textno {
+	BORDER-BOTTOM: #d0d0d0 1px solid; BORDER-LEFT: #d0d0d0 1px solid; PADDING-BOTTOM: 2px; LINE-HEIGHT: 24px; PADDING-LEFT: 3px; WIDTH: 130px; PADDING-RIGHT: 1px; FONT-FAMILY: Tahoma; MARGIN-BOTTOM: 5px; HEIGHT: 21px; COLOR: #666; FONT-SIZE: 12px; BORDER-TOP: #999999 1px solid; BORDER-RIGHT: #d0d0d0 1px solid; PADDING-TOP: 0px; _line-height: 20px
+}
+#fill_order INPUT.textfill {
+	BORDER-BOTTOM: #d0d0d0 1px solid; BORDER-LEFT: #d0d0d0 1px solid; PADDING-BOTTOM: 2px; LINE-HEIGHT: 24px; PADDING-LEFT: 3px; PADDING-RIGHT: 1px; FONT-FAMILY: Tahoma; MARGIN-BOTTOM: 5px; BACKGROUND: url(../image/hotel_icons.png?t=20112012) no-repeat right -382px; HEIGHT: 21px; FONT-SIZE: 12px; BORDER-TOP: #999999 1px solid; BORDER-RIGHT: #d0d0d0 1px solid; PADDING-TOP: 0px; _line-height: 20px
+}
+#fill_order INPUT.text_on {
+	BORDER-BOTTOM: #f26622 1px solid; BORDER-LEFT: #f26622 1px solid; BORDER-TOP: #f26622 1px solid; BORDER-RIGHT: #f26622 1px solid
+}
+#fill_order .check_info UL LI INPUT.text {
+	WIDTH: 115px; PADDING-RIGHT: 16px
+}
+#fill_order INPUT.radio {
+	MARGIN-LEFT: -2px; VERTICAL-ALIGN: -2px; MARGIN-RIGHT: 0px; _vertical-align: middle
+}
+#fill_order INPUT.error {
+	BORDER-BOTTOM-COLOR: #bb0000; BORDER-TOP-COLOR: #bb0000; BORDER-RIGHT-COLOR: #bb0000; BORDER-LEFT-COLOR: #bb0000
+}
+#fill_order .contact_info {
+	PADDING-BOTTOM: 10px; MARGIN-TOP: 5px; PADDING-LEFT: 15px; PADDING-RIGHT: 10px; PADDING-TOP: 10px
+}
+#fill_order SPAN.input_follow {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 5px; PADDING-RIGHT: 0px; COLOR: #777777; PADDING-TOP: 0px
+}
+#fill_order INPUT.nor_text {
+	BACKGROUND-IMAGE: none
+}
+#fill_order .fapiao {
+	MARGIN-TOP: 5px; COLOR: #999999; BORDER-TOP: #dddddd 1px dotted
+}
+#fill_order .submit_box {
+	TEXT-ALIGN: left
+}
+#fill_order .submit_box INPUT.sub_order {
+	BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; WIDTH: 165px; FONT: bold 14px/28px Tahoma; BORDER-TOP-STYLE: none; BACKGROUND: url(../image/hotel_new.png?t=20112012) no-repeat -948px 0px; HEIGHT: 37px; COLOR: #fff; BORDER-LEFT-STYLE: none; CURSOR: pointer
+}
+#fill_order .submit_box INPUT.sub_order_on {
+	BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; WIDTH: 165px; FONT: bold 14px/28px Tahoma; BORDER-TOP-STYLE: none; BACKGROUND: url(../image/hotel_new.png?t=20112012) no-repeat -948px 0px; HEIGHT: 37px; COLOR: #fff; BORDER-LEFT-STYLE: none; CURSOR: pointer
+}
+#SevenDay .submit_box INPUT.sub_order {
+	BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; WIDTH: 165px; FONT: bold 14px/28px Tahoma; BORDER-TOP-STYLE: none; BACKGROUND: url(../image/hotel_new.png?t=20112012) no-repeat -948px 0px; HEIGHT: 37px; COLOR: #fff; BORDER-LEFT-STYLE: none; CURSOR: pointer
+}
+#fill_order .submit_box INPUT.sub_order_on {
+	BACKGROUND-POSITION: -948px -47px
+}
+#fill_order .submit_box SPAN.tip {
+	POSITION: absolute; TOP: 10px; LEFT: 90px
+}
+#fill_order .CNY {
+	FONT-FAMILY: Arial
+}
+#fill_order .pl_pay {
+	PADDING-LEFT: 16px; _padding-left: 22px
+}
+#fill_order .PO {
+	MARGIN: 0px 0px 15px
+}
+#fill_order .PO P {
+	MARGIN-BOTTOM: 5px
+}
+#fill_order .PO .orange {
+	FONT-FAMILY: Arial
+}
+#fill_order .PO INPUT {
+	VERTICAL-ALIGN: baseline; MARGIN-RIGHT: 3px
+}
+#fill_order .mail {
+	BORDER-BOTTOM: #e0e0e0 1px solid; BORDER-LEFT: #e0e0e0 1px solid; PADDING-BOTTOM: 10px; PADDING-LEFT: 25px; PADDING-RIGHT: 0px; BACKGROUND: #f2f2f2; BORDER-TOP: #e0e0e0 1px solid; BORDER-RIGHT: #e0e0e0 1px solid; PADDING-TOP: 15px
+}
+#fill_order .mw500 {
+	MARGIN-TOP: 0px; WIDTH: 500px
+}
+#fill_order .mw70 {
+	WIDTH: 70px
+}
+#fill_order .mail LI {
+	MARGIN-BOTTOM: 5px
+}
+#fill_order .prp_read {
+	PADDING-LEFT: 24px
+}
+#fill_order INPUT.prepay_txt {
+	WIDTH: 40px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+#fill_order .inw77 {
+	WIDTH: 45px
+}
+#fill_order .inw140 {
+	WIDTH: 106px
+}
+#fill_order .inw125 {
+	WIDTH: 118px; VERTICAL-ALIGN: middle; MARGIN-RIGHT: 3px
+}
+#fill_order .inw160 {
+	WIDTH: 120px; VERTICAL-ALIGN: middle; MARGIN-RIGHT: 3px
+}
+#fill_order .inw150 {
+	WIDTH: 160px; VERTICAL-ALIGN: middle
+}
+#fill_order .ls1e {
+	MARGIN: 0px 6px
+}
+#fill_order .malp {
+	MARGIN-LEFT: 15px
+}
+#fill_order .malp1 {
+	MARGIN-LEFT: 25px
+}
+#fill_order .sm2e {
+	MARGIN-LEFT: 2em
+}
+.dx {
+	DISPLAY: inline-block
+}
+.dx {
+	WIDTH: 55px; BACKGROUND: url(../image/d_l.png?t=20112012) no-repeat; HEIGHT: 11px
+}
+.dx1 {
+	BACKGROUND-POSITION: 0px -43px
+}
+.dx2 {
+	BACKGROUND-POSITION: -55px -43px
+}
+.dx3 {
+	BACKGROUND-POSITION: -110px -43px
+}
+.dx4 {
+	BACKGROUND-POSITION: -165px -43px
+}
+.dx5 {
+	BACKGROUND-POSITION: -220px -43px
+}
+.dx6 {
+	BACKGROUND-POSITION: -330px -43px
+}
+.dx7 {
+	BACKGROUND-POSITION: -385px -43px
+}
+.dx8 {
+	BACKGROUND-POSITION: -440px -43px
+}
+.dx9 {
+	BACKGROUND-POSITION: -495px -43px
+}
+.icon_info {
+	WIDTH: 14px; DISPLAY: inline-block; BACKGROUND: url(../image/hotel_icons.png?t=20112012) no-repeat 0px 0px; HEIGHT: 14px; CURSOR: pointer
+}
+#Roomid {
+	WIDTH: 250px
+}
+.card_security01 {
+	POSITION: relative; WIDTH: 130px; DISPLAY: inline; COLOR: #896e01; MARGIN-LEFT: 8px; FONT-SIZE: 12px; CURSOR: pointer; FONT-WEIGHT: normal
+}
+.card_security002 {
+	Z-INDEX: 99; BORDER-BOTTOM: #666 1px solid; POSITION: absolute; BORDER-LEFT: #666 1px solid; WIDTH: 400px; DISPLAY: none; BORDER-TOP: #666 1px solid; TOP: 25px; BORDER-RIGHT: #666 1px solid; LEFT: 0px
+}
+.card_arrow1 {
+	Z-INDEX: 100; POSITION: absolute; WIDTH: 13px; BACKGROUND: url(../image/icon_card.gif) no-repeat center top; HEIGHT: 9px; OVERFLOW: hidden
+}
+.card_security002 UL {
+	BORDER-BOTTOM: #e8e8e8 3px solid; BORDER-LEFT: #e8e8e8 3px solid; PADDING-BOTTOM: 10px; LINE-HEIGHT: 22px; BACKGROUND-COLOR: #fff; PADDING-LEFT: 6px; PADDING-RIGHT: 6px; COLOR: #666; BORDER-TOP: #e8e8e8 3px solid; BORDER-RIGHT: #e8e8e8 3px solid; PADDING-TOP: 10px
+}
+.com_cbox_p {
+	BORDER-BOTTOM: #aaa 1px solid; POSITION: relative; BORDER-LEFT: #aaa 1px solid; PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; WIDTH: 246px; PADDING-RIGHT: 5px; BACKGROUND: #fff; BORDER-TOP: #aaa 1px solid; BORDER-RIGHT: #aaa 1px solid; PADDING-TOP: 5px
+}
+.com_cbox_p LI {
+	PADDING-BOTTOM: 2px; PADDING-LEFT: 5px; WIDTH: 72px; PADDING-RIGHT: 5px; WORD-WRAP: break-word; FLOAT: left; WORD-BREAK: break-all; PADDING-TOP: 2px
+}
+.com_cbox_p .li_cur {
+	BACKGROUND: #1c94c4; COLOR: #fff; CURSOR: pointer
+}
+.com_cbox_p .li_q {
+	MARGIN-LEFT: 0px
+}
+.com_cbox_p .hr_w {
+	BORDER-BOTTOM: #ccc 1px dashed; LINE-HEIGHT: 0; WIDTH: 236px; MARGIN-BOTTOM: 5px; HEIGHT: 1px; FONT-SIZE: 1px; PADDING-TOP: 5px
+}
+.com_cbox_p1 {
+	BORDER-BOTTOM: #aaa 1px solid; POSITION: relative; BORDER-LEFT: #aaa 1px solid; PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; WIDTH: 480px; PADDING-RIGHT: 5px; BACKGROUND: #fff; BORDER-TOP: #aaa 1px solid; BORDER-RIGHT: #aaa 1px solid; PADDING-TOP: 5px
+}
+.com_cbox_p1 LI {
+	BORDER-BOTTOM: #ccc 1px dashed; PADDING-BOTTOM: 2px; PADDING-LEFT: 5px; WIDTH: 470px; PADDING-RIGHT: 5px; FLOAT: left; PADDING-TOP: 2px
+}

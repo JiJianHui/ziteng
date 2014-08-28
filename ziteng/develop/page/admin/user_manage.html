@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=10" />
+<title>user management</title>
+
+<link rel="stylesheet" type="text/css" href="../public/css/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/bootstrap/bootstrap.panel.min.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/bootstrap/bootstrap.list.min.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/home.css" />
+<link rel="stylesheet" type="text/css" href="../css/global.css" />
+
+<script src="../public/javascript/jquery.js"></script>
+<script src="../public/javascript/jquery.easing.1.3.js"></script>
+<script src="../public/javascript/bootstrap/bootstrap.js"></script>
+<script src="../js/admin_L.js"></script>
+
+<style>
+.tableRow {
+	cursor:pointer;
+}
+.tableRow:hover {
+	background-color: lightgrey;
+}
+.list-group-item {
+	cursor:pointer;
+}
+.list-group-item:hover {
+	background-color: lightgrey;
+}
+</style>
+
+</head>
+
+<body>
+
+<!--头部-->
+	<div class="header">
+	<div class="reo_header">
+	    <div class="top">
+	    <div class="c" id="statusBar"> <!-- 用于登录栏 -->
+	    </div>
+	  </div>
+	</div>
+	
+	<div id="nav_header">
+			<ul>
+				<li class="titlewz">
+					<ol olnum="0">
+						<img src="/ziteng/page/public/images/headLogo.png"
+							style="margin-right: 3px; margin-bottom: 2px;" />						<a style="color:#FC3;" href="/ziteng/page/admin/user_manage.html">User Management</a>
+					</ol>
+					<ol olnum="1">
+						<a href="/ziteng/page/guide_manager.html">Guide Management</a>
+					</ol>
+					<ol olnum="2">
+						<a href="/ziteng/page/add_gonglue.html">Add Itinerary</a>
+					</ol>
+					<ol olnum="3">
+						<a href="/ziteng/page/carOrder.html">Car Order</a>
+					</ol>
+					<ol olnum="4">
+						<a href="/ziteng/page/ratio_manager.html">Coefficient Management</a>
+					</ol>
+					<ol olnum="5">
+						<a href="/ziteng/page/car_manager.html">Car Management</a>
+					</ol>
+					<ol olnum="6">
+						<a href="/ziteng/page/cardegree_manager.html">Car Grades Management</a>
+					</ol>
+					<ol olnum="7">
+						<a href="/ziteng/page/area_manager.html">Area Management</a>
+					</ol>
+				</li>
+			</ul>
+			<ul>
+				<span id="blueline" class="testline" style="margin-left: 17px"></span>
+			</ul>
+		</div>
+	
+	<div id="page_loading" style="display:none;background:#000;display:block;position:absolute;top:0;left:0;z-index:10000;opacity:0.1;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=10);"></div>
+	<img src="../public/images/loading.gif?1" style="display:none;width:32px; height:32px; z-index:11000; position:absolute;border:0;" id="page_loadimg" />
+</div>
+<!--头部end --> 
+
+<!-- content start-->
+
+	<div class="container" style="margin-top: 30px;">
+		<div class="row-fluid">
+			<div class="span3" style="text-align:center;">
+				<div class="panel panel-primary">
+   					<div class="panel-heading">
+      					<h3 class="panel-title">Operation Panel</h3>
+   					</div>
+   					<ul class="list-group">
+   						<li class="list-group-item">View Users</li>
+      					<li class="list-group-item">Add Administrator</li>
+      					<li class="list-group-item">Change Password</li>
+      					<li class="list-group-item">Activities List</li>
+      					<li class="list-group-item">Hotel Management</li>
+   					</ul>
+				</div>
+			</div>
+			
+			<div class="span9">
+				<h2>用户列表</h2>
+				<hr />
+				<table class="table">
+        				<thead><tr>
+            				<th>User id</th>
+            				<th>Username</th>
+            				<th>Name</th>
+            				<th>User Type</th>
+            				<th>Phone</th>
+            				<th>Email</th>
+          				</tr>
+        				</thead>
+        				<tbody id="table_body">
+        					<!-- content -->
+        				</tbody>
+      			</table>
+			</div>
+		</div>
+	</div>
+
+	<div id="userDetails" class="modal hide fade in" style="display: none; ">
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">×</a>
+			<h3>User Information</h3>
+		</div>
+		<div class="modal-body">
+			<form class="form-horizontal">
+		        <fieldset>
+				  <div class="control-group success">
+		            <label class="control-label" for="user_id">User id</label>
+		            <div class="controls">
+		              <input type="text" id="user_id" readonly="true" />
+		            </div>
+		          </div>
+		          <div class="control-group success">
+		            <label class="control-label" for="user_name">Username</label>
+		            <div class="controls">
+		              <input type="text" id="user_name" readonly="true" />
+		            </div>
+		          </div>
+		          <div class="control-group success">
+		            <label class="control-label" for="real_name">Real Name</label>
+		            <div class="controls">
+		              <input type="text" id="real_name" readonly="true" />
+		            </div>
+		          </div>
+		          <div class="control-group success">
+		            <label class="control-label" for="user_type">User Type</label>
+		            <div class="controls">
+		              <input type="text" id="user_type" readonly="true" />
+		            </div>
+		          </div>
+		          <div class="control-group success">
+		            <label class="control-label" for="gender">Gender</label>
+		            <div class="controls">
+		              <input type="text" id="gender" readonly="true" />
+		            </div>
+		          </div>
+		          <div class="control-group success">
+		            <label class="control-label" for="birthday">Birthday</label>
+		            <div class="controls">
+		              <input type="text" id="birthday" readonly="true" />
+		            </div>
+		          </div>
+		          <div class="control-group success">
+		            <label class="control-label" for="idcard">ID</label>
+		            <div class="controls">
+		              <input type="text" id="idcard" readonly="true" />
+		            </div>
+		          </div>
+		          <div class="control-group success">
+		            <label class="control-label" for="phonenumber">Phone</label>
+		            <div class="controls">
+		              <input type="text" id="phonenumber" readonly="true" />
+		            </div>
+		          </div>
+		          <div class="control-group success">
+		            <label class="control-label" for="email">Email</label>
+		            <div class="controls">
+		              <input type="text" id="email" readonly="true" />
+		            </div>
+		          </div>
+		          <div class="control-group success">
+		            <label class="control-label" for="address">Address</label>
+		            <div class="controls">
+		              <input type="text" id="address" readonly="true" />
+		            </div>
+		          </div>
+		          <div class="control-group success">
+		            <label class="control-label" for="create_time">Create Time</label>
+		            <div class="controls">
+		              <input type="text" id="create_time" readonly="true"/>
+		            </div>
+		          </div>
+		        </fieldset>
+			</form>	        
+		</div>		
+		<div class="modal-footer">
+			<a href="#" class="btn btn-success" data-dismiss="modal">Confirm</a>
+		</div>
+	</div>
+
+
+<!-- content end-->
+	
+	<!-- footer start-->
+	<div class="footer">
+		<div class="nav_footer">
+	  		<div>
+	    		<ul class="inline">
+	      		<li><a  href="/ziteng/page/home.html">Homepage</a></li>
+	      		<li><a  href="#">Service Stores</a></li>
+	      		<li><a  href="#">Help Centre</a></li>
+	      		<li><a  href="#">About Us</a></li>
+	        </ul>
+	  		</div>
+		</div>
+		<div class="container">
+	  		<div>
+	    		<ul class="unstyled">
+	      		<li>The website is owned by ToWorld Company</li>
+	    		</ul>
+	    		<ul class="unstyled">
+	      		<li>Copyright @2014 www.ToWorld.com All Rights Reserved</li>
+	    		</ul>
+	  		</div>
+		</div>
+	</div>
+	<!-- footer end -->
+	
+	<script>
+		function getRowHtml(thisObj) {
+			var html = '<tr class="tableRow" onclick="viewUserInfo(this)">' +
+	            		'<td>'+ thisObj.id + '</td>' +
+	            		'<td>'+ thisObj.userName + '</td>' +
+	            		'<td>'+ thisObj.fullName + '</td>' +
+	            		'<td>'+ '普通用户' + '</td>' +
+	            		'<td>'+ thisObj.phoneNumber + '</td>' +
+	            		'<td>'+ thisObj.email + '</td>' +
+	            		'</tr>';
+	        return html;
+		}
+		
+		function viewUserInfo(thisObj) {
+			var $thisObj = $(thisObj);
+			var id = $thisObj.find('td:eq(0)').html();
+			$.post('/ziteng/admin/getUserDetails.do', 
+				{'userId':id},
+				function(data) {
+					var json = eval('(' + data + ')');
+					if (json.success) {
+						var user = json.datas.user;
+						
+						$('#user_id').val(user.id);
+						$('#user_name').val(user.userName);
+						$('#real_name').val(user.fullName);
+						$('#birthday').val(user.getBirthDayString);
+						$('#user_type').val('Normal user');
+						$('#gender').val(user.sex == '0' ? 'Male' : 'Female');
+						$('#idcard').val(user.idCard);
+						$('#phonenumber').val(user.phoneNumber);
+						$('#email').val(user.email);
+						$('#address').val(user.address);
+						$('#create_time').val(user.getCreateTimeString);
+						
+						$('#userDetails').modal('show');
+					} else {
+						alert(json.msg);
+					}
+				}
+			);
+		}
+	
+		$(document).ready(function() {
+			$.post('/ziteng/admin/getUserList.do', {}, function(data) {
+				var json = eval('(' + data + ')');
+				if (json.success) {
+					var tableObj = $('#table_body');
+					var userList = json.datas.users;
+					for (var i = 0; i < userList.length; i++) {
+						tableObj.append(getRowHtml(userList[i]));
+					}
+				}
+			});
+			
+			$('.list-group-item').click(function() {
+				var url = '';
+				switch ($(this).index()) {
+				case 0:url='user_manage.html';break;
+				case 1:url='add_manager.html';break;
+				case 2:url='change_password.html';break;
+				case 3:url='activity_list.html';break;
+				case 4:url='/ziteng/page/zthotel/admin/index.html';break;
+				}
+				window.location.href=url;
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>add Activities</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="keywords" content="添加Activities" />
+<meta name="description" content="添加Activities" />
+
+<link href="../js/external/google-code-prettify/prettify.css" rel="stylesheet">
+<link href="../public/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" 	rel="stylesheet">
+<link href="../css/add_gonglue.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../public/css/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/global.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/mdd_detail_v2.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/header.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/home.css" />
+<link rel="stylesheet" type="text/css" href="../css/ziteng.css" />
+<link rel="stylesheet" type="text/css" href="../css/datepicker.css" />
+
+
+<script src="../public/javascript/jquery.js"></script>
+<script src="../js/external/jquery.hotkeys.js"></script>
+<script src="../public/javascript/bootstrap/bootstrap.js"></script>
+<script src="../js/external/google-code-prettify/prettify.js"></script>
+<script src="../js/bootstrap-wysiwyg.js"></script>
+<script src="../js/ajaxfileupload.js"></script>
+<script src="../js/add_activity.js"></script>
+<script src="../js/bootstrap-datepicker.js"></script>
+<script src="../js/admin_L.js"></script>
+
+
+
+</head>
+<body>
+
+<!--头部-->
+	<div class="header">
+		<div class="reo_header">
+			<div class="top">
+				<div class="c" id="statusBar">
+					<!-- 用于登录栏 -->
+				</div>
+			</div>
+		</div>
+
+		<div id="nav_header">
+			<ul>
+				<li class="titlewz">
+					<ol olnum="0">
+						<img src="/ziteng/page/public/images/headLogo.png"
+							style="margin-right: 3px; margin-bottom: 2px;" />						<a style="color:#FC3;" href="/ziteng/page/admin/user_manage.html">User Management</a>
+					</ol>
+					<ol olnum="1">
+						<a href="/ziteng/page/guide_manager.html">Guide Management</a>
+					</ol>
+					<ol olnum="2">
+						<a href="/ziteng/page/add_gonglue.html">Add Itinerary</a>
+					</ol>
+					<ol olnum="3">
+						<a href="/ziteng/page/carOrder.html">Car Order</a>
+					</ol>
+					<ol olnum="4">
+						<a href="/ziteng/page/ratio_manager.html">Coefficient Management</a>
+					</ol>
+					<ol olnum="5">
+						<a href="/ziteng/page/car_manager.html">Car Management</a>
+					</ol>
+					<ol olnum="6">
+						<a href="/ziteng/page/cardegree_manager.html">Car Grades Management</a>
+					</ol>
+					<ol olnum="7">
+						<a href="/ziteng/page/area_manager.html">Area Management</a>
+					</ol>
+				</li>
+			</ul>
+			<ul>
+				<span id="blueline" class="testline" style="margin-left:147px"></span>
+			</ul>
+		</div>
+
+		<div id="page_loading"
+			style="display: none; background: #000; display: block; position: absolute; top: 0; left: 0; z-index: 10000; opacity: 0.1; filter: progid:DXImageTransform.Microsoft.Alpha(opacity=10);"></div>
+		<img src="../public/images/loading.gif"
+			style="display: none; width: 32px; height: 32px; z-index: 11000; position: absolute; border: 0;"
+			id="page_loadimg" />
+	</div>
+	<!--头部end -->
+	<div class="post" style="margin-left: 10%; margin-right: 10%; margin-top:20px; ">
+	<div>
+	
+  <form class="form-horizontal">
+    <fieldset>
+      <div id="legend" class="">
+        <legend>Add Activities</legend>
+      </div>
+    <div class="control-group">
+          <!-- Text input-->
+          <label class="control-label" for="input01">Activities Title</label>
+          <div class="controls">
+            <input placeholder="Please input Activities title" class="input-xlarge" type="text" id="txt_name">
+          </div>
+        </div>
+    <div class="control-group">
+          <!-- Text input-->
+          <label class="control-label" for="input01">Activities Place</label>
+          <div class="controls">
+            <input placeholder="Please input Activities place" class="input-xlarge" type="text" id="txt_place">
+          </div>
+        </div>
+        
+ 	<div class="control-group">
+          <!-- Text input-->
+          <label class="control-label" for="input01"  >Start</label>
+          <div class="controls">
+            <input  class="input-xlarge datepicker" type="text"  data-date-format="yyyy-mm-dd"  id="txt_start_date">
+          </div>
+        </div>
+        
+      <div class="control-group">
+          <!-- Text input-->
+          <label class="control-label" for="input01"  >End Date</label>
+          <div class="controls">
+            <input  class="input-xlarge datepicker" type="text"  data-date-format="yyyy-mm-dd"  id="txt_end_date">
+          </div>
+        </div>
+	
+	 <div class="control-group">
+          <!-- Text input-->
+          <label class="control-label" for="input01">Number of people</label>
+          <div class="controls">
+            <input placeholder="Please input Number of people" class="input-xlarge" type="text" id="txt_count">
+          </div>
+        </div>
+        
+     <div class="control-group">
+          <!-- Text input-->
+          <label class="control-label" for="input01">Fee</label>
+          <div class="controls">
+            <input placeholder="Please input Activities fee" class="input-xlarge" type="text" id="txt_price">£
+          </div>
+        </div>
+
+
+    <div class="control-group">
+          <label class="control-label">Cover Picture</label>
+
+          <!-- File Upload -->
+          <div class="controls">
+            <input class="input-file" id="fileInput" type="file" name="file" onchange="uploadImage();" >
+          </div>
+        </div>
+
+    </fieldset>
+  </form>
+	
+	</div>
+	<div class="hero-unit">
+			<!---
+	Please read this before copying the toolbar:
+	* One of the best things about this widget is that it does not impose any styling on you, and that it allows you 
+	* to create a custom toolbar with the options and functions that are good for your particular use. This toolbar
+	* is just an example - don't just copy it and force yourself to use the demo styling. Create your own. Read 
+	* this page to understand how to customise it:
+    * https://github.com/mindmup/bootstrap-wysiwyg/blob/master/README.md#customising-
+	--->
+			<div id="alerts"></div>
+			<div class="btn-toolbar" data-role="editor-toolbar"
+				data-target="#editor">
+				<div class="btn-group">
+					<a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i
+						class="icon-font"></i><b class="caret"></b></a>
+					<ul class="dropdown-menu">
+					</ul>
+				</div>
+				<div class="btn-group">
+					<a class="btn dropdown-toggle" data-toggle="dropdown"
+						title="Font Size"><i class="icon-text-height"></i>&nbsp;<b
+						class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
+						<li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
+						<li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+					</ul>
+				</div>
+				<div class="btn-group">
+					<a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i
+						class="icon-bold"></i></a> <a class="btn" data-edit="italic"
+						title="Italic (Ctrl/Cmd+I)"><i class="icon-italic"></i></a> <a
+						class="btn" data-edit="strikethrough" title="Strikethrough"><i
+						class="icon-strikethrough"></i></a> <a class="btn"
+						data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i
+						class="icon-underline"></i></a>
+				</div>
+				<div class="btn-group">
+					<a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i
+						class="icon-list-ul"></i></a> <a class="btn"
+						data-edit="insertorderedlist" title="Number list"><i
+						class="icon-list-ol"></i></a> <a class="btn" data-edit="outdent"
+						title="Reduce indent (Shift+Tab)"><i class="icon-indent-left"></i></a>
+					<a class="btn" data-edit="indent" title="Indent (Tab)"><i
+						class="icon-indent-right"></i></a>
+				</div>
+				<div class="btn-group">
+					<a class="btn" data-edit="justifyleft"
+						title="Align Left (Ctrl/Cmd+L)"><i class="icon-align-left"></i></a>
+					<a class="btn" data-edit="justifycenter"
+						title="Center (Ctrl/Cmd+E)"><i class="icon-align-center"></i></a>
+					<a class="btn" data-edit="justifyright"
+						title="Align Right (Ctrl/Cmd+R)"><i class="icon-align-right"></i></a>
+					<a class="btn" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i
+						class="icon-align-justify"></i></a>
+				</div>
+				<div class="btn-group">
+					<a class="btn dropdown-toggle" data-toggle="dropdown"
+						title="Hyperlink"><i class="icon-link"></i></a>
+					<div class="dropdown-menu input-append">
+						<input class="span2" placeholder="URL" type="text"
+							data-edit="createLink" />
+						<button class="btn" type="button">Add</button>
+					</div>
+					<a class="btn" data-edit="unlink" title="Remove Hyperlink"><i
+						class="icon-cut"></i></a>
+
+				</div>
+
+				<div class="btn-group">
+					<a class="btn" title="Insert picture (or just drag & drop)"
+						id="pictureBtn"><i class="icon-picture"></i></a> <input
+						type="file" data-role="magic-overlay" data-target="#pictureBtn"
+						data-edit="insertImage" />
+				</div>
+				<div class="btn-group">
+					<a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i
+						class="icon-undo"></i></a> <a class="btn" data-edit="redo"
+						title="Redo (Ctrl/Cmd+Y)"><i class="icon-repeat"></i></a>
+				</div>
+				<input type="text" data-edit="inserttext" id="voiceBtn"
+					x-webkit-speech="">
+			</div>
+
+			<div id="editor">Please input the specification of Activities...</div>
+		</div>
+		<div  id="div_source">
+		</div>
+		<button class="btn btn-success" onclick="add_activity();" id="btn_add_or_modify">Add Activity</button>
+	<!-- content end! -->
+
+<!-- footer start-->
+	<div class="footer">
+		<div class="nav_footer">
+	  		<div>
+	    		<ul class="inline">
+	      		<li><a  href="/ziteng/page/home.html">Homepage</a></li>
+	      		<li><a  href="#">Service Stores</a></li>
+	      		<li><a  href="#">Help Centre</a></li>
+	      		<li><a  href="#">About Us</a></li>
+	        </ul>
+	  		</div>
+		</div>
+		<div class="container">
+	  		<div>
+	    		<ul class="unstyled">
+	      		<li>The website is owned by ToWorld Company</li>
+	    		</ul>
+	    		<ul class="unstyled">
+	      		<li>Copyright @2014 www.ToWorld.com All Rights Reserved</li>
+	    		</ul>
+	  		</div>
+		</div>
+	</div>
+	
+	<!-- footer end -->
+	</div>
+</body>
+</html>

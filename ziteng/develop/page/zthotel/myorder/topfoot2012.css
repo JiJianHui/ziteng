@@ -1,0 +1,510 @@
+BODY {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+DIV {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+DL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+DT {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+DD {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+UL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+OL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+LI {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H1 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H2 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H3 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H4 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H5 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H6 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+PRE {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+FORM {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+INPUT {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+TEXTAREA {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+P {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+BLOCKQUOTE {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+TH {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+TD {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+BODY {
+	LINE-HEIGHT: 20px; MARGIN: 0px; FONT-FAMILY: SimSun,arial,Verdana,Geneva,Helvetica; COLOR: #131313; FONT-SIZE: 12px; -webkit-text-size-adjust: none
+}
+A {
+	COLOR: #015ab4; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #fe6612; TEXT-DECORATION: none
+}
+TABLE {
+	BORDER-SPACING: 0; BORDER-COLLAPSE: collapse
+}
+FIELDSET {
+	BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px
+}
+IMG {
+	BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px
+}
+ADDRESS {
+	FONT-STYLE: normal; FONT-WEIGHT: normal
+}
+CAPTION {
+	FONT-STYLE: normal; FONT-WEIGHT: normal
+}
+CITE {
+	FONT-STYLE: normal; FONT-WEIGHT: normal
+}
+CODE {
+	FONT-STYLE: normal; FONT-WEIGHT: normal
+}
+DFN {
+	FONT-STYLE: normal; FONT-WEIGHT: normal
+}
+EM {
+	FONT-STYLE: normal; FONT-WEIGHT: normal
+}
+STRONG {
+	FONT-STYLE: normal; FONT-WEIGHT: normal
+}
+TH {
+	FONT-STYLE: normal; FONT-WEIGHT: normal
+}
+VAR {
+	FONT-STYLE: normal; FONT-WEIGHT: normal
+}
+OL {
+	LIST-STYLE-TYPE: none
+}
+UL {
+	LIST-STYLE-TYPE: none
+}
+.left {
+	FLOAT: left
+}
+.right {
+	FLOAT: right
+}
+.bold {
+	FONT-WEIGHT: bold
+}
+.normal {
+	FONT-WEIGHT: normal
+}
+.t11 {
+	FONT-SIZE: 11px
+}
+.t12 {
+	FONT-SIZE: 12px
+}
+.t14 {
+	FONT-SIZE: 14px
+}
+.t16 {
+	FONT-SIZE: 16px
+}
+.arial {
+	FONT-FAMILY: Arial,Helvetica,sans-serif
+}
+.simsun {
+	FONT-FAMILY: simsun
+}
+.top_line {
+	BORDER-TOP: #ddd 1px solid
+}
+.black {
+	COLOR: #131313
+}
+.l_black {
+	COLOR: #777
+}
+.orange {
+	COLOR: #c96702
+}
+.red {
+	COLOR: #f00
+}
+.green {
+	COLOR: #10a200
+}
+.none {
+	DISPLAY: none
+}
+.tl {
+	TEXT-ALIGN: left
+}
+.tr {
+	TEXT-ALIGN: right
+}
+.tc {
+	TEXT-ALIGN: center
+}
+.m5 {
+	MARGIN: 5px
+}
+.m10 {
+	MARGIN: 10px
+}
+.m15 {
+	MARGIN: 15px
+}
+.m20 {
+	MARGIN: 20px
+}
+.p5 {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; PADDING-TOP: 5px
+}
+.p10 {
+	PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px
+}
+.p15 {
+	PADDING-BOTTOM: 15px; PADDING-LEFT: 15px; PADDING-RIGHT: 15px; PADDING-TOP: 15px
+}
+.p20 {
+	PADDING-BOTTOM: 20px; PADDING-LEFT: 20px; PADDING-RIGHT: 20px; PADDING-TOP: 20px
+}
+.mt5 {
+	MARGIN-TOP: 5px
+}
+.mt10 {
+	MARGIN-TOP: 10px
+}
+.mt15 {
+	MARGIN-TOP: 15px
+}
+.mt20 {
+	MARGIN-TOP: 20px
+}
+.mb5 {
+	MARGIN-BOTTOM: 5px
+}
+.mb10 {
+	MARGIN-BOTTOM: 10px
+}
+.mb15 {
+	MARGIN-BOTTOM: 15px
+}
+.mb20 {
+	MARGIN-BOTTOM: 20px
+}
+.ml5 {
+	MARGIN-LEFT: 5px
+}
+.ml10 {
+	MARGIN-LEFT: 10px
+}
+.ml15 {
+	MARGIN-LEFT: 15px
+}
+.ml20 {
+	MARGIN-LEFT: 20px
+}
+.ml30 {
+	MARGIN-LEFT: 30px
+}
+.mr5 {
+	MARGIN-RIGHT: 5px
+}
+.mr10 {
+	MARGIN-RIGHT: 10px
+}
+.mr15 {
+	MARGIN-RIGHT: 15px
+}
+.mr20 {
+	MARGIN-RIGHT: 20px
+}
+.mr30 {
+	MARGIN-RIGHT: 30px
+}
+.pt5 {
+	PADDING-TOP: 5px
+}
+.pt10 {
+	PADDING-TOP: 10px
+}
+.pt15 {
+	PADDING-TOP: 15px
+}
+.pt20 {
+	PADDING-TOP: 20px
+}
+.pb5 {
+	PADDING-BOTTOM: 5px
+}
+.pb10 {
+	PADDING-BOTTOM: 10px
+}
+.pb15 {
+	PADDING-BOTTOM: 15px
+}
+.pb20 {
+	PADDING-BOTTOM: 20px
+}
+.pb30 {
+	PADDING-BOTTOM: 30px
+}
+.pl5 {
+	PADDING-LEFT: 5px
+}
+.pl10 {
+	PADDING-LEFT: 10px
+}
+.pl15 {
+	PADDING-LEFT: 15px
+}
+.pl20 {
+	PADDING-LEFT: 20px
+}
+.pr5 {
+	PADDING-RIGHT: 5px
+}
+.pr10 {
+	PADDING-RIGHT: 10px
+}
+.pr15 {
+	PADDING-RIGHT: 15px
+}
+.pr20 {
+	PADDING-RIGHT: 20px
+}
+.clear {
+	CLEAR: both
+}
+.col_3 {
+	COLOR: #333
+}
+.bod_t1 {
+	BORDER-TOP: #cbcbcb 1px solid
+}
+.bod_b1 {
+	BORDER-BOTTOM: #cbcbcb 1px solid
+}
+.col_6 {
+	COLOR: #666
+}
+.col_org {
+	COLOR: #fd6c03
+}
+#wrapper {
+	
+}
+.top_tool_bg {
+	WIDTH: 100%; BACKGROUND: url(../image/sunyindex_bg.gif) #fdfdfd repeat-x 0px 0px; HEIGHT: 32px
+}
+.top_tool {
+	MARGIN: 0px auto; WIDTH: 980px
+}
+.toptool_left {
+	LINE-HEIGHT: 32px
+}
+.toptool_right {
+	LINE-HEIGHT: 32px; HEIGHT: 32px
+}
+.top_tool_bg .toptool_right A {
+	COLOR: #666; TEXT-DECORATION: none
+}
+#header {
+	MARGIN: 16px auto 0px; WIDTH: 980px
+}
+.logo A {
+	TEXT-INDENT: -99999em; WIDTH: 190px; DISPLAY: block; BACKGROUND: url(../image/logo.gif) no-repeat 0px 10px; HEIGHT: 53px
+}
+.top_pic {
+	WIDTH: 520px; DISPLAY: inline; BACKGROUND: #cccccc; FLOAT: left; HEIGHT: 60px; MARGIN-LEFT: 86px
+}
+.phone_number {
+	FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+#nav_box {
+	MARGIN: 15px 0px 10px; BACKGROUND: url(../image/sunyindex_bg.gif) repeat-x 0px -32px; HEIGHT: 40px; CLEAR: both
+}
+#menu {
+	LINE-HEIGHT: 40px; MARGIN: 0px auto; WIDTH: 980px; HEIGHT: 40px
+}
+#nav {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 150%; BORDER-RIGHT-WIDTH: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FLOAT: left; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0px
+}
+#nav .menu_line {
+	WIDTH: 8px; BACKGROUND: url(../image/menu_line.gif) no-repeat center top
+}
+#nav LI {
+	POSITION: relative; FLOAT: left; HEIGHT: 40px
+}
+#nav LI A {
+	PADDING-LEFT: 6px; DISPLAY: block; BACKGROUND: url(../image/menu_on_left.gif) no-repeat left top; FLOAT: left; HEIGHT: 40px; CURSOR: pointer; TEXT-DECORATION: none
+}
+#nav LI A .right_bg {
+	PADDING-BOTTOM: 11px; LINE-HEIGHT: 14px; PADDING-LEFT: 10px; PADDING-RIGHT: 14px; BACKGROUND: url(../image/menu_on_right.gif) no-repeat right top; FLOAT: left; COLOR: #ffffff; FONT-SIZE: 14px; FONT-WEIGHT: bold; TEXT-DECORATION: none; PADDING-TOP: 15px
+}
+#nav LI A SPAN.nav_ico_rec {
+	POSITION: absolute; WIDTH: 28px; DISPLAY: inline-block; BACKGROUND: url(../image/icon_py_1209.gif) no-repeat 0px 0px; HEIGHT: 17px; TOP: -7px; LEFT: 60px
+}
+#nav LI .nav_on {
+	BACKGROUND-POSITION: left 100%
+}
+#nav LI .nav_on SPAN {
+	PADDING-BOTTOM: 9px; PADDING-LEFT: 10px; PADDING-RIGHT: 14px; BACKGROUND-POSITION: right 100%; COLOR: #ff6b08; TEXT-DECORATION: none; PADDING-TOP: 17px
+}
+#nav_user {
+	FONT-FAMILY: Tahoma,Geneva,sans-serif; FLOAT: right; HEIGHT: 36px; PADDING-TOP: 4px
+}
+#loginon {
+	COLOR: #fff
+}
+#loginon {
+	POSITION: relative; TEXT-ALIGN: right; WIDTH: 128px; FLOAT: left; COLOR: #ffffff
+}
+#nav_user A {
+	COLOR: #fff
+}
+#login {
+	POSITION: relative; WIDTH: 64px; FLOAT: left
+}
+#name_reg {
+	WIDTH: 64px; FLOAT: left
+}
+#my_account {
+	Z-INDEX: 2; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-LEFT: 10px; WIDTH: 82px; PADDING-RIGHT: 0px; FLOAT: left; HEIGHT: 35px; PADDING-TOP: 0px
+}
+#my_account .name {
+	BORDER-BOTTOM: #d1d1d1 1px; BORDER-LEFT: #d1d1d1 1px solid; PADDING-BOTTOM: 0px; PADDING-LEFT: 10px; PADDING-RIGHT: 6px; DISPLAY: inline-block; BACKGROUND: #fff; COLOR: #333; BORDER-TOP: #d1d1d1 1px solid; BORDER-RIGHT: #d1d1d1 1px solid; PADDING-TOP: 0px
+}
+#my_account .name A {
+	COLOR: #333
+}
+#my_account .name A.right_arrow {
+	PADDING-RIGHT: 15px; BACKGROUND: url(../image/icon_index_1209.gif) no-repeat right -27px
+}
+.select_ul {
+	Z-INDEX: 101; POSITION: absolute; BORDER-LEFT: #d1d1d1 1px solid; WIDTH: 80px; BACKGROUND: #fff; TOP: 36px; BORDER-RIGHT: #d1d1d1 1px solid; LEFT: 10px
+}
+.select_ul LI {
+	BORDER-BOTTOM: #dddddd 1px solid; PADDING-BOTTOM: 0px; LINE-HEIGHT: 28px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; HEIGHT: 28px; OVERFLOW: hidden; PADDING-TOP: 0px
+}
+#nav_user .select_ul LI A {
+	COLOR: #555555; CURSOR: pointer
+}
+#login_div {
+	Z-INDEX: 120; BORDER-BOTTOM: #b6b6b6 1px solid; POSITION: absolute; BORDER-LEFT: #b6b6b6 1px solid; PADDING-BOTTOM: 15px; PADDING-LEFT: 20px; WIDTH: 290px; PADDING-RIGHT: 10px; BACKGROUND: #fff; HEIGHT: 240px; BORDER-TOP: #b6b6b6 1px solid; TOP: 36px; BORDER-RIGHT: #b6b6b6 1px solid; PADDING-TOP: 20px; LEFT: -82px
+}
+#login_div A {
+	COLOR: #3366cc
+}
+#login_div .closed {
+	POSITION: absolute; WIDTH: 19px; BACKGROUND: url(../image/closed_ico.gif) no-repeat 0px 0px; HEIGHT: 19px; TOP: 8px; CURSOR: pointer; RIGHT: 0px
+}
+.loginbox {
+	BORDER-BOTTOM: #bababa 1px solid; BORDER-LEFT: #bababa 1px solid; PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #fff; MARGIN: 0px auto; PADDING-LEFT: 8px; WIDTH: 200px; PADDING-RIGHT: 0px; FONT: 14px ¡®Microsoft YaHei¡¯; HEIGHT: 22px; COLOR: #000; BORDER-TOP: #bababa 1px solid; BORDER-RIGHT: #bababa 1px solid; PADDING-TOP: 8px
+}
+#login_div .on {
+	BORDER-BOTTOM: #0099ff 1px solid; BORDER-LEFT: #0099ff 1px solid; BORDER-TOP: #0099ff 1px solid; BORDER-RIGHT: #0099ff 1px solid
+}
+#login_div .submit {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; LINE-HEIGHT: 30px; WIDTH: 84px; BACKGROUND: url(../image/login_subimt.gif) no-repeat; HEIGHT: 30px; COLOR: #fff; BORDER-TOP: medium none; CURSOR: pointer; BORDER-RIGHT: medium none
+}
+.l_share A {
+	TEXT-INDENT: -2000px; WIDTH: 34px; DISPLAY: block; BACKGROUND: url(../image/login_share.gif) no-repeat; FLOAT: left; HEIGHT: 34px; OVERFLOW: hidden; MARGIN-RIGHT: 14px
+}
+.l_share .sina_share {
+	BACKGROUND-POSITION: -1px 2px
+}
+.l_share .sina_share:hover {
+	BACKGROUND-POSITION: -1px -34px
+}
+.l_share .qq_share {
+	BACKGROUND-POSITION: -46px 2px
+}
+.l_share .qq_share:hover {
+	BACKGROUND-POSITION: -46px -34px
+}
+.l_share .rr_share {
+	BACKGROUND-POSITION: -91px 2px
+}
+.l_share .rr_share:hover {
+	BACKGROUND-POSITION: -91px -34px
+}
+.l_share .tx_share {
+	BACKGROUND-POSITION: -136px 2px
+}
+.l_share .tx_share:hover {
+	BACKGROUND-POSITION: -136px -34px
+}
+.l_share .kx_share {
+	BACKGROUND-POSITION: -181px 2px
+}
+.l_share .kx_share:hover {
+	BACKGROUND-POSITION: -181px -34px
+}
+.l_share .sh_share {
+	BACKGROUND-POSITION: -226px 2px
+}
+.l_share .sh_share:hover {
+	BACKGROUND-POSITION: -226px -34px
+}
+.right_arrow {
+	PADDING-RIGHT: 15px; BACKGROUND: url(../image/icon_index_1209.gif) no-repeat right -2px
+}
+#footer {
+	TEXT-ALIGN: left; PADDING-BOTTOM: 20px; MARGIN: 20px 0px; BACKGROUND: url(../image/foot_bg.gif) repeat-x; CLEAR: both; PADDING-TOP: 30px
+}
+#footer .foot {
+	MARGIN: 0px auto; WIDTH: 980px; COLOR: #666
+}
+#footer .foot_text {
+	WIDTH: 700px
+}
+#footer .foot_text A {
+	MARGIN: 0px 5px; COLOR: #666666; TEXT-DECORATION: none
+}
+#footer .foot_logo {
+	WIDTH: 220px
+}
+#footer .foot_info {
+	WIDTH: 980px; MARGIN-BOTTOM: 20px
+}
+#footer .foot_info P {
+	COLOR: #666
+}
+#footer .foot_info A {
+	COLOR: #666; MARGIN-RIGHT: 15px
+}
+#footer .foot_info .chengs_0918 A {
+	WIDTH: 70px; FLOAT: left; HEIGHT: 22px; COLOR: #666; OVERFLOW: hidden; MARGIN-RIGHT: 0px
+}

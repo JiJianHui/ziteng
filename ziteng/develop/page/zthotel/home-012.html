@@ -1,0 +1,401 @@
+<HTML>
+
+<HEAD>
+
+<META content="IE=7.0000" http-equiv="X-UA-Compatible">
+<TITLE>Hotel Booking</TITLE>
+<META content="text/html;" charset="utf-8" http-equiv="Content-Type">
+<SCRIPT type="text/javascript" charset="utf-8" src="home01/jquery-1.6.2.js"></SCRIPT>
+<SCRIPT type="text/javascript" charset="utf-8" src="home01/jquery-ui.js"></SCRIPT>
+<SCRIPT type="text/javascript" charset="utf-8" src="home01/public.js"></SCRIPT>
+<SCRIPT type="text/javascript" charset="utf-8" src="home01/thickbox.js"></SCRIPT>
+<link href="home01/bootstrap.min.css" rel="stylesheet" type="text/css">
+<LINK rel=stylesheet type=text/css href="home01/thickbox-info.css">
+<LINK rel=stylesheet type=text/css href="home011/public.css">
+<LINK rel=stylesheet type=text/css href="home01/jquery-ui.css">
+<LINK rel=stylesheet type=text/css href="home011/index.css">
+<LINK rel=stylesheet type=text/css href="home011/sow.css">
+</HEAD>
+
+<BODY>
+<!--头部-->
+	<div class="header">
+		<div class="reo_header">
+			<div class="top">
+				<div class="c" id="statusBar">
+					<!-- 用于登录栏 -->
+				</div>
+			</div>
+			<div id="div_login" style="display: none" class="div_login">
+				<ul class="blue_line">
+				</ul>
+				<form id="headLogin" onsubmit="return false">
+					<ul class="unstyled" style="margin-top: 15px; margin-top: 20px;">
+						<li style="line-height: 35px;">Account：<input id="login_account"
+							type="text" name="head_account" data-check-sta='Y'
+							data-check-type='isname' msgVal='Phone/Email/Username'
+							style="width: 65%; color: #CCC" value="Phone/Email/Username" />
+						</li>
+						<li style="line-height: 35px;">Password：<input type="password"
+							msgVal='Password' id="headpassword" name="head_password"
+							style="width: 65%; margin-top: 0px; color: #000;" />
+						</li>
+					</ul>
+					<ul class="inline"
+						style="height: 30px; line-height: 30px; margin-top: 3px;">
+						<li id="head-login-errormsg"
+							style="width: 150px; text-align: left; margin-left: 0px; padding-left: 0px;"
+							class="text-error"></li>
+						<li style="width: 60px; text-align: right;"><a
+							href="getpassword.html">Forgot Password</a></li>
+					</ul>
+					<ul style="margin-top: 5px;">
+						<li><input type="submit" value="Login"
+							style="width: 200px; height: 30px; margin: 0 0 0 40px;"
+							id="head_login" class="btn btn-primary" /></li>
+					</ul>
+				</form>
+			</div>
+		</div>
+
+		<div id="nav_header">
+			<ul>
+				<li class="titlewz">
+					<ol olnum="0">
+						<img src="../public/images/headLogo.png"
+							style="margin-right: 3px; margin-bottom: 2px;" />
+						<a style="color: #FC3;" href="../home.html">Homepage</a>
+					</ol>
+					<ol olnum="1">
+						<a href="../gonglue.html">Travel Guide</a>
+					</ol>
+					<ol olnum="2">
+						<a href="../activity.html">Activities</a>
+					</ol>
+					<ol olnum="3">
+						<a href="../rentcar.html">Itinerary</a>
+					</ol>
+					<ol olnum="4">
+						<a href="../carsharing/carsharing_list.html">Car Sharing</a>
+					</ol>
+					<ol olnum="5">
+						<a href="home.html">Hotel Booking</a>
+					</ol>
+					<ol olnum="6">
+						<a href="#">BBS</a>
+					</ol>
+				</li>
+			</ul>
+			<ul>
+				<span id="blueline" class="testline" style="margin-left: 17px" />
+			</ul>
+		</div>
+
+		<div id="page_loading"
+			style="display: none; background: #000; display: block; position: absolute; top: 0; left: 0; z-index: 10000; opacity: 0.1; filter: progid:DXImageTransform.Microsoft.Alpha(opacity=10);"></div>
+		<img src="../public/images/loading.gif"
+			style="display: none; width: 32px; height: 32px; z-index: 11000; position: absolute; border: 0;"
+			id="page_loadimg" />
+	</div>
+	<!--头部end -->
+
+
+<!--Content Start-->
+<DIV class=th_main>
+<DIV class=mbdh>
+
+	<DIV class=mbdh_txt>
+		<A title=Hotel Booking href="http://www.sunnychina.com/hotel/">Hotel Booking</A> 
+		<A title="北京 Hotel Booking" href="http://www.sunnychina.com/hotel/city_0101.html">北京Hotel</A> <A title="Beijing joy city Hotel Booking" href="http://www.sunnychina.com/hotel/area_0101_2129.html">Beijing joy cityHotel</A> 
+		<SPAN>Beijing health Hotel</SPAN>
+	</DIV>
+
+	<!--
+	<DIV class=right_boxfx>
+		<DIV style="LINE-HEIGHT: 12px" id=bdshare class=bdshare_b>
+		<IMG src="home011/type-button-6.jpg"> 
+		</DIV>
+	</DIV>
+	-->
+</DIV><!--mbdh end -->
+
+<DIV class=title_top>
+	<DIV class=top_left>
+	<H1>Beijing health Hotel <SPAN class="star_img star_9"></SPAN></H1>
+	<P>Address：Number 130, Shifo street, chaoyang district,Beijing <A class=thickbox 
+	href="http://www.sunnychina.com/hotel/map.asp?hotelid=9120&amp;TB_iframe=true&amp;width=600&amp;height=410" 
+	rel=nofollow>electronic map</A> </P>
+	</DIV>
+	<DIV class=top_right>
+		<DIV class=top_price>Price：<SPAN class=price_txt>£ 459 </SPAN>Start<SPAN 
+		class=fan_icon> 26 </SPAN></DIV>
+		<DIV class=red_txt><A title=Beijing health Hotel Group Purchase 
+		href="http://tuan.sunnychina.com/tuangou_view_156270.html" target=_blank><SPAN 
+		class=tuan_icon></SPAN>Only £ 449</A></DIV>
+		</DIV>
+	</DIV>
+<DIV class=img_info>
+	<DIV class=photo_fl>
+		<DIV class=big_photo><IMG alt=Beijing health Hotel picture 
+		src="home011/20130321104738SggHhQVR.jpg" width=348 height=233>
+		</DIV>
+		<DIV class=small_photo>
+		<UL class=slide_pic_list>
+		  <LI><A href="javascript:"><IMG alt=Hiroba Restaurant 
+		  src="home011/20130321104738SggHhQVR(1).jpg" width=100 height=75></A> <SPAN 
+		  class=img_list_name>Hiroba Restaurant </SPAN></LI>
+		  <LI><A href="javascript:"><IMG alt=Suite 
+		  src="home011/201309031644513dISwasB.jpg" width=100 height=75></A> <SPAN 
+		  class=img_list_name>Suite </SPAN></LI>
+		  <LI><A href="javascript:"><IMG alt=Deluxe double 
+		  src="home011/201309031644511KbcQ9Ve.jpg" width=100 height=75></A> <SPAN 
+		  class=img_list_name>Deluxe double </SPAN></LI>
+		  <LI><A href="javascript:"><IMG alt=Hiroba Restaurant 
+		  src="home011/201303211047390Cb8cglV.jpg" width=100 height=75></A> <SPAN 
+		  class=img_list_name>Hiroba Restaurant </SPAN></LI>
+		  <LI><A href="javascript:"><IMG alt=Butsu restaurant 
+		  src="home011/20130321104739LD5DdNRr.jpg" width=100 height=75></A> <SPAN 
+		  class=img_list_name>Butsu restaurant </SPAN></LI>
+		  <LI><A href="javascript:"><IMG alt=Butsu restaurant 
+		  src="home011/20130321104739wp4cl1Ei.jpg" width=100 height=75></A> <SPAN 
+		  class=img_list_name>Butsu restaurant </SPAN></LI>
+		  <LI><A href="javascript:"><IMG alt=Hotel Exterior 
+		  src="home011/2012060710211504889090.jpg" width=100 height=75></A> <SPAN 
+		  class=img_list_name>Hotel Exterior </SPAN></LI>
+		  <LI><A href="javascript:"><IMG alt=multi-function room
+		  src="home011/2012060710211287692013.jpg" width=100 height=75></A> <SPAN 
+		  class=img_list_name>multi-function room</SPAN></LI>
+		  <LI><A href="javascript:"><IMG alt=Butsu restaurant 
+		  src="home011/20130321104740TuUu5E5E.jpg" width=100 height=75></A> <SPAN 
+		  class=img_list_name>Butsu restaurant </SPAN></LI></UL>
+		</DIV>
+	</DIV><!--photo_fl end 图片效果展示-->
+<DIV class=right_price>
+	<DIV class=pingj>
+		<DIV class=good_pj><SPAN class=good1>&nbsp;&nbsp;好&nbsp;&nbsp;</SPAN> 83.22 % 
+		<SPAN class="color_666 font_12">Good Reviews</SPAN></DIV>
+			<DIV class=right_dpzs><SPAN>74 customers booked recently</SPAN>&nbsp; 
+			<A title=Beijing health Hotel点评 href="http://www.sunnychina.com/hotel/hotelReview_9120.html#review">Totally 48 reviews 
+			>></A>
+			</DIV>
+		</DIV>
+		<DIV class=dianping_box>
+			<DIV class=dianping_boxwz>The hotel is very good , the rooms are very comfortable？\r\nThe hotel is very good , the rooms are very comfortable 
+			</DIV>
+			<P><SPAN class=dp_tx></SPAN><STRONG>13****1888 </STRONG>Released： 2014-03-26 </P>
+			<P align=right><A title=Check Beijing health Hotel Reviews
+			href="http://www.sunnychina.com/hotel/hotelReview_9120.html#review">More Reviews</A></P>
+
+		</DIV>
+	</DIV><!--pingj end -->
+	<DIV class=clear></DIV>
+</DIV><!--right_price end -->
+
+
+<DIV class=clear></DIV>
+
+<DIV class=part2_box>
+	<DIV class=side_l>
+		<DIV class=mn_box>
+			<DIV class=top>Map</DIV>
+			<DIV class=bg2><A class=thickbox title=Beijing health Hotel Map href="http://www.sunnychina.com/hotel/map.asp?hotelid=9120&amp;TB_iframe=true&amp;width=600&amp;height=410" rel=nofollow><IMG src="home011/staticimage.png" width=200 
+			height=200></A>
+			</DIV>
+		</DIV>
+		<div class="mn_box">
+			<div class="top">Why choose us</div>
+			<div class="bg2">
+				<ul class="why_us2">
+					<li>No reservation fee Cash back </li>
+					<li>Over 40000 rooms sold In a single day </li>
+					<li>Nationwide 30 thousand hotels To choose</li>
+					<li>Whole refund If there is no rooms</li>
+					<li>Keep steady price， Always the same </li>
+				</ul>
+			</div>
+		</div>
+
+
+		<DIV class=mn_box>
+			<DIV class=top>Browsing history</DIV>
+			<DIV class="bg2 bod_b_1">
+				<DL class=seenHotel>
+					<A class=img_hotel title=Beijing health Hotel   href="http://www.sunnychina.com/hotel/hotel_9120.html" target=_blank>
+					<IMG   src="home011/20130321104742cRMRNnWw.jpg" width=60 height=60> </A>
+					<DT><A href="http://www.sunnychina.com/hotel/hotel_9120.html"   target=_blank>Beijing health Hotel </A>
+					</DT>
+					<DD><SPAN class="star_img star_9"></SPAN></DD>
+					<DD>459 start </DD>
+				</DL>
+			</DIV>
+		</DIV>
+	</DIV><!--side_l end -->
+
+
+<DIV class=side_r>
+	<DIV class=Menubox>
+		<UL>
+		  <LI index="0"><a href="home-011.html">Hotel Booking</a> </LI>
+		  <LI index="1"><a href="home-011.html#image">Hotel pictures</a> </LI>
+		  <LI class=hover index="2">
+		  Reviews(48) </LI>
+		</UL>
+	</DIV>
+	
+
+	<div class="MenuMain " id="HotelReview">
+        <div class="pingjia_bg">
+          <div class="comment_top">
+            <div class="left">Beijing health Hotel
+                            <p><span class="font14_h">Satisfication</span> <span class="color_ff6 font24">83.26% </span>The data from booking</p>
+                          </div>
+            <div class="right">Totally 48 reviews
+              <div class="dp_butbox">
+                <input type="button" value="Comment" class="dp_but" onclick="top.location='http://member.sunnychina.com/dianping/list_hotel_dianping.asp'">
+              </div>
+            </div>
+          </div>
+          <ul class="dianp">
+                                        <li>
+                                        <div class="left"><span class="font_16">£</span>
+                      228
+                    </div>
+                                      <div class="right">
+                    <p><span class="dp_tx"></span><strong>13****1888</strong> Released 2014-03-26</p>
+                     The hotel is very good , the rooms are very comfortable？\r\nThe hotel is very good , the rooms are very comfortable？</div>
+                </li>
+                              <li>
+                                        <div class="left"><span class="font_16">£</span>
+                      114
+                    </div>
+                                      <div class="right">
+                    <p><span class="dp_tx"></span><strong>18****2862</strong> Released 2014-01-17</p>
+                     The hotel is very good , the rooms are very comfortable</div>
+                </li>
+                              <li>
+                                        <div class="left"><span class="font_16">£</span>
+                      57
+                    </div>
+                                      <div class="right">
+                    <p><span class="dp_tx"></span><strong>18****2862</strong> Released 2014-01-17</p>
+                     The hotel is very good , the rooms are very comfortable</div>
+                </li>
+                              <li>
+                                        <div class="left"><span class="font_16">£</span>
+                      57
+                    </div>
+                                      <div class="right">
+                    <p><span class="dp_tx"></span><strong>13****8782</strong> Released 2013-12-25</p>
+                     The hotel is very good , the rooms are very comfortable</div>
+                </li>
+                              <li>
+                                        <div class="left"><span class="font_16">£</span>
+                      57
+                    </div>
+                                      <div class="right">
+                    <p><span class="dp_tx"></span><strong>18****9066</strong> Released 2013-11-14</p>
+                     The hotel is very good , the rooms are very comfortable</div>
+                </li>
+                              <li>
+                                        <div class="left"><span class="font_16">£</span>
+                      57
+                    </div>
+                                      <div class="right">
+                    <p><span class="dp_tx"></span><strong>13****7169</strong> Released 2013-10-16</p>
+                     The hotel is very good , the rooms are very comfortable</div>
+                </li>
+                              <li>
+                                        <div class="left"><span class="font_16">£</span>
+                      57
+                    </div>
+                                      <div class="right">
+                    <p><span class="dp_tx"></span><strong>13****9115</strong> Released 2013-09-02</p>
+                     The hotel is very good , the rooms are very comfortable</div>
+                </li>
+                              <li>
+                                        <div class="left"><span class="font_16">£</span>
+                      57
+                    </div>
+                                      <div class="right">
+                    <p><span class="dp_tx"></span><strong>13****4154</strong> Released 2013-09-01</p>
+                     The hotel is very good , the rooms are very comfortable！</div>
+                </li>
+                              <li>
+                                        <div class="left"><span class="font_16">£</span>
+                      148
+                    </div>
+                                      <div class="right">
+                    <p><span class="dp_tx"></span><strong>13****0285</strong> Released 2013-07-25</p>
+                     The hotel is very good , the rooms are very comfortable</div>
+                </li>
+                       
+                                  </ul>
+        	<div class="pag3_div_down">
+                        	<ul><li class="pag_frist_bg"><span class="page_01 like-a" relid="1"><span class="page_1"></span>Homepage </span></li><li class="page_on">1</li><li><span class="like-a" relid="2"> 2 </span></li><li><span class="like-a" relid="3"> 3 </span></li><li><span class="page_01 like-a" relid="3">末页<span class="page_4"></span></span></li></ul>
+                        <div class="clear"></div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+</div>
+</div>
+</div>
+
+<SCRIPT type=text/javascript>
+var par={
+keyPoiName:"",
+hotelName:"",
+cityName:"Beijing",
+cityId:"0101",
+checkInDate:"2014-04-03",
+checkOutDate:"2014-04-04",
+baiduLat:0,
+baiduLng:0,
+sort:0,
+pageType:"0",
+laiyuan:"sunny",
+shenhe:"1",
+hotelid:"9120",
+uid:"0",
+staticUrl:"http://images.sunnychina.com/v2",
+xpoint:"116.5138705",
+ypoint:"39.93810069",
+imagenum:"23",
+page:1,
+pageSize:20,
+MaxPage:0,
+reviewCount:"48"
+}
+</SCRIPT>
+
+<!--Content End-->
+
+<!-- footer start-->
+	<div class="footer">
+		<div class="nav_footer">
+	  		<div>
+	    		<ul class="inline">
+	      		<li><a  href="/ziteng/page/home.html">Homepage</a></li>
+	      		<li><a  href="#">Service Stores</a></li>
+	      		<li><a  href="#">Help Centre</a></li>
+	      		<li><a  href="#">About Us</a></li>
+	        </ul>
+	  		</div>
+		</div>
+		<div class="container">
+	  		<div>
+	    		<ul class="unstyled">
+	      		<li>The website is owned by ToWorld Company</li>
+	    		</ul>
+	    		<ul class="unstyled">
+	      		<li>Copyright @2014 www.ToWorld.com All Rights Reserved</li>
+	    		</ul>
+	  		</div>
+		</div>
+	</div>
+	
+	<!-- footer end -->
+
+
+
+</BODY></HTML>

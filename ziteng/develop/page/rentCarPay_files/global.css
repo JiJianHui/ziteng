@@ -1,0 +1,279 @@
+/* CSS Document */
+@import url(link.css);
+
+*{
+   margin:0;
+   padding:0;
+}
+/* Fix a bug in Mozilla */
+html{ 
+	min-width: 900px;
+}
+img{
+	border: 0;
+}
+p.access{
+	display: none;
+}
+h2{
+    font-size:12px;
+}
+ul{
+    list-style:none;
+}
+input{
+    font-size:12px;
+	vertical-align:middle;
+}
+input.text
+{
+   height:14px;
+   padding:2px;
+   border:1px solid #7F9DB9;
+}
+input,select,textarea{
+    font-size:12px;
+}
+select{
+    vertical-align:middle;
+}
+textarea{
+    overflow:auto;
+	overflow-x:hidden;
+	padding:5px;
+}
+body{
+    text-align: center;
+	border:0;
+	background:#FFF;
+	color:#333;
+	font:12px/150% Tahoma,Verdana,Helvetica, sans-serif,"Lucida Grande", "Trebuchet MS", "Bitstream Vera Sans";
+}
+.fix:after{
+    content: "."; 
+    display: block;
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+div.hack{
+    clear:both;
+	height:0;
+	visibility:hidden;
+	font-size:0;
+	line-height:0;
+}
+.font14{
+    font-size:14px;
+}
+.bold{
+    font-weight:bold;
+}
+.blue{
+    color:#039;
+}
+.red{
+    color:#C00;
+}
+.orange{
+    color:#F60;
+}
+div#main{
+    width:900px;
+	margin:0 auto;
+	text-align:left;
+}
+div#top{
+    width:900px;
+	margin-bottom:10px;
+}
+div.logoArea{
+    height:81px;
+}
+div.logoArea a.logo{
+    float:left;
+}
+div.logoArea table.easyTable{
+    float:right;
+}
+div.navigator{
+    width:892px;
+	height:73px;
+	background:url(../i/bg_nav.gif) no-repeat;
+	padding:0 4px;
+}
+div.navigator div.buttonList{
+    height:36px;
+	background:url(../i/bg_nav1.jpg) repeat-x;
+}
+div.navigator div.buttonList ul li{
+    display:inline;
+    float:left;
+}
+body#index li#index{
+    display:none;
+}
+div.navigator div.loginBar{
+    height:29px;
+	padding:8px 15px 0 15px;
+	*height:31px;
+	*padding-top:6px;
+	background:url(../i/bg_nav2.jpg) repeat-x;
+}
+div.navigator div.loginBar input.text{
+    width:86px;
+	height:14px;
+	padding:2px;
+	border:1px solid #83A0BE;
+}
+div#banner{
+    width:900px;
+}
+div#banner div.ad{
+    width:297px;
+	height:270px;
+	float:left;
+}
+div#banner div.bigButton{
+    width:593px;
+	float:right;
+}
+div#banner div.bigButton ul li{
+    display:inline;
+    float:left;
+}
+div#banner div.bigButton ul li img{
+    display:block;
+}
+div.indexAd{
+    width:296px;
+	height:142px;
+	margin-top:17px;
+	float:left;
+}
+div.news{
+    width:322px;
+	margin-left:9px;
+	margin-top:17px;
+	float:left;
+}
+div.news h2{
+    height:24px;
+	line-height:26px;
+	background:#F3F3F3;
+	border-bottom:5px solid #E5E5E5;
+	color:#003365;
+	font-weight:bold;
+	padding:0 8px 0 20px;
+}
+div.news h2 span{
+    float:right;
+	font-weight:normal;
+}
+div.news ul{
+    margin-top:8px;
+}
+div.news ul li{
+    padding:1px 8px 1px 20px;
+	background:url(../i/ar1.gif) no-repeat 4px 7px;
+}
+div.news ul li span{
+    float:right;
+	color:#A5A5A5;
+	font-size:11px;
+}
+div.financial{
+    width:258px;
+	float:right;
+	border:1px solid #E4E4E4;
+	margin-top:17px;
+}
+div.financial h2{
+    background:#F3F3F3;
+	height:30x;
+	line-height:26px;
+	color:#003365;
+	font-weight:bold;
+	padding:0 8px 0 20px;
+}
+div.financial ul.icon1{
+    background:url(../i/dotted.gif) repeat-x bottom;
+	margin:0 5px;
+	padding:9px 0;
+}
+div.financial ul li{
+	display:inline;
+}
+div.financial ul li img{
+}
+div.financial ul.icon2{
+	margin:0 5px;
+	padding:8px 0;
+}
+div.financial ul li.more{
+    float:right;
+	padding:13px 0 0 0;
+}
+div.financial h3{
+    height:17px;
+	padding-top:5px;
+	color:#484848;
+	clear:both;
+	font-weight:normal;
+	font-size:12px;
+	margin:0 13px;
+}
+#footer{
+    clear:both;
+	width:900px;
+	margin-bottom:30px;
+}
+div.friendlink{
+    padding-top:20px;
+    width:900px;
+	height:40px;
+}
+#footer .commonlink{
+    clear:both;
+    margin-top:16px;
+	height:33px;
+	line-height:33px;
+	border:1px solid #EDEDED;
+	background:#F0F0F0;
+	text-align:center;
+}
+#footer .commonlink ul{
+    margin:0 auto;
+}
+#footer .commonlink ul li{
+    padding:0 12px;
+	background:url(../i/line1.gif) no-repeat center right;
+	display:inline;
+}
+#footer div.siteinfo{
+    margin-top:10px;
+}
+#footer div.siteinfo span.site{
+    float:left;
+}
+#footer div.siteinfo span.copyright{
+    float:right;
+}
+fieldset{width:560px;border:#B1B1B1 solid 1px; padding:10px;margin-top:10px;}
+fieldset legend{ font-weight:bold; margin:0px; font-size:14px; background-color:#f6f6f6;  padding:5px;}
+fieldset label{ width:100px; float:left; text-align:right;padding:2px 10px;}
+fieldset div{ margin:5px;clear:both;text-align:left;}
+fieldset div input.text1,
+fieldset div input.text2
+{
+   width:124px;
+   height:18px;
+   border:1px solid #7F9DB9;
+}
+fieldset div input.text2{
+   width:196px;
+}
+table#example td{
+   background:#F9F9F9;
+   padding:0 10px;
+}

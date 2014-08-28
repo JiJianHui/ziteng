@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=10" /><title>Change Password</title>
+<script src="public/javascript/jquery.js?1396343960"> </script>
+<script src="public/javascript/jquery.easing.1.3.js"> </script>
+<script src="public/javascript/bootstrap/bootstrap.js"> </script>
+<link rel="stylesheet" type="text/css" href="public/css/bootstrap/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="public/css/home.css?1396343960"/>
+<link rel="stylesheet" type="text/css" href="public/css/MyReocar.css?1396343960"/>
+<script language="javascript" type="text/javascript">
+$(function(){
+	
+	$("#changePassword").submit(
+		function()
+		{
+			var oldPassword	=	$('input[name="password"]').val();
+			var nPassword	=	$('input[name="member_password"]').val();
+			
+			var sta1	=	oldPassword.length  > 5 && oldPassword.length < 17;
+			var sta2	=	checkRegExps($('input[name="member_password"]'));
+			var sta3	=	checkRegExps($('input[name="member_rpassword"]'));
+			
+			if(sta1 && sta2 && sta3)
+			{
+				$("#oldPsdMsg").fadeOut(300);
+				$("#nPsdMsg").fadeOut(300);
+				$("#nrPsdMsg").fadeOut(300);
+				
+				$.post
+				(
+					'/useraction/checkUserOldPassword',
+					{password:oldPassword,type:'ajax'},
+					function(result)
+					{
+						result	=	parseInt(result);
+						
+						if(result == 1)
+						{
+							$.post(
+								"/useraction/updatePassword",
+								{o_password:oldPassword,member_password:nPassword},
+								function(results)
+								{
+									result	=	parseInt(results);
+									
+									if(result == 1)
+									{
+										alert('Change password successfully, login again！');
+										window.location.href='';
+									}
+									else
+									{
+										alert('Failed ,Try again later！');
+									}
+								}
+							)
+						}
+						else
+						{
+							$("#oldPsdMsg").html('The original password is wrong');
+							$("#oldPsdMsg").fadeIn(300);
+						}
+					}
+				);
+			}
+			else
+			{
+				if(!sta1)
+				{
+					$("#oldPsdMsg").html('Please input the correct password');
+					$("#oldPsdMsg").fadeIn(300);
+				}
+				if(!sta2)
+				{
+					$("#nPsdMsg").fadeIn(300);
+				}
+				if(!sta3)
+				{
+					$("#nrPsdMsg").fadeIn(300);
+				}
+			}
+			
+			return false;
+		}
+	);
+});
+</script>
+</head>
+<body>
+	
+<div>
+	<iframe name="header" id="header" src="header.html" width="100%" frameborder="no" border=0 marginwidth=0 marginheight=0 scrolling="no"></iframe>
+</div>
+	
+<!-- 中间部分start-->
+<div class="container" style="margin-top: 40px;">
+  <div class="row-fluid"> 
+    <!--  左边start-->
+    <script language="javascript" type="text/javascript" src="public/javascript/leftlistjs.js?1396343960"></script>
+
+<div class="span3 letDiv" style="width:212px; margin-left:0px;">
+  <div class="leftList">
+<ul class="leftFirstTitle"><img src="public/images/reocarleft1.gif"/>Order Management</ul>
+	<ul class="unstyled"><a href="order.html"><li >My Order</li></a></ul>
+	<ul class="leftFirstTitle"><img src="public/images/reocarleft2.gif"/>Asset Management</ul>
+	<ul class="unstyled">
+		<a href="point.html"><li >My Points</li></a>
+		<a href="coupons.html"><li >My Coupon</li></a></ul>
+	<ul class="leftFirstTitle"><img src="public/images/reocarleft3.gif"/>Member Priority</ul>
+	<ul class="unstyled">
+		<a href="right.html"><li >Priority Introduction</li></a>
+		<a href="pointmall.html"><li >Points Mall</li></a></ul>
+	<ul class="leftFirstTitle"><img src="public/images/reocarleft4.gif"/>Account Management</ul>
+	<ul class="unstyled">
+		<a href="userinfo.html"><li >Personal Profile</li></a>
+		<a href="changepwd.html"><li >Change passowrd</li></a>
+	</ul>  
+</div>
+</div>
+    <!-- 左边end--> 
+    <!-- 右边start-->
+    <style>
+	span
+	{
+		margin-left:10px;
+	}
+    </style>
+    <div id="rigthDiv" class="span9">
+      <h2> Change Password</h2>
+      <hr />
+      <form id="changePassword"> 
+      <table class=" table table-hover table-striped table-bordered t">
+        <tr>
+          <td class="tabwenzi"><span>Original Password</span></td>
+          <td><input type="password" name="password"/><span id="oldPsdMsg" style="display:none" class="text-error">Please input the correct password</span></td>
+        </tr>
+        <tr>
+          <td class="tabwenzi"><span>New Password</span></td>
+          <td><input name="member_password" type="password" data-check-sta='Y' data-check-type='isPasswd'><span style="display:none" class="text-error" id="nPsdMsg">Please input password</span></td>
+        </tr>
+        <tr>
+          <td class="tabwenzi"><span>Confirm New Password</span></td>
+          <td><input name="member_rpassword" type="password" data-check-sta='Y' data-check-type='rplay' data-check-rtype='member_password'><span style="display:none" class="text-error" id="nrPsdMsg">两次Password必须一致</span></td>
+        </tr>
+      </table>
+      <input type="submit" class="btn btn-primary" style="margin-left:260px;" value=" Change Password " />
+      </form>
+    </div>
+    <!-- 右边end--> 
+  </div>
+</div>
+<!-- footer start-->
+	<div class="footer">
+		<div class="nav_footer">
+	  		<div>
+	    		<ul class="inline">
+	      		<li><a  href="/ziteng/page/home.html">Homepage</a></li>
+	      		<li><a  href="#">Service Stores</a></li>
+	      		<li><a  href="#">Help Centre</a></li>
+	      		<li><a  href="#">About Us</a></li>
+	        </ul>
+	  		</div>
+		</div>
+		<div class="container">
+	  		<div>
+	    		<ul class="unstyled">
+	      		<li>The website is owned by ToWorld Company</li>
+	    		</ul>
+	    		<ul class="unstyled">
+	      		<li>Copyright @2014 www.ToWorld.com All Rights Reserved</li>
+	    		</ul>
+	  		</div>
+		</div>
+	</div>
+	<!-- footer end -->
+</body>
+<script type="text/javascript"> var $line = $("span.testline"); var $w = $(".testbox > div").width();
+        var m = 0; $(".testbox > div").each(function (n) {
+            var x = $w * n; $(this).mouseenter(function () {
+                $line.stop(true, true).animate({ "margin-left": x }, "slow", "easeOutBack");
+            }); $("a", this).click(function () {
+                m = x;
+            });
+        }); $(".testbox").mouseleave(function () {
+            $line.stop(true, true).animate({ "margin-left": m }, "slow", "easeOutBack");
+        }); 
+</script>
+</html>

@@ -1,0 +1,37 @@
+﻿.bank_icon{display:inline-block;width:120px;height:35px;background:url(../pic/bank_icons.png?t=201403191048) no-repeat;border:1px #e8e8e8 solid;cursor:pointer;vertical-align:middle;overflow:hidden;position:relative}
+.bank_icon em{position:absolute;top:-50px;left:0}
+.bank_icon i{display:none;width:11px;height:11px;background:url(../pic/bank_icons.png?t=201403191048) no-repeat 0 -805px;position:absolute;right:0;bottom:0;_bottom:-1px;overflow:hidden}
+.bank_icon:hover,.bank_on{border:1px #f60 solid}
+.bank_on i{display:inline-block}
+.bank_gray{-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-ms-filter:grayscale(100%);-o-filter:grayscale(100%);filter:grayscale(100%);filter:gray;cursor:not-allowed}
+.bank_icon_zhifubao{background-position:0 3px}
+.bank_icon_caifutong{background-position:0 -30px}
+.bank_icon_jianshe{background-position:0 -65px}
+.bank_icon_gongshang{background-position:0 -100px}
+.bank_icon_nongye{background-position:0 -135px}
+.bank_icon_jiaotong{background-position:0 -170px}
+.bank_icon_zhaoshang{background-position:0 -205px}
+.bank_icon_zhongguo{background-position:0 -240px}
+.bank_icon_zhongxin{background-position:0 -276px}
+.bank_icon_guangfa{background-position:0 -310px}
+.bank_icon_minsheng{background-position:0 -345px}
+.bank_icon_xingye{background-position:0 -380px}
+.bank_icon_pufa{background-position:0 -415px}
+.bank_icon_guangda{background-position:0 -450px}
+.bank_icon_pingan{background-position:0 -485px}
+.bank_icon_shenfa{background-position:0 -520px}
+.bank_icon_beijing{background-position:0 -555px}
+.bank_icon_shanghai{background-position:0 -590px}
+.bank_icon_huaixia{background-position:0 -625px}
+.bank_icon_youzheng{background-position:0 -660px}
+.bank_icon_ningbo{background-position:0 -695px}
+.bank_icon_uponline{background-position:0 -730px}
+.bank_icon_upepay{background-position:0 -765px}
+.bank_icon_visa{background-position:0 -835px}
+.bank_icon_master{background-position:0 -868px}
+.bank_icon_amex{background-position:0 -905px}
+.bank_icon_jcb{background-position:0 -940px}
+.bank_icon_lakala{background-position:0 -971px}
+.bank_icon_jifenleyuan{background-position:0 -1005px}
+.bank_icon_PayPal{background-position:0 -1042px}
+.bank_icon_hangzhou{background-position:0 -1081px}

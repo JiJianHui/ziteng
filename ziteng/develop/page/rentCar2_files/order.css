@@ -1,0 +1,89 @@
+/* CSS Document */
+.Pop-up-box {
+	background-color:#FFF;
+	border-radius: 5px;
+	width:968px;
+	height:230px;
+	text-align:center;
+	display:none;
+}
+.Pop-up-box ul {
+	padding:5px 0px;
+	margin: 0 auto;
+	height:30px;
+	line-height:30px;
+	text-align:left;
+	clear:both;
+}
+.Pop-up-box .close {
+	width:100%;
+	height:22px;
+	padding-top:8px;
+	padding-bottom:10px;
+}
+.Pop-up-box .close img {
+	margin-right:8px;
+	float:right;
+	cursor:pointer;
+}
+#userLogin ul
+{
+	width:360px;
+}
+#LoginBox ul
+{
+	width:540px;
+}
+#codeTrue ul
+{
+	width:475px;
+	text-align:left;
+	font-size:15px;
+	height:20px;
+	line-height:20px;
+}
+#changeTrue ul
+{
+	font-size:15px;
+	height:25px;
+	line-height:25px;
+	padding:3px 0px;
+	width:280px;
+}
+#codeBox ul
+{
+	width:450px;
+}
+.Pop-up-box .inlineul
+{
+	padding-left:65px;
+	width:455px;
+}
+
+.Pop-up-box .inputTitle
+{
+	width:80px;
+	text-align:right;
+}
+.checkcodeUl
+{
+	display:block;
+}
+.checkcodeUl li
+{
+	margin-top:2px;
+	margin-bottom:2px;
+}
+.codeOk
+{
+	width:530px !important;
+	display:none;
+}
+
+#reorders ul
+{
+	width:525px;
+	text-align:left;
+	height:20px;
+	line-height:20px;
+}

@@ -1,0 +1,418 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>后台数据管理</title>
+ <script language="javascript" type="text/javascript" src="../public/javascript/jquery.js"></script>
+   <script language="javascript" type="text/javascript" src="../public/javascript/jquery.easing.1.3.js"> </script>
+   <script language="javascript" type="text/javascript" src="../public/javascript/bootstrap/bootstrap.js"> </script>
+   <script language="javascript" type="text/javascript" src="../js/hotel/hotelinfo.js"></script>
+   <script language="javascript" type="text/javascript" src="../js/ajaxfileupload.js"></script>
+   
+	<link href="bootstrap/prettify.css" rel="stylesheet">
+<link href="bootstrap/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+<link href="bootstrap/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+<script src="bootstrap/jquery.hotkeys.js"></script>
+<script src="bootstrap/bootstrap-wysiwyg.js"></script>
+<link href="admin_style.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style1 {
+	color: #0033FF;
+	font-weight: bold;
+}
+-->
+</style>
+
+<Script Language="JavaScript">
+	<!--
+	function chk_data(){
+		if (document.myform.hotelName.value==""){
+			alert("Operation出错：Hotel Title不能为空！");
+			document.myform.hotelName.focus();
+			return false;
+		}
+		if (document.myform.hotelStar.value==0){
+			alert("Operation出错：请选择星级！");
+			document.myform.hotelStar.focus();
+			return false;
+		}
+		if (document.myform.hotelType.value==0){
+			alert("Operation出错：请选择类型！");
+			document.myform.hotelType.focus();
+			return false;
+		}
+		if (document.myform.ownArea.value==""){
+			alert("Operation出错：请选择城市！");
+			document.myform.ownArea.focus();
+			return false;
+		}
+		if (document.myform.hotelManger.value==""){
+			alert("Operation出错：Please type in the 管理员Title！");
+			document.myform.hotelManger.focus();
+			return false;
+		}
+		if (document.myform.hotelMgnPhone.value==""){
+			alert("Operation出错：输入管理员Phone！");
+			document.myform.hotelMgnPhone.focus();
+			return false;
+		}
+		
+		hotelInfoUpdate();
+	}
+	// -->
+</Script>
+<script>    
+  var thisURL = document.URL;    
+  var  getval =thisURL.split('?')[1];  
+  var showval= getval.split("=")[1];  
+</script>
+
+<script>
+function uploadFile(){
+	var fileName = $("#fileToUpload").val();
+	
+	if(fileName == null || fileName == undefined || fileName=="")
+	{
+		alert("请选择上传文件");
+		return false;
+	}
+	
+	if(!/\.(gif|jpg|jpeg|png|GIF|JPG|PNG)$/.test(fileName))
+    {
+      alert("图片类型必须是.gif,jpeg,jpg,png中的一种")
+      return false;
+    }
+	
+	 $.ajaxFileUpload({
+	        url:'/ziteng/v/tools/uploadImage.do',//处理图片脚本
+	        type: 'post',
+	        secureuri :false,
+	        fileElementId :'fileToUpload',	//注意-1：file控件id，改控件的name必须为file
+	        dataType : 'json',
+	        data:{'type':'hotel'}, 		//注意-2：type的取值为 activity | guide | hotel | user 
+	        success : function (datas, status){
+	            var json = datas;			//注意-3： datas本身就是json对象。
+	            if(json.success){
+	            	var uploadFilePath = json.datas.filePath;
+	            	//alert(uploadFilePath); // 此处应该给隐藏控件赋值 将路径复制给隐藏控件
+					document.getElementById("hotelImgUrl").value=uploadFilePath;
+	            }
+	            //alert(json.msg);
+	        },
+	        error: function(datas, status, e){
+	            alert(e);
+	        }
+	}); 
+	 return false;
+}
+var upFilePath;
+function uploadFile1(){
+	var fileName = $("#fileToUpload1").val();
+	
+	if(fileName == null || fileName == undefined || fileName=="")
+	{
+		alert("请选择上传文件");
+		return false;
+	}
+	
+	if(!/\.(gif|jpg|jpeg|png|GIF|JPG|PNG)$/.test(fileName))
+    {
+      alert("图片类型必须是.gif,jpeg,jpg,png中的一种")
+      return false;
+    }
+	
+	 $.ajaxFileUpload({
+	        url:'/ziteng/v/tools/uploadImage.do',//处理图片脚本
+	        type: 'post',
+	        secureuri :false,
+	        fileElementId :'fileToUpload1',	//注意-1：file控件id，改控件的name必须为file
+	        dataType : 'json',
+	        data:{'type':'hotel'}, 		//注意-2：type的取值为 activity | guide | hotel | user 
+	        success : function (datas, status){
+	            var json = datas;			//注意-3： datas本身就是json对象。
+	            if(json.success){
+	            	var uploadFilePath = json.datas.filePath;
+	            	upFilePath = uploadFilePath;
+					//alert(uploadFilePath); // 此处应该给隐藏控件赋值 将路径复制给隐藏控件
+					document.getElementById("hotelImgUrl1").value=uploadFilePath;
+					//alert(upFilePath);
+					var remarks = document.getElementById("photoremarks").value;
+					addPhoto(remarks,upFilePath,showval);
+	            }
+	            //alert(json.msg);
+	        },
+	        error: function(datas, status, e){
+	            alert(e);
+	        }
+	}); 
+	
+	
+	
+	 return false;
+}
+
+function addPhoto(remarks,uploadFilePath,hotelId)
+{
+
+	//alert("路径：" + uploadFilePath + "Hotelid" + hotelId);
+	var date = new Date();
+	
+	var params = {"hotelId":hotelId,"imgUrl":uploadFilePath,"uploadDate":date,"remarks":remarks,};
+	//alert("aa" + hotelId);
+	var url = "/ziteng/hotel/hotelPhotoAdd.do";	
+	$.post(url,params,function(data){
+		var json = eval('('+data+')');
+		if(json.success){			
+			alert("添加成功！"+json.msg);
+			getHotelPhoto(hotelId);
+						
+		}else{
+			alert(json.msg);
+		}
+	});
+}
+</script>
+</head>
+<body onload="hotelInitInfo(showval)">
+<table cellpadding="4" cellspacing="1" border="0" width="100%" class="border" align=center>
+  <tr align="center" valign="bottom"><td height=25 class="topbg"><span class="title1">Hotel信息管理</span></tr>
+  <tr>
+    <td height=23 class="tdbg">&nbsp;<a href="hotel_add.html">Add Hotel</a>&nbsp;|&nbsp;<a href="hotel.html">管理Hotel信息</a>&nbsp;|&nbsp;<a href="hotel.html">查询Hotel信息</a></td>
+  </tr>
+</table>
+<br>
+<table width="100%" height="100" border="0" cellpadding="0" cellspacing="0">
+<form name="myform">
+  <tr>
+    <td align="center">
+<table width="100%" height="181" border="0" cellpadding="2" cellspacing="1"class="border">
+  <tr class="title">
+    <td height="23" colspan="4" align="center"><span class="title2">
+     编辑Hotel信息</span></td>
+  </tr>
+  <tr class="tdbg">
+    <td width="15%" height="25" align="right" valign="middle">Hotel Title：</td>
+    <td width="26%" valign="bottom">
+	<input name="hotelId" type="hidden"  id="hotelId" value="" size="25" maxlength="40" value="">
+	<input name="hotelName" type="text" class="Input" id="hotelName" value="" size="25" maxlength="40"></td>
+    <td width="12%" align="right" valign="bottom">Hotel Star：</td>
+<td width="47%" valign="bottom">
+<select name="hotelStar" class="Select" id="hotelStar" style="width:157">
+<option value="0" selected>请选择星级</option>
+
+</select>
+</td>
+  </tr>
+  <tr class="tdbg">
+    <td height="25" align="right" valign="middle">Hotel type：</td>
+    <td valign="bottom">
+<select name="hotelType" class="Select" id="hotelType" style="width:157">
+<option value="0" selected>请选择类型</option>
+
+</select>
+	</td>
+    <td align="right" valign="bottom">所在城市：</td>
+    <td valign="bottom">
+	<select name="ownArea" class="Select" id="ownArea" style="width:157">
+	<option value="0" selected>请选择城市</option>
+
+</select></td>
+  </tr>
+
+  <tr class="tdbg">
+    <td height="25" align="right" valign="middle">Hotel Management员：</td>
+    <td valign="bottom">
+		<input name="hotelManger" type="text" class="Input" id="hotelManger" value="" size="25" maxlength="40">
+	</td>
+    <td align="right" valign="bottom">Contacts：</td>
+    <td valign="bottom">
+		<input name="hotelMgnPhone" type="text" class="Input" id="hotelMgnPhone" value="" size="25" maxlength="40">
+	</td>
+  </tr>
+  <tr class="tdbg">
+    <td height="25" align="right" valign="middle">Hotel详细Address：</td>
+    <td valign="bottom" colspan="3">
+	<textarea name="addressDesc" cols="250" rows="3" id="addressDesc" ></textarea>
+	</td>
+  </tr>
+  <tr class="tdbg">
+    <td align="right" valign="bottom">Hotel坐标：</td>
+    <td valign="bottom" colspan="3">
+		<input name="expandCol2" type="text" class="Input" id="expandCol2" value="116.357126,39.96981" size="25" maxlength="50"> 例：116.357126,39.969811
+	</td>
+  </tr>
+  <tr class="tdbg">
+    <td height="25" align="right" valign="middle">Hotel主图：</td>
+    <td colspan="3" valign="bottom">
+		<input id="fileToUpload" type="file" size="20" name="file" class="input">
+		<input id="buttonUpload"  value="上传" type="button" onclick="uploadFile();" >
+		&nbsp;&nbsp;
+		<input type="text" name="hotelImgUrl" id="hotelImgUrl" value="" readonly>
+	</td>
+  </tr>
+  <tr class="tdbg">
+    <td height="25" align="right" valign="middle">Hotel介绍：</td>
+    <td colspan="3" valign="bottom">
+	
+<!--
+	<textarea id="hotelContent" name="hotelContent" cols="135" rows="4"  class="input"></textarea>-->
+
+
+<div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+      <div class="btn-group">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" title="" data-original-title="Font"><i class="icon-font"></i><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+          <li><a data-edit="fontName Serif" style="font-family:'Serif'">Serif</a></li><li><a data-edit="fontName Sans" style="font-family:'Sans'">Sans</a></li><li><a data-edit="fontName Arial" style="font-family:'Arial'">Arial</a></li><li><a data-edit="fontName Arial Black" style="font-family:'Arial Black'">Arial Black</a></li><li><a data-edit="fontName Courier" style="font-family:'Courier'">Courier</a></li><li><a data-edit="fontName Courier New" style="font-family:'Courier New'">Courier New</a></li><li><a data-edit="fontName Comic Sans MS" style="font-family:'Comic Sans MS'">Comic Sans MS</a></li><li><a data-edit="fontName Helvetica" style="font-family:'Helvetica'">Helvetica</a></li><li><a data-edit="fontName Impact" style="font-family:'Impact'">Impact</a></li><li><a data-edit="fontName Lucida Grande" style="font-family:'Lucida Grande'">Lucida Grande</a></li><li><a data-edit="fontName Lucida Sans" style="font-family:'Lucida Sans'">Lucida Sans</a></li><li><a data-edit="fontName Tahoma" style="font-family:'Tahoma'">Tahoma</a></li><li><a data-edit="fontName Times" style="font-family:'Times'">Times</a></li><li><a data-edit="fontName Times New Roman" style="font-family:'Times New Roman'">Times New Roman</a></li><li><a data-edit="fontName Verdana" style="font-family:'Verdana'">Verdana</a></li></ul>
+        </div>
+      <div class="btn-group">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" title="" data-original-title="Font Size"><i class="icon-text-height"></i>&nbsp;<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+          <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
+          <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
+          <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+          </ul>
+      </div>
+      <div class="btn-group">
+        <a class="btn" data-edit="bold" title="" data-original-title="Bold (Ctrl/Cmd+B)"><i class="icon-bold"></i></a>
+        <a class="btn" data-edit="italic" title="" data-original-title="Italic (Ctrl/Cmd+I)"><i class="icon-italic"></i></a>
+        <a class="btn" data-edit="strikethrough" title="" data-original-title="Strikethrough"><i class="icon-strikethrough"></i></a>
+        <a class="btn" data-edit="underline" title="" data-original-title="Underline (Ctrl/Cmd+U)"><i class="icon-underline"></i></a>
+      </div>
+      <div class="btn-group">
+        <a class="btn" data-edit="insertunorderedlist" title="" data-original-title="Bullet list"><i class="icon-list-ul"></i></a>
+        <a class="btn" data-edit="insertorderedlist" title="" data-original-title="Number list"><i class="icon-list-ol"></i></a>
+        <a class="btn" data-edit="outdent" title="" data-original-title="Reduce indent (Shift+Tab)"><i class="icon-indent-left"></i></a>
+        <a class="btn" data-edit="indent" title="" data-original-title="Indent (Tab)"><i class="icon-indent-right"></i></a>
+      </div>
+      <div class="btn-group">
+        <a class="btn btn-info" data-edit="justifyleft" title="" data-original-title="Align Left (Ctrl/Cmd+L)"><i class="icon-align-left"></i></a>
+        <a class="btn" data-edit="justifycenter" title="" data-original-title="Center (Ctrl/Cmd+E)"><i class="icon-align-center"></i></a>
+        <a class="btn" data-edit="justifyright" title="" data-original-title="Align Right (Ctrl/Cmd+R)"><i class="icon-align-right"></i></a>
+        <a class="btn" data-edit="justifyfull" title="" data-original-title="Justify (Ctrl/Cmd+J)"><i class="icon-align-justify"></i></a>
+      </div>
+      <div class="btn-group">
+		  <a class="btn dropdown-toggle" data-toggle="dropdown" title="" data-original-title="Hyperlink"><i class="icon-link"></i></a>
+		    <div class="dropdown-menu input-append">
+			    <input class="span2" placeholder="URL" type="text" data-edit="createLink">
+			    <button class="btn" type="button">Add</button>
+        </div>
+        <a class="btn" data-edit="unlink" title="" data-original-title="Remove Hyperlink"><i class="icon-cut"></i></a>
+
+      </div>
+      
+      <div class="btn-group">
+        <a class="btn" title="" id="pictureBtn" data-original-title="Insert picture (or just drag &amp; drop)"><i class="icon-picture"></i></a>
+        <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" style="opacity: 0; position: absolute; top: 0px; left: 0px; width: 41px; height: 30px;">
+      </div>
+      <div class="btn-group">
+        <a class="btn" data-edit="undo" title="" data-original-title="Undo (Ctrl/Cmd+Z)"><i class="icon-undo"></i></a>
+        <a class="btn" data-edit="redo" title="" data-original-title="Redo (Ctrl/Cmd+Y)"><i class="icon-repeat"></i></a>
+      </div>
+      <input type="text" data-edit="inserttext" id="voiceBtn" x-webkit-speech="" style="display: none;">
+    </div>
+	<div id="editor" contenteditable="true">
+      
+    </div>
+<script>
+  $(function(){
+    function initToolbarBootstrapBindings() {
+      var fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier', 
+            'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Lucida Sans', 'Tahoma', 'Times',
+            'Times New Roman', 'Verdana'],
+            fontTarget = $('[title=Font]').siblings('.dropdown-menu');
+      $.each(fonts, function (idx, fontName) {
+          fontTarget.append($('<li><a data-edit="fontName ' + fontName +'" style="font-family:\''+ fontName +'\'">'+fontName + '</a></li>'));
+      });
+      $('a[title]').tooltip({container:'body'});
+    	$('.dropdown-menu input').click(function() {return false;})
+		    .change(function () {$(this).parent('.dropdown-menu').siblings('.dropdown-toggle').dropdown('toggle');})
+        .keydown('esc', function () {this.value='';$(this).change();});
+
+      $('[data-role=magic-overlay]').each(function () { 
+        var overlay = $(this), target = $(overlay.data('target')); 
+        overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
+      });
+      $('#voiceBtn').hide();
+      // if ("onwebkitspeechchange"  in document.createElement("input")) {
+      //   var editorOffset = $('#editor').offset();
+      //   $('#voiceBtn').css('position','absolute').offset({top: editorOffset.top, left: editorOffset.left+$('#editor').innerWidth()-35});
+      // } else {
+      //   $('#voiceBtn').hide();
+      // }
+    };
+    initToolbarBootstrapBindings();  
+    $('#editor').wysiwyg();
+    window.prettyPrint && prettyPrint();
+  });
+</script>
+	</td>
+  </tr>
+  <tr class="tdbg">
+    <td height="25" align="right" valign="middle">服务项目：</td>
+    <td colspan="3" valign="bottom"><textarea name="hotelServices" cols="135" rows="4" id="hotelServices" class="input"></textarea></td>
+  </tr>
+  <tr class="tdbg">
+    <td height="25" align="right" valign="middle">信息控制：</td>
+    <td colspan="3" valign="bottom">
+      
+	  &nbsp;&nbsp;排名：
+	  <input name="hotelOrder" type="text" class="input" id="hotelOrder" onKeyUp='this.value=this.value.replace(/\D/gi,"")'  size="10" maxlength="14" value="0"> <span class="title3">名</span>
+	  &nbsp;&nbsp;浏览：<input name="browseNum" type="text" class="input" id="browseNum" onKeyUp='this.value=this.value.replace(/\D/gi,"")'  size="10" maxlength="14" value="0"> <span class="title3">次</span></td>
+  </tr>
+</table>
+<br>
+<table width="100%" height="25" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center" valign="middle"><input name="Submit" type="button" class="bt" value="ConfirmChange" onclick="chk_data();">
+&nbsp;&nbsp;
+
+<input name="Cancel" type="button" class="bt" id="Cancel" onClick="history.go(-1)" value="返回Operation">
+  </tr>
+</table>
+<br>
+	
+	</td>
+  </tr>
+  </form>
+</table>
+
+<table cellpadding="4" cellspacing="1" border="0" width="100%" class="border" align=center>
+  <tr align="center" valign="bottom">
+    <td class="topbg"><span class="title1">Hotel图片展示</span> </td>
+  </tr>
+  
+  <tr>
+  <td>
+  图片描述
+  <input id="photoremarks" type="text" size="20" name="photoremarks" class="input">
+  <input id="fileToUpload1" type="file" size="20" name="file" class="input">
+  <button id="buttonUpload1" onclick="uploadFile1(showval);">添加Hotel图片</button>
+  <input type="text" name="hotelImgUrl1" id="hotelImgUrl1" value="" readonly>
+  </td>
+  </tr>
+
+  <tr align="center" valign="bottom">
+    <td>
+    <table id="hotelimg">
+	<tr>
+	<td><div><img src="../../../page/upload/image/hotel/1399454853587.gif" width=100 height=100 /><br>删除</div></td>
+	</tr>
+	</table>
+	
+	</td>
+  </tr>
+  
+</table>
+<br>
+<br>
+<table cellpadding="4" cellspacing="1" border="0" width="100%" class="border" align=center>
+  <tr align="center" valign="bottom">
+    <td height=25 class="topbg"><span class="title1">版权信息</span> 
+  </tr>
+
+ 
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

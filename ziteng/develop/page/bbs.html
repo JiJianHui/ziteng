@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=9" />
+<script language="javascript" type="text/javascript" src="http://api.map.baidu.com/api?v=1.4"></script>
+<script src="public/javascript/jquery.js"> </script>
+<script src="public/javascript/jquery.easing.1.3.js"> </script>
+<script src="public/javascript/bootstrap/bootstrap.js"> </script>
+<script src="public/javascript/dismap.js"> </script>
+<link rel="stylesheet" type="text/css" href="public/css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="public/css/home.css">
+<link rel="stylesheet" type="text/css" href="public/css/MyReocar.css"/>
+<script language="javascript" type="text/javascript">
+$(function()
+{
+	$('.areaUl li,.cityUl li').click
+	(
+		function()
+		{
+			var cityId	=	$(this).attr('cityId');
+			var shopArr	=	$(this).attr('shopinfoarr');
+			
+			if(typeof(cityId) != 'undefined' || (typeof(shopArr) != 'undefined' && shopArr != ''))
+			{
+				$(this).parent().find('li').removeClass();
+				$(this).attr('class','selectedLi');
+				
+				if(typeof(cityId) != 'undefined')
+				{
+					var areaUlObj	=	$('.areaUl');
+					
+					for(var i=0;i<areaUlObj.length;i++)
+					{
+						if(areaUlObj.eq(i).css('display') == 'block')
+						{
+							var disUlId	=	areaUlObj.eq(i).attr('id');
+							break;
+						}
+					}
+					
+					disUlIdArr	=	disUlId.split('_');
+					
+					$('#'+disUlId).hide();
+					$('#areaul_'+cityId).fadeIn(300);
+					$('#areaul_'+cityId).find('li').eq(1).click();
+					
+				}
+				else
+				{
+					$('.shopInfobgBox').hide();
+					$('.shopInfoBox').hide();
+					createMap($(this));
+					
+					var shopList	=	$(this).attr('shopInfoArr').split('+');
+					var htmlArr		=	'';
+					
+					for(var i=0;i<shopList.length;i++)
+					{
+						var shopInfo	=	shopList[i].split('_');
+						htmlArr	+=	'<li id="shop'+shopInfo[1]+'" area_id='+shopInfo[3]+' shop_id="'+shopInfo[1]+'" class="shoplistLin">'+shopInfo[2]+'</li>';
+						
+						if($(this).prev().attr('id') == 'addresFirstLi' && i == 9)
+						{
+							break;
+						}
+					}
+					
+					$('.shopList').html(htmlArr);
+				}
+			}
+		}
+	);
+	
+	$(document).on
+	(
+		'click',
+		".shoplistLin",
+		function()
+		{
+			createMap($("#areaLi"+$(this).attr('area_id')),$(this).attr('shop_id'));
+		}
+	);
+});
+	
+	
+    </script>
+<style>
+body {
+	text-align:center;
+}
+.centerBox {
+	width:960px;
+	margin-top:20px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:left;
+}
+.areaLi {
+	border-right:1px solid #000;
+}
+#addresFirstLi {
+	font-size:14px;
+	font-weight:bold;
+	text-align:left;
+	border:0px;
+	width:80px;
+}
+.Level {
+	border-bottom:2px solid #d8d8d8;
+	width:100%;
+	height:0px;
+	margin:10px 0px;
+}
+.shopMapBox ul {
+	float:left;
+}
+.mapUl {
+	overflow:hidden;
+	position:relative;
+	margin-right:10px;
+	width:708px;
+	height:515px;
+	border:1px solid #808080;
+}
+.shopList {
+	width:240px;
+}
+.shopList li {
+	font-size:14px;
+	text-align:center;
+	margin-bottom:4px;
+	height:43px;
+	line-height:43px;
+	cursor:pointer;
+}
+.shoplistLin {
+	height:46px;
+	width:238px;
+	color:#666666;
+	background-image:url(public/images/shopListBG.png);
+	border:1px solid #a4a3a3;
+}
+.shoplistLiy {
+	height:48px;
+	width:240px;
+	color:#FFF;
+	background-color:#0064c8;
+}
+.mapfirstli {
+	height:30px;
+	line-height:30px;
+	background-color:#CCC;
+}
+#mapBox {
+	width:748px;
+	height:300px;
+}
+.coverLi {
+	position:absolute;
+	height:35px;
+	width:708px;
+	margin-left:0px;
+	margin-bottom:0px;
+}
+.shopInfoBox {
+	z-index:99999;
+	opacity:1;
+	width:708px;
+	height:135px;
+	margin:1px;
+	font-size:12px;
+	position:absolute;
+}
+.shopInfobgBox {
+	z-index:10;
+	opacity:0.6;
+	filter:alpha(Opacity=60);
+	width:708px;
+	height:135px;
+	margin:1px;
+	font-size:12px;
+	background-color:#000;
+	position:absolute;
+}
+.shopInfoBox ul {
+	float:left;
+	color:#FFF;
+	list-style:none;
+}
+.shopInfoUl {
+	margin-top:15px;
+	margin-left:15px;
+	width:500px;
+}
+.shopRent {
+	width:200px;
+}
+.cityUl li {
+	font-size:14px;
+	text-align:center;
+	line-height:27px;
+	width:60px;
+	height:27px;
+	border-right:1px solid #d7d7d7;
+	cursor:pointer;
+}
+.selectedLi {
+	color:#FFF;
+	background-color:#ffc80c;
+}
+.areaUl li {
+	cursor:pointer;
+	height:25px;
+	line-height:25px;
+	width:70px;
+	text-align:center;
+	border-right:1px solid #d7d7d7;
+}
+.shopNameLi {
+	color:#ffc80c;
+	font-size:20px;
+	height:20px;
+	margin-bottom:15px;
+}
+.shopInfoUl li {
+	clear:both;
+}
+.shopInfoUl ol {
+	float:left;
+	width:440px;
+}
+#ol1 {
+	width:60px;
+}
+.buttonLi {
+	padding:42px 16px;
+}
+.buttonLi input {
+	width:150px;
+	height:51px;
+	font-size:14px;
+	font-weight:bold;
+}
+</style>
+
+<script language="javascript" type="text/javascript">if(top.location!=self.location)top.location=self.location;</script>
+</head>
+
+<body>
+	
+<div>
+<iframe name="header" id="header" src="header.html" width="100%" frameborder="no" border=0 marginwidth=0 marginheight=0 scrolling="no"></iframe>
+</div>
+
+<!-- 中间部分start-->
+<div class="centerBox">
+  <ul class="inline cityUl">
+    <li id="addresFirstLi">城市：</li>
+    <li cityId="广州" class="selectedLi">广州(29)</li><li cityId="深圳" class="">深圳(31)</li><li cityId="武汉" class="">武汉(20)</li><li cityId="长沙" class="">长沙(16)</li><li cityId="重庆" class="">重庆(9)</li><li cityId="北京" class="">北京(1)</li>  </ul>
+    <ul class="inline areaUl" id="areaul_广州" style="margin-top:10px; ">
+    <li id="addresFirstLi">行政区域：</li>
+    <li shopInfoArr="113.407173,23.127855_1672cb34-728b-4f1d-9cc1-c9116892b322_广州东圃店_天河区+113.37425,23.141452_c40f19d7-f9ad-45b0-a3ea-361c91115f4d_广州天河公园店_天河区+113.387805,23.132101_89f59500-a173-48cd-aa95-e3163427cd1a_广州棠下骏景店_天河区+113.287056,23.08751_d0eef51d-abe0-40d9-b93e-88eed825f8d1_广州江泰地铁站店_海珠区+113.352232,23.177777_152623ad-abfa-47f9-b882-67f5bc62e1bf_广州天河客运站店_天河区+113.249494,23.211933_f2c8c61f-b924-459a-a368-df04967a9f47_广州石井店_白云区+113.457236,23.107034_7075ac22-d79a-4593-a8d2-335d6a4fe808_广州黄埔大沙地店_黄埔区+113.61,23.13_42b3a351-9b0e-4275-a355-a787ae2f8978_广州增城新塘店_增城市+113.322965,23.094641_6e97a42c-c8fe-45b7-b732-73ad1fa4d22b_广州敦和店_海珠区+113.330155,23.164415_cf5cbf67-e0ad-46ea-a49d-eeb44dc64103_广州天平架水果批发市场店_天河区+113.369907,22.948337_98f35133-2a2c-4d0a-bb80-94f4cdaab2e7_广州番禺市桥易发步行街店_番禺区+113.251381,23.138249_c74fa617-d1e0-4704-9dbf-3e7ae82146eb_广州荔湾店_荔湾区+113.329603,23.102735_02573e9c-6bee-4771-a1e3-90cdc945d68b_广州客村店_海珠区+113.334842,23.197734_6949564c-47cf-41a2-843e-c0f02a233ad6_广州同和地铁站店_白云区+113.318946,23.026885_7e5079a1-6fa9-466f-9d0e-b2a755d5399d_广州番禺大石店_番禺区+113.273133,23.160201_57ec6232-50e3-4810-9e08-c39bd9aadfd2_广州桂花岗店_白云区+113.342754,23.017314_2dd68b2e-918a-42eb-a6e9-9f01ebf4dc01_广州番禺迎宾大道百世家居店_番禺区+113.35411,23.14971_d03bac5c-cd8e-43ab-b641-234978ba4693_广州华师店_天河区+113.327122,23.181551_998b3cf5-af15-4619-8202-464f1eb3eac4_广州梅花园地铁站店_白云区+113.221035,23.116242_80d3e16c-754e-42ba-866b-0de87547d3df_广州芳村店_荔湾区+113.275329,23.09959_fefb35c4-1592-4981-aeb6-e57dbf1b976a_广州江南西店_海珠区+113.36554,23.128862_cee7b41c-8618-4777-b786-b57300e9ab5e_广州员村家乐福店_天河区+113.19899,23.122481_ee3fbe9a-8a04-49a3-8222-f6d5cc10713e_广东佛山店_荔湾区+113.270608,23.200474_b26c6193-010a-4b20-a900-4450985b901c_广州新市店_白云区+113.534809,23.091544_aed84e50-5e25-441e-959b-6f71925cda78_广州黄埔生活区店_黄埔区+113.278663,23.236688_2a457daa-f7be-41f4-9cdf-529950ae3155_广州嘉禾店_白云区+113.26577,23.174218_c57c9105-2e9a-40a1-b145-d492e3a7db9f_广州三元里乐嘉路店_白云区+113.299453,23.077117_8f5bbda8-b341-42cd-9bd9-51c90899496c_广州东晓南地铁站店_海珠区+113.241959,23.166777_26e11efb-529a-4a8b-a77c-55301d7cee86_广州同德围店_白云区">No limits</li>
+     <li shopInfoArr="113.407173,23.127855_1672cb34-728b-4f1d-9cc1-c9116892b322_广州东圃店_天河区+113.37425,23.141452_c40f19d7-f9ad-45b0-a3ea-361c91115f4d_广州天河公园店_天河区+113.387805,23.132101_89f59500-a173-48cd-aa95-e3163427cd1a_广州棠下骏景店_天河区+113.352232,23.177777_152623ad-abfa-47f9-b882-67f5bc62e1bf_广州天河客运站店_天河区+113.330155,23.164415_cf5cbf67-e0ad-46ea-a49d-eeb44dc64103_广州天平架水果批发市场店_天河区+113.35411,23.14971_d03bac5c-cd8e-43ab-b641-234978ba4693_广州华师店_天河区+113.36554,23.128862_cee7b41c-8618-4777-b786-b57300e9ab5e_广州员村家乐福店_天河区" id="areaLi天河区" class="">天河区(7)</li> <li shopInfoArr="113.287056,23.08751_d0eef51d-abe0-40d9-b93e-88eed825f8d1_广州江泰地铁站店_海珠区+113.322965,23.094641_6e97a42c-c8fe-45b7-b732-73ad1fa4d22b_广州敦和店_海珠区+113.329603,23.102735_02573e9c-6bee-4771-a1e3-90cdc945d68b_广州客村店_海珠区+113.275329,23.09959_fefb35c4-1592-4981-aeb6-e57dbf1b976a_广州江南西店_海珠区+113.299453,23.077117_8f5bbda8-b341-42cd-9bd9-51c90899496c_广州东晓南地铁站店_海珠区" id="areaLi海珠区" class="">海珠区(5)</li> <li shopInfoArr="113.249494,23.211933_f2c8c61f-b924-459a-a368-df04967a9f47_广州石井店_白云区+113.334842,23.197734_6949564c-47cf-41a2-843e-c0f02a233ad6_广州同和地铁站店_白云区+113.273133,23.160201_57ec6232-50e3-4810-9e08-c39bd9aadfd2_广州桂花岗店_白云区+113.327122,23.181551_998b3cf5-af15-4619-8202-464f1eb3eac4_广州梅花园地铁站店_白云区+113.270608,23.200474_b26c6193-010a-4b20-a900-4450985b901c_广州新市店_白云区+113.278663,23.236688_2a457daa-f7be-41f4-9cdf-529950ae3155_广州嘉禾店_白云区+113.26577,23.174218_c57c9105-2e9a-40a1-b145-d492e3a7db9f_广州三元里乐嘉路店_白云区+113.241959,23.166777_26e11efb-529a-4a8b-a77c-55301d7cee86_广州同德围店_白云区" id="areaLi白云区" class="">白云区(8)</li> <li shopInfoArr="113.457236,23.107034_7075ac22-d79a-4593-a8d2-335d6a4fe808_广州黄埔大沙地店_黄埔区+113.534809,23.091544_aed84e50-5e25-441e-959b-6f71925cda78_广州黄埔生活区店_黄埔区" id="areaLi黄埔区" class="">黄埔区(2)</li> <li shopInfoArr="113.61,23.13_42b3a351-9b0e-4275-a355-a787ae2f8978_广州增城新塘店_增城市" id="areaLi增城市" class="">增城市(1)</li> <li shopInfoArr="113.369907,22.948337_98f35133-2a2c-4d0a-bb80-94f4cdaab2e7_广州番禺市桥易发步行街店_番禺区+113.318946,23.026885_7e5079a1-6fa9-466f-9d0e-b2a755d5399d_广州番禺大石店_番禺区+113.342754,23.017314_2dd68b2e-918a-42eb-a6e9-9f01ebf4dc01_广州番禺迎宾大道百世家居店_番禺区" id="areaLi番禺区" class="">番禺区(3)</li> <li shopInfoArr="113.251381,23.138249_c74fa617-d1e0-4704-9dbf-3e7ae82146eb_广州荔湾店_荔湾区+113.221035,23.116242_80d3e16c-754e-42ba-866b-0de87547d3df_广州芳村店_荔湾区+113.19899,23.122481_ee3fbe9a-8a04-49a3-8222-f6d5cc10713e_广东佛山店_荔湾区" id="areaLi荔湾区" class="">荔湾区(3)</li>  </ul>
+    <ul class="inline areaUl" id="areaul_深圳" style="margin-top:10px; display:none;">
+    <li id="addresFirstLi">行政区域：</li>
+    <li shopInfoArr="114.051652,22.604859_ebf7a26e-2660-4c9f-9563-d3716287a1d7_深圳白石龙地铁站店_龙华区+114.083233,22.550352_979e7d83-36be-4ec7-9ba7-574d871fbdc5_深圳福田田面村店_福田区+114.261397,22.725772_1b556ce5-300d-4851-88b5-a070dea42320_深圳龙岗龙城广场店_龙岗区+114.144432,22.621264_1f994da7-0267-45c7-a873-b4395516b993_深圳龙岗大芬店_龙岗区+114.145206,22.551995_247fcd01-b79a-4a11-8027-87f462c7fdb0_深圳黄贝岭地铁站店_罗湖区+113.830974,22.733949_3040e2be-3e80-40f4-bbdc-903a3b9599c8_深圳宝安沙井店_宝安区+113.90268,22.789821_58c9d3de-c293-4b81-b65b-dceeddebf032_深圳宝安公明店_宝安区+114.147714,22.575516_724cc839-b7bc-4880-a008-cb4c3b41cf86_深圳罗湖太安路店_罗湖区+114.116471,22.561497_4303836a-dcdb-4140-9e67-b33ee06bccc2_深圳罗湖笋岗店_罗湖区+114.054899,22.554782_be25f775-276d-4bf0-99d7-e5dc5b69a913_深圳福田莲花西店_福田区+114.074238,22.534005_dba0bee3-770c-47a3-ad8b-a9df088c6a64_深圳福田会展中心店_福田区+114.024827,22.658903_35ed234c-df42-4768-9f0d-1f3383af87c0_深圳龙华工业路店_龙华区+114.042081,22.632453_69f9c8b9-1a2e-43fa-8ae7-4c61cad9ff1d_深圳龙华民治店_龙华区+113.929255,22.678317_e7ad2c7d-9a0d-420d-8d29-e03517774119_深圳宝安石岩店_宝安区+113.875285,22.587261_662acc24-51ba-4490-9f70-d61bc050f6b5_深圳宝安西乡店_宝安区+114.108906,22.544855_2862bdaf-7bda-4732-99c2-2cb5dd12ac48_深圳福田东园路店_福田区+114.055456,22.527932_b50ba193-f337-41a9-80f8-f14067ba9e35_深圳福田新洲店_福田区+114.037647,22.670363_cd2dbb34-dc86-494b-8724-aacd924314ec_深圳龙华365花园店_龙华区+113.831381,22.67205_abe954ac-3c9f-42bd-9823-9b9ef954eaa0_深圳宝安福永店_宝安区+114.046604,22.546485_d150cd41-77a2-47ef-9092-186ba6fc5d98_深圳福田香密湖店_福田区+113.975314,22.546496_d062f654-e393-4beb-b61e-e0645ec6bdaa_深圳南山世界之窗店_南山区+114.129728,22.57532_ad4f778b-447c-416f-85ad-35ee6200d79f_深圳罗湖水贝店_罗湖区+114.128546,22.604856_08a48881-3c31-4eb9-a08a-fce2b3b382fd_深圳龙岗布吉地铁站店_龙岗区+113.92384,22.533889_6fda23d4-288f-453d-a01e-83157f703461_深圳南山学府路店_南山区+113.927937,22.546621_28de81fc-e0a4-4941-a0f2-e6331496862d_深圳南山南头店_南山区+114.067269,22.625983_2c49cdcd-af4e-4ef3-b615-1a214380279a_深圳龙岗五和店_龙岗区+114.203183,22.646771_1d247aac-ec8d-4210-b61e-643e815d98d8_深圳龙岗横岗店_龙岗区+113.85082,22.774179_5d7e10a2-b573-49f5-9153-0ad0acb1bfeb_深圳宝安松岗店_宝安区+113.933212,22.524706_1c7134b8-558e-41c8-b213-20bda84d5f87_深圳南山南光路店_南山区+113.926006,22.494194_9851ce74-9051-425a-b03d-b442fe7dd42b_深圳南山水湾地铁站店_南山区+113.961763,22.584622_8fce5d1b-f87a-4b91-9210-7a73342238ea_深圳南山西丽地铁站店_南山区">No limits</li>
+     <li shopInfoArr="114.051652,22.604859_ebf7a26e-2660-4c9f-9563-d3716287a1d7_深圳白石龙地铁站店_龙华区+114.024827,22.658903_35ed234c-df42-4768-9f0d-1f3383af87c0_深圳龙华工业路店_龙华区+114.042081,22.632453_69f9c8b9-1a2e-43fa-8ae7-4c61cad9ff1d_深圳龙华民治店_龙华区+114.037647,22.670363_cd2dbb34-dc86-494b-8724-aacd924314ec_深圳龙华365花园店_龙华区" id="areaLi龙华区" class="">龙华区(4)</li> <li shopInfoArr="114.083233,22.550352_979e7d83-36be-4ec7-9ba7-574d871fbdc5_深圳福田田面村店_福田区+114.054899,22.554782_be25f775-276d-4bf0-99d7-e5dc5b69a913_深圳福田莲花西店_福田区+114.074238,22.534005_dba0bee3-770c-47a3-ad8b-a9df088c6a64_深圳福田会展中心店_福田区+114.108906,22.544855_2862bdaf-7bda-4732-99c2-2cb5dd12ac48_深圳福田东园路店_福田区+114.055456,22.527932_b50ba193-f337-41a9-80f8-f14067ba9e35_深圳福田新洲店_福田区+114.046604,22.546485_d150cd41-77a2-47ef-9092-186ba6fc5d98_深圳福田香密湖店_福田区" id="areaLi福田区" class="">福田区(6)</li> <li shopInfoArr="114.261397,22.725772_1b556ce5-300d-4851-88b5-a070dea42320_深圳龙岗龙城广场店_龙岗区+114.144432,22.621264_1f994da7-0267-45c7-a873-b4395516b993_深圳龙岗大芬店_龙岗区+114.128546,22.604856_08a48881-3c31-4eb9-a08a-fce2b3b382fd_深圳龙岗布吉地铁站店_龙岗区+114.067269,22.625983_2c49cdcd-af4e-4ef3-b615-1a214380279a_深圳龙岗五和店_龙岗区+114.203183,22.646771_1d247aac-ec8d-4210-b61e-643e815d98d8_深圳龙岗横岗店_龙岗区" id="areaLi龙岗区" class="">龙岗区(5)</li> <li shopInfoArr="114.145206,22.551995_247fcd01-b79a-4a11-8027-87f462c7fdb0_深圳黄贝岭地铁站店_罗湖区+114.147714,22.575516_724cc839-b7bc-4880-a008-cb4c3b41cf86_深圳罗湖太安路店_罗湖区+114.116471,22.561497_4303836a-dcdb-4140-9e67-b33ee06bccc2_深圳罗湖笋岗店_罗湖区+114.129728,22.57532_ad4f778b-447c-416f-85ad-35ee6200d79f_深圳罗湖水贝店_罗湖区" id="areaLi罗湖区" class="">罗湖区(4)</li> <li shopInfoArr="113.830974,22.733949_3040e2be-3e80-40f4-bbdc-903a3b9599c8_深圳宝安沙井店_宝安区+113.90268,22.789821_58c9d3de-c293-4b81-b65b-dceeddebf032_深圳宝安公明店_宝安区+113.929255,22.678317_e7ad2c7d-9a0d-420d-8d29-e03517774119_深圳宝安石岩店_宝安区+113.875285,22.587261_662acc24-51ba-4490-9f70-d61bc050f6b5_深圳宝安西乡店_宝安区+113.831381,22.67205_abe954ac-3c9f-42bd-9823-9b9ef954eaa0_深圳宝安福永店_宝安区+113.85082,22.774179_5d7e10a2-b573-49f5-9153-0ad0acb1bfeb_深圳宝安松岗店_宝安区" id="areaLi宝安区" class="">宝安区(6)</li> <li shopInfoArr="113.975314,22.546496_d062f654-e393-4beb-b61e-e0645ec6bdaa_深圳南山世界之窗店_南山区+113.92384,22.533889_6fda23d4-288f-453d-a01e-83157f703461_深圳南山学府路店_南山区+113.927937,22.546621_28de81fc-e0a4-4941-a0f2-e6331496862d_深圳南山南头店_南山区+113.933212,22.524706_1c7134b8-558e-41c8-b213-20bda84d5f87_深圳南山南光路店_南山区+113.926006,22.494194_9851ce74-9051-425a-b03d-b442fe7dd42b_深圳南山水湾地铁站店_南山区+113.961763,22.584622_8fce5d1b-f87a-4b91-9210-7a73342238ea_深圳南山西丽地铁站店_南山区" id="areaLi南山区" class="">南山区(6)</li>  </ul>
+    <ul class="inline areaUl" id="areaul_武汉" style="margin-top:10px; display:none;">
+    <li id="addresFirstLi">行政区域：</li>
+    <li shopInfoArr="114.33219,30.515297_4419ad06-d2c9-4aaa-b843-d19cdbabd594_武汉南湖店_武昌+114.214074,30.566615_04a6aa41-11fb-4c72-a7e0-63ac6c67f57e_武汉王家湾店_汉阳+114.359327,30.590101_e5dd80f0-a210-4321-8fa8-483487a63d76_武汉徐东店_武昌+114.257972,30.558303_b7db62b5-a373-4248-b390-9cb61b51683a_武汉钟家村店_汉阳+114.419372,30.505883_4b292129-c6de-4a20-a51d-48224f9ae149_武汉光谷关山店_武昌+114.320128,30.629063_82891a4b-80ac-4c4a-a327-58643671fb9f_武汉二七路店_汉口+114.395615,30.510867_5de1c25d-643b-4f37-aa96-d2d0d47bfcb5_武汉光谷广场店_武昌+114.274679,30.614433_668fa40e-2b49-4c45-b279-37ffdecdabbd_武汉菱角湖万达广场店_汉口+114.345238,30.557114_161875c3-15c0-4d6a-84ed-b769dc1abd5f_武汉洪山广场店_武昌+114.308708,30.560266_12f36ab4-79e0-4d5b-9508-7a873c6bc915_武汉黄鹤楼店_武昌+114.294772,30.611201_b49efb27-131e-4f72-9489-1bbbb1d9af78_武汉澳门路店_汉口+114.283282,30.602297_842b47cc-0817-4fb8-b6ef-4f0d83f02823_武汉建设大道云林街店_汉口+114.163574,30.491278_303d1ada-79af-4d83-8da3-c7102f19a406_武汉沌口经济开发区店_汉阳+114.322937,30.538863_2e9fcaef-5827-44f5-b98e-8ef906d4a9cd_武汉武昌火车站店_武昌+114.372249,30.52723_4d9753ff-f50c-4e61-9707-783cebaee7f7_武汉武昌广埠屯店_武昌+114.292117,30.625949_ffc03c8b-24d1-496e-a4ed-de6cb5ec4e64_武汉黄孝河路店_汉口+114.329315,30.535675_3d0c573b-2808-4f46-9a4e-8d1f5186660f_武汉武昌火车站东广场店_武昌+114.269895,30.575306_1e294e2b-7ec2-4664-9458-a59e94fc2efa_武汉硚口中山大道店_汉口+114.281051,30.594882_6c3a4aec-2c63-4b21-be2c-22f3817ea54a_武汉新华路店_汉口+114.301252,30.598427_386d413b-1cc2-42eb-bf05-5049c6e28407_武汉大智路轻轨站店_汉口">No limits</li>
+     <li shopInfoArr="114.33219,30.515297_4419ad06-d2c9-4aaa-b843-d19cdbabd594_武汉南湖店_武昌+114.359327,30.590101_e5dd80f0-a210-4321-8fa8-483487a63d76_武汉徐东店_武昌+114.419372,30.505883_4b292129-c6de-4a20-a51d-48224f9ae149_武汉光谷关山店_武昌+114.395615,30.510867_5de1c25d-643b-4f37-aa96-d2d0d47bfcb5_武汉光谷广场店_武昌+114.345238,30.557114_161875c3-15c0-4d6a-84ed-b769dc1abd5f_武汉洪山广场店_武昌+114.308708,30.560266_12f36ab4-79e0-4d5b-9508-7a873c6bc915_武汉黄鹤楼店_武昌+114.322937,30.538863_2e9fcaef-5827-44f5-b98e-8ef906d4a9cd_武汉武昌火车站店_武昌+114.372249,30.52723_4d9753ff-f50c-4e61-9707-783cebaee7f7_武汉武昌广埠屯店_武昌+114.329315,30.535675_3d0c573b-2808-4f46-9a4e-8d1f5186660f_武汉武昌火车站东广场店_武昌" id="areaLi武昌" class="">武昌(9)</li> <li shopInfoArr="114.214074,30.566615_04a6aa41-11fb-4c72-a7e0-63ac6c67f57e_武汉王家湾店_汉阳+114.257972,30.558303_b7db62b5-a373-4248-b390-9cb61b51683a_武汉钟家村店_汉阳+114.163574,30.491278_303d1ada-79af-4d83-8da3-c7102f19a406_武汉沌口经济开发区店_汉阳" id="areaLi汉阳" class="">汉阳(3)</li> <li shopInfoArr="114.320128,30.629063_82891a4b-80ac-4c4a-a327-58643671fb9f_武汉二七路店_汉口+114.274679,30.614433_668fa40e-2b49-4c45-b279-37ffdecdabbd_武汉菱角湖万达广场店_汉口+114.294772,30.611201_b49efb27-131e-4f72-9489-1bbbb1d9af78_武汉澳门路店_汉口+114.283282,30.602297_842b47cc-0817-4fb8-b6ef-4f0d83f02823_武汉建设大道云林街店_汉口+114.292117,30.625949_ffc03c8b-24d1-496e-a4ed-de6cb5ec4e64_武汉黄孝河路店_汉口+114.269895,30.575306_1e294e2b-7ec2-4664-9458-a59e94fc2efa_武汉硚口中山大道店_汉口+114.281051,30.594882_6c3a4aec-2c63-4b21-be2c-22f3817ea54a_武汉新华路店_汉口+114.301252,30.598427_386d413b-1cc2-42eb-bf05-5049c6e28407_武汉大智路轻轨站店_汉口" id="areaLi汉口" class="">汉口(8)</li>  </ul>
+    <ul class="inline areaUl" id="areaul_长沙" style="margin-top:10px; display:none;">
+    <li id="addresFirstLi">行政区域：</li>
+    <li shopInfoArr="113.016929,28.204266_63150eb3-594c-4009-9c6b-062ea3c846d7_长沙火车站店_芙蓉区+112.962519,28.206865_fbdf60ca-3873-42cd-8355-6b16db71d393_长沙望月湖店_岳麓区+112.992634,28.203035_6187353e-5618-4d88-b555-12d1497cd7be_长沙芙蓉广场店_芙蓉区+113.092688,28.252217_214ec0db-5589-4ca0-af3f-23b68dee9c35_长沙星沙店_开发区+112.942599,28.22619_e27694ee-6020-4798-b3d0-0f092d88c32b_长沙步步高广场店_岳麓区+113.008494,28.174255_681dddf1-1d96-49f4-b1fe-4fa0d341e4bb_长沙桂花公园店_雨花区+112.992423,28.184969_da5ec2b7-3959-4227-8b95-4117f8a005d4_长沙摩天轮店_芙蓉区+113.016866,28.18922_5020c55d-cfad-4afb-956c-282dd90050e7_长沙车站南路店_雨花区+113.037653,28.208648_8656795f-6d44-4244-8a56-94271a96e149_长沙马王堆店_芙蓉区+113.020226,28.108807_4e4c17e6-fc5e-42a4-b662-a109d02b7b81_长沙汽车南站店_雨花区+112.915618,28.216932_194d2aa1-8d32-43a3-8c94-cacfb9905a10_长沙汽车西站店_岳麓区+112.995904,28.237106_2bb31f60-69e3-4e3c-929e-7a982951f109_长沙伍家岭店_开福区+112.987779,28.171342_6a5f389a-d286-4ba7-b622-f62afc790337_长沙南湖路店_天心区+113.035964,28.184934_207ccf3f-899b-459f-bbc6-0746d26f738f_长沙高桥店_雨花区+113.010991,28.134484_342bf7eb-0e4d-437e-9dbd-a244c5f3fdf7_长沙井湾子店_雨花区+112.986503,28.269597_baab09a1-576c-4963-9d6b-5e5ffd640e30_长沙湘江世纪城店_开福区">No limits</li>
+     <li shopInfoArr="113.016929,28.204266_63150eb3-594c-4009-9c6b-062ea3c846d7_长沙火车站店_芙蓉区+112.992634,28.203035_6187353e-5618-4d88-b555-12d1497cd7be_长沙芙蓉广场店_芙蓉区+112.992423,28.184969_da5ec2b7-3959-4227-8b95-4117f8a005d4_长沙摩天轮店_芙蓉区+113.037653,28.208648_8656795f-6d44-4244-8a56-94271a96e149_长沙马王堆店_芙蓉区" id="areaLi芙蓉区" class="">芙蓉区(4)</li> <li shopInfoArr="112.962519,28.206865_fbdf60ca-3873-42cd-8355-6b16db71d393_长沙望月湖店_岳麓区+112.942599,28.22619_e27694ee-6020-4798-b3d0-0f092d88c32b_长沙步步高广场店_岳麓区+112.915618,28.216932_194d2aa1-8d32-43a3-8c94-cacfb9905a10_长沙汽车西站店_岳麓区" id="areaLi岳麓区" class="">岳麓区(3)</li> <li shopInfoArr="113.092688,28.252217_214ec0db-5589-4ca0-af3f-23b68dee9c35_长沙星沙店_开发区" id="areaLi开发区" class="">开发区(1)</li> <li shopInfoArr="113.008494,28.174255_681dddf1-1d96-49f4-b1fe-4fa0d341e4bb_长沙桂花公园店_雨花区+113.016866,28.18922_5020c55d-cfad-4afb-956c-282dd90050e7_长沙车站南路店_雨花区+113.020226,28.108807_4e4c17e6-fc5e-42a4-b662-a109d02b7b81_长沙汽车南站店_雨花区+113.035964,28.184934_207ccf3f-899b-459f-bbc6-0746d26f738f_长沙高桥店_雨花区+113.010991,28.134484_342bf7eb-0e4d-437e-9dbd-a244c5f3fdf7_长沙井湾子店_雨花区" id="areaLi雨花区" class="">雨花区(5)</li> <li shopInfoArr="112.995904,28.237106_2bb31f60-69e3-4e3c-929e-7a982951f109_长沙伍家岭店_开福区+112.986503,28.269597_baab09a1-576c-4963-9d6b-5e5ffd640e30_长沙湘江世纪城店_开福区" id="areaLi开福区" class="">开福区(2)</li> <li shopInfoArr="112.987779,28.171342_6a5f389a-d286-4ba7-b622-f62afc790337_长沙南湖路店_天心区" id="areaLi天心区" class="">天心区(1)</li>  </ul>
+    <ul class="inline areaUl" id="areaul_重庆" style="margin-top:10px; display:none;">
+    <li id="addresFirstLi">行政区域：</li>
+    <li shopInfoArr="106.544846,29.580956_fcc67644-abe8-4a15-80cf-67c191738acf_重庆观音桥店_江北区+106.54278,29.592061_c8185e4e-4cf2-417b-a4ac-00ac45acf2f4_重庆力帆体育场店_江北区+106.469724,29.557337_50d4a0d1-bd08-4878-92a4-bc8874967d0c_重庆沙坪坝店_沙坪坝区+106.569594,29.538037_ca6f043b-d280-46d1-9642-d635f5a0ca40_重庆南坪工贸店_南岸区+106.55396,29.565038_a90d1592-c1fc-4451-a247-3118e0467352_重庆上清寺牛角沱店_渝中区+106.526557,29.597291_0e4269d2-39a0-4980-95f7-5479f91f3920_重庆加州花园店_江北区+106.503515,29.588606_d917153d-3aac-4cf0-ac01-c21eeb0662fc_重庆冉家坝沃尔玛店_江北区+106.492082,29.542877_36a0cddd-9da2-4ec9-ad3c-4e81e8bec4da_重庆石桥铺店_九龙坡区+106.554216,29.606936_92602a1f-0baf-434e-9885-7e768ba8d0cc_重庆狮子坪轻轨站店_江北区">No limits</li>
+     <li shopInfoArr="106.544846,29.580956_fcc67644-abe8-4a15-80cf-67c191738acf_重庆观音桥店_江北区+106.54278,29.592061_c8185e4e-4cf2-417b-a4ac-00ac45acf2f4_重庆力帆体育场店_江北区+106.526557,29.597291_0e4269d2-39a0-4980-95f7-5479f91f3920_重庆加州花园店_江北区+106.503515,29.588606_d917153d-3aac-4cf0-ac01-c21eeb0662fc_重庆冉家坝沃尔玛店_江北区+106.554216,29.606936_92602a1f-0baf-434e-9885-7e768ba8d0cc_重庆狮子坪轻轨站店_江北区" id="areaLi江北区" class="">江北区(5)</li> <li shopInfoArr="106.469724,29.557337_50d4a0d1-bd08-4878-92a4-bc8874967d0c_重庆沙坪坝店_沙坪坝区" id="areaLi沙坪坝区" class="">沙坪坝区(1)</li> <li shopInfoArr="106.569594,29.538037_ca6f043b-d280-46d1-9642-d635f5a0ca40_重庆南坪工贸店_南岸区" id="areaLi南岸区" class="">南岸区(1)</li> <li shopInfoArr="106.55396,29.565038_a90d1592-c1fc-4451-a247-3118e0467352_重庆上清寺牛角沱店_渝中区" id="areaLi渝中区" class="">渝中区(1)</li> <li shopInfoArr="106.492082,29.542877_36a0cddd-9da2-4ec9-ad3c-4e81e8bec4da_重庆石桥铺店_九龙坡区" id="areaLi九龙坡区" class="">九龙坡区(1)</li>  </ul>
+    <ul class="inline areaUl" id="areaul_北京" style="margin-top:10px; display:none;">
+    <li id="addresFirstLi">行政区域：</li>
+    <li shopInfoArr="116.461799,39.910471_cac647ab-2058-4a2c-971a-39238270108e_北京国贸店_朝阳区">No limits</li>
+     <li shopInfoArr="116.461799,39.910471_cac647ab-2058-4a2c-971a-39238270108e_北京国贸店_朝阳区" id="areaLi朝阳区" class="">朝阳区(1)</li>  </ul>
+    <ul class="Level">
+  </ul>
+  <ul class="inline" style="height:30px; line-height:30px;">
+    <li style="margin:0px; padding:0px; width:710px;">地理位置
+    <li>
+    <li style="margin:0px; padding:0px;">门店列表</li>
+  </ul>
+  <ul class="unstyled" style="height:520px;">
+    <li>
+      <div class="shopInfobgBox" style="display:none"></div>
+      <div class="shopInfoBox" style="display:none">
+        <ul class="shopInfoUl">
+          <li class="shopNameLi"></li>
+          <li>
+            <ol id="ol1">
+              地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 址：
+            </ol>
+            <ol>
+            </ol>
+          </li>
+          <li class="inline">
+            <ol id="ol1">
+              营业时间：
+            </ol>
+            <ol>
+            09:00 - 21:00
+            </ol>
+          </li>
+          <li class="inline">
+            <ol id="ol1">
+              Phone：
+            </ol>
+            <ol>
+            </ol>
+          </li>
+        </ul>
+        <ul>
+          <li class="buttonLi">
+            <form action="/rentcar" method="post">
+              <input name="shop_id" type="hidden" value=""/>
+              <input name="city_name" type="hidden" value=""/>
+			  <input name="shop_name" type="hidden" value=""/>
+			  <input name="area_name" type="hidden" value=""/>
+              <input type="submit" class="btn-primary" value="Book Now"/>
+            </form>
+          </li>
+        </ul>
+      </div>
+      <div class="shopMapBox">
+        <ul class="mapUl unstyled">
+          <li id="mapBox"></li>
+        </ul>
+        <ul class="unstyled shopList">
+		<li id="shop1672cb34-728b-4f1d-9cc1-c9116892b322" area_id=天河区 shop_id=1672cb34-728b-4f1d-9cc1-c9116892b322 class="shoplistLin">广州东圃店</li><li id="shopc40f19d7-f9ad-45b0-a3ea-361c91115f4d" area_id=天河区 shop_id=c40f19d7-f9ad-45b0-a3ea-361c91115f4d class="shoplistLin">广州天河公园店</li><li id="shop89f59500-a173-48cd-aa95-e3163427cd1a" area_id=天河区 shop_id=89f59500-a173-48cd-aa95-e3163427cd1a class="shoplistLin">广州棠下骏景店</li><li id="shopd0eef51d-abe0-40d9-b93e-88eed825f8d1" area_id=海珠区 shop_id=d0eef51d-abe0-40d9-b93e-88eed825f8d1 class="shoplistLin">广州江泰地铁站店</li><li id="shop152623ad-abfa-47f9-b882-67f5bc62e1bf" area_id=天河区 shop_id=152623ad-abfa-47f9-b882-67f5bc62e1bf class="shoplistLin">广州天河客运站店</li><li id="shopf2c8c61f-b924-459a-a368-df04967a9f47" area_id=白云区 shop_id=f2c8c61f-b924-459a-a368-df04967a9f47 class="shoplistLin">广州石井店</li><li id="shop7075ac22-d79a-4593-a8d2-335d6a4fe808" area_id=黄埔区 shop_id=7075ac22-d79a-4593-a8d2-335d6a4fe808 class="shoplistLin">广州黄埔大沙地店</li><li id="shop42b3a351-9b0e-4275-a355-a787ae2f8978" area_id=增城市 shop_id=42b3a351-9b0e-4275-a355-a787ae2f8978 class="shoplistLin">广州增城新塘店</li><li id="shop6e97a42c-c8fe-45b7-b732-73ad1fa4d22b" area_id=海珠区 shop_id=6e97a42c-c8fe-45b7-b732-73ad1fa4d22b class="shoplistLin">广州敦和店</li><li id="shopcf5cbf67-e0ad-46ea-a49d-eeb44dc64103" area_id=天河区 shop_id=cf5cbf67-e0ad-46ea-a49d-eeb44dc64103 class="shoplistLin">广州天平架水果批发市场店</li>        </ul>
+        <ul>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+<!-- 中间部分end--><div class="container" ></div>
+<div>
+	<iframe name="footer" id="footer" src="footer.html" width="100%" frameborder="no" border=0 marginwidth=0 marginheight=0 scrolling="no"></iframe>
+</div>
+</body>
+<script type="text/javascript"> 
+	var heightVal	=	$(".shopList").height()-3;
+	$(".mapUl").css('height',$(".shopList").height()-5);
+	$(".mapUl").find('li').first().css('height',heightVal+31);
+	$(function()
+	{
+		$('#addresFirstLi').next().click();
+	});
+</script>
+</html>

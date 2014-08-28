@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=10" />
+<title>User Management</title>
+
+<link rel="stylesheet" type="text/css" href="../public/css/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/datepicker.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/home.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/MyReocar.css"/>
+<link rel="stylesheet" type="text/css" href="../css/global.css" />
+
+<script src="../public/javascript/jquery.js"></script>
+<script src="../public/javascript/jquery.easing.1.3.js"></script>
+<script src="../public/javascript/bootstrap/bootstrap.js"></script>
+<script src="../js/bootstrap-datepicker.js"></script>
+<script src="../js/login.js"></script>
+<script src="../js/public.js"></script>
+<style>
+ul a li:hover {
+	background-color: lightgrey;
+}
+</style>
+</head>
+
+<body>
+
+<!--头部-->
+	<div class="header">
+	<div class="reo_header">
+	    <div class="top">
+	    <div class="c" id="statusBar"> <!-- 用于登录栏 -->
+	    </div>
+	  </div>
+	  <div id="div_login" style="display:none" class="div_login">
+	  	<ul class="blue_line">
+		</ul>
+		<form id="headLogin" onsubmit="return false">
+			<ul class="unstyled" style="margin-top: 15px; margin-top: 20px;">
+				<li style="line-height: 35px;">Account：<input id="login_account" type="text"
+					name="head_account" data-check-sta='Y' data-check-type='isname'
+					msgVal='Phone/Email/Username' style="width: 65%; color: #CCC" value="Phone/Email/Username" />
+				</li>
+				<li style="line-height: 35px;">Password：<input type="password"
+					msgVal='Password' id="headpassword" name="head_password"
+					style="width: 65%; margin-top: 0px; color: #000;" />
+				</li>
+			</ul>
+			<ul class="inline"
+				style="height: 30px; line-height: 30px; margin-top: 3px;">
+				<li id="head-login-errormsg"
+					style="width: 150px; text-align: left; margin-left: 0px; padding-left: 0px;"
+					class="text-error"></li>
+				<li style="width: 60px; text-align: right;"><a target="_blank"
+					href="getpassword.html">Forgot Password</a></li>
+			</ul>
+			<ul style="margin-top: 5px;">
+				<li><input type="submit" value="Login"
+					style="width: 200px; height: 30px; margin: 0 0 0 40px;"
+					id="head_login" class="btn btn-primary" /></li>
+			</ul>
+		</form>
+	  </div>
+	</div>
+	
+	<div id="nav_header">
+	  <ul>
+	    <li class="titlewz">
+	        <ol olnum="0">
+	        		<img src="../public/images/headLogo.png" style="margin-right:3px; margin-bottom:2px;" />
+	        		<a style="color:#FC3;" href="/ziteng/page/index.html">Itinerary</a>
+	        	</ol>
+			<ol olnum="1"><a href="/ziteng/page/gonglue.html">Car Rental</a></ol>
+			<ol olnum="2"><a href="/ziteng/page/activity.html">Activities</a></ol>
+			<ol olnum="3"><a href="/ziteng/page/reservation.html">Hotel Booking</a></ol>
+			<ol olnum="4"><a href="/ziteng/page/carsharing.html">Car Sharing</a></ol>
+			<ol olnum="5"><a href="/ziteng/page/aboutus.html">About the Company</a></ol>
+			<ol olnum="6"><a href="/ziteng/page/bbs.html">BBS</a></ol>
+		</li>
+	  </ul>
+	  <ul>
+	    <span id="blueline" class="testline" style="margin-left:17px"></span>
+	  </ul>
+	</div>
+	
+	<div id="page_loading" style="display:none;background:#000;display:block;position:absolute;top:0;left:0;z-index:10000;opacity:0.1;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=10);"></div>
+	<img src="../public/images/loading.gif?1" style="display:none;width:32px; height:32px; z-index:11000; position:absolute;border:0;" id="page_loadimg" />
+</div>
+<!--头部end --> 
+
+<!-- content start-->
+
+	<!-- 中间部分start-->
+<div class="container" style="margin-top: 40px;">
+  <div class="row-fluid"> 
+    <!--  左边start-->
+	<div class="span3 letDiv" style="width:212px; margin-left:0px;">
+	  <div class="leftList">
+	    <ul class="leftFirstTitle"><img src="../public/images/reocarleft1.gif"/>Order Management</ul>
+		<ul class="unstyled"><a href="rentcar_order.html"><li >Car Rental Order</li></a></ul>
+		<ul class="unstyled"><a href="/ziteng/page/zthotel/myorder.html"><li >Hotel Order</li></a></ul>
+		<ul class="leftFirstTitle"><img src="../public/images/reocarleft2.gif"/>Car Sharing Order</ul>
+		<ul class="unstyled">
+			<a href="my_carsharing.html"><li>My Car Sharing</li></a>
+			<a href="publish_carsharing.html"><li>Release Car sharing</li></a></ul>
+		<ul class="leftFirstTitle"><img src="../public/images/reocarleft4.gif"/>Account Management</ul>
+		<ul class="unstyled">
+			<a href="userinfo.html"><li >Personal Profile</li></a>
+			<a href="change_userpassword.html"><li >Change Password</li></a>
+		</ul>  
+	  </div>
+	</div>
+    <!-- 左边end--> 
+    
+    <!-- 右边start-->
+    <div id="rigthDiv"  class="span9">
+    		<form class="form-horizontal">
+    			<legend>Release Car sharing Information</legend>
+		  	<div class="control-group">
+		    		<label class="control-label" for="carsharing_name">Title</label>
+		    		<div class="controls">
+		      		<input type="text" id="carsharing_name" placeholder="Title">
+		    		</div>
+		  	</div>
+		  	<div class="control-group">
+		  		<label class="control-label" >Departure Area</label>
+		        <div class="controls">
+		            <select id="start_area">
+		            </select>
+		        </div>
+		  	</div>
+		  	<div class="control-group">
+		    		<label class="control-label" for="start_date">Departure</label>
+	    			<div class="controls">
+	      			<input type="text" id="start_date" placeholder="Departure">
+	    			</div>
+		  	</div>
+		  	<div class="control-group">
+		    		<label class="control-label" for="playdays">Travel days</label>
+		    		<div class="controls">
+		      		<input type="number" min="0" step="1" id="playdays" placeholder="Travel days">
+		    		</div>
+		  	</div>
+		  	<div class="control-group">
+		    		<label class="control-label" for="contact_person">Contact</label>
+		    		<div class="controls">
+		      		<input type="text" id="contact_person" placeholder="Contact">
+		    		</div>
+		  	</div>
+		  	<div class="control-group">
+		    		<label class="control-label" for="contact_method">Contacts</label>
+		    		<div class="controls">
+		      		<input type="tel" id="contact_method" placeholder="Contacts">
+		    		</div>
+		  	</div>
+		  	<div class="control-group">
+		    		<label class="control-label" for="datails">Specification</label>
+		    		<div class="controls">
+		      		<textarea id="datails" rows="5" style="width:100%"></textarea>
+		    		</div>
+		  	</div>
+		  	<div class="control-group">
+			    <div class="controls">
+			      <button type="button" id="submitBtn" class="btn btn-primary">Confirm</button>
+			    </div>
+		  	</div>						
+		</form>
+    </div>
+    <!-- 右边end--> 
+  </div>
+</div>
+
+<!-- 中间部分end--> 
+
+
+<!-- content end-->
+	
+	<!-- footer start-->
+	<div class="footer">
+		<div class="nav_footer">
+	  		<div>
+	    		<ul class="inline">
+	      		<li><a  href="/ziteng/page/home.html">Homepage</a></li>
+	      		<li><a  href="#">Service Stores</a></li>
+	      		<li><a  href="#">Help Centre</a></li>
+	      		<li><a  href="#">About Us</a></li>
+	        </ul>
+	  		</div>
+		</div>
+		<div class="container">
+	  		<div>
+	    		<ul class="unstyled">
+	      		<li>The website is owned by ToWorld Company</li>
+	    		</ul>
+	    		<ul class="unstyled">
+	      		<li>Copyright @2014 www.ToWorld.com All Rights Reserved</li>
+	    		</ul>
+	  		</div>
+		</div>
+	</div>
+	<!-- footer end -->
+	
+	<script>
+		$(document).ready(function() {
+			$('#start_date').datepicker({
+				format: "yyyy-mm-dd"
+			});
+			
+			loadArea();
+			
+			$("#submitBtn").click(function() {
+				var title = $.trim($("#carsharing_name").val());
+				if (title == "") {alert("The title cannot be empty");return false;}
+				var startArea = $("#start_area").val();
+				var startTime = $("#start_date").val();
+				if (startTime == "") {alert("Please type in the start time");return false;}
+				var playDays = $.trim($("#playdays").val());
+				if (playDays == "") {alert("Please type in the Travel days");return false;}
+				var contactPersion = $.trim($("#contact_person").val());
+				if (contactPersion == "") {alert("Please type in the Contact");return false;}
+				var contactMethod = $.trim($("#contact_method").val());
+				if (contactMethod == "") {alert("Please type in the Contacts");return false;}
+				var expVal = /^((\(\d{2,3}\))|(\d{3}\-))?(13|15|18|14)\d{9}$/;
+				if (!expVal.test(contactMethod)) {alert("Please type in the correct Contacts");return false;}
+				var details = $.trim($("#datails").val());
+				if (details == "") {alert("Please type in the specification");return false;}
+				var params = {"title": title, "startArea": startArea,
+						"startTimeString": startTime, "contactPersion": contactPersion, 
+						"contactMethod": contactMethod, "details": details};
+				var url = "/ziteng/v/carSharing/publicCarsharingInfo.do";
+				$.post(url, params, function(data) {
+					var json = eval("(" + data +")");
+					if (json.success) {
+						window.location.href="my_carsharing.html";
+					} else {
+						alert(json.msg);
+					}
+				});
+			});
+		});
+
+
+		function loadArea(){
+			var url = "/ziteng/area/getAllAreas.do";
+			var param = {};
+			$.post(url,param,function(data){
+				var json = eval('(' + data +')');
+				if(json.success){
+					var areas = json.datas.areas;
+					areaCount = 1 + areas.length;
+					for(var i = 0; i < areas.length; i++){
+						var $opt = '<option value="'+areas[i].name+'">'+ areas[i].name +'</option>';
+						$("#start_area").append($opt);
+					}
+				}else{
+					alert(json.msg);
+				}
+			});
+		}
+
+	</script>
+</body>
+</html>

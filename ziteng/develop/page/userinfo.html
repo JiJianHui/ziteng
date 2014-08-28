@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=10" />
+<title>紫藤租车——用户Personal Profile</title>
+<script src="public/javascript/jquery.1.8.js"> </script>
+<script src="public/javascript/jquery.easing.1.3.js"> </script>
+<script src="public/javascript/bootstrap/bootstrap.js"> </script>
+<link rel="stylesheet" type="text/css" href="public/css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="public/css/home.css">
+<link rel="stylesheet" type="text/css" href="public/css/MyReocar.css"/>
+<style>
+.tabwenzi {
+	width:110px;
+}
+table span
+{
+	margin-left:5px;
+}
+.send_code
+{
+	cursor:pointer;
+	margin-left:10px;
+}
+.codeInput
+{
+	width:80px;
+	height:25px;
+	margin:2px 5px 2px 0px;
+}
+</style>
+<script>
+$(document).ready(function()
+{
+	//提示Close
+	$(".close").click(function(){  
+		$(this).parent().hide();  
+	  });
+	$('select#user_province_id').region({
+		cityId: 'user_city_id',
+		countyId: 'user_county_id',
+		provinceVal: 0,
+		cityVal: 0,
+		countyVal: 0,
+		items: region_list
+	});
+	
+	$('input').change(
+		function ()
+		{
+			var thisObj		=	$(this);
+			var inputName	=	thisObj.attr('name');
+			var inputVal	=	thisObj.val();
+			
+			var changeSta	=	checkRegExps($(this));
+			checkObjname	=	inputName == 'member_phone' ? 'Phone' : 'Email';
+			
+			if(inputName == 'member_phone' || inputName == 'member_email')
+			{
+				if(!changeSta)
+				{
+					thisObj.next().attr('class','text-error');
+					thisObj.next().html('Please type in the 正确的'+checkObjname);
+				}
+				else
+				{
+					thisObj.next().html('<img src="public/images/xloading.gif"/>');
+					$.post
+					(
+						'/useraction/checkChangeVal',
+						{checkVal:inputVal},
+						function(result)
+						{
+							result		=	parseInt(result);
+							
+							var disMsg	=	'';
+							
+							switch(result)
+							{
+								case 1:	disMsg	=	inputName	==	'member_phone'	?	'未验证，只有通过验证之后才能Change！ <a onclick="sendCode($(this))" class="send_code">发送验证码</a>'	:	'未验证！<a onclick="sendCode($(this))" class="send_code">发送验证码</a>';
+								break;
+								
+								case 2: disMsg	=	'<img src="public/images/right.gif"/>已验证';
+								break;
+								
+								case 3: disMsg	=	checkObjname+'已经被使用！';
+								break;
+								
+								case 4: disMsg	=	'未验证！<a onclick="sendCode($(this))" class="send_code">发送验证码</a>';
+								break;
+																
+								case 5: disMsg	=	'没有找到登录信息！';
+								break;
+								
+								
+								
+								default:
+								break;
+							}
+							
+							if(result == 2 || result == 1)
+							{
+								thisObj.next().attr('class','text-success');
+							}
+							
+							if(disMsg != '')
+							{
+								thisObj.next().attr('class','text-error');
+								thisObj.next().html(disMsg);
+							}
+						}
+					);
+				}
+			}
+		}
+	);
+	
+	$("#editUserForm").submit(
+		function()
+		{
+			addBlackBox();
+		}
+	);
+	
+});
+
+function changeTime(id)
+{
+	var time	=	parseInt($("#"+id).html());
+	
+	if(time > 0)
+	{
+		time--;
+		$("#"+id).html(time)
+		setTimeout("changeTime('"+id+"')",1000);
+	}
+	else
+	{
+		$("#"+id).parent().html('重新发送');
+	}
+}
+
+function sendCode(thisObj)
+{
+	var inputObj	=	thisObj.parent().prev(); 
+	var inputName	=	inputObj.attr('name');
+	var inputVal	=	inputObj.val();
+	
+	if(inputObj.next().html().indexOf('codeTime') > 0)
+	{
+		return false;
+	}
+	
+	inputObj.next().html('<img src="public/images/loading.gif"/>');
+	
+	$.post(
+		'/useraction/sendUserCode',
+		{member_val:inputVal,member_type:inputName == 'member_phone' ? 1 : 3},
+		function(result)
+		{
+			result	=	parseInt(result);
+			
+			if(result > 0)
+			{
+				var codeName	=	inputName == 'member_phone' ? 'phone' : 'email';
+				inputObj.next().html('验证码已发送！ <a onclick="sendCode($(this))" class="send_code"><span id="'+codeName+'codeTime">'+result+'</span>秒之后发送验证码</a><br/><input type="text" id="'+codeName+'Code" class="codeInput"/><a style="cursor:pointer" onclick="changeVal(\''+codeName+'\')">Save</a>');
+				changeTime(codeName+'codeTime');
+			}
+			else
+			{
+				inputObj.next().attr('class','text-error');
+				inputObj.next().html('验证码发送失败，您发送的次数太频繁，请稍后再试！<a onclick="sendCode($(this))" class="send_code">重新发送</a>');
+			}
+		}
+	);
+}
+
+function changeVal(type)
+{
+	var codeVal	=	$("#"+type+"Code").val();
+	
+	$.post(
+		"/useraction/updateUserVal",
+		{member_val:$("input[name='member_"+type+"']").val(),member_code:codeVal},
+		function(result)
+		{
+			result	=	parseInt(result);
+			
+			if(result	==	1)
+			{
+				$("input[name='member_"+type+"']").nextAll().remove();
+				$("input[name='member_"+type+"']").parent().append('<span><img src="public/images/right.gif"/> 已验证</span>');
+			}
+			else if(result == 2)
+			{
+				alert('验证码输入错误！');
+			}
+			else
+			{
+				alert('Change失败！，请稍候再试');
+			}
+		}
+	);
+}
+
+function showinfo(){
+	$('#uinfo').show();
+	setUinfoBox();
+}
+function setUinfoBox()
+	{
+		var paysT	=	$(document).scrollTop()+$(window).height()/2-$("#uinfo").height();
+		var paysL	=	document.body.clientWidth/2-$("#uinfo").width()/2;
+		
+		$("#uinfo").css('top',paysT);
+		$("#uinfo").css('left',paysL);
+	}
+</script>
+</head>
+
+<body>
+
+<div>
+	<iframe name="header" id="header" src="header.html" width="100%" frameborder="no" border=0 marginwidth=0 marginheight=0 scrolling="no"></iframe>
+</div>
+
+<!-- 中间部分start-->
+<div class="container" style="margin-top: 40px;">
+  <div class="row-fluid"> 
+    <!--  左边start-->
+    <script language="javascript" type="text/javascript" src="public/javascript/leftlistjs.js"></script>
+
+<div class="span3 letDiv" style="width:212px; margin-left:0px;">
+  <div class="leftList">    <ul class="leftFirstTitle"><img src="public/images/reocarleft1.gif"/>Order Management</ul>
+	<ul class="unstyled"><a href="order.html"><li >My Orders</li></a></ul>
+	<ul class="leftFirstTitle"><img src="public/images/reocarleft2.gif"/>Asset Management</ul>
+	<ul class="unstyled">
+		<a href="point.html"><li >My points</li></a>
+		<a href="coupons.html"><li >Special service</li></a></ul>
+	<ul class="leftFirstTitle"><img src="public/images/reocarleft3.gif"/>Membership right</ul>
+	<ul class="unstyled">
+		<a href="right.html"><li >Right introduction/li><a href="pointmall.html"></a>
+		<li >Points Mall</li></a></ul>
+	<ul class="leftFirstTitle"><img src="public/images/reocarleft4.gif"/>Account Management</ul>
+	<ul class="unstyled">
+		<a href="userinfo.html"><li >Personal Profile</li></a>
+		<a href="changepwd.html"><li >Change Password</li></a>
+	</ul>  
+</div>
+</div>
+    <!-- 左边end--> 
+    
+    <!-- 右边start-->
+    <div id="rigthDiv"  class="span9">
+    <form method="post" id="editUserForm">
+      <h2>Basic Information</h2>
+      <hr />
+        <table class="table table-striped table-bordered table-condensed">
+          <tr>
+            <td class="tabwenzi"><span>Real Name</span></td>
+            <td><input type="text" name="member_name" value="杨祚"/></td>
+          </tr>
+          <tr>
+            <td class="tabwenzi"><span>Gender</span></td>
+            <td><input name="member_sex" type="radio" value="男" checked="checked"/>
+              Male
+              <input name="member_sex" type="radio" value="女"  />
+              Female</td>
+          </tr>
+          <tr>
+            <td class="tabwenzi"><span>Phone</span></td>
+            <td><input type="text" name="member_phone" data-check-type="isPhone" value="18601164941"/><span class="text-success"><img src="public/images/right.gif"/>Verified</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="tabwenzi"><span>Email</span></td>
+            <td><input type="text" name="member_email" data-check-type="isEmail" value="zyang0508@qq.com"/><span class="text-error">Unverified！<a onclick='sendCode($(this))' class='send_code'>send verify code</a></span></td>
+          </tr>
+          <tr>
+            <td class="tabwenzi"><span>ID type</span></td>
+            <td><select disabled="disabled" name="selCredentials">
+                <option>ID</option>
+              </select></td>
+          </tr>
+          <tr>
+            <td class="tabwenzi"><span>ID</span></td>
+            <td><input disabled="disabled" type="text" value="450324198806216116"/><input type="hidden" name="member_card" value="450324198806216116"/> 如果您的证件号码有误，请点击 <a onclick="showinfo()" style="cursor:pointer;">这里</a> 查看“Change方法”！ </td>
+          </tr>
+        </table>
+        <ul style="text-align:center">
+        <input class="btn btn-primary" type="submit" value="更新用户资料"/>
+        </ul>
+        
+    </form>
+    </div>
+    <!-- 右边end--> 
+  </div>
+</div>
+<!--Change方法-->
+<div id="uinfo" class="alert alert-block alert-error fade in" style="display:none;width:400px; height:210px;position:absolute;z-index:99;">  
+  <a class="close"  href="#">×</a>
+  <h4 class="alert-heading" style="text-align:center">ChangeRegister资料</h4>  
+  <p><br>如您的姓名或证件号码有误，请提供以下资料，亲临门店或者自行邮件至客服中心进行Change。<br>
+1、会员本人ID扫描件或者图片（请注明Change前、后的内容）；<br>
+2、会员Phone（与会员资料中一致）。<br><br>
+客服中心邮件Address：service@reocar.com，客服中心会在收到邮件后24小时内完成Change。</p>  
+</div>
+<!--Change方法-->
+<!-- 中间部分end--> 
+<div>
+	<iframe name="footer" id="footer" src="footer.html" width="100%" frameborder="no" border=0 marginwidth=0 marginheight=0 scrolling="no"></iframe>
+</div>
+</body>
+</html>

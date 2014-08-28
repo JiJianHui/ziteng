@@ -1,0 +1,45 @@
+/* CSS Document */
+.bglist {
+	margin-top: 15px;
+	padding-left: 44px;
+	width: 930px !important;
+	background: url("/public/images/bg_timeline.png") repeat-y 15px 10px;
+}
+.timeTitle {
+	margin-left: -42px;
+	font-size:14px;
+	padding-left:50px;
+	height:27px;
+	line-height:27px;
+	width:159px;
+	clear:both;
+	background-image:url("/public/images/tttt.jpg");
+}
+.aclr {
+	padding:3px 0px;
+	font-size:14px;
+	clear:both;
+}
+.activityTitle {
+	background-color: #ff7f02;
+	color:#FFF;
+	padding:0px 5px;
+	margin-bottom:5px;
+	width:auto;
+	float:left;
+}
+.aclr dt {
+	width: 80px;
+}
+.aclr dd {
+	margin-left: 90px;
+}
+
+.atclist {
+	padding-top: 8px;
+	height: 235px;
+	background-color: #faf9f9;
+	border: 1px solid #ddd;
+	width: 928px;
+	margin-bottom:15px;
+}

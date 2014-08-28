@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Car Order Management</title>
+
+
+<link rel="stylesheet" type="text/css"
+	href="public/css/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="public/css/home.css" />
+<link rel="stylesheet" type="text/css" href="css/global.css" />
+<link rel="stylesheet" type="text/css"
+	href="public/css/mdd_detail_v2.css" />
+<link rel="stylesheet" type="text/css" href="public/css/header.css" />
+<link rel="stylesheet" type="text/css" href="css/ziteng.css" />
+
+<script src="public/javascript/jquery.js"></script>
+<script src="public/javascript/jquery.easing.1.3.js"></script>
+<script src="public/javascript/bootstrap/bootstrap.js"></script>
+<script class="text/javascript" src="js/jquery.dataTables.nightly.js"></script>
+<script src="js/carOrder.js"></script>
+<link rel="stylesheet" type="text/css" href="css/datepicker.css" />
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/admin_L.js"></script>
+
+
+</head>
+
+<style>
+</style>
+
+<body>
+
+	<!--头部-->
+	<div class="header">
+		<div class="reo_header">
+			<div class="top">
+				<div class="c" id="statusBar">
+					<!-- 用于登录栏 -->
+				</div>
+			</div>
+		</div>
+
+		<div id="nav_header">
+			<ul>
+				<li class="titlewz">
+					<ol olnum="0">
+						<img src="public/images/headLogo.png"
+							style="margin-right: 3px; margin-bottom: 2px;" />						
+						<a style="color:#FC3;" href="/ziteng/page/admin/user_manage.html">User Management</a>
+					</ol>
+					<ol olnum="1">
+						<a href="/ziteng/page/guide_manager.html">Guide Management</a>
+					</ol>
+					<ol olnum="2">
+						<a href="/ziteng/page/add_gonglue.html">Add Itinerary</a>
+					</ol>
+					<ol olnum="3">
+						<a href="/ziteng/page/carOrder.html">Car Order</a>
+					</ol>
+					<ol olnum="4">
+						<a href="/ziteng/page/ratio_manager.html">Coefficient Management</a>
+					</ol>
+					<ol olnum="5">
+						<a href="/ziteng/page/car_manager.html">Car Management</a>
+					</ol>
+					<ol olnum="6">
+						<a href="/ziteng/page/cardegree_manager.html">Car Grades Management</a>
+					</ol>
+					<ol olnum="7">
+						<a href="/ziteng/page/area_manager.html">Area Management</a>
+					</ol>
+				</li>
+			</ul>
+			<ul>
+				<span id="blueline" class="testline" style="margin-left: 17px"></span>
+			</ul>
+		</div>
+
+		<div id="page_loading"
+			style="display: none; background: #000; display: block; position: absolute; top: 0; left: 0; z-index: 10000; opacity: 0.1; filter: progid:DXImageTransform.Microsoft.Alpha(opacity=10);"></div>
+		<img src="public/images/loading.gif?1"
+			style="display: none; width: 32px; height: 32px; z-index: 11000; position: absolute; border: 0;"
+			id="page_loadimg" />
+	</div>
+	<!--头部end -->
+
+
+
+	<!-- content -->
+	<!-- comment start! -->
+	<div class="post"
+		style="margin-left: 5%; margin-right: 5%; margin-top: 20px;">
+		<div class="control-group">
+				<div id="legend" class="">
+					<legend class="">Car Orders</legend>
+				</div>
+				<div class="control-group">
+					Order Number<input  class="input-small" type="text" id="txt_id" onchange="valueChanged();">
+					Itinerary Route<select class="input-medium" id="sel_guide" onchange="valueChanged();">
+							<option value="-1">Choose</option>
+						</select> 
+					Car Name<select class="input-medium" id="sel_carDegree" onchange="valueChanged();">
+							<option value="-1">Choose</option>
+						</select>
+					Contact<input  class="input-small" type="text" id="txt_contacter" onchange="valueChanged();">
+					Phone<input  class="input-small" type="text" onchange="valueChanged();" id="txt_contact"><br /><div style="margin-top:10px;" ></div>
+					Date<input id="datepicker" class="input-small datepicker" type="text" data-date-format="yyyy-mm-dd" onchange="valueChanged();">
+					Status<select class="input-medium" id="sel_status" onchange="valueChanged();">
+							<option value="-1">Choose</option>
+							<option value="1">Wait for payment</option>
+							<option value="2">Paid, wait for check</option>
+							<option value="3">Check failed, wait for refund</option>
+							<option value="4">Check pass, wait for receive</option>
+							<option value="5">Received</option>
+							<option value="6">Mistake Orders</option>
+							<option value="7">Refund Failed</option>
+							<option value="8">Refunded and abandoned order</option>
+							<option value="9">Unpaid and invalid order</option>
+						</select>
+					<button class="btn btn-success" onclick="query();" >Search</button>
+				</div>
+		</div>
+		<hr style="border:1px">
+		<table class="table table-hover table-striped">
+			<thead>
+				<tr id="tr_title">
+					<th>Reference Number</th>
+					<th>Contact</th>
+					<th>Phone</th>
+					<th>Itinerary Route</th>
+					<th>Departure Time</th>
+					<th>End Time</th>
+					<th>Travel Days</th>
+					<th>Car Name</th>
+					<th>Car Grade</th>
+					<th>Number of cars</th>
+					<th>Number of people</th>
+					<th>Price</th>
+					<th>Order Time</th>
+					<th>Status</th>
+					<th>Operation</th>
+				</tr>
+			</thead>
+			<tbody id="tbody">
+			<!-- 	<tr>
+					<td>001</td>
+					<td>Rammohan</td>
+					<td>Reddy</td>
+					<td>A+</td>
+					<td>001</td>
+					<td>Rammohan</td>
+					<td>Reddy</td>
+					<td>A+</td>
+					<td>001</td>
+					<td>Rammohan</td>
+					<td>Reddy</td>
+					<td>A+</td>
+					<td>A+</td>
+					<td>A+</td>
+				</tr> -->
+			</tbody>
+		</table>
+		<ul class="pager">
+			<li><a href="#" onclick="prePage();">&larr; Previous</a></li><span id="page_info">1/1 1</span>
+			<li><a href="#" onclick="nextPage();">Next &rarr;</a></li>
+		</ul>
+	</div>
+
+	<!-- content end! -->
+
+	<div class="modal hide" id="showConetntModal">
+		<div class="modal-header">
+			<button class="close" data-dismiss="modal">x</button>
+			<h3 id="h3_guide_title"></h3>
+		</div>
+		<div class="modal-body" id="modal_body">workding count;</div>
+	</div>
+
+	<!-- footer start-->
+	<div class="footer">
+		<div class="nav_footer">
+	  		<div>
+	    		<ul class="inline">
+	      		<li><a  href="/ziteng/page/home.html">Homepage</a></li>
+	      		<li><a  href="#">Service Stores</a></li>
+	      		<li><a  href="#">Help Centre</a></li>
+	      		<li><a  href="#">About Us</a></li>
+	        </ul>
+	  		</div>
+		</div>
+		<div class="container">
+	  		<div>
+	    		<ul class="unstyled">
+	      		<li>The website is owned by ToWorld Company</li>
+	    		</ul>
+	    		<ul class="unstyled">
+	      		<li>Copyright @2014 www.ToWorld.com All Rights Reserved</li>
+	    		</ul>
+	  		</div>
+		</div>
+	</div>
+	
+	<!-- footer end -->
+</body>
+<script>
+setting();
+</script>
+</html>

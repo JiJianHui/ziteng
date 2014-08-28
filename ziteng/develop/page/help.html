@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=9" />
+
+<link rel="stylesheet" type="text/css" href="public/css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="public/css/home.css">
+<link rel="stylesheet" type="text/css" href="css/global.css" />
+<link rel="stylesheet" type="text/css" href="public/css/MyReocar.css">
+
+<script language="javascript" type="text/javascript" src="public/javascript/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="public/javascript/jquery.easing.1.3.js"></script>
+<script language="javascript" type="text/javascript" src="public/javascript/bootstrap/bootstrap.js"></script>
+<script src="js/public.js"></script>
+<script src="js/login.js"></script>
+</head>
+
+<body>
+<!--头部-->
+	<div class="header">
+	<div class="reo_header">
+	    <div class="top">
+	    <div class="c" id="statusBar"> <!-- 用于登录栏 -->
+	    </div>
+	  </div>
+	  <div id="div_login" style="display:none" class="div_login">
+	  	<ul class="blue_line">
+		</ul>
+		<form id="headLogin" onsubmit="return false">
+			<ul class="unstyled" style="margin-top: 15px; margin-top: 20px;">
+				<li style="line-height: 35px;">Account：<input id="login_account" type="text"
+					name="head_account" data-check-sta='Y' data-check-type='isname'
+					msgVal='Phone/Email/Username' style="width: 65%; color: #CCC" value="Phone/Email/Username" />
+				</li>
+				<li style="line-height: 35px;">Password：<input type="password"
+					msgVal='Password' id="headpassword" name="head_password"
+					style="width: 65%; margin-top: 0px; color: #000;" />
+				</li>
+			</ul>
+			<ul class="inline"
+				style="height: 30px; line-height: 30px; margin-top: 3px;">
+				<li id="head-login-errormsg"
+					style="width: 150px; text-align: left; margin-left: 0px; padding-left: 0px;"
+					class="text-error"></li>
+				<li style="width: 60px; text-align: right;"><a target="_blank"
+					href="getpassword.html">Forgot Password</a></li>
+			</ul>
+			<ul style="margin-top: 5px;">
+				<li><input type="submit" value="Login"
+					style="width: 200px; height: 30px; margin: 0 0 0 40px;"
+					id="head_login" class="btn btn-primary" /></li>
+			</ul>
+		</form>
+	  </div>
+	</div>
+	
+	<div id="nav_header">
+	  <ul>
+	    <li class="titlewz">
+	        <ol olnum="0">
+	        		<img src="public/images/headLogo.png" style="margin-right:3px; margin-bottom:2px;" />
+	        		<a style="color:#FC3;" href="index.html">Itinerary</a>
+	        	</ol>
+			<ol olnum="1"><a href="gonglue.html">Car Rental</a></ol>
+			<ol olnum="2"><a href="activity.html">Activities</a></ol>
+			<ol olnum="3"><a href="reservation.html">Hotel Booking</a></ol>
+			<ol olnum="4"><a href="carsharing.html">Car Sharing</a></ol>
+			<ol olnum="5"><a href="aboutus.html">About the Company</a></ol>
+			<ol olnum="6"><a href="bbs.html">BBS</a></ol>
+		</li>
+	  </ul>
+	  <ul>
+	    <span id="blueline" class="testline" style="margin-left:17px"></span>
+	  </ul>
+	</div>
+	
+	<div id="page_loading" style="display:none;background:#000;display:block;position:absolute;top:0;left:0;z-index:10000;opacity:0.1;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=10);"></div>
+	<img src="public/images/loading.gif?1" style="display:none;width:32px; height:32px; z-index:11000; position:absolute;border:0;" id="page_loadimg" />
+</div>
+<!--头部end --> 
+<!-- 中间部分start-->
+<div class="container" style="margin-top: 20px;">
+    <!-- 右边start-->
+       <h2> Introduction </h2>
+      <div style="border-top:1px solid #b2b2b2;margin-top:10px;height:1px;"> </div>
+      <div id="neirong" style="margin-top:10px;padding-left:20px;color: #666666;"><p style="padding-bottom: 0px; text-transform: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 0px; -webkit-text-stroke-width: 0px"><b class="te_help_main_r_b01" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; color: rgb(5,124,195); font-size: 12px; padding-top: 0px">1.The company</b></p>
+<div class="my" style="padding-bottom: 5px; text-transform: none; list-style-type: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 5px; -webkit-text-stroke-width: 0px">
+<p style="padding-bottom: 0px; text-indent: 2em; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; font-size: 12px; padding-top: 0px">ToWorld is one of the largest online car hire reservation agencies in the world, arranging over 2 million rentals a year in more than 6,000 locations worldwide. With customers in over 180 countries we have a truly global user base that we support through a website available in over 40 languages and multiple currencies. All of our customers have access to multi-lingual support by freephone or email.<a href="/help_centers/9" style="padding-bottom: 0px; margin: 0px 0px 0px 10px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; color: rgb(5,124,195); font-size: 12px; cursor: pointer; text-decoration: none; padding-top: 0px">Know more</a></p>
+</div>
+<p style="padding-bottom: 0px; text-transform: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 0px; -webkit-text-stroke-width: 0px"><b class="te_help_main_r_b01" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; color: rgb(5,124,195); font-size: 12px; padding-top: 0px">2.The charge and the service</b></p>
+<div class="my" style="padding-bottom: 5px; text-transform: none; list-style-type: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 5px; -webkit-text-stroke-width: 0px">
+<p style="padding-bottom: 0px; text-indent: 2em; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; font-size: 12px; padding-top: 0px">ToWorld deals with all the major car hire companies around the world checking which local supplier is offering the best prices for the car you want on the date you need it whilst ensuring everyone we deal with offers a great level of service.</p>
+<p style="padding-bottom: 0px; text-indent: 2em; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; font-size: 12px; padding-top: 0px">We want to ensure our customers have access to worldwide car hire services at the lowest possible prices so that you could not only save time by dealing with just one company but could also have confidence that they are getting excellent value for money as well as great service.<a href="/help_centers/3" style="padding-bottom: 0px; margin: 0px 0px 0px 10px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; color: rgb(5,124,195); font-size: 12px; cursor: pointer; text-decoration: none; padding-top: 0px">Know more </a></p>
+</div>
+<p style="padding-bottom: 0px; text-transform: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 0px; -webkit-text-stroke-width: 0px"><b class="te_help_main_r_b01" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; color: rgb(5,124,195); font-size: 12px; padding-top: 0px">3. The Rental terms </b></p>
+<div class="my" style="padding-bottom: 5px; text-transform: none; list-style-type: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 5px; -webkit-text-stroke-width: 0px">
+  <p>In practical terms, this means our multi-lingual contact centre is open 7 days a week and can be reached with a freephone call from wherever you are in the world. We don't add service charges or credit card charges to our prices, and unlike many other large travel companies, we don't impose charges for making changes to your booking.</p>
+  <p>rentalcars.com either acts as an agent in arranging your booking with the car hire company or as a principal in the supply to you depending on our contractual position with the car hire company. This will be clearly indicated in the terms and conditions of your booking.</p>
+  <p style="padding-bottom: 0px; text-indent: 2em; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; font-size: 12px; padding-top: 0px">&nbsp;</p>
+</div>
+<p style="padding-bottom: 0px; text-transform: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 0px; -webkit-text-stroke-width: 0px"><b class="te_help_main_r_b01" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; color: rgb(5,124,195); font-size: 12px; padding-top: 0px">4. Company Policy</b></p>
+<div class="my" style="padding-bottom: 5px; text-transform: none; list-style-type: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 5px; -webkit-text-stroke-width: 0px">
+<p style="padding-bottom: 0px; text-indent: 2em; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; font-size: 12px; padding-top: 0px">Our company’s policy is this: we are with the customer during the booking process, before and after the car rental lease. Our clients can always feel safe as all issues related to reservations will be assisted by our specialists that will be there to help to solve any issue and provide extensive car rental experience. Only our company has 24 hour telephone support service. Our company’ s home page is designed so that our clients receive the maximum information about future car rental. Please note that we have an active call-center and all the questions you might have will be answered over the phone should you not find an answer on our home page. We offer and ask our customers to call us direct over a local Rome phone number where our operators will know all of the answers to all of your questions.</p>
+</div>
+<p style="padding-bottom: 0px; text-transform: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 0px; -webkit-text-stroke-width: 0px"><b class="te_help_main_r_b01" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; color: rgb(5,124,195); font-size: 12px; padding-top: 0px">5. Philosophy </b></p>
+<div class="my" style="padding-bottom: 5px; text-transform: none; list-style-type: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 5px; -webkit-text-stroke-width: 0px">
+<p style="padding-bottom: 0px; text-indent: 2em; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; font-size: 12px; padding-top: 0px">Our company's philosophy is to facilitate our customers to book car rental service anywhere in the world while our motto is – ‘’Providing quality service at an affordable price’’. Every day our analyst's tasks are to monitor prices plans of our co-operating agencies around the world as a result we can always guarantee very competitive prices and a high level of customer service. Our company has at least 3-4 Car Rental service providers in each desination. This allows for competition and higher customer care also providing healthier competition and better level of customer satisfaction.</p>
+</div>
+<p style="padding-bottom: 0px; text-transform: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 0px; -webkit-text-stroke-width: 0px"><b class="te_help_main_r_b01" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; color: rgb(5,124,195); font-size: 12px; padding-top: 0px">6. Requirements for drivers</b></p>
+<div class="my" style="padding-bottom: 5px; text-transform: none; list-style-type: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 5px; -webkit-text-stroke-width: 0px">
+<p style="padding-bottom: 0px; text-indent: 2em; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; font-size: 12px; padding-top: 0px">Driver license. You must produce a valid driver's license for the country where the rental takes place. The driver's license must have been issued at least 12 months before the pick-up date. In addition to the normal driver's license, an international driving permit may also be required. Please note that the international driving permit is only valid, if supplemented by your normal driver's license.  Driver's age. Usually drivers must be aged between 21 and 75 inclusive. Other rental car providers have different age limits. Risk age. Young drivers are often less experienced and therefore could be more likely involved in an insurance claim. For this reason, if you are a young driver, rental vehicle provider will ask you to pay underage driver fee.</p>
+</div>
+<p style="padding-bottom: 0px; text-transform: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 0px; -webkit-text-stroke-width: 0px"><b class="te_help_main_r_b01" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; color: rgb(5,124,195); font-size: 12px; padding-top: 0px">7. Other provisions</b></p>
+<div class="my" style="padding-bottom: 5px; text-transform: none; list-style-type: none; text-indent: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font: 12px/24px 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; white-space: normal; letter-spacing: normal; color: rgb(102,102,102); word-spacing: 0px; padding-top: 5px; -webkit-text-stroke-width: 0px">
+<p style="padding-bottom: 0px; text-indent: 2em; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 'Microsoft YaHei', tahoma, Simsun, 'Arial Unicode MS', Mingliu, Arial, Helvetica; font-size: 12px; padding-top: 0px"> Breakdown Coverage. 24hrs roadside assistance is included in the rates. Replacement vehicles may not be provided by the rental vehicle provider, depending on the reason of a breakdown. </p>
+</div>
+<br /></div>    </div>
+    <!-- 右边end--> 
+<!-- 中间部分end--> 
+<!-- footer start-->
+	<div class="footer">
+		<div class="nav_footer">
+	  		<div>
+	    		<ul class="inline">
+	      		<li><a  href="/ziteng/page/home.html">Homepage</a></li>
+	      		<li><a  href="#">Service Stores</a></li>
+	      		<li><a  href="#">Help Centre</a></li>
+	      		<li><a  href="#">About Us</a></li>
+	        </ul>
+	  		</div>
+		</div>
+		<div class="container">
+	  		<div>
+	    		<ul class="unstyled">
+	      		<li>The website is owned by ToWorld Company</li>
+	    		</ul>
+	    		<ul class="unstyled">
+	      		<li>Copyright @2014 www.ToWorld.com All Rights Reserved</li>
+	    		</ul>
+	  		</div>
+		</div>
+	</div>
+	
+	<!-- footer end -->
+
+</body>
+</html>

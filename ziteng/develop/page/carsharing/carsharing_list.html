@@ -1,0 +1,341 @@
+<!DOCTYPE HTML>
+<html >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Car Sharing</title>
+	
+	<link rel="stylesheet" type="text/css" href="../public/css/bootstrap/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="../public/css/home.css" />
+	<link rel="stylesheet" type="text/css" href="../css/global.css" />
+	<link rel="stylesheet" type="text/css" href="../public/css/mdd_detail_v2.css"/>
+	<link rel="stylesheet" type="text/css" href="../public/css/header.css"/>
+	<link rel="stylesheet" type="text/css" href="../public/css/blue_button.css" />
+	
+	<script src="../public/javascript/jquery.js"></script>
+	<script src="../public/javascript/jquery.easing.1.3.js"></script>
+	<script src="../public/javascript/bootstrap/bootstrap.js"></script>
+	
+	<script src="../js/public.js"></script>
+	<script src="../js/login.js"></script>
+	<script src="../js/register.js"></script>
+	
+</head>
+<body>
+
+<!--头部-->
+	<div class="header">
+	<div class="reo_header">
+	    <div class="top">
+	    <div class="c" id="statusBar"> <!-- 用于登录栏 -->
+	    </div>
+	  </div>
+	  <div id="div_login" style="display:none" class="div_login">
+	  	<ul class="blue_line">
+		</ul>
+		<form id="headLogin" onsubmit="return false">
+			<ul class="unstyled" style="margin-top: 15px; margin-top: 20px;">
+				<li style="line-height: 35px;">Account：<input id="login_account" type="text"
+					name="head_account" data-check-sta='Y' data-check-type='isname'
+					msgVal='Phone/Email/Username' style="width: 65%; color: #CCC" value="Phone/Email/Username" />
+				</li>
+				<li style="line-height: 35px;">Password：<input type="password"
+					msgVal='Password' id="headpassword" name="head_password"
+					style="width: 65%; margin-top: 0px; color: #000;" />
+				</li>
+			</ul>
+			<ul class="inline"
+				style="height: 30px; line-height: 30px; margin-top: 3px;">
+				<li id="head-login-errormsg"
+					style="width: 150px; text-align: left; margin-left: 0px; padding-left: 0px;"
+					class="text-error"></li>
+				<li style="width: 60px; text-align: right;"><a target="_blank"
+					href="getpassword.html">Forgot Password</a></li>
+			</ul>
+			<ul style="margin-top: 5px;">
+				<li><input type="submit" value="Login"
+					style="width: 200px; height: 30px; margin: 0 0 0 40px;"
+					id="head_login" class="btn btn-primary" /></li>
+			</ul>
+		</form>
+	  </div>
+	</div>
+	
+	<div id="nav_header">
+	 <ul>
+				<li class="titlewz">
+					<ol olnum="0">
+						<a href="../home.html">Homepage</a>
+					</ol>
+					<ol olnum="1">
+						<a href="../gonglue.html">Travel Guide</a>
+					</ol>
+					<ol olnum="2">
+						<a href="../activity.html">Activities</a>
+					</ol>
+					<ol olnum="3">
+						<a   href="../rentcar.html">Itinerary</a>
+					</ol>
+					<ol olnum="4">
+					<img src="../public/images/headLogo.png"
+							style="margin-right: 3px; margin-bottom: 2px;" />
+						<a style="color: #FC3;"  href="carsharing_list.html">Car Sharing</a>
+					</ol>
+					<ol olnum="5">
+						<a href="../zthotel/home.html">Hotel Booking</a>
+					</ol>
+					<ol olnum="6">
+						<a href="../bbs/bbs/index.php">BBS</a>
+					</ol>
+				</li>
+			</ul>
+			<ul>
+				<span id="blueline" class="testline" style="margin-left: 557px" />
+			</ul>
+	</div>
+	
+	<div id="page_loading" style="display:none;background:#000;display:block;position:absolute;top:0;left:0;z-index:10000;opacity:0.1;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=10);"></div>
+	<img src="../public/images/loading.gif?1" style="display:none;width:32px; height:32px; z-index:11000; position:absolute;border:0;" id="page_loadimg" />
+</div>
+<!--头部end --> 
+
+<!-- content start! -->
+<div class="container" style="margin-top: 30px;">
+
+     <div class="post-bar">
+        <ul class="clearfix">
+            <li class=""><a href="">The Hottest</a></li>
+            <li class=""><a href="">The Newest</a></li>
+            <li class=""><a href="">The Finest</a></li>
+        </ul>
+        <div class="pb_choice">
+		    <div data-cs-t="mdd_filter" class="pb_con _j_filter_box" style="height: 60px;">
+		        <div class="pb_list">
+		            <strong>By area：</strong>
+		            <p id="search_area">
+		             <a id="area_0"  href="#" class="on" onclick="select_area(0,0)">No limits</a>
+		            </p>
+		        </div>
+		          <div class="pb_list">
+		            <strong>By days：</strong>
+		            <p>
+			            <a id="day_0" href="#" class="on" onclick="select_day(0)">No limits</a>
+			            <a id="day_1" href="#" onclick="select_day(1)">1 day</a>
+			            <a id="day_2" href="#" onclick="select_day(2)">2 days</a>
+			            <a id="day_3" href="#" onclick="select_day(3)">3 days</a>
+			            <a id="day_4" href="#" onclick="select_day(4)">4 days</a>
+			            <a id="day_5" href="#" onclick="select_day(5)">5 days</a>
+		           </p>
+		        </div>
+		      </div>
+		</div>
+   	</div>
+   	
+    <div class="post-list">
+     
+    <ul id="ul_carsharing_list">
+    		<!--
+         <li class="post-item clearfix">
+            <table class="table">
+            		<tr class="info">
+            			<td><h3>Car Sharing标题</h3></td>
+            		</tr>
+            		<tr class="success">
+            			<td style="font-size:16px">
+            				<div class="row">
+            					<div class="span4">Departure Area：北京</div>
+            					<div class="span4">Arrival Area：北京</div>
+            				</div>
+            				<div class="row">
+            					<div class="span4">Departure：2014年6月6日</div>
+            					<div class="span4">Travel days：10天</div>
+            				</div>
+            				<div class="row">
+            					<div class="span8"><p>Specification：这是个适合去玩的好地方！</p></div>
+            				</div>
+            				<div class="row">
+            					<div class="span4">Contact：王某</div>
+            					<div class="span4">Contacts：19808875654</div>
+            					<div class="span4 text-right"><input class="btn btn-primary" type="button" value="参与Comments"></div>
+            				</div>
+            			</td>
+            		</tr>
+            </table>
+        </li>
+        -->
+    </ul>
+</div>
+
+   <div id="page_nav" class="paginator"  align="right">
+       <a class="first-page" href="">|&lt;</a>
+       <span class="current-page">1</span>
+       <a href="">2</a>
+       <a href="">...</a>
+       <a class="next-page" href="">Next &gt;</a>
+       <a class="last-page" href="">&gt;|</a>
+   </div>
+
+</div>
+<!-- content end! -->
+
+<!-- footer start-->
+	<!-- footer start-->
+	<div class="footer">
+		<div class="nav_footer">
+	  		<div>
+	    		<ul class="inline">
+	      		<li><a  href="/ziteng/page/home.html">Homepage</a></li>
+	      		<li><a  href="#">Service Stores</a></li>
+	      		<li><a  href="#">Help Centre</a></li>
+	      		<li><a  href="#">About Us</a></li>
+	        </ul>
+	  		</div>
+		</div>
+		<div class="container">
+	  		<div>
+	    		<ul class="unstyled">
+	      		<li>The website is owned by ToWorld Company</li>
+	    		</ul>
+	    		<ul class="unstyled">
+	      		<li>Copyright @2014 www.ToWorld.com All Rights Reserved</li>
+	    		</ul>
+	  		</div>
+		</div>
+	</div>
+	<!-- footer end -->
+	
+<script>
+
+var pageSize = 5;
+var pageNo = 1;
+var total = 0;
+var searchAreaId = null;
+var days = null;
+var areaCount = 1;
+
+
+function loadArea(){
+	var url = "/ziteng/area/getAllAreas.do";
+	var param = {};
+	$.post(url,param,function(data){
+		var json = eval('(' + data +')');
+		if(json.success){
+			var areas = json.datas.areas;
+			areaCount = 1 + areas.length;
+			for(var i = 0; i < areas.length; i++){
+				var $a = '<a id="area_'+(i+1	)+'" href="#" onclick="select_area('+areas[i].id+', '+(i+1)+')">'+ areas[i].name +'</a>';
+				$("#search_area").append($a);
+			}
+		}else{
+			alert(json.msg);
+		}
+	});
+}
+
+//load travel guide.
+function loadGuide(){
+	$("#ul_carsharing_list").empty();
+	// var param = {"pageNo":pageNo, "pageSize":pageSize};
+	var url = "/ziteng/carSharing/getAllCarSharingInfos.do";
+	$.post(url, {}, function(data){
+		var json = eval("(" + data +")");
+		if(json.success){
+			var carSharings = json.datas.carSharings;
+			total = json.datas.total;
+			var totalPage = Math.floor((total+pageSize-1)/pageSize);
+			updatePageSelect(pageNo, totalPage);
+			for(var i = 0; i < carSharings.length; i++){
+				var carsharing = carSharings[i];
+				var $infos = '<li class="post-item clearfix">'+
+	            '<table class="table">'+
+	            '<tr class="info">' +
+	            '<td><h3>'+ carsharing.title +'</h3></td></tr>' +
+	            '<tr class="success">' +
+	            '<td style="font-size:16px">' +
+	            '<div class="row">' +
+	            '<div class="span4">Departure Area：' + carsharing.startArea + '</div>'+
+	            '<div class="span4">Arrival Area：' + carsharing.endArea + '</div>' +
+	            '</div>' +
+	            '<div class="row">'+
+	            	'<div class="span4">Departure：'+ carsharing.startTimeString +'</div>'+
+	            	'<div class="span4">Travel days：'+ carsharing.playDays +'天</div>' +
+	            	'</div>'+
+	            	'<div class="row">' +
+	            	'<div class="span8"><p>Specification：'+ carsharing.details +'</p></div>'+
+	            	'</div>'+
+	            	'<div class="row">'+
+	            	'<div class="span4">Contact：'+ carsharing.userId +'</div>' +
+	            	'<div class="span4">Contacts：'+ carsharing.contactMethod +'</div>' +
+	            	'<div class="span4 text-right"><input class="btn btn-primary" type="button" value="参与Comments" onclick="goto_details('+carsharing.id+')"></div>'+
+	            '</div>'+
+	            '</td></tr></table></li>';
+				$("#ul_carsharing_list").append($infos);
+			}
+		}else{
+			alert(json.msg);
+		}
+	});
+}
+//select page.
+function updatePageSelect(curPage, totalPage){
+	$("#page_nav").empty();
+	$("#page_nav").append('<a class="first-page" href="#" onclick="query(1)">|&lt;</a>');
+
+	if(curPage > 1){
+		$("#page_nav").append('<a href="#" onclick="query('+(curPage-1)+')">'+(curPage-1)+'</a>');
+	}
+	$("#page_nav").append('<span class="current-page" onclick="query('+curPage+')">'+curPage+'</span>');
+	if(totalPage > curPage){
+		$("#page_nav").append('<a href="#" onclick="query('+(curPage+1)+')">'+(curPage+1)+'</a>');
+		$("#page_nav").append('<a class="next-page" href="#" onclick="query('+(curPage+1)+')">></a>');
+	}
+	$("#page_nav").append('<a class="last-page" href="#" onclick="query('+totalPage+')">&gt;|</a>');
+}
+
+
+//query travel guide.
+function query(curNo){
+	if(curNo == pageNo){
+		alert("已经是当前页了");return false;
+	}
+	pageNo = curNo;
+	loadGuide();
+}
+
+function select_day(day){
+	if(day==0){
+		days = null;
+	}else{
+		days = day;
+	}
+	for(var i = 0; i < 6; i++){
+		$("#day_"+i).attr("class","off");
+	}
+	$("#day_"+day).attr("class","on");
+	loadGuide();
+}
+function select_area(areaId,id){
+	if(areaId==0){
+		searchAreaId = null;
+	}else{
+		searchAreaId = areaId;
+	}
+	for(var i = 0; i < areaCount; i++){
+		$("#area_"+i).attr("class","off");
+	}
+	$("#area_"+id).attr("class","on");
+	loadGuide();
+}
+
+function goto_details(carsharingId){
+	window.open('carsharing_message.html?carsharingId='+carsharingId);
+}
+
+$(document).ready(function() {
+	loadArea();
+	loadGuide();
+});
+</script>
+	
+	<!-- footer end -->
+</body>
+</html>

@@ -1,0 +1,199 @@
+function GetPrice() {
+    var a, b, c, d;
+    return 1 ;
+}
+function FillPrice(a) {
+    var c, b = "<p align=center>抱歉,此Hotel" + par.checkInDate + "到" + par.checkOutDate + "期间内暂时无法预订.</p>";
+    "true" == a.Result ? a.SpotRoomCount || a.AdvanceRoomCount > 0 ? (c = '<table class="hotel_room_list" border="0" cellspacing="0" cellpadding="0"><tbody><tr><th width="26%">Room type</th><th width="18%">早餐</th><th width="8%">床型</th><th width="8%">宽带</th><th width="18%">&nbsp;&nbsp;Price</th><th width="12%">房量</th><th width="10%">&nbsp;</th></tr>', a.AdvanceRooms = null, $(a.SpotRooms).each(function(a, b) {
+        $(b.Rate).each(function(d) {
+            c += "<tr><td>",
+            0 == d ? (c += '<a href="javascript:" class="roomIntro" roomindex="' + a + '" type="s">' + b.RoomName + '<span class="reduction"></span></a>', c += "true" == b.Rate[d].GiftState ? '<span class="gift" index="' + a + '"></span>': "") : c += "&nbsp;",
+            c += "</td><td>" + b.Rate[d].RatePlanIntro + "</td>",
+            c += "-" == b.RoomBed ? "<td>" + b.RoomBed + "</td>": "<td>" + b.RoomBed + "</td>",
+            c += "<td>" + b.RoomInternet + "</td>" + '<td><div class="price_jj"><span class="price_20" index="' + a + '" rindex="' + d + '" type="s">' + b.Rate[d].AvgPrice + "</span>&nbsp;&nbsp;",
+            c += b.Rate[d].jiangjin_single > 0 ? '<span class="fan_icon">' + b.Rate[d].jiangjin_single + "</span>": "",
+            c += "</div></td>",
+            c += b.Rate[d].maxBooking >= 6 ? '<td><span class="green">房量充足</span></td>': b.Rate[d].maxBooking > 0 ? '<td><span class="red">仅剩' + b.Rate[d].maxBooking + "间</span></td>": '<td><span class="gray">订完</span></td>',
+            c += '<td><div class="icon_chakan">',
+            c += "true" == b.Rate[d].BookState ? '<input type="button" value="预订" class="btn_yd" onClick="GoBook(\'' + par.hotelid + "','" + b.RoomId + "','" + b.Rate[d].RateId + "')\" >": '<input type="button" value="满房"  class="btn_mf">',
+            c += "</div></td></tr>"
+        }),
+        c += '<tr class="roomhide hidden" Spotindex="' + a + '"><td colspan="6" class="room_xqtip">' + b.RoomIntro + "</td></tr>"
+    }), $(a.AdvanceRooms).each(function(a, b) {
+        $(b.Rateplans).each(function(d, e) {
+            c += "<tr>",
+            c += '<td><a href="javascript:" class="roomIntro" roomindex="' + a + '" type="a">' + b.RoomName + ("常规" == e.RateName ? "": e.RateName) + '<span class="reduction"></span></a></td>',
+            c += "<td>" + b.Rateplans[d].BreakFast + "</td>",
+            c += "-" == b.RoomBed ? "<td>" + b.RoomBed + "</td>": "<td>" + b.RoomBed + "床</td>",
+            c += "<td>" + b.RoomNet + "</td>" + '<td><div class="price_jj"><span class="price_20" index="' + a + '" rindex="' + d + '" type="s">£' + b.Rateplans[d].AdvancePrice + '</span>&nbsp;&nbsp;<span class="xyf_icon"></span>',
+            c += "</div></td>",
+            c += b.Rateplans[d].maxBooking >= 6 ? '<td><span class="green">房量充足</span></td>': b.Rateplans[d].maxBooking > 0 ? '<td><span class="red">仅剩' + b.Rateplans[d].maxBooking + "间</span></td>": '<td><span class="gray">订完</span></td>',
+            c += '<td><div class="icon_chakan">',
+            c += "1" == b.Rateplans[d].isAvailable ? '<input type="button" value="预订" class="btn_yd" onClick="GoPrepay(\'' + par.hotelid + "')\" >": '<input type="button" value="满房"  class="btn_mf">',
+            c += "</div></td></tr>"
+        }),
+        c += '<tr class="roomhide hidden" Advanceindex="' + a + '"><td colspan="6" class="room_xqtip">' + b.RoomIntro + "</td></tr>"
+    }), $obj = $("div.hotel_room"), $obj.html(c), $("a.roomIntro", $obj).click(function() {
+        var a;
+        a = "a" == $(this).attr("type") ? "Advanceindex": "Spotindex",
+        $("tr.roomhide[" + a + "=" + $(this).attr("roomindex") + "]", $obj).toggleClass("hidden"),
+        $("span", $(this)).toggleClass("reduction").toggleClass("plus")
+    }), $("span.gift", $obj).mouseover(function() {
+        views(this, "v1", a.SpotRooms[$(this).attr("index")].Rate[0].GiftContent)
+    }), $("span.fan_icon", $obj).mouseover(function() {
+        views(this, "v3", $(this).text())
+    }), $("span.price_20", $obj).mouseover(function() {
+        var b;
+        b = "a" == $(this).attr("type") ? a.AdvanceRooms[$(this).attr("index")].Rateplans[$(this).attr("rindex")].RoomPriceDivHtml: a.SpotRooms[$(this).attr("index")].Rate[$(this).attr("rindex")].RoomPriceDivHtml,
+        views(this, "v1", b)
+    })) : $("div.hotel_room").html(b) : $("div.hotel_room").html(b)
+}
+function GoBook(a, b, c) {
+    var d = "home-0111.html?checkindate=" + par.checkInDate + "&checkoutdate=" + par.checkOutDate;
+    top.location = d
+}
+function GoPrepay(a) {
+    var b = "http://prepay.sunnychina.com/info_" + a + ".html?indate=" + par.checkInDate + "&outdate=" + par.checkOutDate;
+    window.open(b)
+}
+function AddEvent() {
+    var a, b;
+    "1" == par.pageType && parseInt(par.imagenum) > 1 && new YAO.YAlbum,
+    par.uid > 0 && $("span.sc-but a").click(function() {
+        var a = par.hotelid,
+        b = "http://www.sunnychina.com/api/memberhotel.html?userid=" + par.uid + "&hotelid=" + a;
+        $.getJSON(b,
+        function(a) {
+            return a.result >= 0 ? (alert("加入收藏成功!"), !1) : (alert("加入失败!"), !1)
+        })
+    }),
+    "0" == par.pageType && ($(".MenuMain").hide().eq(0).show(), $("div.Menubox ul li a:not([name=review])").click(function() {
+        if ($(this).parent("li").siblings().removeClass("hover"), $(this).parent("li").addClass("hover"), $(".MenuMain").hide().eq($(this).parent("li").attr("index")).show(), ("undefined" == a || !a) && "HotelImages" == $(".MenuMain").eq($(this).parent("li").attr("index")).attr("id")) var a = new YAO.YAlbum
+    }),
+    $("div.Menubox ul li:not([index=2])").click(function() {
+        if ($(this).siblings().removeClass("hover"), $(this).addClass("hover"), $(".MenuMain").hide().eq($(this).attr("index")).show(), ("undefined" == a || !a) && "HotelImages" == $(".MenuMain").eq($(this).attr("index")).attr("id")) var a = new YAO.YAlbum;
+        "HotelMap" == $(".MenuMain").eq($(this).attr("index")).attr("id") && setTimeout(function() {
+            map.panTo(new BMap.Point(par.xpoint, par.ypoint))
+        },
+        500)
+    })),
+    $(".hotelserch #ReSearch").click(function() {
+        $(".list_srh_top:first").hide(),
+        $(".list_srh_top:last").show()
+    }),
+    $(".ho_box span.newDB_h3but").click(function() {
+        "展开所有地标" == $(this).text() ? ($(".ho_box span.newDB_h3but img").attr("src", par.staticUrl + "/image/newDB_icoup.gif"), $(this).html($(this).html().replace("展开", "收缩")), $("dl.newDB_box dd").removeClass("hidden"), $("dl.newDB_box dt span").html('<img src="' + par.staticUrl + '/image/newDB_icoup.gif" width="9" height="6" />收缩</span>')) : ($(".ho_box span.newDB_h3but img").attr("src", par.staticUrl + "/image/newDB_icodown.gif"), $(this).html($(this).html().replace("收缩", "展开")), $("dl.newDB_box dd").addClass("hidden"), $("dl.newDB_box dt span").html('<img src="' + par.staticUrl + '/image/newDB_icodown.gif" width="9" height="6" />展开</span>'))
+    }),
+    $("dl.newDB_box dt span").click(function() {
+        "展开" == $(this).text() ? ($(this).parent().siblings("dd").removeClass("hidden"), $(this).html('<img src="' + par.staticUrl + '/image/newDB_icoup.gif" width="9" height="6" />收缩</span>')) : ($(this).parent().siblings("dd").addClass("hidden"), $(this).html('<img src="' + par.staticUrl + '/image/newDB_icodown.gif" width="9" height="6" />展开</span>'))
+    }),
+    $("#HotelReview .pag3_div_down span.like-a").click(function() {
+        ReFillReview($(this).attr("relid"))
+    }),
+    chgDate(),
+    Aclick(),
+    0 == par.pageType && (a = window.location.href, a.indexOf("#image") > 5 && ($(".MenuMain").hide().eq(1).show(), $(".Menubox ul li").removeClass("hover").eq(1).addClass("hover"), "undefined" != b && b || (b = new YAO.YAlbum), $("html,body").animate({
+        scrollTop: $(".Menubox ul li:first").offset().top
+    },
+    500)))
+}
+
+function Aclick() {
+    $(".date_info img").click(function() {
+        $(".date_info .com_way").show("fast"),
+        $(".date_info .com_way li.noteclose").click(function() {
+            $(".date_info .com_way").hide("fast")
+        }),
+        $(".date_info .com_way .info_price_btn").click(function() {
+            var a, b, c, d, e;
+            return $(".date_info .com_way").hide("fast"),
+            a = par.checkInDate,
+            b = par.checkOutDate,
+            c = daysBetween(a, b),
+            d = new Date,
+            d = d.Format("yyyy-MM-dd"),
+            e = daysBetween(a, d),
+            c > 28 ? (alert("如果您需要在HotelCheck in28天以上，请致电：400-666-9977，我们会竭诚为您服务。"), !1) : e > 90 ? (alert("如果您预订三个月后的Hotel房间，请致电：400-666-9977，我们会竭诚为您服务。"), !1) : (setTimeout(GetPrice, 100), ShowDate(0), void 0)
+        })
+    })
+}
+function ShowDate() {
+    var c, a = par.checkInDate.split("-"),
+    b = par.checkOutDate.split("-");
+    a = new Date(Date.parse(a[0] + "/" + a[1] + "/" + a[2])),
+    b = new Date(Date.parse(b[0] + "/" + b[1] + "/" + b[2])),
+    c = a.Format("YYYY年M月D日") + '<span class="col_9">(星期' + a.Format("w") + ")</span>  Check in," + b.Format("YYYY年M月D日") + '<span class="col_9">(星期' + b.Format("w") + ")</span>　Check out　",
+    $(".date_info #showDate").html(c)
+}
+function chgDate() {
+	
+    $("#ChgCheckOut").val($.cookie("checkOutTime") || "").datepicker({
+        numberOfMonths: 2,
+        minDate: $.cookie("checkInTime"),
+        dateFormat: "yy-mm-dd",
+        onSelect: function(a) {
+            $.cookie("checkOutTime", a, {
+                path: "/",
+                domain: ".ziteng.com"
+            }),
+            par.checkOutDate = a,
+			document.getElementById("endDate1").value =a
+            $("#ui-datepicker-div").hide()
+        }
+    }),
+    $("#ChgCheckIn").val($.cookie("checkInTime") || "").datepicker({
+        numberOfMonths: 2,
+        minDate: 0,
+        dateFormat: "yy-mm-dd",
+        onSelect: function(a) {
+            var b = $(this).data("datepicker"),
+            c = $.datepicker.parseDate(b.settings.dateFormat || $.datepicker._defaults.dateFormat, a, b.settings),
+            d = new Date(Date.parse(c) + 864e5);
+            $("#ChgCheckOut").datepicker("option", "minDate", d),
+            $.cookie("checkInTime", a, {
+                path: "/",
+                domain: ".ziteng.com"
+            }),
+            par.checkInDate = a
+			document.getElementById("startDate1").value=a;
+        },
+        onClose: function() {
+            $("#ChgCheckOut").datepicker("show");
+			
+        }
+    })
+	
+}
+function SubmitForm() {
+    if (par.cityName = $("#cityName").val(), par.checkInDate = $("#CheckInDate").val(), par.checkOutDate = $("#CheckOutDate").val(), "" == $("#HotelName").val() || $("#HotelName").val().indexOf("输入Hotel名") >= 0 || (par.hotelName = $("#HotelName").val()), "" == $("#KeyPoiName").val() || $("#KeyPoiName").val().indexOf("如:火车站") >= 0) dialog.dialog({
+        title: par.cityName + "Search Hotel",
+        modal: !0
+    }),
+    dialog.dialog("open"),
+    referUrl = GetJsonHotelUrl(1),
+    window.top.location = referUrl;
+    else {
+        par.keyPoiName = $("#KeyPoiName").val();
+        var a = "/api/getpoint.html?cityId=" + par.cityId + "&keyPoiName=" + encodeURIComponent(par.keyPoiName) + "&callback=";
+        $.getJSON(a,
+        function(a) {
+            par.baiduLat = a.lat,
+            par.baiduLng = a.lng,
+            par.sort = 9,
+            referUrl = GetJsonHotelUrl(1),
+            window.top.location = referUrl
+        })
+    }
+}
+var dialog = $('<div class="dialog" ><img class="loading" src="' + par.staticUrl + '/image/loading01.gif" width="220" height="19" /><p>正在为您查询，请稍后！</p><img class="guanggao" src="' + par.staticUrl + '/image/dialog_img.gif" width="280" height="45" /></div>');
+$(function() {
+    MM_preloadImages(par.staticUrl + "/image/dialog_img.gif", par.staticUrl + "/image/dialog_img.gif", par.staticUrl + "/image/dialog_bg.gif"),
+    $(".slide_pic_list li img").mouseover(function() {
+        var a = $(this).attr("src").replace("/thumb", "");
+        $(a).ready(function() {
+            $(".big_photo img").attr("src", a)
+        })
+    })
+}),
+LoadSearch(),
+AddEvent();

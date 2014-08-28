@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=10" />
+<title>Register</title>
+
+<link rel="stylesheet" type="text/css" href="public/css/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="public/css/home.css" />
+<link rel="stylesheet" type="text/css" href="css/global.css" />
+
+<script src="public/javascript/jquery.js"></script>
+<script src="public/javascript/jquery.easing.1.3.js"></script>
+<script src="public/javascript/bootstrap/bootstrap.js"></script>
+
+<script src="js/public.js"></script>
+<script src="js/login.js"></script>
+
+<script src="js/register.js"></script>
+</head>
+
+<body>
+	<!--头部-->
+	<div class="header">
+	<div class="reo_header">
+	    <div class="top">
+	    <div class="c" id="statusBar"> <!-- 用于登录栏 -->
+	    </div>
+	  </div>
+	  <div id="div_login" style="display:none" class="div_login">
+	  	<ul class="blue_line">
+		</ul>
+		<form id="headLogin" onsubmit="return false">
+			<ul class="unstyled" style="margin-top: 15px; margin-top: 20px;">
+				<li style="line-height: 35px;">Account：<input id="login_account" type="text"
+					name="head_account" data-check-sta='Y' data-check-type='isname'
+					msgVal='Phone/Email/Username' style="width: 65%; color: #CCC" value="Phone/Email/Username" />
+				</li>
+				<li style="line-height: 35px;">Password：<input type="password"
+					msgVal='Password' id="headpassword" name="head_password"
+					style="width: 65%; margin-top: 0px; color: #000;" />
+				</li>
+			</ul>
+			<ul class="inline"
+				style="height: 30px; line-height: 30px; margin-top: 3px;">
+				<li id="head-login-errormsg"
+					style="width: 150px; text-align: left; margin-left: 0px; padding-left: 0px;"
+					class="text-error"></li>
+				<li style="width: 60px; text-align: right;"><a target="_blank"
+					href="getpassword.html">Forgot Password</a></li>
+			</ul>
+			<ul style="margin-top: 5px;">
+				<li><input type="submit" value="Login"
+					style="width: 200px; height: 30px; margin: 0 0 0 40px;"
+					id="head_login" class="btn btn-primary" /></li>
+			</ul>
+		</form>
+	  </div>
+	</div>
+	
+	<div id="nav_header">
+	  <ul>
+	    <li class="titlewz">
+	        <ol olnum="0">
+	        		<img src="public/images/headLogo.png" style="margin-right:3px; margin-bottom:2px;" />
+	        		<a style="color:#FC3;" href="index.html">Itinerary</a>
+	        	</ol>
+			<ol olnum="1"><a href="gonglue.html">Car Rental</a></ol>
+			<ol olnum="2"><a href="activity.html">Activities</a></ol>
+			<ol olnum="3"><a href="reservation.html">Hotel Booking</a></ol>
+			<ol olnum="4"><a href="carsharing.html">Car Sharing</a></ol>
+			<ol olnum="5"><a href="aboutus.html">About the Company</a></ol>
+			<ol olnum="6"><a href="bbs.html">BBS</a></ol>
+		</li>
+	  </ul>
+	  <ul>
+	    <span id="blueline" class="testline" style="margin-left:17px"></span>
+	  </ul>
+	</div>
+	
+	<div id="page_loading" style="display:none;background:#000;display:block;position:absolute;top:0;left:0;z-index:10000;opacity:0.1;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=10);"></div>
+	<img src="public/images/loading.gif?1" style="display:none;width:32px; height:32px; z-index:11000; position:absolute;border:0;" id="page_loadimg" />
+</div>
+<!--头部end --> 
+	
+	<!-- content start-->
+	<div class="container" style="margin-top: 30px;">
+		<ul>
+			<h2>ToWorld Membership Register</h2>
+		</ul>
+		<ul>
+			<hr />
+		</ul>
+	</div>
+	<div class="container">
+		<div class="row-fluid">
+			<!--  左边start-->
+			<div class="span8">
+				<form method="post" id="registerForm">
+					<table class=" table table-hover table-striped table-bordered t">
+						
+						<tr>
+							<td class="tabwenzi"><span>Nickname</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input id="username" class="username"
+										name="member_username" type="text" data-sta='0'
+										data-content1="The username is combined with alphabet and numbers from 6-15 digits" data-content2="Username Exists" /></li>
+									<li class="lastLi">
+										<p>Login as username</p>
+									</li>
+								</ul></td>
+						</tr>
+
+						<tr>
+							<td class="tabwenzi"><span>Real Name</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input id="realname"
+										name="member_name" type="text" data-check-sta='Y'
+										data-check-type='isname' data-content="Please input the real name"></li>
+									<li class="lastLi">Real Name</li>
+								</ul></td>
+						</tr>
+
+						<tr>
+							<td class="tabwenzi"><span>Phone</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input id="phonenumber"
+										name="member_phone" type="text" data-sta='0'
+										data-content1="The phone number is consists of 11 digits number" data-content2="Number exists" /> <input
+										type="hidden" id="IDType" value="ID" /></li>
+									<li class="lastLi">
+										<p>The phone can login as the username,please input the correct number</p>
+									</li>
+								</ul></td>
+						</tr>
+
+						<tr>
+							<td class="tabwenzi"><span>Verify Code</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input name="member_name"
+										type="hidden" value="" /> <input id="checkcode"
+										name="member_phone" type="hidden" data-sta='1' value="" /> <input
+										name="member_code" data-sta='0' type="text"
+										data-checktype='pReg' /></li>
+									<li class="text-warning" id='getCode' style="cursor: pointer">
+										<p>Please Fill in the verify code</p>
+									</li>
+									<li><input type="button" class="btn" id="resetCode"
+										style="width: 130px; padding-left: 4px !important; padding-right: 4px !important; text-align: center; margin-left: 2px; font-size: 14px;"
+										iptime="" value="Get again" /></li>
+								</ul></td>
+						</tr>
+						<tr>
+							<td class="tabwenzi"><span>Email</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input id="email" class="email"
+										name="member_email" type="text" data-sta='0'
+										data-content1="Please input the email address" data-content2="The email address exists" /></li>
+									<li class="lastLi">
+										<p>Can login as username</p>
+									</li>
+								</ul></td>
+						</tr>
+						<tr>
+							<!--<td class="tabwenzi"><span>ID号码</span></td>-->
+							<td class="tabwenzi"><span>ID</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input id="idcard"
+										name="member_card_num" data-sta='1' data-content1="Please input the correct ID number"
+										data-content2="ID already exists" type="text"></li>
+									<li class="lastLi">
+										<p>For your convenience, please provide your ID number</p> <!--<p>为了方便您日后租车，请提供您的驾驶证或者ID号码</p>-->
+									</li>
+								</ul></td>
+						</tr>
+						<tr>
+							<td class="tabwenzi"><span>Input Password</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input id="password"
+										name="member_password" type="password" data-check-sta='Y'
+										data-check-type='isPasswd' data-content="Please input 6 to 18 Password"></li>
+									<li class="lastLi">Password length id from 6 digits to 18 digits</li>
+								</ul></td>
+						</tr>
+						<tr>
+							<td class="tabwenzi"><span>Confirm Password</span></td>
+							<td><ul class="inline">
+									<li class="firstLi"><input id="confirm_pwd"
+										name="member_rpassword" type="password" data-check-sta='Y'
+										data-check-type='rplay' data-check-rtype='member_password'
+										data-content="The Password must be the same"></li>
+									<li class="lastLi">Input the Password again！</li>
+								</ul></td>
+						</tr>
+
+					</table>
+					<div style="margin: 30px;">
+						<span style="margin: 20px;">
+							All the customers must obey the regulations released by the company</span>
+					</div>
+					<div style="margin: 30px; text-align: center;">
+						<input type="hidden" value="225045" name="member_channel" /> 
+						<input
+							type="button" class="btn btn-primary" style="width: 160px;"
+							id="submitBtn" value="    Register    " />
+						<p style="color: #fff; font-size: 20px;">225045</p>
+					</div>
+				</form>
+			</div>
+			<div class="span4">
+				<img src="public/images/zhuce.jpg" />
+			</div>
+		</div>
+	</div>
+	<!-- content end-->
+	
+	<!-- footer start-->
+	<div class="footer">
+		<div class="nav_footer">
+	  		<div>
+	    		<ul class="inline">
+	      		<li><a  href="/ziteng/page/home.html">Homepage</a></li>
+	      		<li><a  href="#">Service Stores</a></li>
+	      		<li><a  href="#">Help Centre</a></li>
+	      		<li><a  href="#">About Us</a></li>
+	        </ul>
+	  		</div>
+		</div>
+		<div class="container">
+	  		<div>
+	    		<ul class="unstyled">
+	      		<li>The website is owned by ToWorld Company</li>
+	    		</ul>
+	    		<ul class="unstyled">
+	      		<li>Copyright @2014 www.ToWorld.com All Rights Reserved</li>
+	    		</ul>
+	  		</div>
+		</div>
+	</div>
+	
+	<!-- footer end -->
+</body>
+</html>

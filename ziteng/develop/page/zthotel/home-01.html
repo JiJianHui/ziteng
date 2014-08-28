@@ -1,0 +1,329 @@
+<HTML>
+<HEAD>
+<META content="IE=7.0000" http-equiv="X-UA-Compatible">
+<TITLE>Hotel Booking</TITLE>
+<META content="text/html;" charset="utf-8" http-equiv="Content-Type">
+<SCRIPT type="text/javascript" charset="utf-8" src="home01/jquery-1.6.2.js"></SCRIPT>
+<SCRIPT type="text/javascript" charset="utf-8" src="home01/jquery-ui.js"></SCRIPT>
+<SCRIPT type="text/javascript" charset="utf-8" src="home01/public.js"></SCRIPT>
+<SCRIPT type="text/javascript" charset="utf-8" src="home01/thickbox.js"></SCRIPT>
+<script type="text/javascript" src="js/hotel/hotelroomsearch.js"></script>
+<link href="home01/bootstrap.min.css" rel="stylesheet" type="text/css">
+<LINK rel=stylesheet type=text/css href="home01/thickbox-info.css">
+<LINK rel=stylesheet type=text/css href="home01/public.css">
+<LINK rel=stylesheet type=text/css href="home01/jquery-ui.css">
+<LINK rel=stylesheet type=text/css href="home01/index.css">
+<script type="text/javascript" src="admin/js/jquery.min.js"></script>
+<script type="text/javascript" src="admin/js/jquery-ui.js"></script>
+<script type="text/javascript" src="admin/js/jquery-ui-slide.min.js"></script>
+<script type="text/javascript" src="admin/js/jquery-ui-timepicker-addon.js"></script>
+
+
+<link href="public/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../public/css/home.css" />
+<link rel="stylesheet" type="text/css" href="../css/global.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/reocar.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/mdd_detail_v2.css" />
+
+<script src="../public/javascript/jquery.easing.1.3.js"></script>
+<script src="../public/javascript/bootstrap/bootstrap.js"></script>
+
+<script src="js/public.js"></script>
+<script src="../js/login.js"></script>
+<script src="../js/register.js"></script>
+
+</HEAD>
+
+<script>   
+function getNowFormatDate() 
+{ 
+var day = new Date(); 
+var Year = 0; 
+var Month = 0; 
+var Day = 0; 
+var CurrentDate = ""; 
+//初始化时间 
+//Year= day.getYear();//有火狐下2008年显示108的bug 
+Year= day.getFullYear();//ie火狐下都可以 
+Month= day.getMonth()+1; 
+Day = day.getDate(); 
+//Hour = day.getHours(); 
+// Minute = day.getMinutes(); 
+// Second = day.getSeconds(); 
+CurrentDate += Year + "-"; 
+if (Month >= 10 ) 
+{ 
+CurrentDate += Month + "-"; 
+} 
+else 
+{ 
+CurrentDate += "0" + Month + "-"; 
+} 
+if (Day >= 10 ) 
+{ 
+CurrentDate += Day ; 
+} 
+else 
+{ 
+CurrentDate += "0" + Day ; 
+} 
+return CurrentDate; 
+} 
+  var thisURL = document.URL;    
+  var  getval = thisURL.split('?')[1];  //获取到所有参数取值
+  getval = getval.replace("#","");
+  var m_city = "";    //0 为 城市 1 为 Key words 2 为起始时间 3 为终止时间
+  var allInOne = "";
+  var m_preDate = getNowFormatDate();
+  var m_endDate = getNowFormatDate();
+  if (getval != null && getval != undefined && getval != '') { 
+  m_city = getval.split("&")[0];    //0 为 城市 1 为 Key words 2 为起始时间 3 为终止时间
+  allInOne = getval.split("&")[1];
+  m_preDate = getval.split("&")[2];
+  m_endDate = getval.split("&")[3];
+  }
+
+</script> 
+
+<script type="text/javascript">
+$(function(){
+	
+	$('#CheckInDate').datepicker({
+	   showSecond: false,
+	   showMillisec: false,
+	   numberOfMonths: 2,
+	   minDate: 0,
+	   maxDate: 30
+    });
+	$('#CheckOutDate').datepicker({
+	   showSecond: false,
+	   showMillisec: false,
+	   numberOfMonths: 2,
+	   minDate: 0,
+	   maxDate: 30
+    });
+	
+});
+</script>
+
+<BODY onload="getSearchRoom(m_city,allInOne,m_preDate,m_endDate)">
+
+<!--头部-->
+	<div class="header">
+		<div class="reo_header">
+			<div class="top">
+				<div class="c" id="statusBar">
+					<!-- 用于登录栏 -->
+				</div>
+			</div>
+			<div id="div_login" style="display: none" class="div_login">
+				<ul class="blue_line">
+				</ul>
+				<form id="headLogin" onsubmit="return false">
+					<ul class="unstyled" style="margin-top: 15px; margin-top: 20px;">
+						<li style="line-height: 35px;">Account：<input id="login_account"
+							type="text" name="head_account" data-check-sta='Y'
+							data-check-type='isname' msgVal='Phone/Email/Username'
+							style="width: 65%; color: #CCC" value="Phone/Email/Username" />
+						</li>
+						<li style="line-height: 35px;">Password：<input type="password"
+							msgVal='Password' id="headpassword" name="head_password"
+							style="width: 65%; margin-top: 0px; color: #000;" />
+						</li>
+					</ul>
+					<ul class="inline"
+						style="height: 30px; line-height: 30px; margin-top: 3px;">
+						<li id="head-login-errormsg"
+							style="width: 150px; text-align: left; margin-left: 0px; padding-left: 0px;"
+							class="text-error"></li>
+						<li style="width: 60px; text-align: right;"><a
+							href="getpassword.html">Forgot Password</a></li>
+					</ul>
+					<ul style="margin-top: 5px;">
+						<li><input type="submit" value="Login"
+							style="width: 200px; height: 30px; margin: 0 0 0 40px;"
+							id="head_login" class="btn btn-primary" /></li>
+					</ul>
+				</form>
+			</div>
+		</div>
+
+		<div id="nav_header">
+			<ul>
+				<li class="titlewz">
+					<ol olnum="0">
+						<img src="../public/images/headLogo.png"
+							style="margin-right: 3px; margin-bottom: 2px;" />
+						<a style="color: #FC3;" href="../home.html">Homepage</a>
+					</ol>
+					<ol olnum="1">
+						<a href="../gonglue.html">Travel Guide</a>
+					</ol>
+					<ol olnum="2">
+						<a href="../activity.html">Activities</a>
+					</ol>
+					<ol olnum="3">
+						<a href="../rentcar.html">Itinerary</a>
+					</ol>
+					<ol olnum="4">
+						<a href="../carsharing/carsharing_list.html">Car Sharing</a>
+					</ol>
+					<ol olnum="5">
+						<a href="home.html">Hotel Booking</a>
+					</ol>
+					<ol olnum="6">
+						<a href="#">BBS</a>
+					</ol>
+				</li>
+			</ul>
+			<ul>
+				<span id="blueline" class="testline" style="margin-left: 17px" />
+			</ul>
+		</div>
+
+		<div id="page_loading"
+			style="display: none; background: #000; display: block; position: absolute; top: 0; left: 0; z-index: 10000; opacity: 0.1; filter: progid:DXImageTransform.Microsoft.Alpha(opacity=10);"></div>
+		<img src="../public/images/loading.gif"
+			style="display: none; width: 32px; height: 32px; z-index: 11000; position: absolute; border: 0;"
+			id="page_loadimg" />
+	</div>
+	<!--头部end -->
+
+
+
+<!--Content Start-->
+<DIV class=th_main>
+	<DIV class=mbdh>
+		<DIV class=mbdh_txt>
+			<A title=Hotel Booking href="#">Hotel Booking</A>
+			<SPAN id=bjhotel>Beijing Hotel</SPAN>
+		</DIV>
+		<DIV class=right_boxfx>
+			<DIV id=bdshare class=bdshare_b>
+			
+			</DIV>
+		</DIV>
+	</DIV>
+	<DIV class=list_top>
+	<H1 id=bjhotel01>Beijing Hotel Booking</H1></SPAN>
+	</DIV>
+
+	<DIV class=list_srh_top>
+		<UL class=list_srh_ul>
+		  <LI>Cities： 			
+			<input aria-haspopup=true type="text" class=wid_130 role=textbox autocomplete="off"  value="Beijing" maxlength="40" id="m_city" name="m_city" cityid="0101" cityname="Beijing" datacheck="" mod="address|notice" mod_address_source="hotel" mod_address_suggest="@Beijing|北京|53@Shanghai|上海|321@Shenzhen|深圳|91@Guangzhou|广州|80@Qingdao|青岛|292@Chengdu|成都|324@Hangzhou|杭州|383@Wuhan|武汉|192@Tianjin|天津|343@Dalian|大连|248@Xiamen|厦门|61@Chongqing|重庆|394@" mod_address_reference="getcityid" mod_notice_tip="中文/拼音" />
+		<input id="getcityid" name="getcityid" type="hidden" value="{$getcityid}" />
+		  </LI>
+		   <LI>&nbsp;&nbsp;
+		  </LI>
+		  <LI>Check in：			
+			 <input type="text" class="wid_120 checkin" method="txtEnterDate" onblurmethod="txtEnterDate" id="CheckInDate" value="" maxlength="20" name="CheckInDate"><span class="date" id="inDateWeek" method="txtEnterDate"></span>
+		  </LI>
+		   <LI>&nbsp;&nbsp;
+		  </LI>
+		  <LI>Check out：
+			<input type="text" class="wid_120 checkout" method="txtOutDate" onblurmethod="txtOutDate" id="CheckOutDate" value="" maxlength="20" name="CheckOutDate"><span class="date" id="outDateWeek" method="txtOutDate">
+		  </LI>
+		   <LI>&nbsp;&nbsp;
+		  </LI>
+		  <!--<LI>Hotel位置： <INPUT id=KeyPoiName class=wid_110 name=KeyPoiName> 
+		  </LI>-->
+		  <LI><SPAN class=marg_r6>key</SPAN><SPAN class=marg_r6> words</SPAN>： 
+			<INPUT   id=HotelName class=wid_120 name=HotelName maxlength="40"> 
+		  </LI>
+		
+		</UL>
+		<DIV class=srh_box_btn>
+		<INPUT id=btnSearch class=srh_but value=Search again type=button name=btnSearch method="searchHotel"  onClick="getHotelList2()"> 
+		</DIV>
+	</DIV>
+
+	
+
+	<DIV id=main>
+		<DIV class=list_tab>
+			<DIV class=sort_page>
+				<SPAN class=pre id=prepagepre></SPAN><SPAN id=pagepagetotal></SPAN> 
+				<SPAN class=next  id=nextpagenext></SPAN> 
+			</DIV>
+			<UL class=tab>
+			  <LI class=on_lieb_bg><A href="javascript:"><SPAN></SPAN>Show list</A> </LI>
+			  <LI class="dut_bg hidden"><A href="javascript:"><SPAN></SPAN>show map</A> 
+			</LI></UL>
+		</DIV>
+		<!--<DIV class=sort_box>排序方式：<A class=xia_on href="javascript:" rel=nofollow 
+		relid="0,10">默认</A><A class=shang href="javascript:" rel=nofollow 
+		relid="1,10">价格</A><A class=xia href="javascript:" rel=nofollow 
+		relid="2,10">销量</A><A class=xia href="javascript:" rel=nofollow 
+		relid="3,10">客户满意度</A> 
+		</DIV>-->
+
+		<DIV id=hoteldiv> <!--hoteldiv begin -->
+			
+
+		</DIV><!--hoteldiv end -->
+
+
+		<DIV class=pag3_div_down>
+			<UL id=pag3_div_downl sizcache="13" sizset="28">
+			<!--<LI><A class=page_02 href="javascript:"><SPAN class=page_2></SPAN>Previous</A></LI>
+			<LI class=page_on>1</LI>
+			<LI class=pag_frist_bg><A class=page_01 href="javascript:"><SPAN class=page_1></SPAN>Homepage </A></LI>
+			<LI><A class=page_02 href="javascript:"><SPAN class=page_2></SPAN>Previous</A></LI>
+			<LI class=page_on>1</LI>
+			<LI sizcache="13" sizset="28"><A href="javascript:" relid="2,16" jQuery16203996875121927572="46">2 </A></LI>
+			<LI sizcache="13" sizset="29"><A href="javascript:" relid="3,16" jQuery16203996875121927572="47">3 </A></LI>
+			<LI sizcache="13" sizset="30"><A href="javascript:" relid="4,16" jQuery16203996875121927572="48">4 </A></LI>
+			<LI sizcache="13" sizset="31"><A href="javascript:" relid="5,16" jQuery16203996875121927572="49">5 </A></LI>
+			<LI sizcache="13" sizset="32"><A href="javascript:" relid="6,16" jQuery16203996875121927572="50">6 </A></LI>
+			<LI sizcache="13" sizset="33"><A href="javascript:" relid="7,16" jQuery16203996875121927572="51">7 </A></LI>
+			<LI sizcache="13" sizset="34"><A href="javascript:" relid="8,16" jQuery16203996875121927572="52">8 </A></LI>
+			<LI sizcache="13" sizset="35"><A href="javascript:" relid="9,16" jQuery16203996875121927572="53">9 </A></LI>
+			<LI sizcache="13" sizset="36"><A class=page_03 href="javascript:" relid="2,16" jQuery16203996875121927572="54">Next<SPAN class=page_3></SPAN></A></LI>
+			<LI sizcache="13" sizset="37"><A class=page_04 href="javascript:" relid="360,16" jQuery16203996875121927572="55">末页<SPAN class=page_4></SPAN></A></LI>-->
+			</UL>
+			<DIV class=clear></DIV>
+		</DIV>
+	</DIV><!--main end -->
+
+
+
+</DIV><!--th_main end -->
+
+<!--Content End-->
+<div id="jsContainer" class="jsContainer" style="height:0">
+			<div id="tuna_alert" style="display:none;position:absolute;z-index:999;overflow:hidden;"></div>
+			<div id="tuna_jmpinfo" style="visibility:hidden;position:absolute;z-index:120;"></div>
+		</div>
+
+		<script type="text/javascript" src="js/fixdiv.js"></script>
+		<script type="text/javascript" src="js/address.js"></script>
+		<div align="center" style="clear:both;font-size:12px;color:#666;">
+		</div>
+
+<!-- footer start-->
+	<div class="footer">
+		<div class="nav_footer">
+	  		<div>
+	    		<ul class="inline">
+	      		<li><a  href="/ziteng/page/home.html">Homepage</a></li>
+	      		<li><a  href="#">Service Stores</a></li>
+	      		<li><a  href="#">Help Centre</a></li>
+	      		<li><a  href="#">About Us</a></li>
+	        </ul>
+	  		</div>
+		</div>
+		<div class="container">
+	  		<div>
+	    		<ul class="unstyled">
+	      		<li>The website is owned by ToWorld Company</li>
+	    		</ul>
+	    		<ul class="unstyled">
+	      		<li>Copyright @2014 www.ToWorld.com All Rights Reserved</li>
+	    		</ul>
+	  		</div>
+		</div>
+	</div>
+	
+	<!-- footer end -->
+</BODY></HTML>

@@ -1,0 +1,595 @@
+<HTML>
+<HEAD>
+<META content="IE=7.0000" http-equiv="X-UA-Compatible">
+<TITLE>Hotel Booking</TITLE>
+<META content="text/html;" charset="utf-8" http-equiv="Content-Type">
+
+<SCRIPT type="text/javascript" charset="utf-8" src="home01/jquery-1.6.2.js"></SCRIPT>
+<SCRIPT type="text/javascript" charset="utf-8" src="home01/jquery-ui.js"></SCRIPT>
+<SCRIPT type="text/javascript" charset="utf-8" src="home01/public.js"></SCRIPT>
+<SCRIPT type="text/javascript" charset="utf-8" src="home01/thickbox.js"></SCRIPT>
+<link href="home01/bootstrap.min.css" rel="stylesheet" type="text/css">
+<LINK rel=stylesheet type=text/css href="home01/thickbox-info.css">
+<LINK rel=stylesheet type=text/css href="home01/public.css">
+<LINK rel=stylesheet type=text/css href="home01/jquery-ui.css">
+<LINK rel=stylesheet type=text/css href="home01/index.css">
+<script type="text/javascript" src="admin/js/jquery.min.js"></script>
+<script type="text/javascript" src="admin/js/jquery-ui.js"></script>
+<script type="text/javascript" src="admin/js/jquery-ui-slide.min.js"></script>
+<script type="text/javascript" src="admin/js/jquery-ui-timepicker-addon.js"></script>
+<LINK rel=stylesheet type=text/css href="home0111/elong_common.css">
+<LINK rel=stylesheet type=text/css href="home0111/Domestic_hotels201005.css">
+
+<script language="javascript" type="text/javascript" src="datejs/WdatePicker.js"></script>
+
+<link href="public/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../public/css/home.css" />
+<link rel="stylesheet" type="text/css" href="../css/global.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/reocar.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/mdd_detail_v2.css" />
+
+<script src="../public/javascript/jquery.easing.1.3.js"></script>
+<script src="../public/javascript/bootstrap/bootstrap.js"></script>
+
+<script src="js/public.js"></script>
+<script src="../js/login.js"></script>
+<script src="../js/register.js"></script>
+
+<script type="text/javascript" src="js/hotel/hoteldetail.js"></script>
+
+<STYLE type=text/css>* {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+HTML {
+	MIN-HEIGHT: 100%; HEIGHT: auto !important
+}
+BODY {
+	MIN-HEIGHT: 100%; HEIGHT: auto !important
+}
+#TB_window {
+	FONT: 12px Arial, Helvetica, sans-serif; COLOR: #333333
+}
+#TB_secondLine {
+	FONT: 10px Arial, Helvetica, sans-serif; COLOR: #666666
+}
+#TB_window A:link {
+	COLOR: #666666
+}
+#TB_window A:visited {
+	COLOR: #666666
+}
+#TB_window A:hover {
+	COLOR: #000
+}
+#TB_window A:active {
+	COLOR: #666666
+}
+#TB_window A:focus {
+	COLOR: #666666
+}
+#TB_overlay {
+	Z-INDEX: 100; POSITION: fixed; WIDTH: 100%; HEIGHT: 100%; TOP: 0px; LEFT: 0px
+}
+.TB_overlayMacFFBGHack {
+	BACKGROUND: url(macFFBgHack.png)
+}
+.TB_overlayBG {
+	FILTER: alpha(opacity=75); BACKGROUND-COLOR: #000; opacity: 0.75; -moz-opacity: 0.75
+}
+* HTML #TB_overlay {
+	POSITION: absolute; ; HEIGHT: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + 'px')
+}
+#TB_window {
+	Z-INDEX: 102; BORDER-BOTTOM: #525252 4px solid; POSITION: fixed; TEXT-ALIGN: left; BORDER-LEFT: #525252 4px solid; DISPLAY: none; BACKGROUND: #ffffff; COLOR: #000000; BORDER-TOP: #525252 4px solid; TOP: 50%; BORDER-RIGHT: #525252 4px solid; LEFT: 50%; _top: 50%; _position: absolute
+}
+* HTML #TB_window {
+	POSITION: absolute; ; MARGIN-TOP: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) + 'px')
+}
+#TB_window IMG#TB_Image {
+	BORDER-BOTTOM: #ccc 1px solid; BORDER-LEFT: #666 1px solid; MARGIN: 15px 0px 0px 15px; DISPLAY: block; BORDER-TOP: #666 1px solid; BORDER-RIGHT: #ccc 1px solid
+}
+#TB_caption {
+	PADDING-BOTTOM: 10px; PADDING-LEFT: 25px; PADDING-RIGHT: 30px; FLOAT: left; HEIGHT: 25px; PADDING-TOP: 7px
+}
+#TB_closeWindow {
+	PADDING-BOTTOM: 10px; PADDING-LEFT: 0px; PADDING-RIGHT: 25px; FLOAT: right; HEIGHT: 25px; PADDING-TOP: 11px
+}
+#TB_closeAjaxWindow {
+	TEXT-ALIGN: right; PADDING-BOTTOM: 5px; PADDING-LEFT: 0px; PADDING-RIGHT: 10px; MARGIN-BOTTOM: 1px; FLOAT: right; PADDING-TOP: 7px
+}
+#TB_ajaxWindowTitle {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 10px; PADDING-RIGHT: 0px; MARGIN-BOTTOM: 1px; FLOAT: left; PADDING-TOP: 7px
+}
+#TB_ajaxWindowTitle1 {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 10px; PADDING-RIGHT: 0px; FONT-FAMILY: "黑体"; MARGIN-BOTTOM: 1px; FLOAT: left; COLOR: #de5900; FONT-SIZE: 18px; FONT-WEIGHT: normal; PADDING-TOP: 5px
+}
+#TB_title {
+	BACKGROUND-COLOR: #e8e8e8; HEIGHT: 27px
+}
+#TB_ajaxContent {
+	TEXT-ALIGN: left; PADDING-BOTTOM: 15px; LINE-HEIGHT: 1.4em; PADDING-LEFT: 15px; PADDING-RIGHT: 15px; CLEAR: both; OVERFLOW: auto; PADDING-TOP: 2px
+}
+.TB_modal#TB_ajaxContent {
+	PADDING-BOTTOM: 15px; PADDING-LEFT: 15px; PADDING-RIGHT: 15px; PADDING-TOP: 15px
+}
+#TB_ajaxContent P {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 5px
+}
+#TB_load {
+	Z-INDEX: 103; POSITION: fixed; MARGIN: -6px 0px 0px -104px; WIDTH: 208px; DISPLAY: none; HEIGHT: 13px; TOP: 50%; LEFT: 50%
+}
+* HTML #TB_load {
+	POSITION: absolute; ; MARGIN-TOP: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) + 'px')
+}
+#TB_HideSelect {
+	Z-INDEX: 99; POSITION: fixed; BORDER-BOTTOM-STYLE: none; FILTER: alpha(opacity=0); BORDER-RIGHT-STYLE: none; BACKGROUND-COLOR: #fff; WIDTH: 100%; BORDER-TOP-STYLE: none; HEIGHT: 100%; BORDER-LEFT-STYLE: none; TOP: 0px; LEFT: 0px; opacity: 0; -moz-opacity: 0
+}
+* HTML #TB_HideSelect {
+	POSITION: absolute; ; HEIGHT: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + 'px')
+}
+#TB_iframeContent {
+	BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; MARGIN-TOP: 1px; BORDER-TOP-STYLE: none; MARGIN-BOTTOM: -1px; CLEAR: both; BORDER-LEFT-STYLE: none; _margin-bottom: 1px
+}
+#hiddenalertbox {
+	DISPLAY: none
+}
+#errBox {
+	TEXT-ALIGN: center; BACKGROUND: url(http://images.ziteng.com/imgs/my_cm.jpg) no-repeat 5px 10px; PADDING-TOP: 30px
+}
+#errBox A {
+	TEXT-ALIGN: center; LINE-HEIGHT: 24px; MARGIN-TOP: 40px; WIDTH: 142px; DISPLAY: block; BACKGROUND: url(http://images.ziteng.com/imgs/my_btnew.jpg) no-repeat 0px 0px; HEIGHT: 26px; COLOR: #000000; MARGIN-LEFT: 90px; FONT-SIZE: 13px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+#errBoxC {
+	TEXT-ALIGN: left; PADDING-LEFT: 70px; BACKGROUND: url(http://images.ziteng.com/imgs/my_cm.jpg) no-repeat 5px 10px; PADDING-TOP: 30px
+}
+#errBoxC A {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 0px; LINE-HEIGHT: 26px; MARGIN-TOP: 20px; PADDING-LEFT: 0px; WIDTH: 90px; PADDING-RIGHT: 0px; DISPLAY: inline-block; BACKGROUND: url(http://images.ziteng.com/imgs/my_bt.jpg) no-repeat 0px 0px; FLOAT: left; HEIGHT: 26px; COLOR: #000000; FONT-SIZE: 13px; FONT-WEIGHT: bold; MARGIN-RIGHT: 30px; TEXT-DECORATION: none; PADDING-TOP: 0px
+}
+#errBoxB {
+	TEXT-ALIGN: left; BACKGROUND: url(http://images.ziteng.com/imgs/my_cm.jpg) no-repeat 5px 10px
+}
+#errBoxB DL {
+	PADDING-LEFT: 100px; PADDING-TOP: 30px
+}
+#errBoxB DT {
+	MARGIN: 0px auto; WIDTH: 200px
+}
+#errBoxB DT A {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 0px; LINE-HEIGHT: 26px; MARGIN-TOP: 40px; PADDING-LEFT: 0px; WIDTH: 90px; PADDING-RIGHT: 0px; DISPLAY: table-cell; BACKGROUND: url(/hotel/imgs/my_bt.jpg) no-repeat 0px 0px; FLOAT: left; HEIGHT: 26px; COLOR: #000000; FONT-SIZE: 13px; FONT-WEIGHT: bold; TEXT-DECORATION: none; PADDING-TOP: 0px
+}
+</STYLE>
+</HEAD>
+<script>    
+  var thisURL = document.URL;    
+  var  getval =thisURL.split('?')[1];  
+  var showval= getval.split("=")[1];  
+  showval.replace("#","");
+  getval = showval.replace("#",""); 
+  var m_preDate = ""; // Check in
+  var m_endDate = ""; // Check out 
+  var hid = ""; //Hotelid
+  var rid = ""; //Room typeID
+  if (getval != null && getval != undefined && getval != '') {  
+	hid = getval.split("&")[0];
+	rid = getval.split("&")[1];
+	m_preDate = getval.split("&")[2];
+	
+	m_endDate = getval.split("&")[3];
+	//alert(m_endDate);
+  }
+ 
+
+</script>
+
+<script type="text/javascript">
+<!--
+
+
+//这个可以验证15位和18位的ID，并且包含Birthday和校验位的验证。 
+function isIdCardNo(num) 
+{   
+          num = num.toUpperCase();  
+         //ID号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X。  
+          if (!(/(^\d{15}$)|(^\d{17}([0-9]|X)$)/.test(num)))   
+          { 
+               alert('输入的ID号长度不对，或者号码不符合规定！\n15位号码应全为数字，18位号码末位可以为数字或X。'); 
+              return false; 
+         } 
+	//校验位按照ISO 7064:1983.MOD 11-2的规定生成，X可以认为是数字10。
+	//下面分别分析出Birthday期和校验位 
+	var len, re; 
+	len = num.length; 
+	if (len == 15) 
+	{ 
+
+		re = new RegExp(/^(\d{6})(\d{2})(\d{2})(\d{2})(\d{3})$/); 
+		var arrSplit = num.match(re); 
+		//检查Birthday日期是否正确 
+		var dtmBirth = new Date('19' + arrSplit[2] + '/' + arrSplit[3] + '/' + arrSplit[4]); 
+		var bGoodDay; 
+		bGoodDay = (dtmBirth.getYear() == Number(arrSplit[2])) && ((dtmBirth.getMonth() + 1) == Number(arrSplit[3])) && (dtmBirth.getDate() == Number(arrSplit[4])); 
+		if (!bGoodDay) 
+		{ 
+			alert('输入的ID号里出Birthday期不对！');   
+			return false; 
+		} 
+		else 
+		{ 
+		//将15位ID转成18位 
+		//校验位按照ISO 7064:1983.MOD 11-2的规定生成，X可以认为是数字10。 
+			var arrInt = new Array(7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2); 
+			var arrCh = new Array('1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2'); 
+			var nTemp = 0, i;   
+			num = num.substr(0, 6) + '19' + num.substr(6, num.length - 6); 
+			for(i = 0; i < 17; i ++) 
+			{ 
+				nTemp += num.substr(i, 1) * arrInt[i]; 
+			} 
+			num += arrCh[nTemp % 11];   
+			return num;   
+		}   
+	} 
+	if (len == 18) 
+	{ 
+		re = new RegExp(/^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X)$/); 
+		var arrSplit = num.match(re); 
+		//检查Birthday日期是否正确 
+		var dtmBirth = new Date(arrSplit[2] + "/" + arrSplit[3] + "/" + arrSplit[4]); 
+		var bGoodDay; 
+		bGoodDay = (dtmBirth.getFullYear() == Number(arrSplit[2])) && ((dtmBirth.getMonth() + 1) == Number(arrSplit[3])) && (dtmBirth.getDate() == Number(arrSplit[4])); 
+		if (!bGoodDay) 
+		{ 
+		alert(dtmBirth.getYear()); 
+		alert(arrSplit[2]); 
+		alert('输入的ID号里出Birthday期不对！'); 
+		return false; 
+		} 
+		else 
+		{ 
+			//检验18位ID的校验码是否正确。 
+			//校验位按照ISO 7064:1983.MOD 11-2的规定生成，X可以认为是数字10。
+			var valnum; 
+			var arrInt = new Array(7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2); 
+			var arrCh = new Array('1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2'); 
+			var nTemp = 0, i; 
+			for(i = 0; i < 17; i ++) 
+			{ 
+			nTemp += num.substr(i, 1) * arrInt[i]; 
+			} 
+			valnum = arrCh[nTemp % 11]; 
+			if (valnum != num.substr(17, 1)) 
+			{ 
+			alert('18位ID的校验码不正确！'); 
+			return false; 
+			} 
+		return num; 
+		} 
+	} 
+	return false; 
+}   
+
+
+	function addHotelOrder(){
+		if (document.getElementById("Roomid").value==""){
+			alert("Operation出错：请选择客房！");
+			document.getElementById("Roomid").focus();
+			return false;
+		}
+		if (document.getElementById("roomnum").value==0){
+			alert("Operation出错：Room numbers不能为空！！");
+			document.getElementById("roomnum").focus();
+			return false;
+		}
+		if (document.getElementById("startdate").value==0){
+			alert("Operation出错：Check in不能为空！");
+			document.getElementById("startdate").focus();
+			return false;
+		}
+		if (document.getElementById("enddate").value==""){
+			alert("Operation出错：Check out不能为空！");
+			document.getElementById("enddate").focus();
+			return false;
+		}
+		if (document.getElementById("guest_name").value==""){
+			alert("Operation出错：客户Title不能为空！");
+			document.getElementById("guest_name").focus();
+			return false;
+		}
+		if (document.getElementById("lxr_tel").value==""){
+			alert("Operation出错：客户Phone不能为空！");
+			document.getElementById("lxr_tel").focus();
+			return false;
+		}
+		else{
+			var sMobile = document.getElementById("lxr_tel").value
+			if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(sMobile))){ 
+				alert("不是完整的11位Phone或者正确的Phone前七位"); 
+				document.getElementById("lxr_tel").focus();
+				return false; 
+			} 
+		}
+		
+		if (document.getElementById("sevIDCard").value==""){
+			alert("Operation出错：ID号不能为空！");
+			document.getElementById("sevIDCard").focus();
+			return false;
+		}	
+		else{
+			var cardNo = document.getElementById("sevIDCard").value
+			if(!isIdCardNo(cardNo))
+			{				
+				document.getElementById("sevIDCard").focus();
+				return false;
+			}
+			if(!(/^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{4}$/.test(cardNo))
+                && !(/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$/.test(cardNo))) {
+            alert("ID号码格式有误,请重新输入!");
+            return false;
+			}
+		}
+
+		hotelOrderAdd();
+	}
+		
+//检查内容是否填写完整 -->
+</script>
+
+
+<BODY onload="initDingDanInfo(parseInt(hid),parseInt(rid))">
+<!--头部-->
+	<div class="header">
+		<div class="reo_header">
+			<div class="top">
+				<div class="c" id="statusBar">
+					<!-- 用于登录栏 -->
+				</div>
+			</div>
+			<div id="div_login" style="display: none" class="div_login">
+				<ul class="blue_line">
+				</ul>
+				<form id="headLogin" onsubmit="return false">
+					<ul class="unstyled" style="margin-top: 15px; margin-top: 20px;">
+						<li style="line-height: 35px;">Account：<input id="login_account"
+							type="text" name="head_account" data-check-sta='Y'
+							data-check-type='isname' msgVal='Phone/Email/Username'
+							style="width: 65%; color: #CCC" value="Phone/Email/Username" />
+						</li>
+						<li style="line-height: 35px;">Password：<input type="password"
+							msgVal='Password' id="headpassword" name="head_password"
+							style="width: 65%; margin-top: 0px; color: #000;" />
+						</li>
+					</ul>
+					<ul class="inline"
+						style="height: 30px; line-height: 30px; margin-top: 3px;">
+						<li id="head-login-errormsg"
+							style="width: 150px; text-align: left; margin-left: 0px; padding-left: 0px;"
+							class="text-error"></li>
+						<li style="width: 60px; text-align: right;"><a
+							href="getpassword.html">Forgot Password</a></li>
+					</ul>
+					<ul style="margin-top: 5px;">
+						<li><input type="submit" value="Login"
+							style="width: 200px; height: 30px; margin: 0 0 0 40px;"
+							id="head_login" class="btn btn-primary" /></li>
+					</ul>
+				</form>
+			</div>
+		</div>
+
+		<div id="nav_header">
+			<ul>
+				<li class="titlewz">
+					<ol olnum="0">
+						<img src="../public/images/headLogo.png"
+							style="margin-right: 3px; margin-bottom: 2px;" />
+						<a style="color: #FC3;" href="../home.html">Homepage</a>
+					</ol>
+					<ol olnum="1">
+						<a href="../gonglue.html">Travel Guide</a>
+					</ol>
+					<ol olnum="2">
+						<a href="../activity.html">Activities</a>
+					</ol>
+					<ol olnum="3">
+						<a href="../rentcar.html">Itinerary</a>
+					</ol>
+					<ol olnum="4">
+						<a href="../carsharing/carsharing_list.html">Car Sharing</a>
+					</ol>
+					<ol olnum="5">
+						<a href="home.html">Hotel Booking</a>
+					</ol>
+					<ol olnum="6">
+						<a href="#">BBS</a>
+					</ol>
+				</li>
+			</ul>
+			<ul>
+				<span id="blueline" class="testline" style="margin-left: 17px" />
+			</ul>
+		</div>
+
+		<div id="page_loading"
+			style="display: none; background: #000; display: block; position: absolute; top: 0; left: 0; z-index: 10000; opacity: 0.1; filter: progid:DXImageTransform.Microsoft.Alpha(opacity=10);"></div>
+		<img src="../public/images/loading.gif"
+			style="display: none; width: 32px; height: 32px; z-index: 11000; position: absolute; border: 0;"
+			id="page_loadimg" />
+	</div>
+	<!--头部end -->
+
+
+
+<!--Content Start-->
+
+<DIV id=fill_order>
+<DIV class=top_side><SPAN class=l></SPAN><SPAN class=r></SPAN></DIV>
+<H1>Fill in the Order</H1>
+<DIV class=side_box>
+<DIV class=t_s><SPAN class=l></SPAN><SPAN class=r></SPAN></DIV><!--内容开始-->
+<DIV class="main clx"><!--左侧-->
+<DIV id=left>
+<DIV class=hotel_info>
+	<DIV class=l id="hotel_info_img"></DIV>
+	<DIV class=r id="hotel_info_info"></DIV>
+	<DIV class=clear></DIV><!--促销信息-->
+	<DIV class=rm_type>
+	<ul  id="hotel_info_room"><li><span>Room&nbsp;type：</span>Double room</li><li><span>Bed&nbsp;Type：</span>大</li><li><span>Internet&nbsp;：</span>Free</li><li><span>Space&nbsp;：</span>36-49 square</li><li><span>Floor&nbsp;：</span>9 floor</li></ul></DIV><!--促销信息 end--></DIV><!--为什么选择艺龙-->
+	
+</DIV><!--左侧结束-->
+<DIV id=right>
+<H2>Room Information</H2>
+<DIV class="pt10 mb15">
+<UL class=normal_list>
+  <LI><SPAN class=wl>Room Type：</SPAN> <select name="Roomid" id="Roomid" style="width: 419px;height:30px;"  onchange="initRoomDetail(this.value)">
+	</select>
+	<INPUT id="roomPrice"  type="hidden"  name="roomPrice">
+	<INPUT id="hotelId"  type="hidden"  name="hotelId">
+	<INPUT id="hotelName"  type="hidden"  name="hotelName">
+	<INPUT id="roomName"  type="hidden"  name="roomName">
+
+
+	</LI>
+				<li><span class="wl">Room numbers：</span>
+
+                <select name="roomnum" id="roomnum" onchange="calPrice(this.value)" style="width: 319px;height:30px;" >
+
+                  <option value="1" selected>&nbsp;1&nbsp;</option>
+
+                  <option value="2">&nbsp;2&nbsp;</option>
+
+                  <option value="3">&nbsp;3&nbsp;</option>
+
+                  <option value="4">&nbsp;4&nbsp;</option>
+
+                  <option value="5">&nbsp;5&nbsp;</option>
+
+                  <option value="6">&nbsp;6&nbsp;</option>
+
+                </select>
+
+                <span class="orange pl15">(Call us over 6 rooms)</span> </li>
+  <LI><SPAN class=wl>Check in：</SPAN> <input id=startdate name=startdate class="Wdate" type="text" onClick="WdatePicker()" onfocus="WdatePicker({minDate:'%y-%M-%d'})" style="width: 130px;height:30px;" >  &nbsp;Check out：&nbsp; <input id=enddate name=enddate class="Wdate" type="text" onClick="WdatePicker()" onfocus="WdatePicker({minDate:'%y-%M-%d'})"  style="width: 130px;height:30px;" > 
+  <LI><SPAN class=wl>Total fee：</SPAN><SPAN id=showtotalprice 
+  class="bold orange CNY t14">£0.00</SPAN>&nbsp;
+  <INPUT id="rtotalprice"  type="hidden"  name="rtotalprice">
+  <!--非Pay in advance--><SPAN   class="l_black pl20">(Booking for free，Check in and pay in hotel)</SPAN><!--prepayHotel--> </LI></UL><!--价格日历-->
+<DIV class=price_list><!--Change date后有满房情况--></DIV><!--价格 end -->
+
+<script type="text/javascript">
+<!--
+  document.getElementById("startdate").value=m_preDate;
+  document.getElementById("enddate").value=m_endDate;
+//-->
+</script>
+
+<DIV class=cu></DIV></DIV><!--Check in人信息-->
+
+
+<DIV class=check_info>
+<UL>
+  <LI class=mt10><SPAN class=w1>Customer：</SPAN><SPAN class=w3><SPAN 
+  class=fillguest> <INPUT id="guest_name" class=text maxLength=28 name="guest_name" style="width: 150px;height:30px;" > 
+  </SPAN><SPAN class=input_follow>(One customer name is enough)</SPAN></SPAN> 
+  <DIV id=m_contentend></DIV>
+  <LI class=mt10><SPAN class=w1>Phone：</SPAN><SPAN class=w3> <INPUT id="lxr_tel" 
+  class=textno maxLength=11 name="lxr_tel" style="width: 150px;height:30px;" > <SPAN 
+  class=input_follow>Receive order message</SPAN></SPAN> 
+  <LI id=TelDiv class=readme><SPAN class=l_black></SPAN><!--7天会员提供ID号-->
+  <LI id=7daysfz class=mt10><SPAN class=w1>ID：</SPAN><SPAN class=w3> <INPUT 
+  id="sevIDCard" class=textno maxLength=18 name="sevIDCard" style="width: 150px;height:30px;" ><SPAN 
+  class=input_follow>need to provide ID</SPAN></SPAN> <!--全天都不需要担保时状态-->
+  <LI id=arrivedLi class=mt15><SPAN class=w1>Arrive time：</SPAN> <SPAN><INPUT 
+  class=radio value="20:00以前" CHECKED type=radio name="ArrivedTime" id="ArrivedTime"> 
+  <BIG>Before 20:00</BIG></SPAN> <SPAN><INPUT class=radio value="20:00以后" type=radio 
+  name=ArrivedTime> <BIG>After 20:00</BIG></SPAN> <SPAN class=showdb></SPAN></LI>
+  <LI class="readme h65"><SPAN class=tishitime>
+  <P>Call us after<SPAN>20:00</SPAN>arrival</P>
+  <P>(You can check in after 4pm)</P></SPAN>
+  <LI class=l_black><SPAN class=w1>&nbsp;</SPAN>if you need receipt </LI></UL></DIV><!--Pay in advance状态-->
+<!--<DIV id=bookxyk class=check_info >
+<H2>信用卡信息 
+<DIV class=card_security01><A href="javascript:">信用卡安全保障&gt;&gt;</A> 
+<DIV class=card_security002>
+<DIV style="TOP: -6px; LEFT: 20px" class=card_arrow1></DIV>
+<UL>
+  <LI>1. NASDAQ上市公司的诚信保证 </LI>
+  <LI>2. 全球著名在线旅游公司Expedia长期经验分享 </LI>
+  <LI>3. 众多银行及信用卡组织的授信，实名消费，安全消费 </LI>
+  <LI>4. 完备的风险控制体系，遵从信用卡支付安全国际标准 </LI>
+  <LI>5. 先进的专线连接及加密方法，从技术上确保安全 </LI>
+  <LI>6. 完善的管理，专业的分工，标准化的流程，严格的监控体系 </LI></UL></DIV></DIV></H2>
+<UL class=xykli>
+  <LI><SPAN class=w1>担保条件：</SPAN><SPAN class="w3 GuaranteeSpan"></SPAN> </LI>
+  <LI><SPAN class=w1>信用卡卡号：</SPAN><SPAN class=w3> <INPUT id=XYK_NUMBER 
+  maxLength=32 size=30 name=XYK_NUMBER> &nbsp;&nbsp;<A class=thickbox title=问题反馈 
+  href="http://www.sunnychina.com/member/cardExplanation.html?&amp;n=支持的信用卡种类&amp;TB_iframe=true&amp;width=620&amp;height=370&amp;class1=0">支持的信用卡种类？</A> 
+  </SPAN></LI>
+  <LI><SPAN class=w1>有效期：</SPAN><SPAN class=w3> <SELECT name=XYK_YXQ_M> 
+    <OPTION selected value="">月份</OPTION> <OPTION value=1>1月</OPTION> <OPTION 
+    value=2>2月</OPTION> <OPTION value=3>3月</OPTION> <OPTION value=4>4月</OPTION> 
+    <OPTION value=5>5月</OPTION> <OPTION value=6>6月</OPTION> <OPTION 
+    value=7>7月</OPTION> <OPTION value=8>8月</OPTION> <OPTION value=9>9月</OPTION> 
+    <OPTION value=10>10月</OPTION> <OPTION value=11>11月</OPTION> <OPTION 
+    value=12>12月</OPTION></SELECT> &nbsp;&nbsp; <SELECT name=XYK_YXQ_Y> <OPTION 
+    selected value="">年份</OPTION> <OPTION value=2013>2013年</OPTION> <OPTION 
+    value=2014>2014年</OPTION> <OPTION value=2015>2015年</OPTION> <OPTION 
+    value=2016>2016年</OPTION> <OPTION value=2017>2017年</OPTION> <OPTION 
+    value=2018>2018年</OPTION> <OPTION value=2019>2019年</OPTION> <OPTION 
+    value=2020>2020年</OPTION> <OPTION value=2021>2021年</OPTION> <OPTION 
+    value=2022>2022年</OPTION> <OPTION value=2023>2023年</OPTION> <OPTION 
+    value=2024>2024年</OPTION> <OPTION value=2025>2025年</OPTION></SELECT> 
+  &nbsp;&nbsp;<FONT size=+0>只接受有效期为当前月份之后的信用卡</FONT> </SPAN></LI>
+  <LI><SPAN class=w1>CVV2码：</SPAN><SPAN class=w3> <INPUT id=XYK_CVV2 maxLength=3 
+  size=5 name=XYK_CVV2> &nbsp;&nbsp;<FONT 
+  size=+0>在信用卡背面的签名栏上，紧跟在卡号末四位号码的后面印刷的3位数字</FONT> </SPAN></LI>
+  <LI><SPAN class=w1>持卡人姓名：</SPAN><SPAN class=w3> <INPUT id=XYK_NAME 
+  maxLength=20 size=30 name=XYK_NAME> &nbsp;&nbsp; </SPAN></LI>
+  <LI><SPAN class=w1>证件类别：</SPAN><SPAN class=w3> <SELECT name=xyk_type> 
+    <OPTION selected value=0>ID</OPTION> <OPTION 
+    value=1>护照&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</OPTION> <OPTION 
+    value=2>其它&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</OPTION></SELECT> 
+  &nbsp;&nbsp; </SPAN></LI>
+  <LI><SPAN class=w1>证件号码：</SPAN><SPAN class=w3> <INPUT id=XYK_IDCARDNUMBER 
+  maxLength=36 size=30 name=XYK_IDCARDNUMBER> &nbsp;&nbsp; </SPAN></LI></UL></DIV>-->
+<DIV class=submit_box><INPUT id=ContinueOrder class=sub_order tabIndex=20 onclick="addHotelOrder();" value=Sumbit Order type=button> 
+</DIV>
+</FORM></DIV>
+<DIV class=clear></DIV></DIV><!--内容结束-->
+
+
+</DIV>
+<div class="down_side"><span class="l"></span><span class="r"></span></div>
+</DIV>
+
+<!--Content End-->
+
+<!-- footer start-->
+	<div class="footer">
+		<div class="nav_footer">
+	  		<div>
+	    		<ul class="inline">
+	      		<li><a  href="/ziteng/page/home.html">Homepage</a></li>
+	      		<li><a  href="#">Service Stores</a></li>
+	      		<li><a  href="#">Help Centre</a></li>
+	      		<li><a  href="#">About Us</a></li>
+	        </ul>
+	  		</div>
+		</div>
+		<div class="container">
+	  		<div>
+	    		<ul class="unstyled">
+	      		<li>The website is owned by ToWorld Company</li>
+	    		</ul>
+	    		<ul class="unstyled">
+	      		<li>Copyright @2014 www.ToWorld.com All Rights Reserved</li>
+	    		</ul>
+	  		</div>
+		</div>
+	</div>
+	
+	<!-- footer end -->
+<SCRIPT type=text/javascript src="home0111/conversion.js">
+</SCRIPT>
+
+
+</BODY></HTML>

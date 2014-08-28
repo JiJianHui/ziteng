@@ -1,0 +1,78 @@
+<html><head>
+<title></title>
+<script src="http://images.sunnychina.com/javascript/jquery-1.1.3.1.pack.js" type="text/javascript"></script>
+<script src="http://images.sunnychina.com/javascript/thickbox.js" charset="utf-8" type="text/javascript"></script>
+<link rel="stylesheet" href="http://images.sunnychina.com/css/thickbox-info.css" type="text/css" media="screen">	
+<link href="http://images.sunnychina.com/member/css/manage.css" rel="stylesheet" type="text/css">
+<link href="http://images.sunnychina.com/css/orderprint.css" rel="stylesheet" type="text/css" media="print">
+
+
+</head><body id="vbody">
+<div id="logos"><img src="http://images.sunnychina.com/images/logo.gif"></div>
+<div id="vieworder">
+<h1>璁㈠崟璇︽儏</h1>
+<table>
+	
+  <tbody><tr><th>璁㈠崟鍙凤細</th><td><strong>75962592</strong></td><th> </th><td> </td></tr>
+  <tr><th>璁㈠崟鐘舵�锛�/th><td><strong style="color:#FF0000;"><strong>宸插垹闄�/strong></strong></td><th>璁㈠崟鏃堕棿锛�/th><td>2014-1-10 9:28:57</td></tr>
+  <tr>
+   <th>閰掑簵鍚嶇О锛�/th><td colspan="3"><a href="http://www.sunnychina.com/hotel/hotel_56109.html" target="_blank">閫�閰掑簵锛堝寳浜閮芥満鍦哄ぉ绔哄簵锛�/a></td>
+  </tr>
+  <tr>
+   <th>閰掑簵鍦板潃锛�/th><td colspan="3">椤轰箟鍖哄ぉ绔洪晣澶╂煴涓滆矾涓�鍙凤紙澶╂煴涓滆矾涓庡ぉ绾洓琛椾氦鍙夊彛锛�/td>
+  </tr>
+  <tr>
+    <th>鎴�nbsp;&nbsp;鍨嬶細</th><td colspan="3">鏅�鍙屽簥鎴匡紙鐗逛环锛�/td>
+  </tr>
+   <tr>
+    <th>鍏ヤ綇鏃ユ湡锛�/th><td>2014-1-11</td><th>绂诲簵鏃ユ湡锛�/th><td>2014-1-12</td></tr>   
+  <tr>
+    <th>鎴块棿鏁伴噺锛�/th><td>1</td> <th>閲�nbsp;&nbsp;棰濓細</th><td>198</td></tr> 
+    <tr>
+    <th>鍏ヤ綇浜猴細</th><td colspan="3">鍟婂晩</td></tr>
+    <tr>
+    <th>閭�nbsp;&nbsp;浠讹細</th><td></td> <th>鐢�nbsp;&nbsp;璇濓細</th><td>15810848400</td></tr>
+	<tr>
+	<th>鏈�櫄鍒板簵鏃堕棿锛�/th><td>
+	20:00</td><th>濂栭噾锛�/th><td><span style="font-size:20px; font-weight:bold; color:#FF0000; margin:0 1px; font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold;">24鍏�/span></td></tr>
+</tbody></table>
+<p><input type="button" value="鎵�鍗�璁�鍗� onclick="window.focus;window.print();"></p> 
+
+</div>
+
+<script type="text/javascript" charset="GB2312">
+<!--
+function AjaxDelOrder(t,id){
+//$(t).val('姝�鍦�鍙�娑�);
+	var tt=confirm("鎮ㄧ‘瀹氳鍙栨秷姝よ鍗曞悧锛岀偣鍑烩�纭畾鈥濆皢缁х画鍙栨秷姝よ鍗曪紒");
+	if (tt==false){return false;}
+	var getUrl="/order/DelOrder.asp?elong_orderid="+id;
+	$.ajax({
+        async: true,
+        cache: false,
+        type: "get",
+        timeout: "20000",
+        dataType: "json",
+        url: getUrl,
+        beforeSend: function() {
+			$("#vbody").html("<div align=center><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p><img src=\"http://images.sunnychina.com/imgs/loading.gif\"></p><p>&nbsp;</p><p><strong>姝ｅ湪鍙栨秷璁㈠崟锛岃绋嶅悗鈥︹�鈥︹�</strong></p><p>&nbsp;</p><p>&nbsp;</p></div>");
+		},
+        success: function(json, textStatus) {
+			if(json.Result=="True"){
+				alert("11");
+				window.self.location.reload();
+			}else{
+				alert(json.Message+',!');
+				window.self.location.reload();
+			}
+        },
+        error: function(a, b, c) {
+        	alert('aa');
+        }
+    });
+}
+-->
+</script>
+
+
+</body></html>
