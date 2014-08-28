@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ziteng.dao.travelGuide.ITravelGuideDao">
+	<resultMap type="com.ziteng.entity.travelGuide.TravelGuide"
+		id="travelGuideMap">
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="priceWayId" column="price_way_id" />
+		<result property="departAreaId" column="depart_area_id" />
+		<result property="arriveAreaId" column="arrive_area_id" />
+		<result property="kms" column="kms" />
+		<result property="days" column="days" />
+		<result property="detail" column="detail" />
+		<result property="coverImage" column="cover_image"/>
+		<result property="countOrder" column="count_order" />
+		<result property="createTime" column="create_time" />
+		<result property="editTime" column="edit_time" />
+		<result property="taoBaoLink" column="tao_bao_link" />
+	</resultMap>
+	<sql id="selectEntityList_where">
+		<where>
+			1=1
+			<if test="id!=null">and id=#{id}</if>
+			<if test="days!=null and days!=''"> and days=#{days}</if>
+			<if test="searchAreaId!=null and searchAreaId!=''"> and (depart_area_id=#{searchAreaId} or arrive_area_id=#{searchAreaId})</if>
+		</where>
+	</sql>
+	<sql id="orderBySql">
+		<choose>
+			<when
+				test="sortname!=null and sortorder!=null and sortname!='' and sortorder!=''"> order by ${sortname} ${sortorder} </when>
+			<otherwise> order by id desc </otherwise>
+		</choose>
+	</sql>
+	
+	<insert id="insert" parameterType="com.ziteng.entity.travelGuide.TravelGuide"
+		keyProperty="id" useGeneratedKeys="true" flushCache="true">
+		insert into
+		t1_travel_guide
+		(name,price_way_id,depart_area_id,arrive_area_id,kms,days,detail,count_order,create_time,edit_time,cover_image,tao_bao_link)
+		values
+		(#{name},#{priceWayId},#{departAreaId},#{arriveAreaId},#{kms},#{days},#{detail},#{countOrder},#{createTime},#{editTime},#{coverImage},#{taoBaoLink})
+	</insert>
+	<update id="update" parameterType="com.ziteng.entity.travelGuide.TravelGuide"
+		flushCache="true">
+		update t1_travel_guide set
+		name=#{name},
+		price_way_id=#{priceWayId},
+		depart_area_id=#{departAreaId},
+		arrive_area_id=#{arriveAreaId},
+		kms=#{kms},
+		days=#{days},
+		cover_image=#{coverImage},
+		detail=#{detail},
+		edit_time=#{editTime},
+		tao_bao_link=#{taoBaoLink}
+		where id=#{id}
+	</update>
+	<delete id="delete" parameterType="com.ziteng.entity.travelGuide.TravelGuide"
+		flushCache="true">
+		delete from t1_travel_guide where id=#{id}
+	</delete>
+	<delete id="deleteById" parameterType="int" flushCache="true">
+		delete
+		from t1_travel_guide where id=#{id}
+	</delete>
+	<select id="selectById" parameterType="int" useCache="true"
+		resultMap="travelGuideMap">
+		select * from t1_travel_guide where id=#{value}
+	</select>
+	
+	<select id="getSimpleAllGuide" parameterType="int" useCache="true"
+		resultMap="travelGuideMap">
+		select id,name from t1_travel_guide
+	</select>
+	
+	
+	<select id="selectEntityCount" parameterType="com.ziteng.dto.query.travelGuide.TravelGuideQuery"
+		useCache="true" resultType="int">
+		select count(id) from t1_travel_guide
+		<include refid="selectEntityList_where" />
+	</select>
+	<select id="selectEntityList" parameterType="com.ziteng.dto.query.travelGuide.TravelGuideQuery"
+		useCache="true" resultMap="travelGuideMap">
+		select * from t1_travel_guide
+		<include refid="selectEntityList_where" />
+		<include refid="orderBySql" />
+		<if test="startRow!=null and endRow!=null and usePagination">limit #{startRow}, #{pageSize}</if>
+	</select>
+
+</mapper>

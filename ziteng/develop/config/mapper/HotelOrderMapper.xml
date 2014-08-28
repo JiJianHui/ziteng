@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ziteng.dao.hotel.IHotelOrder">
+
+	<resultMap type="com.ziteng.entity.hotel.HotelOrder" id="hotelOrderMap">
+		<id property="id" column="id"/>
+		<result property="hotelId" column="t1_hotelId"/>
+		<result property="hotelName" column="t1_hotelName"/>
+		<result property="roomId" column="t1_roomId"/>
+		<result property="roomName" column="t1_roomName"/>
+		<result property="visitorName" column="t1_visitorName"/>
+		<result property="phoneNum" column="t1_phoneNum"/>
+		<result property="reserveDate" column="t1_reserveDate"/>
+		<result property="intoDate" column="t1_intoDate"/>
+		<result property="leaveDate" column="t1_leaveDate"/>
+		<result property="orderDate" column="t1_orderDate"/>
+		<result property="reserveCount" column="t1_reserveCount"/>
+		<result property="totalPirce" column="t1_totalPirce"/>
+		<result property="roomSource" column="t1_roomSource"/>
+		<result property="orderStatus" column="t1_orderStatus"/>
+		<result property="expandCol1" column="t1_expandCol1"/>
+		<result property="expandCol2" column="t1_expandCol2"/>
+		<result property="expandCol3" column="t1_expandCol3"/>
+		<result property="expandCol4" column="t1_expandCol4"/>
+		<result property="expandCol5" column="t1_expandCol5"/>
+	</resultMap>
+	<insert id="insert" parameterType="com.ziteng.entity.hotel.HotelOrder" keyProperty="id" useGeneratedKeys="true" flushCache="true">
+		insert into t1_hotelorder
+		(id,t1_hotelId,t1_hotelName,t1_roomId,t1_roomName,t1_visitorName,t1_phoneNum,t1_reserveDate,t1_intoDate,t1_leaveDate,t1_orderDate,t1_reserveCount,t1_totalPirce,t1_roomSource,t1_orderStatus,t1_expandCol1,t1_expandCol2,t1_expandCol3,t1_expandCol4,t1_expandCol5)
+		values
+		(#{id},#{hotelId},#{hotelName},#{roomId},#{roomName},#{visitorName},#{phoneNum},#{reserveDate},#{intoDate},#{leaveDate},#{orderDate},#{reserveCount},#{totalPirce},#{roomSource},#{orderStatus},#{expandCol1},#{expandCol2},#{expandCol3},#{expandCol4},#{expandCol5})
+	</insert>
+	<update id="update" parameterType="com.ziteng.entity.hotel.HotelOrder" flushCache="true">
+		update t1_hotelorder set
+		t1_hotelId=#{hotelId},
+		t1_hotelName=#{hotelName},
+		t1_roomId=#{roomId},
+		t1_roomName=#{roomName},
+		t1_visitorName=#{visitorName},
+		t1_phoneNum=#{phoneNum},
+		t1_reserveDate=#{reserveDate},
+		t1_intoDate=#{intoDate},
+		t1_leaveDate=#{leaveDate},
+		t1_orderDate=#{orderDate},
+		t1_reserveCount=#{reserveCount},
+		t1_totalPirce=#{totalPirce},
+		t1_roomSource=#{roomSource},
+		t1_orderStatus=#{orderStatus},
+		t1_expandCol1=#{expandCol1},
+		t1_expandCol2=#{expandCol2},
+		t1_expandCol3=#{expandCol3},
+		t1_expandCol4=#{expandCol4},
+		t1_expandCol5=#{expandCol5}
+		where id=#{id}
+	</update>
+	<update id="updateState" parameterType="com.ziteng.entity.hotel.HotelOrder" flushCache="true">
+		update t1_hotelorder set		
+		t1_orderStatus=#{orderStatus}
+		where id=#{id}
+	</update>
+	<delete id="delete" parameterType="com.ziteng.entity.hotel.HotelOrder" flushCache="true">
+		delete from t1_hotelorder where id=#{id}
+	</delete>
+	<delete id="deleteById" parameterType="int" flushCache="true">
+		delete from t1_hotelorder where id=#{id}
+	</delete>
+	<select id="selectById" parameterType="int" useCache="true" resultMap="hotelOrderMap">
+		select * from t1_hotelorder where id=#{value}
+	</select>
+	<sql id="selectEntityList_where">
+		<where>
+		    <if test="id!=null">id=#{id}</if>
+		    <if test="hotelId!=null and hotelId!=''"> and t1_hotelId=#{hotelId}</if>
+		    <if test="hotelName!=null and hotelName!=''"> and t1_hotelName=#{hotelName}</if>		  
+		    <if test="roomId!=null and roomId!=''"> and t1_roomId=#{roomId}</if>		
+			<if test="roomName!=null and roomName!=''"> and t1_roomName=#{roomName}</if>		
+			<if test="visitorName!=null and visitorName!=''"> and t1_visitorName=#{visitorName}</if>		
+			<if test="phoneNum!=null and phoneNum!=''"> and t1_phoneNum=#{phoneNum}</if>		
+			<if test="reserveDate!=null and reserveDate!=''"> and t1_reserveDate=#{reserveDate}</if>		
+			<if test="intoDate!=null and intoDate!=''"> and t1_intoDate=#{intoDate}</if>		
+			<if test="leaveDate!=null and leaveDate!=''"> and t1_leaveDate=#{leaveDate}</if>		
+			<if test="orderDate!=null and orderDate!=''"> and t1_orderDate=#{orderDate}</if>		
+			<if test="reserveCount!=null and reserveCount!=''"> and t1_reserveCount=#{reserveCount}</if>		
+			<if test="totalPirce!=null and totalPirce!=''"> and t1_totalPirce=#{totalPirce}</if>		
+			<if test="roomSource!=null and roomSource!=''"> and t1_roomSource=#{roomSource}</if>		
+			<if test="orderStatus!=null and orderStatus!=''"> and t1_orderStatus=#{orderStatus}</if>		
+		</where>
+	</sql>
+	<sql id="orderBySql">
+		<choose>
+			<when test="sortname!=null and sortorder!=null and sortname!='' and sortorder!=''"> order by ${sortname} ${sortorder} </when>
+			<otherwise> order by id desc </otherwise>
+		</choose>
+	</sql>	
+	<select id="selectEntityCount" parameterType="com.ziteng.dto.query.hotel.HotelOrderQuery" useCache="true" resultType="int">
+		select count(id) from t1_hotelorder
+		<include refid="selectEntityList_where"/>
+	</select>
+	<select id="getGeneralId" parameterType="com.ziteng.dto.query.hotel.HotelOrderQuery" useCache="true" resultType="int">
+		select  IFNULL(MAX(id) + 1,1) from t1_hotelorder
+	</select>
+	<select id="selectEntityList" parameterType="com.ziteng.dto.query.hotel.HotelOrderQuery" useCache="true" resultMap="hotelOrderMap">
+		select * from t1_hotelorder
+		<include refid="selectEntityList_where"/>
+		<include refid="orderBySql"/>
+		<if test="startRow!=null and endRow!=null">limit #{startRow}, #{pageSize}</if>
+	</select>
+</mapper>

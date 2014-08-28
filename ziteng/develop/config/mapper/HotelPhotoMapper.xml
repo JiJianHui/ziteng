@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ziteng.dao.hotel.IHotelPhoto">
+
+	<resultMap type="com.ziteng.entity.hotel.HotelPhoto" id="hotelPhotoMap">
+		<id property="id" column="id"/>
+		<result property="hotelId" column="t1_hotelId"/>
+		<result property="hotelName" column="t1_hotelName"/>
+		<result property="imgUrl" column="t1_imgUrl"/>
+		<result property="uploadDate" column="t1_uploadDate"/>
+		<result property="order" column="t1_order"/>
+		<result property="remarks" column="t1_remarks"/>
+	</resultMap>
+	<insert id="insert" parameterType="com.ziteng.entity.hotel.HotelPhoto" keyProperty="id" useGeneratedKeys="true" flushCache="true">
+		insert into t1_hotelphoto
+		(id,t1_hotelId,t1_hotelName,t1_imgUrl,t1_uploadDate,t1_order,t1_remarks)
+		values
+		(#{id},#{hotelId},#{hotelName},#{imgUrl},#{uploadDate},#{order},#{remarks})
+	</insert>
+	<update id="update" parameterType="com.ziteng.entity.hotel.HotelPhoto" flushCache="true">
+		update t1_hotelphoto set
+		t1_hotelId=#{hotelId},
+		t1_hotelName=#{hotelName},
+		t1_imgUrl=#{imgUrl},
+		t1_uploadDate=#{uploadDate},
+		t1_order=#{order},
+		t1_remarks=#{remarks}
+		where id=#{id}
+	</update>
+	<delete id="delete" parameterType="com.ziteng.entity.hotel.HotelPhoto" flushCache="true">
+		delete from t1_hotelphoto where id=#{id}
+	</delete>
+	<delete id="deleteById" parameterType="int" flushCache="true">
+		delete from t1_hotelphoto where id=#{id}
+	</delete>
+	<select id="selectById" parameterType="int" useCache="true" resultMap="hotelPhotoMap">
+		select * from t1_hotelphoto where id=#{value}
+	</select>
+	<sql id="selectEntityList_where">
+		<where>
+		    <if test="id!=null">id=#{id}</if>
+		    <if test="hotelId!=null and hotelId!=''"> and t1_hotelId=#{hotelId}</if>
+		    <if test="hotelName!=null and hotelName!=''"> and t1_hotelName=#{hotelName}</if>	
+		    <if test="uploadDate!=null and uploadDate!=''"> and t1_uploadDate=#{uploadDate}</if>	    
+		    <if test="remarks!=null and remarks!=''"> and t1_remarks=#{remarks}</if>		    
+		</where>
+	</sql>
+	<sql id="orderBySql">
+		<choose>
+			<when test="sortname!=null and sortorder!=null and sortname!='' and sortorder!=''"> order by ${sortname} ${sortorder} </when>
+			<otherwise> order by t1_order desc </otherwise>
+		</choose>
+	</sql>	
+	<select id="selectEntityCount" parameterType="com.ziteng.dto.query.hotel.HotelPhotoQuery" useCache="true" resultType="int">
+		select count(id) from t1_hotelphoto
+		<include refid="selectEntityList_where"/>
+	</select>
+	<select id="getGeneralId" parameterType="com.ziteng.dto.query.hotel.HotelPhotoQuery" useCache="true" resultType="int">
+		select  IFNULL(MAX(id) + 1,1) from t1_hotelphoto
+	</select>
+	<select id="selectEntityList" parameterType="com.ziteng.dto.query.hotel.HotelPhotoQuery" useCache="true" resultMap="hotelPhotoMap">
+		select * from t1_hotelphoto
+		<include refid="selectEntityList_where"/>
+		<include refid="orderBySql"/>
+		<if test="startRow!=null and endRow!=null">limit #{startRow}, #{pageSize}</if>
+	</select>
+</mapper>

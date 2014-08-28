@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ziteng.dao.user.IManagerDao">
+
+	<resultMap type="com.ziteng.entity.user.Manager" id="managerMap">
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="password" column="password" />
+	</resultMap>
+
+	<insert id="insert" parameterType="com.ziteng.entity.user.Manager"
+		keyProperty="id" useGeneratedKeys="true" flushCache="true">
+		insert into
+		manager
+		(name,password)
+		values
+		(#{name},#{password})
+	</insert>
+
+	<update id="update" parameterType="com.ziteng.entity.user.Manager"
+		flushCache="true">
+		update manager set
+		name=#{name},
+		password=#{password}
+		where
+		id=#{id}
+	</update>
+	<delete id="delete" parameterType="com.ziteng.entity.user.Manager"
+		flushCache="true">
+		delete from manager where id=#{id}
+	</delete>
+	<delete id="deleteById" parameterType="int" flushCache="true">
+		delete
+		from manager where id=#{id}
+	</delete>
+	<select id="selectById" parameterType="int" useCache="true"
+		resultMap="managerMap">
+		select * from manager where id=#{value}
+	</select>
+
+
+	<sql id="selectEntityList_where">
+		<where>
+			<if test="name!=null and name!=''">name like CONCAT('%','${name}','%')</if>
+			<if test="password!=null and password!=''"> and password=#{password}</if>
+		</where>
+	</sql>
+	<sql id="orderBySql">
+		<choose>
+			<when
+				test="sortname!=null and sortorder!=null and sortname!='' and sortorder!=''"> order by ${sortname} ${sortorder} </when>
+			<otherwise> order by id desc </otherwise>
+		</choose>
+	</sql>
+
+	<select id="selectEntityList" parameterType="com.ziteng.dto.query.user.ManagerQuery"
+		resultMap="managerMap">
+		select * from manager
+		<include refid="selectEntityList_where" />
+		<include refid="orderBySql" />
+		<if test="startRow!=null and endRow!=null">limit #{startRow}, #{pageSize}</if>
+	</select>
+
+	<select id="selectEntityCount" parameterType="com.ziteng.dto.query.user.ManagerQuery"
+		resultType="int">
+		select count(id) from manager
+		<include refid="selectEntityList_where" />
+	</select>
+</mapper>

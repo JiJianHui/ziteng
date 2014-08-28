@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ziteng.dao.travelGuide.IPriceWayDao">
+	<resultMap type="com.ziteng.entity.travelGuide.PriceWay" id="priceWayMap">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="description" column="description"/>
+		<result property="createTime" column="create_time"/>
+		<result property="editTime" column="edit_time"/>
+	</resultMap>
+	<insert id="insert" parameterType="com.ziteng.entity.travelGuide.PriceWay" keyProperty="id" useGeneratedKeys="true" flushCache="true">
+		insert into t1_price_way
+		(id,name,description,create_time,edit_time)
+		values
+		(#{id},#{name},#{description},#{createTime},#{editTime})
+	</insert>
+	<update id="update" parameterType="com.ziteng.entity.travelGuide.PriceWay" flushCache="true">
+		update t1_price_way set
+		name=#{name},
+		description=#{description},
+		create_time=#{createTime},
+		edit_time=#{editTime}
+		where id=#{id}
+	</update>
+	<delete id="delete" parameterType="com.ziteng.entity.travelGuide.PriceWay" flushCache="true">
+		delete from t1_price_way where id=#{id}
+	</delete>
+	<delete id="deleteById" parameterType="int" flushCache="true">
+		delete from t1_price_way where id=#{id}
+	</delete>
+	<select id="selectById" parameterType="int" useCache="true" resultMap="priceWayMap">
+		select * from t1_price_way where id=#{value}
+	</select>
+		<select id="selectAll" useCache="true" resultMap="priceWayMap">
+		select * from t1_price_way
+	</select>
+</mapper>

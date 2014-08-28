@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ziteng.dao.user.IUserDao">
+	<resultMap type="com.ziteng.entity.user.User" id="userMap">
+		<id property="id" column="id"/>
+		<result property="userName" column="user_name"/>
+		<result property="fullName" column="full_name"/>
+		<result property="idCard" column="id_card"/>
+		<result property="email" column="email"/>
+		<result property="phoneNumber" column="phone_number"/>
+		<result property="sex" column="sex"/>
+		<result property="type" column="type"/>
+		<result property="address" column="address"/>
+		<result property="birth" column="birth"/>
+		<result property="avatar" column="avatar"/>
+		<result property="password" column="password"/>
+		<result property="createTime" column="create_time"/>
+		<result property="modifyTime" column="modify_time"/>
+	</resultMap>
+	<insert id="insert" parameterType="com.ziteng.entity.user.User" keyProperty="id" useGeneratedKeys="true" flushCache="true">
+		insert into t1_user
+		(id,user_name,full_name,id_card,email,phone_number,sex,type,address,birth,avatar,password,create_time,modify_time)
+		values
+		(#{id},#{userName},#{fullName},#{idCard},#{email},#{phoneNumber},#{sex},#{type},#{address},#{birth},#{avatar},#{password},#{createTime},#{modifyTime})
+	</insert>
+	<update id="update" parameterType="com.ziteng.entity.user.User" flushCache="true">
+		update t1_user set
+		user_name=#{userName},
+		full_name=#{fullName},
+		id_card=#{idCard},
+		email=#{email},
+		phone_number=#{phoneNumber},
+		sex=#{sex},
+		type=#{type},
+		address=#{address},
+		birth=#{birth},
+		avatar=#{avatar},
+		password=#{password},
+		create_time=#{createTime},
+		modify_time=#{modifyTime}
+		where id=#{id}
+	</update>
+	<delete id="delete" parameterType="com.ziteng.entity.user.User" flushCache="true">
+		delete from t1_user where id=#{id}
+	</delete>
+	<delete id="deleteById" parameterType="int" flushCache="true">
+		delete from t1_user where id=#{id}
+	</delete>
+	<select id="selectById" parameterType="int" useCache="true" resultMap="userMap">
+		select * from t1_user where id=#{value}
+	</select>
+	
+	<sql id="selectEntityList_where">
+		<where>
+		    <if test="userName!=null and userName!=''">user_name=#{userName}</if>
+		    <if test="password!=null and password!=''"> and password=#{password}</if>
+		    <if test="idCard!=null and idCard!=''"> and id_card=#{idCard}</if>
+		    <if test="email!=null and email!=''"> and email=#{email}</if>
+		    <if test="phoneNumber!=null and phoneNumber!=''"> and phone_number=#{phoneNumber}</if>
+		    <if test="type!=null"> and type=#{type}</if>
+		</where>
+	</sql>
+	<sql id="orderBySql">
+		<choose>
+			<when test="sortname!=null and sortorder!=null and sortname!='' and sortorder!=''"> order by ${sortname} ${sortorder} </when>
+			<otherwise> order by id desc </otherwise>
+		</choose>
+	</sql>
+	
+	<select id="selectEntityList" parameterType="com.ziteng.dto.query.user.UserQuery" resultMap="userMap">		
+		select * from t1_user 
+			<include refid="selectEntityList_where"/>
+			<include refid="orderBySql"/>
+			<if test="startRow!=null and endRow!=null">limit #{startRow}, #{pageSize}</if>
+	</select>
+	
+	<select id="selectEntityCount" parameterType="com.ziteng.dto.query.user.UserQuery" resultType="int">
+		select count(id) from t1_user
+		<include refid="selectEntityList_where"/>
+	</select>
+	<select id="getNameById" parameterType="int" resultType="java.lang.String">
+		select t.user_name from t1_user t where t.id = #{id} 
+	</select>
+</mapper>

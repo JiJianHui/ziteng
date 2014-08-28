@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ziteng.dao.travelGuide.ITravelGuide2CarDegreePriceDao">
+	<resultMap type="com.ziteng.entity.travelGuide.TravelGuide2CarDegreePrice" id="travelGuide2CarDegreePriceMap">
+		<id property="id" column="id"/>
+		<result property="travelGuideId" column="travel_guide_id"/>
+		<result property="carDegreeId" column="car_degree_id"/>
+		<result property="pricePerDay" column="price_per_day"/>
+		<result property="pricePerKm" column="price_per_km"/>
+		<result property="originalPrice" column="original_price"/>
+		<result property="createTime" column="create_time"/>
+		<result property="editTime" column="edit_time"/>
+	</resultMap>
+	<insert id="insert" parameterType="com.ziteng.entity.travelGuide.TravelGuide2CarDegreePrice" keyProperty="id" useGeneratedKeys="true" flushCache="true">
+		insert into t1_travel_guide_2_car_degree_price
+		(id,travel_guide_id,car_degree_id,price_per_day,price_per_km,original_price,create_time,edit_time)
+		values
+		(#{id},#{travelGuideId},#{carDegreeId},#{pricePerDay},#{pricePerKm},#{originalPrice},#{createTime},#{editTime})
+	</insert>
+	<update id="update" parameterType="com.ziteng.entity.travelGuide.TravelGuide2CarDegreePrice" flushCache="true">
+		update t1_travel_guide_2_car_degree_price set
+		travel_guide_id=#{travelGuideId},
+		car_degree_id=#{carDegreeId},
+		price_per_day=#{pricePerDay},
+		price_per_km=#{pricePerKm},
+		original_price=#{originalPrice},
+		create_time=#{createTime},
+		edit_time=#{editTime}
+		where id=#{id}
+	</update>
+	<delete id="delete" parameterType="com.ziteng.entity.travelGuide.TravelGuide2CarDegreePrice" flushCache="true">
+		delete from t1_travel_guide_2_car_degree_price where id=#{id}
+	</delete>
+	<delete id="deleteById" parameterType="int" flushCache="true">
+		delete from t1_travel_guide_2_car_degree_price where id=#{id}
+	</delete>
+	
+	<delete id="deleteByGuideId" parameterType="int" flushCache="true">
+		delete from t1_travel_guide_2_car_degree_price where travel_guide_id=#{guideId}
+	</delete>
+	
+	<select id="selectById" parameterType="int" useCache="true" resultMap="travelGuide2CarDegreePriceMap">
+		select * from t1_travel_guide_2_car_degree_price where id=#{value}
+	</select>
+	<select id="selectByTravelGuideId" parameterType="int" useCache="true" resultMap="travelGuide2CarDegreePriceMap">
+		select * from t1_travel_guide_2_car_degree_price where travel_guide_id=#{travelGuideId}
+	</select>
+	
+	<select id="selectAll" parameterType="int" useCache="true" resultMap="travelGuide2CarDegreePriceMap">
+		select * from t1_travel_guide_2_car_degree_price
+	</select>
+	
+	<insert id="insertBatch" parameterType="java.util.List" useGeneratedKeys="true" flushCache="true">
+  	insert into t1_travel_guide_2_car_degree_price
+		(travel_guide_id,car_degree_id,price_per_day,price_per_km,original_price,create_time,edit_time)
+		values
+  	<foreach collection="list" item="item" index="index"
+  		separator=",">
+  		(#{item.travelGuideId},#{item.carDegreeId},#{item.pricePerDay},#{item.pricePerKm},#{item.originalPrice},#{item.createTime},#{item.editTime})
+  	</foreach>
+  </insert>
+	
+</mapper>

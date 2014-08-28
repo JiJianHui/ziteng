@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ziteng.dao.hotel.IHotelSmsRec">
+
+	<resultMap type="com.ziteng.entity.hotel.HotelSmsRec" id="hotelSmsRecMap">
+		<id property="id" column="id"/>
+		<result property="orderId" column="t1_orderId"/>
+		<result property="sender" column="t1_sender"/>
+		<result property="senderPhone" column="t1_senderPhone"/>
+		<result property="messageType" column="t1_messageType"/>
+		<result property="receive" column="t1_receive"/>
+		<result property="receivePhone" column="t1_receivePhone"/>
+		<result property="messageContent" column="t1_messageContent"/>
+		<result property="createTime" column="t1_createTime"/>
+		<result property="remarks" column="t1_remarks"/>
+	</resultMap>
+	<insert id="insert" parameterType="com.ziteng.entity.hotel.HotelSmsRec" keyProperty="id" useGeneratedKeys="true" flushCache="true">
+		insert into t1_hotelsmsrec
+		(id,t1_orderId,t1_sender,t1_senderPhone,t1_messageType,t1_receive,t1_receivePhone,t1_messageContent,t1_createTime,t1_remarks)
+		values
+		(#{id},#{orderId},#{sender},#{senderPhone},#{messageType},#{receive},#{receivePhone},#{messageContent},#{createTime},#{remarks})
+	</insert>
+	<update id="update" parameterType="com.ziteng.entity.hotel.HotelSmsRec" flushCache="true">
+		update t1_hotelsmsrec set
+		t1_orderId=#{orderId},
+		t1_sender=#{sender},
+		t1_senderPhone=#{senderPhone},
+		t1_messageType=#{messageType},
+		t1_receive=#{receive},
+		t1_receivePhone=#{receivePhone},
+		t1_messageContent=#{messageContent},
+		t1_createTime=#{createTime},
+		t1_remarks=#{remarks}
+		where id=#{id}
+	</update>
+	<delete id="delete" parameterType="com.ziteng.entity.hotel.HotelSmsRec" flushCache="true">
+		delete from t1_hotelsmsrec where id=#{id}
+	</delete>
+	<delete id="deleteById" parameterType="int" flushCache="true">
+		delete from t1_hotelsmsrec where id=#{id}
+	</delete>
+	<select id="selectById" parameterType="int" useCache="true" resultMap="hotelSmsRecMap">
+		select * from t1_hotelsmsrec where id=#{value}
+	</select>
+	<sql id="selectEntityList_where">
+		<where>
+		    <if test="id!=null">id=#{id}</if>
+		    <if test="orderId!=null and orderId!=''"> and t1_areaName=#{orderId}</if>
+		    <if test="sender!=null and sender!=''"> and t1_sender=#{sender}</if>		
+		    <if test="senderPhone!=null and senderPhone!=''"> and t1_senderPhone=#{senderPhone}</if>		
+			<if test="messageType!=null and messageType!=''"> and t1_messageType=#{messageType}</if>		
+			<if test="receive!=null and receive!=''"> and t1_receive=#{receive}</if>		
+			<if test="receivePhone!=null and receivePhone!=''"> and t1_receivePhone=#{receivePhone}</if>		
+			<if test="messageContent!=null and messageContent!=''"> and t1_messageContent=#{messageContent}</if>		
+			<if test="createTime!=null and createTime!=''"> and t1_createTime=#{createTime}</if>			    
+		</where>
+	</sql>
+	<sql id="orderBySql">
+		<choose>
+			<when test="sortname!=null and sortorder!=null and sortname!='' and sortorder!=''"> order by ${sortname} ${sortorder} </when>
+			<otherwise> order by id desc </otherwise>
+		</choose>
+	</sql>	
+	<select id="selectEntityCount" parameterType="com.ziteng.dto.query.hotel.HotelSmsRecQuery" useCache="true" resultType="int">
+		select count(id) from t1_hotelsmsrec
+		<include refid="selectEntityList_where"/>
+	</select>
+	<select id="getGeneralId" parameterType="com.ziteng.dto.query.hotel.HotelSmsRecQuery" useCache="true" resultType="int">
+		select  IFNULL(MAX(id) + 1,1) from t1_hotelsmsrec
+	</select>
+	<select id="selectEntityList" parameterType="com.ziteng.dto.query.hotel.HotelSmsRecQuery" useCache="true" resultMap="hotelSmsRecMap">
+		select * from t1_hotelsmsrec
+		<include refid="selectEntityList_where"/>
+		<include refid="orderBySql"/>
+		<if test="startRow!=null and endRow!=null">limit #{startRow}, #{pageSize}</if>
+	</select>
+</mapper>

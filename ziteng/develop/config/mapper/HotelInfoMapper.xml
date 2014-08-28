@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ziteng.dao.hotel.IHotelInfo">
+
+	<resultMap type="com.ziteng.entity.hotel.HotelInfo" id="hotelInfoMap">
+		<id property="id" column="id"/>
+		<result property="hotelName" column="t1_hotelName"/>
+		<result property="hotelAddress" column="t1_hotelAddress"/>
+		<result property="hotelManger" column="t1_hotelManger"/>
+		<result property="hotelMgnPhone" column="t1_hotelMgnPhone"/>
+		<result property="hotelStar" column="t1_hotelStar"/>
+		<result property="hotelType" column="t1_hotelType"/>
+		<result property="ownProvince" column="t1_ownProvince"/>
+		<result property="ownArea" column="t1_ownArea"/>
+		<result property="addressDesc" column="t1_addressDesc"/>
+		<result property="roomPrice" column="t1_roomPrice"/>
+		<result property="roomNum" column="t1_roomNum"/>
+		<result property="landMarks" column="t1_landMarks"/>
+		<result property="hotelContent" column="t1_hotelContent"/>
+		<result property="hotelServices" column="t1_hotelServices"/>
+		<result property="hotelImgUrl" column="t1_hotelImgUrl"/>
+		<result property="messageConfirm" column="t1_messageConfirm"/>
+		<result property="hotelOrder" column="t1_hotelOrder"/>
+		<result property="modifyDate" column="t1_modifyDate"/>
+		<result property="browseNum" column="t1_browseNum"/>
+		<result property="reserveNum" column="t1_reserveNum"/>
+		<result property="hotelGood" column="t1_hotelGood"/>
+		<result property="hotelBad" column="t1_hotelBad"/>
+		<result property="remarks" column="t1_remarks"/>
+		<result property="expandCol1" column="t1_expandCol1"/>
+		<result property="expandCol2" column="t1_expandCol2"/>
+		<result property="expandCol3" column="t1_expandCol3"/>
+		<result property="expandCol4" column="t1_expandCol4"/>
+		<result property="expandCol5" column="t1_expandCol5"/>
+	</resultMap>
+	<insert id="insert" parameterType="com.ziteng.entity.hotel.HotelInfo" keyProperty="id" useGeneratedKeys="true" flushCache="true">
+		insert into t1_hotelinfo
+		(id,t1_hotelName,t1_hotelAddress,t1_hotelManger,t1_hotelMgnPhone,t1_hotelStar,t1_hotelType,t1_ownProvince,t1_ownArea,t1_addressDesc,t1_roomPrice,t1_roomNum,t1_landMarks,t1_hotelContent,t1_hotelServices,t1_hotelImgUrl,t1_messageConfirm,t1_hotelOrder,t1_modifyDate,t1_browseNum,t1_reserveNum,t1_hotelGood,t1_hotelBad,t1_remarks,t1_expandCol1,t1_expandCol2,t1_expandCol3,t1_expandCol4,t1_expandCol5)
+		values
+		(#{id},#{hotelName},#{hotelAddress},#{hotelManger},#{hotelMgnPhone},#{hotelStar},#{hotelType},#{ownProvince},#{ownArea},#{addressDesc},#{roomPrice},#{roomNum},#{landMarks},#{hotelContent},#{hotelServices},#{hotelImgUrl},#{messageConfirm},#{hotelOrder},#{modifyDate},#{browseNum},#{reserveNum},#{hotelGood},#{hotelBad},#{remarks},#{expandCol1},#{expandCol2},#{expandCol3},#{expandCol4},#{expandCol5})
+	</insert>
+	<update id="update" parameterType="com.ziteng.entity.hotel.HotelInfo" flushCache="true">
+		update t1_hotelinfo set
+		t1_hotelName=#{hotelName},
+		t1_hotelAddress=#{hotelAddress},
+		t1_hotelManger=#{hotelManger},
+		t1_hotelMgnPhone=#{hotelMgnPhone},
+		t1_hotelStar=#{hotelStar},
+		t1_hotelType=#{hotelType},
+		t1_ownProvince=#{ownProvince},
+		t1_ownArea=#{ownArea},
+		t1_addressDesc=#{addressDesc},
+		t1_roomPrice=#{roomPrice},
+		t1_roomNum=#{roomNum},
+		t1_landMarks=#{landMarks},
+		t1_hotelContent=#{hotelContent},
+		t1_hotelServices=#{hotelServices},
+		t1_hotelImgUrl=#{hotelImgUrl},
+		t1_messageConfirm=#{messageConfirm},
+		t1_hotelOrder=#{hotelOrder},
+		t1_modifyDate=#{modifyDate},
+		t1_browseNum=#{browseNum},
+		t1_reserveNum=#{reserveNum},
+		t1_hotelGood=#{hotelGood},
+		t1_hotelBad=#{hotelBad},
+		t1_remarks=#{remarks},
+		t1_expandCol1=#{expandCol1},
+		t1_expandCol2=#{expandCol2},
+		t1_expandCol3=#{expandCol3},
+		t1_expandCol4=#{expandCol4},
+		t1_expandCol5=#{expandCol5}
+		where id=#{id}
+	</update>
+	<delete id="delete" parameterType="com.ziteng.entity.hotel.HotelInfo" flushCache="true">
+		delete from t1_hotelinfo where id=#{id}
+	</delete>
+	<delete id="deleteById" parameterType="int" flushCache="true">
+		delete from t1_hotelinfo where id=#{id}
+	</delete>
+	<select id="selectById" parameterType="int" useCache="true" resultMap="hotelInfoMap">
+		select * from t1_hotelinfo where id=#{value}
+	</select>
+	<sql id="selectEntityList_where">
+		<where>
+		    <if test="id!=null">id=#{id}</if>
+		    <if test="hotelName!=null and hotelName!=''"> and t1_hotelName like CONCAT('%','${hotelName}','%')</if>
+		    <if test="hotelAddress!=null and hotelAddress!=''"> and t1_hotelAddress=#{hotelAddress}</if>	
+		    <if test="hotelManger!=null and hotelManger!=''"> and t1_hotelManger=#{hotelManger}</if>	
+		    <if test="hotelMgnPhone!=null and hotelMgnPhone!=''"> and t1_hotelMgnPhone=#{hotelMgnPhone}</if>	
+		    <if test="hotelStar!=null and hotelStar!=''"> and t1_hotelStar=#{hotelStar}</if>	
+		    <if test="hotelType!=null and hotelType!=''"> and t1_hotelType=#{hotelType}</if>	
+		    <if test="hotelType!=null and hotelType!=''"> and t1_hotelType=#{hotelType}</if>	
+			<if test="ownArea!=null and ownArea!=''"> and t1_ownArea=#{ownArea}</if>	
+			<if test="addressDesc!=null and addressDesc!=''"> and t1_addressDesc=#{addressDesc}</if>	
+			<if test="roomPrice!=null and roomPrice!=''"> and t1_roomPrice=#{roomPrice}</if>	
+			<if test="roomNum!=null and roomNum!=''"> and t1_roomNum=#{roomNum}</if>	
+			<if test="landMarks!=null and landMarks!=''"> and t1_landMarks=#{landMarks}</if>	
+			<if test="hotelContent!=null and hotelContent!=''"> and t1_hotelContent=#{hotelContent}</if>	
+			<if test="hotelServices!=null and hotelServices!=''"> and t1_hotelServices=#{hotelServices}</if>	
+			<if test="messageConfirm!=null and messageConfirm!=''"> and t1_messageConfirm=#{messageConfirm}</if>	
+			<if test="hotelOrder!=null and hotelOrder!=''"> and t1_hotelOrder=#{hotelOrder}</if>	
+			<if test="modifyDate!=null and modifyDate!=''"> and t1_modifyDate=#{modifyDate}</if>	
+			<if test="browseNum!=null and browseNum!=''"> and t1_browseNum=#{browseNum}</if>	
+			<if test="reserveNum!=null and reserveNum!=''"> and t1_reserveNum=#{reserveNum}</if>	
+			<if test="hotelGood!=null and hotelGood!=''"> and t1_hotelGood=#{hotelGood}</if>	
+			<if test="hotelBad!=null and hotelBad!=''"> and t1_hotelBad=#{hotelBad}</if>	   	    
+		</where>
+	</sql>
+	<sql id="orderBySql">
+		<choose>
+			<when test="sortname!=null and sortorder!=null and sortname!='' and sortorder!=''"> order by ${sortname} ${sortorder} </when>
+			<otherwise> order by id desc </otherwise>
+		</choose>
+	</sql>	
+	<select id="selectEntityCount" parameterType="com.ziteng.dto.query.hotel.HotelInfoQuery" useCache="true" resultType="int">
+		select count(id) from t1_hotelinfo
+		<include refid="selectEntityList_where"/>
+	</select>
+	<select id="getGeneralId" parameterType="com.ziteng.dto.query.hotel.HotelInfoQuery" useCache="true" resultType="int">
+		select  IFNULL(MAX(id) + 1,1) from t1_hotelinfo
+	</select>
+
+	<select id="selectEntityList" parameterType="com.ziteng.dto.query.hotel.HotelInfoQuery" useCache="true" resultMap="hotelInfoMap">
+
+		select * from t1_hotelinfo
+		<include refid="selectEntityList_where"/>
+		<include refid="orderBySql"/>
+		<if test="startRow!=null and endRow!=null">limit #{startRow}, #{pageSize}</if>
+	</select>
+	
+	<select id="selectEntityListByTop" parameterType="com.ziteng.dto.query.hotel.HotelInfoQuery" useCache="true" resultMap="hotelInfoMap">
+
+		select * from t1_hotelinfo 
+		<include refid="selectEntityList_where"/>
+		<include refid="orderBySql"/>
+		 limit 7
+	</select>
+	
+</mapper>

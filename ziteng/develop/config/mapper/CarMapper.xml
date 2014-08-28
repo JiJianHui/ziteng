@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ziteng.dao.car.ICarDao">
+	<resultMap type="com.ziteng.entity.car.Car" id="carMap">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="carDegreeId" column="car_degree_id"/>
+		<result property="volume" column="volume"/>
+		<result property="createTime" column="create_time"/>
+		<result property="editTime" column="edit_time"/>
+	</resultMap>
+	<insert id="insert" parameterType="com.ziteng.entity.car.Car" keyProperty="id" useGeneratedKeys="true" flushCache="true">
+		insert into t1_car
+		(id,name,car_degree_id,volume,create_time,edit_time)
+		values
+		(#{id},#{name},#{carDegreeId},#{volume},#{createTime},#{editTime})
+	</insert>
+	<update id="update" parameterType="com.ziteng.entity.car.Car" flushCache="true">
+		update t1_car set
+		name=#{name},
+		car_degree_id=#{carDegreeId},
+		volume=#{volume},
+		create_time=#{createTime},
+		edit_time=#{editTime}
+		where id=#{id}
+	</update>
+	<delete id="delete" parameterType="com.ziteng.entity.car.Car" flushCache="true">
+		delete from t1_car where id=#{id}
+	</delete>
+	<delete id="deleteById" parameterType="int" flushCache="true">
+		delete from t1_car where id=#{id}
+	</delete>
+	<select id="selectById" parameterType="int" useCache="true" resultMap="carMap">
+		select * from t1_car where id=#{value}
+	</select>
+	<select id="selectAll" useCache="true" resultMap="carMap">
+		select * from t1_car
+	</select>
+	<select id="getCarsByTravelGuideId" useCache="true" resultMap="carMap">
+		select c.* from t1_car c,t1_travel_guide_2_car g2c where c.id=g2c.car_id and g2c.travel_guide_id = #{travelGuideId} 
+	</select>
+</mapper>

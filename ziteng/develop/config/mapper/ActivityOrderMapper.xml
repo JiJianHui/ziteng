@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ziteng.dao.activity.IActivityOrderDao">
+	<resultMap type="com.ziteng.entity.activity.ActivityOrder" id="activityOrderMap">
+		<id property="id" column="id"/>
+		<result property="userId" column="user_id"/>
+		<result property="activityId" column="activity_id"/>
+		<result property="price" column="price"/>
+		<result property="status" column="status"/>
+		<result property="createTime" column="create_time"/>
+		<result property="modifyTime" column="modify_time"/>
+	</resultMap>
+	<insert id="insert" parameterType="com.ziteng.entity.activity.ActivityOrder" keyProperty="id" useGeneratedKeys="true" flushCache="true">
+		insert into t1_activity_order
+		(id,user_id,activity_id,price,status,create_time,modify_time)
+		values
+		(#{id},#{userId},#{activityId},#{price},#{status},#{createTime},#{modifyTime})
+	</insert>
+	<update id="update" parameterType="com.ziteng.entity.activity.ActivityOrder" flushCache="true">
+		update t1_activity_order set
+		user_id=#{userId},
+		activity_id=#{activityId},
+		price=#{price},
+		status=#{status},
+		create_time=#{createTime},
+		modify_time=#{modifyTime}
+		where id=#{id}
+	</update>
+	<delete id="delete" parameterType="com.ziteng.entity.activity.ActivityOrder" flushCache="true">
+		delete from t1_activity_order where id=#{id}
+	</delete>
+	<delete id="deleteById" parameterType="int" flushCache="true">
+		delete from t1_activity_order where id=#{id}
+	</delete>
+	<select id="selectById" parameterType="int" useCache="true" resultMap="activityOrderMap">
+		select * from t1_activity_order where id=#{value}
+	</select>
+</mapper>

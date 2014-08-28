@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ziteng.dao.area.IRatioDao">
+	<resultMap type="com.ziteng.entity.area.Ratio" id="ratioMap">
+		<id property="id" column="id" />
+		<result property="areaId" column="area_id" />
+		<result property="date" column="date" />
+		<result property="ratio" column="ratio" />
+		<result property="createTime" column="create_time" />
+		<result property="editTime" column="edit_time" />
+	</resultMap>
+	<insert id="insert" parameterType="com.ziteng.entity.area.Ratio"
+		keyProperty="id" useGeneratedKeys="true" flushCache="true">
+		insert into
+		t1_ratio
+		(id,area_id,date,ratio,create_time,edit_time)
+		values
+		(#{id},#{areaId},#{date},#{ratio},#{createTime},#{editTime})
+	</insert>
+	<insert id="insertBatch" parameterType="java.util.List" useGeneratedKeys="true" flushCache="true">
+  	insert into t1_ratio (area_id,date,ratio,create_time,edit_time)
+		values
+  	<foreach collection="list" item="item" index="index"
+  		separator=",">
+  		( #{item.areaId}, #{item.date},#{item.ratio}, #{item.createTime},#{item.editTime})
+  	</foreach>
+  </insert>
+  
+	<update id="update" parameterType="com.ziteng.entity.area.Ratio"
+		flushCache="true">
+		update t1_ratio set
+		ratio=#{ratio},
+		edit_time=#{editTime}
+		where
+		id=#{id}
+	</update>
+	<delete id="delete" parameterType="com.ziteng.entity.area.Ratio"
+		flushCache="true">
+		delete from t1_ratio where id=#{id}
+	</delete>
+	<delete id="deleteById" parameterType="int" flushCache="true">
+		delete
+		from t1_ratio where id=#{id}
+	</delete>
+	<select id="selectById" parameterType="int" useCache="true"
+		resultMap="ratioMap">
+		select * from t1_ratio where id=#{value}
+	</select>
+
+	<select id="getAll" useCache="true" resultMap="ratioMap">
+		select * from t1_ratio
+	</select>
+
+	<sql id="selectEntityList_where">
+		<where>
+			<if test="areaId!=null">area_id=#{areaId}</if>
+			<if test="ratio!=null"> and ratio=#{ratio}</if>
+			<if test="year!=null"> and year(date)=#{year}</if>
+			<if test="month!=null"> and month(date)=#{month}</if>
+			<if test="date!=null"> and date=#{date}</if>
+		</where>
+	</sql>
+	<sql id="orderBySql">
+		<choose>
+			<when
+				test="sortname!=null and sortorder!=null and sortname!='' and sortorder!=''"> order by ${sortname} ${sortorder} </when>
+			<otherwise> order by id desc </otherwise>
+		</choose>
+	</sql>
+
+	<select id="selectByEntity" parameterType="com.ziteng.dto.query.area.RatioQuery"
+		resultMap="ratioMap">
+		select * from t1_ratio
+		<include refid="selectEntityList_where" />
+	</select>
+	<select id="selectEntityList" parameterType="com.ziteng.dto.query.area.RatioQuery"
+		resultMap="ratioMap">
+		select * from t1_ratio
+		<include refid="selectEntityList_where" />
+		<include refid="orderBySql" />
+		<if test="startRow!=null and endRow!=null and usePagination!=true">limit #{startRow}, #{pageSize}</if>
+	</select>
+	<select id="selectEntityCount" parameterType="com.ziteng.dto.query.area.RatioQuery"
+		resultType="int">
+		select count(id) from t1_ratio
+		<include refid="selectEntityList_where" />
+	</select>
+</mapper>

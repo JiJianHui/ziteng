@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ziteng.dao.hotel.IHotelType">
+
+	<resultMap type="com.ziteng.entity.hotel.HotelType" id="hotelTypeMap">
+		<id property="id" column="id"/>
+		<result property="hotelType" column="t1_hotelType"/>
+		<result property="order" column="t1_order"/>
+	</resultMap>
+	<insert id="insert" parameterType="com.ziteng.entity.hotel.HotelType" keyProperty="id" useGeneratedKeys="true" flushCache="true">
+		insert into t1_hoteltype
+		(id,t1_hotelType,t1_order)
+		values
+		(#{id},#{hotelType},#{order})
+	</insert>
+	<update id="update" parameterType="com.ziteng.entity.hotel.HotelType" flushCache="true">
+		update t1_hoteltype set
+		t1_hotelType=#{hotelType},
+		t1_order=#{order}
+		where id=#{id}
+	</update>
+	<delete id="delete" parameterType="com.ziteng.entity.hotel.HotelType" flushCache="true">
+		delete from t1_hoteltype where id=#{id}
+	</delete>
+	<delete id="deleteById" parameterType="int" flushCache="true">
+		delete from t1_hoteltype where id=#{id}
+	</delete>
+	<select id="selectById" parameterType="int" useCache="true" resultMap="hotelTypeMap">
+		select * from t1_hoteltype where id=#{value}
+	</select>
+	<sql id="selectEntityList_where">
+		<where>
+		    <if test="id!=null">id=#{id}</if>
+		    <if test="hotelType!=null and hotelType!=''"> and t1_hotelType=#{hotelType}</if>
+		    <if test="order!=null and order!=''"> and t1_order=#{order}</if>		    	    
+		</where>
+	</sql>
+	<sql id="orderBySql">
+		<choose>
+			<when test="sortname!=null and sortorder!=null and sortname!='' and sortorder!=''"> order by ${sortname} ${sortorder} </when>
+			<otherwise> order by t1_order desc </otherwise>
+		</choose>
+	</sql>	
+	<select id="selectEntityCount" parameterType="com.ziteng.dto.query.hotel.HotelTypeQuery" useCache="true" resultType="int">
+		select count(id) from t1_hoteltype
+		<include refid="selectEntityList_where"/>
+	</select>
+	<select id="getGeneralId" parameterType="com.ziteng.dto.query.hotel.HotelTypeQuery" useCache="true" resultType="int">
+		select  IFNULL(MAX(id) + 1,1) from t1_hoteltype
+	</select>
+	<select id="selectEntityList" parameterType="com.ziteng.dto.query.hotel.HotelTypeQuery" useCache="true" resultMap="hotelTypeMap">
+		select * from t1_hoteltype
+		<include refid="selectEntityList_where"/>
+		<include refid="orderBySql"/>
+		<if test="startRow!=null and endRow!=null">limit #{startRow}, #{pageSize}</if>
+	</select>
+</mapper>

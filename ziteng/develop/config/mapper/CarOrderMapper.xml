@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ziteng.dao.car.ICarOrderDao">
+	<resultMap type="com.ziteng.entity.car.CarOrder" id="carOrderMap">
+		<id property="id" column="id" />
+		<result property="userId" column="user_id" />
+		<result property="contacter" column="contacter" />
+		<result property="tel" column="tel" />
+		<result property="travelGuideId" column="travel_guide_id" />
+		<result property="carDegreeId" column="car_degree_id"/>
+ 		<result property="carId" column="car_id" />
+		<result property="carAmount" column="car_amount" />
+		<result property="peopleAmount" column="people_amount" />
+		<result property="price" column="price" />
+		<result property="beginTime" column="begin_time" />
+		<result property="endTime" column="end_time" />
+		<result property="status" column="status" />
+		<result property="createTime" column="create_time" />
+		<result property="editTime" column="edit_time" />
+		<result property="flowId" column="flow_id" />
+	</resultMap>
+	<insert id="insert" parameterType="com.ziteng.entity.car.CarOrder"
+		keyProperty="id" useGeneratedKeys="true" flushCache="true">
+		insert into
+		t1_car_order
+		(id,user_id,contacter,tel,travel_guide_id,car_degree_id,car_id,car_amount,people_amount,price,begin_time,end_time,status,create_time,edit_time,flow_id)
+		values
+		(#{id},#{userId},#{contacter},#{tel},#{travelGuideId},#{carDegreeId},#{carId},#{carAmount},#{peopleAmount},#{price},#{beginTime},#{endTime},#{status},#{createTime},#{editTime},#{flowId})
+	</insert>
+	<update id="update" parameterType="com.ziteng.entity.car.CarOrder"
+		flushCache="true">
+		update t1_car_order set
+		user_id=#{userId},
+		contacter=#{contacter},
+		tel=#{tel},
+		travel_guide_id=#{travelGuideId},
+		car_degree_id=#{carDegreeId},
+		car_id=#{carId},
+		car_amount=#{carAmount},
+		people_amount=#{peopleAmount},
+		begin_time=#{beginTime},
+		end_time=#{endTime},
+		status=#{status},
+		edit_time=#{editTime},
+		flow_id=#{flowId}
+		where
+		id=#{id}
+	</update>
+	<delete id="delete" parameterType="com.ziteng.entity.car.CarOrder"
+		flushCache="true">
+		delete from t1_car_order where id=#{id}
+	</delete>
+	<delete id="deleteById" parameterType="int" flushCache="true">
+		delete
+		from t1_car_order where id=#{id}
+	</delete>
+	
+	<delete id="deleteByGuideId" parameterType="int" flushCache="true">
+		delete	from t1_car_order where travel_guide_id=#{guideId}
+	</delete>
+	
+	<select id="selectById" parameterType="int" useCache="true"
+		resultMap="carOrderMap">
+		select * from t1_car_order where id=#{value}
+	</select>
+	<select id="getOrderCountByTravelGuideId" parameterType="int"
+		useCache="true" resultType="int">
+		select count(1) from t1_car_order where
+		travel_guide_id=#{travelGuideId}
+	</select>
+
+	<select id="selectAll" useCache="true" resultMap="carOrderMap">
+		select * from
+		t1_car_order
+	</select>
+
+	
+	
+	<sql id="selectEntityList_where">
+		<where>
+			<!-- <if test="contacter!=null and contacter!=''">contacter like CONCAT('%','${contacter}','%')</if> -->
+			<if test="flowId!=null and flowId!=''">flow_id like CONCAT('%','${flowId}','%')</if>
+			<if test="travelGuideId!=null">and travel_guide_id=#{travelGuideId}</if>
+			<if test="carDegreeId!=null">and car_degree_id=#{carDegreeId}</if>
+			<if test="carId!=null">and car_id=#{carId}</if>
+			<if test="userId!=null">and user_id=#{userId}</if>
+			<if test="status!=null">and status=#{status}</if>
+			<if test="tel!=null and tel!=''">and tel like CONCAT('%','${tel}','%')</if>
+			<if test="createTime!=null">and to_days(create_time)=to_days(#{createTime}) </if>
+		</where>
+	</sql>
+	<sql id="orderBySql">
+		<choose>
+			<when
+				test="sortname!=null and sortorder!=null and sortname!='' and sortorder!=''"> order by ${sortname} ${sortorder} </when>
+			<otherwise> order by id desc </otherwise>
+		</choose>
+	</sql>
+
+	<select id="selectEntityList" parameterType="com.ziteng.dto.query.car.CarOrderQuery"
+		resultMap="carOrderMap">
+		select * from t1_car_order
+		<include refid="selectEntityList_where" />
+		<include refid="orderBySql" />
+		<if test="startRow!=null and endRow!=null and usePagination">limit #{startRow}, #{pageSize}</if>
+	</select>
+
+	<select id="selectEntityCount" parameterType="com.ziteng.dto.query.car.CarOrderQuery"
+		resultType="int">
+		select count(id) from t1_car_order
+		<include refid="selectEntityList_where" />
+	</select>
+</mapper>

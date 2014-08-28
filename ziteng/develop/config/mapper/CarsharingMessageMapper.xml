@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ziteng.dao.car.ICarsharingMessageDao">
+	<resultMap type="com.ziteng.entity.car.CarsharingMessage" id="carsharingMessageMap">
+		<id property="id" column="id"/>
+		<result property="carsharingId" column="carsharing_id"/>
+		<result property="userId" column="user_id"/>
+		<result property="content" column="content"/>
+		<result property="msgTime" column="msg_time"/>
+	</resultMap>
+	<insert id="insert" parameterType="com.ziteng.entity.car.CarsharingMessage" keyProperty="id" useGeneratedKeys="true" flushCache="true">
+		insert into t1_carsharing_message
+		(id,carsharing_id,user_id,content,msg_time)
+		values
+		(#{id},#{carsharingId},#{userId},#{content},#{msgTime})
+	</insert>
+	<update id="update" parameterType="com.ziteng.entity.car.CarsharingMessage" flushCache="true">
+		update t1_carsharing_message set
+		carsharing_id=#{carsharingId},
+		user_id=#{userId},
+		content=#{content},
+		msg_time=#{msgTime}
+		where id=#{id}
+	</update>
+	<delete id="delete" parameterType="com.ziteng.entity.car.CarsharingMessage" flushCache="true">
+		delete from t1_carsharing_message where id=#{id}
+	</delete>
+	<delete id="deleteById" parameterType="int" flushCache="true">
+		delete from t1_carsharing_message where id=#{id}
+	</delete>
+	<select id="selectById" parameterType="int" useCache="true" resultMap="carsharingMessageMap">
+		select * from t1_carsharing_message where id=#{value}
+	</select>
+	
+	<sql id="selectEntityList_where">
+		<where>
+		    <if test="carsharingId!=null and carsharingId!=''">carsharing_id=#{carsharingId}</if>
+		    <if test="userId!=null and userId!=''"> and user_id=#{userId}</if>
+		    <if test="msgTime!=null and msgTime!=''"> and msg_time=#{msgTime}</if>
+		</where>
+	</sql>
+	<sql id="orderBySql">
+		<choose>
+			<when test="sortname!=null and sortorder!=null and sortname!='' and sortorder!=''"> order by ${sortname} ${sortorder} </when>
+			<otherwise> order by id desc </otherwise>
+		</choose>
+	</sql>
+	
+	<select id="selectEntityList" parameterType="com.ziteng.dto.query.car.CarsharingMessageQuery" resultMap="carsharingMessageMap">		
+		select * from t1_carsharing_message 
+			<include refid="selectEntityList_where"/>
+			<include refid="orderBySql"/>
+			<if test="startRow!=null and endRow!=null">limit #{startRow}, #{pageSize}</if>
+	</select>
+	
+	<select id="selectEntityCount" parameterType="com.ziteng.dto.query.car.CarsharingMessageQuery" resultType="int">
+		select count(id) from t1_carsharing_message
+		<include refid="selectEntityList_where"/>
+	</select>
+</mapper>

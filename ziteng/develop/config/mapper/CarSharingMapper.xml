@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ziteng.dao.car.ICarSharingDao">
+	<resultMap type="com.ziteng.entity.car.CarSharing" id="carSharingMap">
+		<id property="id" column="id"/>
+		<result property="userId" column="user_id"/>
+		<result property="title" column="title"/>
+		<result property="startArea" column="start_area"/>
+		<result property="endArea" column="end_area"/>
+		<result property="startTime" column="start_time"/>
+		<result property="returnTime" column="return_time"/>
+		<result property="playDays" column="play_days"/>
+		<result property="description" column="description"/>
+		<result property="contactPerson" column="contact_person"/>
+		<result property="contactMethod" column="contact_method"/>
+		<result property="details" column="details"/>
+		<result property="status" column="status"/>
+		<result property="picture" column="picture"/>
+		<result property="createTime" column="create_time"/>
+		<result property="modifyTime" column="modify_time"/>
+	</resultMap>
+	<insert id="insert" parameterType="com.ziteng.entity.car.CarSharing" keyProperty="id" useGeneratedKeys="true" flushCache="true">
+		insert into t1_car_sharing
+		(id,user_id,title,start_area,end_area,start_time,return_time,play_days,description,contact_person,contact_method,details,status,picture,create_time,modify_time)
+		values
+		(#{id},#{userId},#{title},#{startArea},#{endArea},#{startTime},#{returnTime},#{playDays},#{description},#{contactPerson},#{contactMethod},#{details},#{status},#{picture},#{createTime},#{modifyTime})
+	</insert>
+	<update id="update" parameterType="com.ziteng.entity.car.CarSharing" flushCache="true">
+		update t1_car_sharing set
+		user_id=#{userId},
+		title=#{title},
+		start_area=#{startArea},
+		end_area=#{endArea},
+		start_time=#{startTime},
+		return_time=#{returnTime},
+		play_days=#{playDays},
+		description=#{description},
+		contact_person=#{contactPerson},
+		contact_method=#{contactMethod},
+		details=#{details},
+		status=#{status},
+		picture=#{picture},
+		create_time=#{createTime},
+		modify_time=#{modifyTime}
+		where id=#{id}
+	</update>
+	<delete id="delete" parameterType="com.ziteng.entity.car.CarSharing" flushCache="true">
+		delete from t1_car_sharing where id=#{id}
+	</delete>
+	<delete id="deleteById" parameterType="int" flushCache="true">
+		delete from t1_car_sharing where id=#{id}
+	</delete>
+	<select id="selectById" parameterType="int" useCache="true" resultMap="carSharingMap">
+		select * from t1_car_sharing where id=#{value}
+	</select>
+	
+	<sql id="selectEntityList_where">
+		<where>
+		    <if test="title!=null and title!=''">title=#{title}</if>
+		    <if test="startTime!=null and startTime!=''"> and start_time=#{startTime}</if>
+		    <if test="returnTime!=null and returnTime!=''"> and return_time=#{returnTime}</if>
+		    <if test="startArea!=null and startArea!=''"> and start_area=#{startArea}</if>
+		    <if test="endArea!=null and endArea!=''"> and end_area=#{endArea}</if>
+		    <if test="playDays!=null and playDays!=''"> and play_days=#{playDays}</if>
+		    <if test="status!=null"> and status=#{status}</if>
+		</where>
+	</sql>
+	<sql id="orderBySql">
+		<choose>
+			<when test="sortname!=null and sortorder!=null and sortname!='' and sortorder!=''"> order by ${sortname} ${sortorder} </when>
+			<otherwise> order by id desc </otherwise>
+		</choose>
+	</sql>
+	
+	<select id="selectEntityList" parameterType="com.ziteng.dto.query.car.CarSharingQuery" resultMap="carSharingMap">		
+		select * from t1_car_sharing 
+			<include refid="selectEntityList_where"/>
+			<include refid="orderBySql"/>
+			<if test="startRow!=null and endRow!=null">limit #{startRow}, #{pageSize}</if>
+	</select>
+	
+	<select id="selectEntityCount" parameterType="com.ziteng.dto.query.car.CarSharingQuery" resultType="int">
+		select count(id) from t1_car_sharing
+		<include refid="selectEntityList_where"/>
+	</select>
+	<select id="getNameById" parameterType="int" resultType="java.lang.String">
+		select t.title from t1_car_sharing t where t.id = #{id} 
+	</select>
+</mapper>

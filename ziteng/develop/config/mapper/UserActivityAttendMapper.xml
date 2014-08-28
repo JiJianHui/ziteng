@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ziteng.dao.activity.IUserActivityAttendDao">
+	<resultMap type="com.ziteng.entity.activity.UserActivityAttend" id="userActivityAttendMap">
+		<id property="id" column="id"/>
+		<result property="userId" column="user_id"/>
+		<result property="activityId" column="activity_id"/>
+	</resultMap>
+	<insert id="insert" parameterType="com.ziteng.entity.activity.UserActivityAttend" keyProperty="id" useGeneratedKeys="true" flushCache="true">
+		insert into t1_user_activity_attend
+		(id,user_id,activity_id)
+		values
+		(#{id},#{userId},#{activityId})
+	</insert>
+	<update id="update" parameterType="com.ziteng.entity.activity.UserActivityAttend" flushCache="true">
+		update t1_user_activity_attend set
+		user_id=#{userId},
+		activity_id=#{activityId}
+		where id=#{id}
+	</update>
+	<delete id="delete" parameterType="com.ziteng.entity.activity.UserActivityAttend" flushCache="true">
+		delete from t1_user_activity_attend where id=#{id}
+	</delete>
+	<delete id="deleteById" parameterType="int" flushCache="true">
+		delete from t1_user_activity_attend where id=#{id}
+	</delete>
+	<select id="selectById" parameterType="int" useCache="true" resultMap="userActivityAttendMap">
+		select * from t1_user_activity_attend where id=#{value}
+	</select>
+</mapper>
