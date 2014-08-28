@@ -1,4 +1,4 @@
-package com.ziteng.entity.hotel;
+﻿package com.ziteng.entity.hotel;
 
 import java.util.Date;
 import java.util.List;

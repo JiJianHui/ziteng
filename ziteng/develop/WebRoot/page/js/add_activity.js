@@ -59,12 +59,13 @@ function add_activity(){
 	if(startTime==null || startTime==undefined || startTime==""){ alert("活动开始时间不能为空");return false; }
 	if(endTime==null || endTime==undefined || endTime==""){ alert("活动结束时间不能为空");return false; }
 	if(startTime!=null && endTime!=null && startTime > endTime){alert("开始时间不能大于结束时间"); return false;}
+	if(! /^[2-9][0-9]{3}\-[0-9]{2}\-[0-9]{2}$/.test(startTime)) {alert("活动开始时间格式不正确"); return false;}
+	if(! /^[2-9][0-9]{3}\-[0-9]{2}\-[0-9]{2}$/.test(endTime)) {alert("活动结束时间格式不正确"); return false;}
 	if(totalPeoples==null || totalPeoples==undefined || totalPeoples==""){ alert("活动人数不能为空");return false; }
 	if(price==null || price==undefined || price==""){ alert("活动费用不能为空");return false; }
 	if(picture==null || picture==undefined || picture==""){ alert("缺少封面图片");return false; }
 	if(!  /^[1-9]\d*$/.test(totalPeoples) && ! /^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$/.test(totalPeoples)){alert("请输入正数活动人数"); return false;}
 	if(!  /^[1-9]\d*$/.test(price) && ! /^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$/.test(price)){alert("请输入正数活动费用"); return false;}
-	
 	
 	var url = "/ziteng/v/w/activity/createNewActivity.do";
 	var params = { "title":title, "price":price, "city":city, "startTimeString":startTime, "endTimeString":endTime,
@@ -76,7 +77,45 @@ function add_activity(){
 			window.location.href = "activity_list.html";
 		}else{
 			alert(json.msg);
-		}
+		};
+	});
+};
+
+function modify_activity(){
+	var title = $("#txt_name").val();
+	var price = $("#txt_price").val();
+	var city= $("#txt_place").val();
+	var startTime= $("#txt_start_date").val();
+	var endTime= $("#txt_end_date").val();
+	var totalPeoples= $("#txt_count").val();
+	var content= $("#editor").html();
+	var picture= uploadImagePath;
+	var currentUrl = window.location.href;
+	var activityId = currentUrl.substring(currentUrl.lastIndexOf('=')+1, currentUrl.length);		
+	
+	if(title==null || title==undefined || title==""){ alert("活动标题不能为空");return false; }
+	if(city==null || city==undefined || city==""){ alert("活动地点不能为空");return false; }
+	if(startTime==null || startTime==undefined || startTime==""){ alert("活动开始时间不能为空");return false; }
+	if(endTime==null || endTime==undefined || endTime==""){ alert("活动结束时间不能为空");return false; }
+	if(startTime!=null && endTime!=null && startTime > endTime){alert("开始时间不能大于结束时间"); return false;}
+	if(totalPeoples==null || totalPeoples==undefined || totalPeoples==""){ alert("活动人数不能为空");return false; }
+	if(price==null || price==undefined || price==""){ alert("活动费用不能为空");return false; }
+	if(picture==null || picture==undefined || picture==""){ alert("缺少封面图片");return false; }
+	if(!  /^[1-9]\d*$/.test(totalPeoples) && ! /^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$/.test(totalPeoples)){alert("请输入正数活动人数"); return false;}
+	if(!  /^[1-9]\d*$/.test(price) && ! /^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$/.test(price)){alert("请输入正数活动费用"); return false;}
+	
+	
+	var url = "/ziteng/v/w/activity/modifyActivity.do";
+	var params = {"activityId" : activityId, "title":title, "price":price, "city":city, "startTimeString":startTime, "endTimeString":endTime,
+				"totalPeoples":totalPeoples, "content":content, "picture":picture};
+	
+	$.post(url ,params, function(data){
+		var json = eval("(" + data + ")");
+		if(json.success){
+			window.location.href = "activity_list.html";
+		}else{
+			alert(json.msg);
+		};
 	});
 }
 
@@ -107,6 +146,6 @@ function uploadImage(){
 	        }
 	}); 
 	return false;
-}
+};
 
 

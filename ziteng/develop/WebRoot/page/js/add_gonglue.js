@@ -51,7 +51,7 @@ $(document).ready(function() {
 	}
 	
 	
-	if(guideId==null || guideId==undefined || guideId==""){			//add new guide.
+	if(guideId==null || guideId==undefined || guideId=="") {			//add new guide.
 		loadArea();
 		loadCarDegree();
 	}else{				//modify guide.
@@ -85,8 +85,8 @@ function add_or_modify_guide(){
 	if(days==null || days==undefined || days==""){ alert("旅行天数不能为空");return false; }
 	if(coverImage==null || coverImage==undefined || coverImage==""){ alert("缺少封面图片");return false; }
 	if(!  /^[1-9]\d*$/.test(kms) && ! /^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$/.test(kms)){alert("请输入正数里程"); return false;}
-	if(!  /^[1-9]\d*$/.test(days)){alert("请输入整数天数"); return false;}
-	
+	if(!  /^[1-9]\d*$/.test(days)){alert("请输入整数天数"); return false;}	
+	if(save_car_degree_price() == false) { return false; }
 	
 	var params;
 	if(isModifyGuide){
@@ -101,12 +101,14 @@ function add_or_modify_guide(){
 	$.post(url ,params, function(data){
 		var json = eval("(" + data + ")");
 		if(json.success){
-			if(! isModifyGuide){
+			if(!isModifyGuide){
 				guideId = json.datas.guideId;
 			}
+	
 			addGuide2CarDegreePrice();
 		}else{
 			alert(json.msg);
+			window.location.href = "";
 		}
 	});
 }
@@ -294,7 +296,6 @@ function uploadImage(){
 	            var json = datas;		//注意-3：datas本身就是json对象。	
 	            if(json.success){
 	            	uploadImagePath = json.datas.filePath;
-	            	alert(uploadImagePath);
 	            }
 	            alert(json.msg);
 	        },

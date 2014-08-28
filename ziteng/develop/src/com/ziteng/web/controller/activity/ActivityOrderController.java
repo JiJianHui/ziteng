@@ -37,8 +37,9 @@ public class ActivityOrderController {
 	 */
 	@RequestMapping("/activity/createActivityOrder.do")
 	@ResponseBody
-	public String createActivityOrder(HttpSession session, ActivityOrder order) {
+	public String createActivityOrder(HttpSession session, int activity_id) {
 		Result result = new Result();
+		ActivityOrder order = new ActivityOrder();
 		
 		User user = (User) session.getAttribute(Constants.USER_INFO);
 		if (user == null) {
@@ -47,7 +48,19 @@ public class ActivityOrderController {
 		} else {
 			order.setCreateTime(new Date());
 			order.setUserId(user.getId());
-			boolean flg = service.createActivityOrder(order);
+			order.setActivityId(activity_id);
+			// System.out.println("ordre.activityID == " + order.getActivityId());
+			boolean flg;
+			if (null != service.queryActivityOrderByUserIdAndActivityId(user.getId(), activity_id)) {
+				System.out.println("This activity order has been created");
+				result.putObject("hasExisted", 1);
+				flg = true;
+			} else {
+			    result.putObject("hasExisted", 0);
+				flg = service.createActivityOrder(order);
+			}
+			
+			// System.out.println("ActivityOrderController.java");
 			result.setSuccess(flg);
 			result.setMsg(flg == true? "创建活动订单成功" : "创建活动订单失败");
 		}

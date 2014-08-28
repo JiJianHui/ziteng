@@ -280,6 +280,7 @@
 		}
 	
 		$(document).ready(function() {
+			//alert("User manager");
 			$.post('/ziteng/admin/getUserList.do', {}, function(data) {
 				var json = eval('(' + data + ')');
 				if (json.success) {
@@ -290,9 +291,10 @@
 					}
 				}
 			});
-			
+			//alert("User manager 2");
 			$('.list-group-item').click(function() {
 				var url = '';
+				//alert($(this).index());
 				switch ($(this).index()) {
 				case 0:url='user_manage.html';break;
 				case 1:url='add_manager.html';break;
@@ -300,6 +302,7 @@
 				case 3:url='activity_list.html';break;
 				case 4:url='/ziteng/page/zthotel/admin/index.html';break;
 				}
+				//alert(url);
 				window.location.href=url;
 			});
 		});

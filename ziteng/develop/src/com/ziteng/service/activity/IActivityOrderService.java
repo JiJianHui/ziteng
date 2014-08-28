@@ -51,6 +51,15 @@ public interface IActivityOrderService {
 	/**
 	 * 
 	 * <b>Summary: </b>
+	 *     queryActivityOrderById 通过订单id查询活动订单
+	 * @param id
+	 * @return
+	 */
+	public ActivityOrder queryActivityOrderByUserIdAndActivityId(Integer userId, Integer activityId);
+	
+	/**
+	 * 
+	 * <b>Summary: </b>
 	 *     queryActivityOrder 查询活动订单
 	 * @param query
 	 * @return 返回非NULL的集合

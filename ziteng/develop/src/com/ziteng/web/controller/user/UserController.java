@@ -94,7 +94,7 @@ public class UserController {
 	public String checkLogin(HttpSession session) {
 		Result result = new Result();
 		User user = (User) session.getAttribute(Constants.USER_INFO);
-		if (user.getType() != Constants.COMMON_USER) return result.setErrorMsg("请用普通用户登录").toJsonString();
+		//if (user.getType() != Constants.COMMON_USER) return result.setErrorMsg("请用普通用户登录").toJsonString();
 		result.setSuccess(user != null);
 		result.setMsg(user != null ? "已登录" : "未登录");
 		result.putObject("user", user);
@@ -249,6 +249,8 @@ public class UserController {
 			query.setIdCard(name);
 		} else { // 4. 说明是用户登陆
 			query.setUserName(name);
+			System.out.println("UserController.java, name == " + name);
+			
 		}
 
 		// 普通用户
