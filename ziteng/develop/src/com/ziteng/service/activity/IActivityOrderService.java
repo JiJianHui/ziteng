@@ -12,58 +12,67 @@ import com.ziteng.entity.activity.ActivityOrder;
  *
  */
 public interface IActivityOrderService {
-	
-	/**
-	 * 
-	 * <b>Summary: </b>
-	 *     createActivityOrder 创建活动订单
-	 * @param order
-	 * @return 成功true, 失败false
-	 */
-	public boolean createActivityOrder(ActivityOrder order);
-	
-	/**
-	 * 
-	 * <b>Summary: </b>
-	 *     updateActivityOrder 修改活动订单
-	 * @param order
-	 * @return 成功true, 失败false
-	 */
-	public boolean updateActivityOrder(ActivityOrder order);
-	
-	/**
-	 * 
-	 * <b>Summary: </b>
-	 *     deleteActivityOrder 删除活动订单
-	 * @param order
-	 */
-	public void deleteActivityOrder(ActivityOrder order);
-	
-	/**
-	 * 
-	 * <b>Summary: </b>
-	 *     queryActivityOrderById 通过订单id查询活动订单
-	 * @param id
-	 * @return
-	 */
-	public ActivityOrder queryActivityOrderById(Integer id);
-	
-	/**
-	 * 
-	 * <b>Summary: </b>
-	 *     queryActivityOrder 查询活动订单
-	 * @param query
-	 * @return 返回非NULL的集合
-	 */
-	public List<ActivityOrder> queryActivityOrder(ActivityOrderQuery query);
-	
-	/**
-	 * 
-	 * <b>Summary: </b>
-	 *     queryActivityOrderCount 查询数量
-	 * @param query
-	 * @return
-	 */
-	public int queryActivityOrderCount(ActivityOrderQuery query);
+
+    /**
+     *
+     * <b>Summary: </b>
+     *     createActivityOrder 创建活动订单
+     * @param order
+     * @return 成功true, 失败false
+     */
+    public boolean createActivityOrder(ActivityOrder order);
+
+    /**
+     *
+     * <b>Summary: </b>
+     *     updateActivityOrder 修改活动订单
+     * @param order
+     * @return 成功true, 失败false
+     */
+    public boolean updateActivityOrder(ActivityOrder order);
+
+    /**
+     *
+     * <b>Summary: </b>
+     *     deleteActivityOrder 删除活动订单
+     * @param order
+     */
+    public void deleteActivityOrder(ActivityOrder order);
+
+    /**
+     *
+     * <b>Summary: </b>
+     *     queryActivityOrderById 通过订单id查询活动订单
+     * @param id
+     * @return
+     */
+    public ActivityOrder queryActivityOrderById(Integer id);
+
+    /**
+     *
+     * <b>Summary: </b>
+     *     queryActivityOrderById 通过订单id查询活动订单
+     * @param id
+     * @return
+     */
+    public ActivityOrder queryActivityOrderByUserIdAndActivityId(Integer userId, Integer activityId);
+
+    /**
+     *
+     * <b>Summary: </b>
+     *     queryActivityOrder 查询活动订单
+     * @param query
+     * @return 返回非NULL的集合
+     */
+    public List<ActivityOrder> queryActivityOrder(ActivityOrderQuery query);
+
+    /**
+     *
+     * <b>Summary: </b>
+     *     queryActivityOrderCount 查询数量
+     * @param query
+     * @return
+     */
+    public int queryActivityOrderCount(ActivityOrderQuery query);
 
 }

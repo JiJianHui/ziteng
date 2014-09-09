@@ -22,42 +22,47 @@ import com.ziteng.service.activity.IActivityOrderService;
 @Transactional
 public class ActivityOrderServiceImpl implements IActivityOrderService {
 
-	@Autowired
-	private IActivityOrderDao dao;
-	
-	@Override
-	public boolean createActivityOrder(ActivityOrder order) {
-		Integer flag = dao.insert(order);
-		return flag != null && flag > 0;
-	}
+    @Autowired
+    private IActivityOrderDao dao;
 
-	@Override
-	public boolean updateActivityOrder(ActivityOrder order) {
-		Integer flag = dao.update(order);
-		return flag != null && flag > 0;
-	}
+    @Override
+    public boolean createActivityOrder(ActivityOrder order) {
+        Integer flag = dao.insert(order);
+        return flag != null && flag > 0;
+    }
 
-	@Override
-	public void deleteActivityOrder(ActivityOrder order) {
-		dao.delete(order);
-	}
+    @Override
+    public boolean updateActivityOrder(ActivityOrder order) {
+        Integer flag = dao.update(order);
+        return flag != null && flag > 0;
+    }
 
-	@Override
-	public ActivityOrder queryActivityOrderById(Integer id) {
-		return dao.selectById(id);
-	}
+    @Override
+    public void deleteActivityOrder(ActivityOrder order) {
+        dao.delete(order);
+    }
 
-	@Override
-	public List<ActivityOrder> queryActivityOrder(ActivityOrderQuery query) {
-		List<ActivityOrder> orders = dao.selectEntityList(query);
-		orders = orders == null ? new ArrayList<ActivityOrder>(0) : orders;
-		return orders;
-	}
+    @Override
+    public ActivityOrder queryActivityOrderById(Integer id) {
+        return dao.selectById(id);
+    }
 
-	@Override
-	public int queryActivityOrderCount(ActivityOrderQuery query) {
-		Integer count = dao.selectEntityCount(query);
-		return (count == null ? 0 : count);
-	}
+    @Override
+    public ActivityOrder queryActivityOrderByUserIdAndActivityId(Integer userId, Integer activityId) {
+        return dao.selectByUserIdAndActivityId(userId, activityId);
+    }
+
+    @Override
+    public List<ActivityOrder> queryActivityOrder(ActivityOrderQuery query) {
+        List<ActivityOrder> orders = dao.selectEntityList(query);
+        orders = orders == null ? new ArrayList<ActivityOrder>(0) : orders;
+        return orders;
+    }
+
+    @Override
+    public int queryActivityOrderCount(ActivityOrderQuery query) {
+        Integer count = dao.selectEntityCount(query);
+        return (count == null ? 0 : count);
+    }
 
 }

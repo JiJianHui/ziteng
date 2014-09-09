@@ -25,111 +25,124 @@ import com.ziteng.service.activity.IActivityOrderService;
  */
 @Controller
 public class ActivityOrderController {
-	
-	@Autowired
-	private IActivityOrderService service;
-	
-	/**
-	 * 创建活动订单
-	 * @param session
-	 * @param order
-	 * @return
-	 */
-	@RequestMapping("/activity/createActivityOrder.do")
-	@ResponseBody
-	public String createActivityOrder(HttpSession session, ActivityOrder order) {
-		Result result = new Result();
-		
-		User user = (User) session.getAttribute(Constants.USER_INFO);
-		if (user == null) {
-			result.setSuccess(false);
-			result.setMsg("用户未登录");
-		} else {
-			order.setCreateTime(new Date());
-			order.setUserId(user.getId());
-			boolean flg = service.createActivityOrder(order);
-			result.setSuccess(flg);
-			result.setMsg(flg == true? "创建活动订单成功" : "创建活动订单失败");
-		}
-		
-		return result.toJsonString();
-	}
-	
-	/**
-	 * 修改活动订单
-	 * @param session
-	 * @param order
-	 * @return
-	 */
-	@RequestMapping("/activity/modifyActivityOrder.do")
-	@ResponseBody
-	public String modifyActivityOrder(HttpSession session, ActivityOrder order) {
-		Result result = new Result();
-		
-		User user = (User) session.getAttribute(Constants.USER_INFO);
-		if (user == null) {
-			result.setSuccess(false);
-			result.setMsg("用户未登录");
-		} else {
-			order.setModifyTime(new Date());
-			boolean flg = service.updateActivityOrder(order);
-			result.setSuccess(flg);
-			result.setMsg(flg == true? "修改活动订单成功" : "修改活动订单失败");
-		}
-		
-		return result.toJsonString();
-	}
-	
-	/**
-	 * 删除活动订单
-	 * @param session
-	 * @param order
-	 * @return
-	 */
-	@RequestMapping("/activity/deleteActivityOrder.do")
-	@ResponseBody
-	public String deleteActivityOrder(HttpSession session, ActivityOrder order) {
-		Result result = new Result();
-		
-		User user = (User) session.getAttribute(Constants.USER_INFO);
-		if (user == null) {
-			result.setSuccess(false);
-			result.setMsg("用户未登录");
-		} else {
-			service.deleteActivityOrder(order);
-			result.setSuccess(true);
-			result.setMsg("删除活动订单成功");
-		}
-		
-		return result.toJsonString();
-	}
-	
-	/**
-	 * 查询用户的活动订单
-	 * @param session
-	 * @param query
-	 * @return
-	 */
-	@RequestMapping("/activity/queryActivityOrders.do")
-	@ResponseBody
-	public String queryActivityOrders(HttpSession session, ActivityOrderQuery query) {
-		Result result = new Result();
-		
-		User user = (User) session.getAttribute(Constants.USER_INFO);
-		if (user == null) {
-			result.setSuccess(false);
-			result.setMsg("用户未登录");
-		} else {
-			if (query == null) {
-				query = new ActivityOrderQuery();
-			}
-			query.setUserId(user.getId());
-			List<ActivityOrder> orders = service.queryActivityOrder(query);
-			result.setSuccess(true);
-	        result.setMsg("查询成功");
-	        result.putObject("orders", orders);
-		}
-		
-		return result.toJsonString();
-	}
+
+    @Autowired
+    private IActivityOrderService service;
+
+    /**
+     * 创建活动订单
+     * @param session
+     * @param order
+     * @return
+     */
+    @RequestMapping("/activity/createActivityOrder.do")
+    @ResponseBody
+    public String createActivityOrder(HttpSession session, int activity_id) {
+        Result result = new Result();
+        ActivityOrder order = new ActivityOrder();
+
+        User user = (User) session.getAttribute(Constants.USER_INFO);
+        if (user == null) {
+            result.setSuccess(false);
+            result.setMsg("用户未登录");
+        } else {
+            order.setCreateTime(new Date());
+            order.setUserId(user.getId());
+            order.setActivityId(activity_id);
+            // System.out.println("ordre.activityID == " + order.getActivityId());
+            boolean flg;
+            if (null != service.queryActivityOrderByUserIdAndActivityId(user.getId(), activity_id)) {
+                System.out.println("This activity order has been created");
+                result.putObject("hasExisted", 1);
+                flg = true;
+            } else {
+                result.putObject("hasExisted", 0);
+                flg = service.createActivityOrder(order);
+            }
+
+            // System.out.println("ActivityOrderController.java");
+            result.setSuccess(flg);
+            result.setMsg(flg == true? "创建活动订单成功" : "创建活动订单失败");
+        }
+
+        return result.toJsonString();
+    }
+
+    /**
+     * 修改活动订单
+     * @param session
+     * @param order
+     * @return
+     */
+    @RequestMapping("/activity/modifyActivityOrder.do")
+    @ResponseBody
+    public String modifyActivityOrder(HttpSession session, ActivityOrder order) {
+        Result result = new Result();
+
+        User user = (User) session.getAttribute(Constants.USER_INFO);
+        if (user == null) {
+            result.setSuccess(false);
+            result.setMsg("用户未登录");
+        } else {
+            order.setModifyTime(new Date());
+            boolean flg = service.updateActivityOrder(order);
+            result.setSuccess(flg);
+            result.setMsg(flg == true? "修改活动订单成功" : "修改活动订单失败");
+        }
+
+        return result.toJsonString();
+    }
+
+    /**
+     * 删除活动订单
+     * @param session
+     * @param order
+     * @return
+     */
+    @RequestMapping("/activity/deleteActivityOrder.do")
+    @ResponseBody
+    public String deleteActivityOrder(HttpSession session, ActivityOrder order) {
+        Result result = new Result();
+
+        User user = (User) session.getAttribute(Constants.USER_INFO);
+        if (user == null) {
+            result.setSuccess(false);
+            result.setMsg("用户未登录");
+        } else {
+            service.deleteActivityOrder(order);
+            result.setSuccess(true);
+            result.setMsg("删除活动订单成功");
+        }
+
+        return result.toJsonString();
+    }
+
+    /**
+     * 查询用户的活动订单
+     * @param session
+     * @param query
+     * @return
+     */
+    @RequestMapping("/activity/queryActivityOrders.do")
+    @ResponseBody
+    public String queryActivityOrders(HttpSession session, ActivityOrderQuery query) {
+        Result result = new Result();
+
+        User user = (User) session.getAttribute(Constants.USER_INFO);
+        if (user == null) {
+            result.setSuccess(false);
+            result.setMsg("用户未登录");
+        } else {
+            if (query == null) {
+                query = new ActivityOrderQuery();
+            }
+            query.setUserId(user.getId());
+            List<ActivityOrder> orders = service.queryActivityOrder(query);
+            result.setSuccess(true);
+            result.setMsg("查询成功");
+            result.putObject("orders", orders);
+        }
+
+        return result.toJsonString();
+    }
 }

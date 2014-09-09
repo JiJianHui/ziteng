@@ -266,6 +266,7 @@ public class UserController {
 			query.setIdCard(name);
 		} else { // 4. 说明是用户登陆
 			query.setUserName(name);
+            System.out.println("UserController.java, name == " + name);
 		}
 
 		// 普通用户
